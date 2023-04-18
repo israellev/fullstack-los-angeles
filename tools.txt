@@ -1,0 +1,4 @@
+כלי עבודה:
+chrome extention - google translate
+vscode extentions - ES7, ESLint, Prettier ESLint, Hero Sass, rtl
+who to ask - stackoverflow, w3school, chat GPT, friends, teacher
