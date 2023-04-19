@@ -1,4 +1,12 @@
 כלי עבודה:
-chrome extention - google translate
-vscode extentions - ES7, ESLint, Prettier ESLint, Hero Sass, rtl
-who to ask - stackoverflow, w3school, chat GPT, friends, teacher
+vscode
+
+chrome extention - 
+google translate: https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?hl=en
+
+vscode extention - 
+ES7 javascript/node, ESLint, Prettier ESLint, Hero Sass, rtl, live server
+
+who to ask - 
+google (stackoverflow, w3school), chat GPT, friends, teacher
+
