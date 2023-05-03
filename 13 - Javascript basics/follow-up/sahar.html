@@ -10,12 +10,13 @@
    Hello!!!!! 
     <script>
         //puzzle 1
-        var name = prompt("הכנס את שמך")
+        var name = prompt("מה שמך?")
         console.log(name) 
-        var age = prompt("הכנס את גילך")
+        alert (" שלום " + name + ", נעים להכיר")
+        var age = prompt("מה גילך?")
         console.log(age)
-        alert (" שלום " + name + " את/ה בן/ת  " +age+ " שנים! את/ה יכול/ה לעשות קניות בעצמך ")
-
+        alert (" את/ה בן/ת  " +age+ " שנים... את/ה יכול/ה לעשות קניות בעצמך ")
+        
         //puzzle 2
         var milkPrice =prompt("כמה עולה חלב")
         milkPrice = parseInt(milkPrice)
@@ -23,8 +24,8 @@
         var eggPrice =prompt("כמה עולה ביצים")
         eggPrice= parseInt(eggPrice)
         console.log(eggPrice) 
-        alert ("עליך לשלם "+ milkPrice+eggPrice+ " שקלים ")
-
+        var totalPrice = (milkPrice+eggPrice)
+        alert ("עליך לשלם "+ totalPrice + " שקלים ")
 
 
     </script>
