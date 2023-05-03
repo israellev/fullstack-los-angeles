@@ -16,7 +16,7 @@
 
     .main {
         width: 900px;
-        height: 50vh;
+        height: 20vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -39,6 +39,8 @@
         <h1 id="rt"></h1>
     </div>
     <div class="main">
+        <h3 class="price"></h3>
+        <br>
         <h2 class="ab"></h2>
     </div>
     <div class="main">
@@ -51,10 +53,11 @@
         var age
         name = prompt("Enter your name");
         age = prompt("Enter your age");
-        document.querySelector('#rt').innerHTML = 'Hi Everyone <br>';
+        document.querySelector('#rt').innerHTML = 'Hi <br>' + name;
         // //  פתרון שאלה 2 מתוך האגנדה
         var milk = Number(prompt("Enter the price of milk"));
         var eggs = Number(prompt("Enter the price of eggs"));
+        document.querySelector('.price').innerHTML = 'the price is :'
         document.querySelector('.ab').innerHTML = milk + eggs;
         // פתרון שאלה 3 מתוך האגנדה 
         var IQ 
@@ -67,7 +70,7 @@
                 document.querySelector('.ba').innerHTML = 'you are screwed ';
             }
             else(
-                document.querySelector('.ab').innerHTML = 'you are the best'
+                document.querySelector('.ba').innerHTML = 'you are the best'
             )
 
 
