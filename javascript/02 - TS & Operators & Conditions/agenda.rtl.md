@@ -16,40 +16,32 @@ home puzzle
 פעולות השוואה -  שווה, לא שווה, גדול מ, קטן מ, גדול או שווה ל, קטן או שווה ל ( === , ==! , < , > , =< , => )
 התניות - Conditionals - if/else statements
 
+ספריית Math:
+Math.abs(x) - returns the absolute value of x
+Math.ceil(x) - returns the smallest integer greater than or equal to x
+Math.floor(x) - returns the largest integer less than or equal to x
+Math.max(x, y, z, ...) - returns the largest of the given numbers
+Math.min(x, y, z, ...) - returns the smallest of the given numbers
+Math.round(x) - returns the value of x rounded to the nearest integer
 
 
-תרגילים:
+class-puzzle:
 
-follow-ups - נא כתוב/כתבי בעצמך (בידיים! בלי להעתיק ולהדביק ובלי להיות מצ'וקמק) שלב אחרי שלב דוגמאות קוד לכל נושאי השיעור.
+1. - צור/צרי תוכנה שתבקש מהמשתמש להכניס את רמת הIQ שהוא חושב שיש לו (מספר בין 1 ל20) ואם הוא/היא גבר או אישה. אם הוא קטן מ10 להשיב לו "אתה אהבל" אם הוא גדול או שווה לעשר "אתה גאון חביבי" - בלשון זכר או נקבה לפי הinput
 
-1. - צור/צרי תוכנה שתבקש מהמשתמש להכניס את שמו, ולאחר מכן את גילו, ואז היא תציג למשתמש "שלום [שם]! אתה כבר בן [שנים], תתאפס על עצמך! בחיאת".
+2. - Ask the user for a number and determine if it is even or odd. Display the result using an alert.
 
-2. - צור/צרי תוכנה שתבקש מהמשתמש להכניס את המחיר של החלב, ולאחר מכן את המחיר של הביצים, לאחר מכן תציג לו את הסכום הכולל שהוא נדרש לשלם בקופה.
+3. - Ask the user for three numbers. Determine which number is the largest and display the result using an alert.
 
-3. - צור/צרי תוכנה שתבקש מהמשתמש להכניס את רמת הIQ שהוא חושב שיש לו (מספר בין 1 ל20) ואם הוא/היא גבר או אישה. אם הוא קטן מ10 להשיב לו "אתה אהבל" אם הוא גדול או שווה לעשר "אתה גאון חביבי" - בלשון זכר או נקבה לפי הinput
-. (בערבית, כדי לומר "חביבי" בלשון נקבה, אתה אומר "حبيبتي" (Habibti). המילה "Habibti" משמעה "אהובתי" או "חביבתי")
-
-בונוס 1 - צור/צרי תוכנה שממירה את המעלות בצלזיוס שהיא מקבלת מהמשתמש לפרנהייט (חפשו באינטרנט את החישוב).
-
-בונוס 2 - צור/צרי תוכנה שממליצה על קטגוריית סרטים לפי גילאים, אם המשתמש קטן מ12 היא תציע לו אנימציה, אם הוא בין 12 ל22 היא תציע לו אקשן, ואם הוא מעל 22 (מבוגר :->) אז היא תציע לו דרמה.
+בונוס - Ask the user for two numbers and an operator (+, -, *, /, %, **). Perform the given operation on the two numbers and display the result using an alert.
 
 
+home-puzzle:
 
+1. - Create a program that calculates the number of pizzas needed for a party. Ask the user how many people are attending the party and how many pizza slices each person will eat. Display the total number of pizzas needed, assuming each pizza has 8 slices.
 
+2. - Create a program that calculates the number of pizzas needed for a party. Ask the user how many people are attending the party and how many pizza slices each person will eat. Display the total number of pizzas needed, assuming each pizza has 8 slices.
 
+3. - Create a program that calculates the number of weeks Yitzhak Zametz Sahlu needs to save money in order to afford a brand-new computer. Prompt the user to enter the cost of the computer and the amount of money Yitzhak saves per week. Then, calculate the number of weeks required to save enough money and display it along with a funny message.
 
-ממה שהיה בשיעור:
-הצגת המרצה, מטרה שלו - ללוות אותם במטרות שלהם.
-שתי דקות לכל אחד - אם בעוד שנה מהיום תהיה הייטקיסט איך זה ישפיע לך על החיים. 
-
-למה כדאי לעבוד בהייטק:
-1. שכר גבוה (פי 3.5+)
-2. עבודה מרתקת
-3. יחס מכבד וגמישות
-4. קידום אינסופי
-
-איך נראית העבודה בהייטק?
-מקבלים משימות שבועיות וצריכים להתמודד ולהשלים אותם לבד - בכל טכנולוגיה שלא תהיה.
-
-איך צריך ללמוד?
-כמו חיה, להתכונן בהמשך הקורס על עבודה או סידור שיאפשר ללמוד לפחות 5 שעות ביום. כמה שיותר לתרגל. לא לפספס שום שיעור.
+בונוס - Create a program that calculates how much time it will take for Daniel Michael Peretz to complete a coding project. Prompt the user to enter the number of coding tasks and the estimated time (in minutes) to complete each task. Then, add a random factor to the estimated time (e.g., between -20% and +20% of the original time) to simulate the uncertainty in the real world. Finally, display the total estimated time to complete the project with a funny message.
