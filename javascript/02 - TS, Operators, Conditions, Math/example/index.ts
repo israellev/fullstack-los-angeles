@@ -1,6 +1,7 @@
-// var name = "Liad"
-// var age: number = 18
-// var isPsici: boolean = false
+
+var name: string = "Liad"
+var age: number = 18
+var isPsici: boolean = false
 
 
 // console.log(Math.abs(-5)); // output: 5
@@ -27,3 +28,21 @@ const b = 1
 
 
 /* allways use 'const' unles you have reason */
+
+// const name = "Yosi"
+// const age = 11
+// alert(name + " " + age + " years old");
+// alert(`${name} ${age} years old`);
+// alert(`${"yossi"} ${11} years old`);
+
+let num = 10
+/* '++' - these are the same: */
+// num = num + 1
+// num ++
+
+/* '+=' - these are the same: */
+// num = num + 2
+// num += 2
+console.log(num)
+
+
