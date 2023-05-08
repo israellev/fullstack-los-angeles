@@ -11,3 +11,4 @@ var isPsici: boolean = false
 // console.log(Math.max(1, 3, 2)); // output: 3
 // console.log(Math.min(1, 3, 2)); // output: 1
 // console.log(Math.round(4.5)); // output: 5
+
