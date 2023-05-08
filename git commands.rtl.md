@@ -7,7 +7,7 @@ git clone https://github.com/israellev/fullstack-los-angeles.git
 משיכת עדכון:
 git pull
 
-בא נראה אם אני מצליח להוסיף שורה (YM)
+
 העלאת עדכון:
 git add .
 git commit -m "some message"
