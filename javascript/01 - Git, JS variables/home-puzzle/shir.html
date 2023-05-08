@@ -10,34 +10,24 @@
     <script>
 
         // תרגיל מספר 1-  לא עובד מהחלק של alert 
-        //var name= prompt("נא הכנס את שמך")
-        //console.log (name)
-        //var age = prompt ("נא הכנס את גילך")
-        //console.log(age)
-        //alert("שלום" " " + name + " " "את/ה כבר בן/ת" " " + age+ " " "תתאפס על עצמך")
-        //comsole.log ( alert);
+        // var name = prompt("נא הכנס את שמך")
+        // console.log (name)
+        // var age = prompt ("נא הכנס את גילך")
+        // console.log(age)
+        // alert("שלום" + " " + name + " " + "את/ה כבר בן/ת" + " " + age+ " " + "תתאפס על עצמך")
+        // comsole.log ( alert);
         
 
         // תרגיל מספר 2: גם התרגיל הזה לא עובד לי
 
-        var milkprice= prompt("הכנס את מחיר החלב");
+        var milkprice = prompt("הכנס את מחיר החלב");
         console.log(milkprice);
         var eggsprice= prompt ("הכנס את מחיר הביצים");
         console.log (eggsprice);
 
 
-        var totalprice= (milkprice+eggsprice);
-        alert( "הסכום הכולל שעלייך לשלם הוא:" " " + " " totalprice " שקלים " ) ;
-
-        
-    
-
-
-        
-
-
-
-
+        var totalprice= Number(milkprice) + Number(eggsprice)
+        alert( "הסכום הכולל שעלייך לשלם הוא:" + " " + " " + totalprice + " שקלים " ) ;
 
     </script>
 </body>
