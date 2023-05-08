@@ -38,11 +38,28 @@ const b = 1
 let num = 10
 /* '++' - these are the same: */
 // num = num + 1
-// num ++
+num ++
 
 /* '+=' - these are the same: */
 // num = num + 2
 // num += 2
 console.log(num)
+
+
+console.log(num === 10)
+console.log(10 === 10)
+ 
+let bool = true;
+bool = false
+// console.log("10" == 10)
+
+/* if else */
+// if (num === 10) {
+//     console.log("eauql 10!")
+// } else if (num === 11) {
+//     console.log("equal 11!")
+// } else {
+//     console.log("Noooo!")
+// }
 
 
