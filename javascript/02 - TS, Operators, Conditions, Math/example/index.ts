@@ -1,7 +1,5 @@
 
-var name: string = "Liad"
-var age: number = 18
-var isPsici: boolean = false
+export {} 
 
 
 // console.log(Math.abs(-5)); // output: 5
@@ -22,7 +20,6 @@ c = 2
 c = 3
 
 /* can't declare twice, can't override */
-const b = 1
 // can't - const b = 2
 // can't - b = 2
 
@@ -61,5 +58,3 @@ bool = false
 // } else {
 //     console.log("Noooo!")
 // }
-
-
