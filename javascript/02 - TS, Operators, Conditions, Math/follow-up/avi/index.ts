@@ -43,12 +43,21 @@ alert(Math.max(...arrey));
 //  Bonus Qustion 
 
 let numberForEction = [1];
-let Operator = prompt('Enter Operator Please -> (+, -, *, /, %, **)')
+let operator = prompt('Enter Operator Please -> (+, -, *, /, %, **)');
+let result;
 
 for (let i = 0 ; i <= numberForEction ; i++)
 {
-    numberForEction =  Number(prompt('Enter 3 Number Please'))
+    numberForEction[i] =  Number(prompt('Enter 2 Number Please'));
 }
+if (["+","-","*","/","%"].includes(operator))
+{
+    result = eval(`${numberForEction[0]} ${operator} ${numberForEction[1]}`)
+    alert(result)
+
+};
+
+
 
 // -------------------------------------------------------------------------------------------------
 //  home puzzle - 1
