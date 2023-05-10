@@ -8,5 +8,4 @@ vscode extention (install the first result) -
 ES7 javascript/node, ESLint, Prettier ESLint, Hero Sass, rtl, live server
 
 who to ask - 
-google (stackoverflow, w3school), chat GPT, friends, teacher
-
+google (stackoverflow, w3school), youtube, Zoom, chat GPT, friends, teacher

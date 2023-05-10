@@ -6,17 +6,21 @@ js variables
 8 data types - String, Boolean, Number, null, undefined, array, object, NaN
 
 02. 
-3 ways to convert string to number - Number(), parseInt(), +"1", parseFloat()
+4 ways to convert string "1" to number 1 - Number(), parseInt(), +"1", parseFloat()
+(integer - 1
+float   - 1.0000)
 
 03. 
 3 ways to create variables - var, let, const
 2 ways to connect variables with strings - +, `${}`
 debug in chrome
 working with typescript - hero pluggin
-math operators -  + , - , * , / , % , ** , ++, +=
+numbers operators -  + , - , * , / , % , ** 
+variables operators - ++, +=
 
 04. 
-equals ways - === , ==! , < , > , =< , =>
+conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
+if (true) {} else if (faLse) {} else
 conditions - 'if else' and 'switch case'
 numbers - int and float
 math library - abs, ceil, floor, max, min, round

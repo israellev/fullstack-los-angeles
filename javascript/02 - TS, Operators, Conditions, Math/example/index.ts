@@ -58,3 +58,5 @@ bool = false
 // } else {
 //     console.log("Noooo!")
 // }
+
+const barbuar: string = "gaga"
