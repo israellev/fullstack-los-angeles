@@ -5,13 +5,13 @@ const aviad = Number (prompt ( "הכנס את המהירות של החללית �
 const shir= Number (prompt ("הכנס את המהירות של החללית של שיר"))
 
 if ( aviad>shir) {
-    prompt ("אביעד ניצח במירוץ!")
+    alert ("אביעד ניצח במירוץ!")
 }
 
 else if (aviad===shir) {
-    prompt ( "התוצאה היא תיקו")
+    alert ( "התוצאה היא תיקו")
 }
 
-else ( aviad<shir) {
-    prompt ( "אביעד צריך להאיץ!")
+else {
+    alert ( "אביעד צריך להאיץ!")
 }
