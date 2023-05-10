@@ -6,8 +6,11 @@ const competitorSpeed = Number(prompt("מהירות החללית של המתחר
 
 if (aviadSpeed > competitorSpeed) {
   console.log("אביעד ניצחח!");
+  alert("ביעד ניצחח!");
 } else if (aviadSpeed < competitorSpeed) {
   console.log("אביעד צריך למהר!!!");
+  alert("צריך למהררר");
 } else {
-  console.log("It's a tie!");
+  console.log("תיקו!");
 }
+alert("תיקו");
