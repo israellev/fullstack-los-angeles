@@ -1,3 +1,4 @@
+export{}
 //puzzle 1
 let IQ = Number(prompt("what is your IQ level (put a number between 1 to 20)"))
 let gender = prompt("Are you a man or a woman?")
