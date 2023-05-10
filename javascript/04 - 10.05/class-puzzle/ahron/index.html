@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> var exports = {}; </script>
+    <script src="./dist/index.js"></script>
+</head>
+<body>
+    var IQ = Number(prompt("what is your IQ level ? (put a number between 1 to 20)"));
+var gender = prompt("Are you a man or a woman?");
+if (gender === "man") {
+    if (IQ < 10) {
+        alert("אתה אהבל !");
+    }
+    else {
+        alert("אתה גאון");
+    }
+}
+else if (gender === "woman") {
+    if (IQ < 10) {
+        alert("את אהבלה !");
+    }
+    else {
+        alert("את גאונה!");
+    }
+}
+else {
+    alert("You are not currct!");
+}
+
+</body>
+</html>
