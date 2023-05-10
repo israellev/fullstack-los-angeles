@@ -1,23 +1,24 @@
+export{}
 //puzzle 1
 let IQ = Number(prompt("what is your IQ level (put a number between 1 to 20)"))
 let gender = prompt("Are you a man or a woman?")
 if (gender === "man") {
-    } else if
-    (IQ < 10 ) {
-        alert("את אהבל'ה!")
-        }
-    else {
-        alert("את גאון חביבתי!")  
-      } 
-
-    if (gender === "woman") {
-    } else if
-    (IQ < 10 ) {
+     if (IQ < 10 ) {
         alert("אתה אהבל!")
-        }
-    else {
-        alert("אתה גאון חביבי!")  
+    } else {
+        alert("אתה גאון!")  
     } 
+}
+
+else if (gender === "woman") {
+    if (IQ < 10 ) {
+       alert("את אהבל'ה!")
+   } else {
+       alert("את גאון!")  
+   } 
+} else {
+    alert("Do as I said! Don't mess with me!")
+}
 
     //puzzle 2
 // program to check if the number is even or odd
