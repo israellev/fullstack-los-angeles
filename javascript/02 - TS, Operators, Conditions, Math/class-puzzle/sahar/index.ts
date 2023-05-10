@@ -40,7 +40,7 @@ const num1 = Number(prompt ("The first number is:"))
 const num2 = Number(prompt ("The second number is:"))
 const num3 = Number(prompt ("The third number is:"))
 
-const Result = alert ("The number is:" + Number(Math.max(num1, num2, num3)));
+const Result = alert ("The largest number is: " + Number(Math.max(num1, num2, num3)));
 
 
 
