@@ -7,8 +7,6 @@ js variables
 
 02. 
 4 ways to convert string "1" to number 1 - Number(), parseInt(), +"1", parseFloat()
-(integer - 1
-float   - 1.0000)
 
 03. 
 3 ways to create variables - var, let, const
@@ -20,9 +18,8 @@ variables operators - ++, +=
 
 04. 
 conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
-if (true) {} else if (faLse) {} else
 conditions - 'if else' and 'switch case'
-numbers - int and float
+numbers - int and float (integer - 1, float - 1.0)
 math library - abs, ceil, floor, max, min, round
 loops - welcome for:
     for (let i = 0; i < 10; i++) {
