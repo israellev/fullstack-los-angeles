@@ -57,8 +57,9 @@ export {}
 // /* check if number is even */
 // /* (6) % 2 === 0 */
 
-
+let result = 0
 for (let index = 0; index < 10; index++) {
-    console.log(index)
-    
+    result += index
+    // result = result + index
 }
+console.log(result)
