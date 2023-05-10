@@ -12,9 +12,10 @@
        numP = prompt ("how many people are attending the party?");
        numS = prompt("how many pizza slices each person will eat?");
        sum = numP*numS;
-       pizzaNum = sum/8;
-       if (pizzaNum%8 != 0){
-        pizzaNum +1;
+       if (sum/8 != 0)
+       pizzaNum = sum%8 + 1;
+       else {
+        pizzaNum = sum/8 
        }
        alert ("You need" + pizzaNum + "pizzas" )
     </script>
