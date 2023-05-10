@@ -6,7 +6,11 @@ const abam =Number (prompt("what is the speed of abam spaceships ? (put a number
 
 if (aviad > abam ) {
         alert( "Aviad is winning the race")
-    } else {
+    } else if(aviad===abam){
+        alert("they are Equal")
+    } 
+    
+    if (aviad < abam ){
         alert("Abam is winning the race")
     }
 
