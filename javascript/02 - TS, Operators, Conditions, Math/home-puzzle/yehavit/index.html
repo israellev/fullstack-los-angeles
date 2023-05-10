@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const numP=0, numS = 0, sum = 0, pizzaNum = 0 ; 
+       numP = prompt ("ow many people are attending the party?");
+       numS = prompt("any pizza slices each person will eat?");
+       sum = numP*numS;
+       pizzaNum = sum/8;
+       if (pizzaNum%8 != 0){
+        pizzaNum +1;
+       }
+       alert ("You need" + pizzaNum + "pizzas" )
+    </script>
+</body>
+</html>
