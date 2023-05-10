@@ -17,17 +17,16 @@ var gender =(prompt("בבקשה הכנס/י את המין שלך "));
 if (iqLevel < 10 ){
   if (gender === "גבר"){
     console.log(" אתה אהבל חביבי");
-  } else if (gender === "אישה"){
-    console.log("את אהבלה חביבתי");
+  } else{
+    console.log("אתה גאון");
   }
-} else {
-    if (gender === "גבר"){
-      console.log("אתה גאון");
-  } else if (gender === "אישה"){
+} else if (gender === "אישה") {
+    if (iqLevel < 10 ){
+      console.log("את אהבלה ");
+  } else{
       console.log("את גאונה");
   }
 }
-
 // שאלה 2 
 
 var number = parseInt(prompt("please enter a number:"));
@@ -80,6 +79,7 @@ if(operator === "+"){
 }
 
 alert("the result is:" + result);
+
     </script>
 </body>
 </html>
