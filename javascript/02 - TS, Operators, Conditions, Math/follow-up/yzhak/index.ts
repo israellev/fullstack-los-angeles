@@ -20,15 +20,25 @@ const pizzasNeeded = Math.ceil(totalSlices / 8);
 
 alert("Total pizzas needed: " + pizzasNeeded);
 
-//hom\e puzzle222
+//class-puzzle 1 from last lesson
 
-const numAttendees = Number(
-  prompt("Enter the number of people attending the party: ")
+const IQ = Number(
+  prompt("what is your IQ level ? (put a number between 1 to 20)")
 );
-const slicesPerPerson = Number(
-  prompt("Enter the number of pizza slices each person will eat: ")
-);
+const gender = prompt("Are you a man or a woman?");
 
-const pizzasNeeded = Math.ceil((numAttendees * slicesPerPerson) / 8);
-
-alert("Total pizzas needed: " + pizzasNeeded);
+if (gender === "man") {
+  if (IQ < 10) {
+    alert(" טמבלל !");
+  } else {
+    alert("חנוןן");
+  }
+} else if (gender === "woman") {
+  if (IQ < 10) {
+    alert("אטומה!");
+  } else {
+    alert("את גאונה!");
+  }
+} else {
+  alert("טיפול מיידי!");
+}
