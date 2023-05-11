@@ -10,7 +10,19 @@ if (aviadSpeed > competitorSpeed) {
 } else if (aviadSpeed < competitorSpeed) {
   console.log("אביעד צריך למהר!!!");
   alert("צריך למהררר");
-} else {
+} else aviadSpeed === competitorSpeed;
+{
   console.log("תיקו!");
 }
 alert("תיקו");
+////
+
+const electricityGenerated = Number(
+  prompt("כמות החשמל שיוצר הפנאל הסולארי ביום (in kWh):")
+);
+
+if (electricityGenerated % 2 === 0) {
+  console.log("כמות החשמל המופקת שווה.");
+} else {
+  console.log("כמות החשמל המופקת לא תקינה.");
+}
