@@ -1,5 +1,5 @@
 export {};
-////
+////Aviad Kaduri
 
 const Generat = Number(prompt("כמות החשמל שיוצר הפנאל הסולארי ביום (in kWh):"));
 
