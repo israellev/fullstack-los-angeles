@@ -42,18 +42,60 @@ alert(`The student spelled ${count} words correctly in 10 days.`);
 // home puzzle - 1
 // איתחול משתנה למעקב אחר כמות האנרגיה הכוללת המיוצרת
 let totalEnergy = 0;
+let season = prompt('Enter the season (summer/winter)')
 const energyProduced = 0 
-// לולאה המתארת את הזמן המבוצעת בכל שעה משעת הזריחה ועד לשעת השקיעה
-for (let hour = 6; hour <= 18; hour++) {
-  // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
-  energyProduced = Math.floor(Math.random() * 15) + 1;
 
-  // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
-  totalEnergy += energyProduced;
+switch(season)
+{
+ case "winter" :
+    for (let hour = 6; hour <= 15; hour++) {
+        // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+        energyProduced = Math.floor(Math.random() * 15) + 1;
+      
+        // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
+        totalEnergy = totalEnergy + energyProduced;
+      
+        // הדפסת שעת היום וכמות האנרגיה המיוצרת בשעה זו לקונסול
+        console.log(`שעה ${hour}: ${energyProduced} קילואט מיוצרים`);
+      }
+      break;
 
-  // הדפסת שעת היום וכמות האנרגיה המיוצרת בשעה זו לקונסול
-  console.log(`שעה ${hour}: ${energyProduced} קילואט מיוצרים`);
+ case "suumer" :
+    for (let hour = 6; hour <= 18; hour++) {
+        // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+        energyProduced = Math.floor(Math.random() * 15) + 1;
+      
+        // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
+        totalEnergy = totalEnergy + energyProduced;
+      
+        // הדפסת שעת היום וכמות האנרגיה המיוצרת בשעה זו לקונסול
+        console.log(`שעה ${hour}: ${energyProduced} קילואט מיוצרים`);
+      }
+      break;
 }
+console.log(`כמות האנרגיה הכוללת המיוצרת ליום קיץ או חורף היא : ${totalEnergy} קילואט`);
+// // לולאה המתארת את הזמן המבוצעת בכל שעה משעת הזריחה ועד לשעת השקיעה
+// if (season == "summer")
+// for (let hour = 6; hour <= 18; hour++) {
+//   // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+//   energyProduced = Math.floor(Math.random() * 15) + 1;
 
-// הדפסת סכום כמות האנרגיה הכוללת המיוצרת ליום לקונסול
-console.log(`כמות האנרגיה הכוללת המיוצרת ליום היא: ${totalEnergy} קילואט`);
+//   // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
+//   totalEnergy = totalEnergy + energyProduced;
+
+//   // הדפסת שעת היום וכמות האנרגיה המיוצרת בשעה זו לקונסול
+//   console.log(`שעה ${hour}: ${energyProduced} קילואט מיוצרים`);
+// }
+// else if (season == "winter")
+// for (let hour = 6; hour <= 15; hour++) {
+//     // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+//     energyProduced = Math.floor(Math.random() * 15) + 1;
+  
+//     // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
+//     totalEnergy = totalEnergy + energyProduced;
+  
+//     // הדפסת שעת היום וכמות האנרגיה המיוצרת בשעה זו לקונסול
+//     console.log(`שעה ${hour}: ${energyProduced} קילואט מיוצרים`);
+//   }
+// // הדפסת סכום כמות האנרגיה הכוללת המיוצרת ליום לקונסול
+// console.log(`כמות האנרגיה הכוללת המיוצרת ליום קיץ או חורף היא : ${totalEnergy} קילואט`);
