@@ -118,7 +118,19 @@ for( i = 0; i < 10; i++)
 
 
 // 2. The Solar Power Calculator
-// Background: Avi Berhanu Bayne works as an engineering manager in a solar power company. Let's make a program that calculates how much energy a solar panel can produce in a day.
-// Exercise: Write a loop that simulates the production of electricity by a solar panel from sunrise (6 AM) to sunset (6 PM). Each hour, the solar panel produces a random amount of energy between 1 and 10 kilowatts. At the end of the loop, print out the total energy produced for the day.
-// Hint: You can use Math.random() to generate a random number and Math.floor() or Math.round() to round it to the nearest whole number.
+// Background: Avi Berhanu Bayne works as an engineering manager in a solar power company. 
+//Let's make a program that calculates how much energy a solar panel can produce in a day.
+// Exercise: Write a loop that simulates the production of electricity by a solar panel 
+//from sunrise (6 AM) to sunset (6 PM). Each hour, the solar panel produces a random amount of energy 
+//between 1 and 10 kilowatts. At the end of the loop, print out the total energy produced for the day.
+// Hint: You can use Math.random() to generate a random number and Math.floor() or Math.round() 
+//to round it to the nearest whole number.
 
+let SolarProduces,
+//Day contains 12 hours, 
+for (let Day = 0; Day < 13; Day++)
+{
+  SolarProduces = (Math.random()+1)*10;
+  console.log(SolarProduces);
+
+}
