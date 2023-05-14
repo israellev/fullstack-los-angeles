@@ -1,75 +1,66 @@
-// export {};
-// ////Aviad Kaduri
+export {};
+////Aviad Kaduri
 
-// const Generat = Number(prompt("כמות החשמל שיוצר הפנאל הסולארי ביום (in kWh):"));
+const aviad = Number(prompt("הכנס את המהריות של אביעד"));
+const Israel = Number(prompt(" הכנס מהירות של ישראל"));
 
-// if (Generat % 2 === 0) {
-//   console.log("כמות החשמל המופקת שווה.");
-// } else {
-//   console.log("כמות החשמל המופקת לא תקינה.");
-// }
-// /////Sahar Kalaifish
+if (aviad > Israel) {
+  alert("אביעד ניצח");
+} else if (Israel > aviad) {
+  alert("ישראל ניצח");
+} else {
+  console.log("תיקו");
+}
 
-// for (let floor = 1; floor <= 10; floor++) {
-//   console.log(`מספר קומה ${floor} אושר!`);
-// }
-// //////Yitzhak
-// for (let hour = 1; hour <= 12; hour++) {
-//   if (hour >= 8 && hour <= 16) {
-//     console.log(`The hour now is ${hour}:00, Yitzhak is watching!`);
-//   } else {
-//     console.log(`The hour now is ${hour}:00, Yitzhak is not on his shift.`);
-//   }
-// }
-// //////Sharit Zvika
+// פאנל סולארי----------------------------------
+const Elect = Number(prompt("הזן את כמות החשמל שיוצר הפנאל הסולארית?"));
 
-// let correctCount = 0;
+if (Elect % 2 == 0) {
+  alert(" זוגי");
+} else {
+  alert("אי זוגי");
+}
 
-// for (let day = 1; day <= 10; day++) {
-//   const isSpelledCorrectly = Math.random() <= 0.7;
-
-//   if (isSpelledCorrectly) {
-//     correctCount++;
-//   }
-// }
-
-// console.log(
-//   `The student spelled the word correctly ${correctCount} times in ten days.`
-// );
-
-// //////Avi Berhanu
-// let totalEnergy = 0;
-
-// for (let hour = 6; hour <= 18; hour++) {
-//   const energyProduced = Math.floor(Math.random() * 10) + 1;
-//   totalEnergy += energyProduced;
-// }
-
-// console.log(
-//   `The total energy produced by the solar panel in a day is ${totalEnergy} kilowatts.`
-// );
-
-// const aviad = Number(prompt("הכנס את המהריות של אביעד"));
-// const ploni = Number(prompt(" הכנס מהירות של פלוני"));
-
-// if (aviad > ploni) {
-//   alert("אביעד ניצח");
-// } else if (ploni > aviad) {
-//   alert("פלוני ניצח");
-// } else {
-//   console.log("תיקו");
-// }
-
-// const Elect = Number(prompt("הזן את כמות החשמל המוזנת?"));
-
-// if (Elect % 2 == 0) {
-//   alert(" זוגי");
-// } else {
-//   alert("אי זוגי");
-// }
-
-// --------------------------------------------
+///Sahar Kalaifish --------------------------------------------
 
 for (let i = 1; i <= 10; i++) {
   console.log(`${"floor"} ${[i]}  ${"confirm"}`);
 }
+
+////Yitzhak------------------------------------------------
+for (let hour = 1; hour <= 12; hour++) {
+  if (hour >= 8 === hour <= 16) {
+    console.log(`The hour now is ${hour}:00, Yitzhak is watching!`);
+  } else {
+    console.log(`The hour now is ${hour}:00, Yitzhak is not on his shift.`);
+  }
+}
+
+////Sharit Zvika--------------------------------------------
+
+let correct = 0;
+
+for (let day = 1; day <= 10; day++) {
+  const SpelledCorrect = Math.random() <= 0.7;
+
+  if (SpelledCorrect) {
+    correct++;
+  }
+}
+
+console.log(
+  `The student spelled the word correctly ${correct} times in ten days.`
+);
+
+////Avi Berhanu--------------------------------------------
+
+let Energy = 0;
+
+for (let hour = 6; hour <= 18; hour++) {
+  const energyProduced = Math.floor(Math.random() * 10) + 1;
+  Energy += energyProduced;
+}
+
+console.log(
+  `The total energy produced by the solar panel in a day is ${Energy} kilowatts.`
+);
