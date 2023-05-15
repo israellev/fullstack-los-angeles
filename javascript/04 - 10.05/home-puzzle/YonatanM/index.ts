@@ -102,19 +102,17 @@ export {}
 // // it correctly). After ten days, the program should print out how many times the student 
 // // spelled the word correctly.
 // // // Hint: You can use Math.random() to simulate whether a word was spelled correctly.
-// let i =0;
-// for( i = 0; i < 10; i++)
-// {
-//   let Spell = prompt("Spell the word RandomText")
-//   if(Spell){
-//     alert("spelled correctly")
 
-//   }
-//   else if ()
-//   {
+let i =0;
+for( i = 0; i <= 10; i++)
+{
+  let Spell = prompt("Spell the word RandomText")
+  if(Spell){
+    alert("spelled correctly")
 
-//   }
-// }
+  }
+}
+ 
 
 
 // // 2. The Solar Power Calculator
@@ -133,6 +131,6 @@ for (let Day = 0; Day < 13; Day++)
 {
   let SolarProduces = (Math.random()*10)+1;
   console.log(SolarProduces);
+  TotalEnergy = SolarProduces + TotalEnergy;
 
 }
-console.log

@@ -62,5 +62,5 @@ for (let hour = 6; hour <= 18; hour++) {
 }
 
 console.log(
-  `The total energy produced by the solar panel in a day is ${Energy} kilowatts.`
+  `The total energy produced by the solar panel in a day is ${Energy} kilowatts.`
 );
