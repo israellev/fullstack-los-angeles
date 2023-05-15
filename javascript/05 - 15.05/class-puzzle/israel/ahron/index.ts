@@ -36,4 +36,8 @@ for(let Birthday = 1; Birthday <=23; Birthday++){
 
 ////////////----------------
 
-
+for(let days = 1; days <=10; days++){
+    if (days % 2 === 0){
+        console.log (`Daniel, you have to water the pots today ${[days]} `)
+    }
+}
