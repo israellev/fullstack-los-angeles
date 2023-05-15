@@ -59,7 +59,9 @@ export {}
 
 let result = 0
 for (let index = 0; index < 10; index++) {
-    result += index
     // result = result + index
+    alert(`Here is the index ${index} dflkhjsdflkjdsf`)
+    // alert("Here is the index " + index + "sdlfkhjsdflkj")
+    // 'result = result + index' equal to 'result += index'
 }
 console.log(result)

@@ -28,4 +28,9 @@ loops - welcome for:
 
 05. 
 3 ways for loops - for, while, do while
-functions 
+functions - function hello() {
+                console.log("hello")
+            }
+arrow function
+function with variable
+
