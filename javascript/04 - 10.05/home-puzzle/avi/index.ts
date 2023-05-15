@@ -32,7 +32,7 @@ const correct = 0;
 
 for (let i = 1; i <= 10; i++)
 {
-    correct = Math.random() < 0.7;
+    correct = Math.random() <= 0.7;
     count = count + correct;
 }
 
@@ -43,13 +43,13 @@ alert(`The student spelled ${count} words correctly in 10 days.`);
 // איתחול משתנה למעקב אחר כמות האנרגיה הכוללת המיוצרת
 let totalEnergy = 0;
 let season = prompt('Enter the season (summer/winter)')
-const energyProduced = 0 
+const energyProduced = 0
 
 switch(season)
 {
  case "winter" :
     for (let hour = 6; hour <= 15; hour++) {
-        // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+        // יצירת מספר רנדומלי בין 1 ל-15 לייצוג כמות האנרגיה המיוצרת בשעה זו
         energyProduced = Math.floor(Math.random() * 15) + 1;
       
         // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת
@@ -62,7 +62,7 @@ switch(season)
 
  case "suumer" :
     for (let hour = 6; hour <= 18; hour++) {
-        // יצירת מספר רנדומלי בין 1 ל-10 לייצוג כמות האנרגיה המיוצרת בשעה זו
+        // יצירת מספר רנדומלי בין 1 ל-15 לייצוג כמות האנרגיה המיוצרת בשעה זו
         energyProduced = Math.floor(Math.random() * 15) + 1;
       
         // הוספת כמות האנרגיה המיוצרת בשעה זו לכמות האנרגיה הכוללת

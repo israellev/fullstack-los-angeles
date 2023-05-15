@@ -6,11 +6,12 @@ export {}
 // Exercise: Use a while loop to print out a birthday message for each year up to Aviad's current age. Aviad is 23 years old.
 
 const birthdayMessage = Number(prompt("Enter the Aviad year born"));
-
-while(birthdayMessage == 23){
-    alert(`${"happy birthday aviad"}`);
-    break;
-}
+let years = 0;
+if(birthdayMessage == 23){
+while(years <= 23){
+    console.log(`${"happy birthday aviad , today you are"} ${years} ${"yers old"} `);
+    years++
+}};
 
 // 2. The Gardener's Plant Watering Schedule (use 'do while')
 // Background: Daniel Michael Peretz works in gardening and needs to keep track of when to water the plants. Each plant needs to be watered every 2 days.
