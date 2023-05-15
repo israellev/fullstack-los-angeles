@@ -10,7 +10,7 @@ git pull
 העלאת עדכון:
 git add .
 git commit -m "some message"
-(git pull)
+git pull
 git push origin master
 
 
