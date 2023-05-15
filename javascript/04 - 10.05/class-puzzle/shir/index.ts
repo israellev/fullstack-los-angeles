@@ -55,14 +55,11 @@ export {}
 // }
 
 
-//home-puzzle 1
+// home-puzzle 1
 // שאלות למורה: האם באמת היה צורך לציין את שני המשתנים? האם זה נכון מה שכתבתי במשתנה השני?
 // איך עושים את החלק האחרון בשאלה - של כמה פעמים הן אייתו נכון?
+
 // let day=1
-
-// let ansers= "true or false"?? 
-
-
 
 // for (let day=1; day<=10; day++) {
 
@@ -84,32 +81,22 @@ export {}
 
 
 
-// // home puzzle 2 :  // האם המשתנה i הוא השעה?
+// // // home puzzle 2 :  // האם המשתנה i הוא השעה?
 
-// let totalenergy= 1
+let totalenergy= 0
 
-// for ( let houer = 6; houer <=18; houer++) {  
+for ( let houer = 6; houer <=18; houer++) {  
 
-//  let totalenergy = Math.random() < 10;   // למה הצאט עשה פה משהו אחר?
+ let totalenergy = Math.random() < 10;   
 
-// }
+}
 
-// alert(`כמות האנרגיה שהופקה ליום היא ${ totalenergy}`) 
-
-
+alert(`כמות האנרגיה שהופקה ליום היא ${ totalenergy}`) 
 
 
-// // התשובה של הצאט
 
-// let totalEnergy = 0;
 
-// for (let i = 6; i <= 18; i++) {
-//   const energy = Math.floor(Math.random() * 10) + 1;
-//   totalEnergy += energy;
-//   console.log(`At ${i}:00, the solar panel produced ${energy} kW of energy.`);
-// }
 
-// console.log(`Total energy produced for the day: ${totalEnergy} kW.`);
 
 
 
