@@ -1,4 +1,9 @@
 export {}
+//puzzle 1
+for (let day = 1; day <= 10; day++ ) {
+    let correctAnswer= Math.floor(Math.random()*10) *0.7
+}
+console.log (`The student spelled the words correctly ${correctAnswer} times`)
 
 //puzzle 2
 let totalAmount= 0 
