@@ -2,7 +2,7 @@ export {}
 
 
 const aviad = Number (prompt ( "מהי המהירות של החללית של אביעד"))
-const shir= Number (prompt ("מהי המהירות של החללית של שרית"))
+const sarit= Number (prompt ("מהי המהירות של החללית של שרית"))
 
 if ( aviad>sarit) {
     prompt ("אביעד המנצח!!")
