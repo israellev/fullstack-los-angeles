@@ -1,9 +1,16 @@
 export {}
 //puzzle 1
-for (let day = 1; day <= 10; day++ ) {
-    let correctAnswer= Math.floor(Math.random()*10) *0.7
+
+var numOfCorrectAnswers = 0;
+
+for (let day = 1; day <= 10; day++) {
+  var random = Math.random();
+
+  if (random <= 0.7) {
+    numOfCorrectAnswers++;
+  }
 }
-console.log (`The student spelled the words correctly ${correctAnswer} times`)
+
 
 //puzzle 2
 let totalAmount= 0 
