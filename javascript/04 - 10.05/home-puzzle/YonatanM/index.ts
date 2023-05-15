@@ -103,15 +103,15 @@ export {}
 // // spelled the word correctly.
 // // // Hint: You can use Math.random() to simulate whether a word was spelled correctly.
 
-let i =0;
-for( i = 0; i <= 10; i++)
-{
-  let Spell = prompt("Spell the word RandomText")
-  if(Spell){
-    alert("spelled correctly")
+// let i =0;
+// for( i = 0; i <= 10; i++)
+// {
+//   let Spell = prompt("Spell the word RandomText")
+//   if(Spell){
+//     alert("spelled correctly")
 
-  }
-}
+//   }
+// }
  
 
 
@@ -127,7 +127,7 @@ for( i = 0; i <= 10; i++)
 
 let TotalEnergy =0;
 //Day contains 12 hours, 
-for (let Day = 0; Day < 13; Day++)
+for (let Day = 1; Day < 13; Day++)
 {
   let SolarProduces = (Math.random()*10)+1;
   console.log(SolarProduces);

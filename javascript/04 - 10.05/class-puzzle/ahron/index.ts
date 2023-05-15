@@ -60,3 +60,7 @@ console.log(
   `The student spelled the word correctly ${correct} times in ten days.`
 );
 
+
+/////------------ פאנל סולארי אבי------
+
+let totalAmount= 0 
