@@ -1,7 +1,7 @@
 export {};
 // // 1. Greeting Function:
 // Write a function called greet that takes one parameter name. When called, the function should print a message saying "Hello, [name]!"
-function greet(name) {
+function greet(name: string) {
   console.log("Hello, " + name + "!");
 }
 greet("yakov");
