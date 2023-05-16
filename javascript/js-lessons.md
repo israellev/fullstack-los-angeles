@@ -31,6 +31,10 @@ loops - welcome for:
 functions - function hello() {
                 console.log("hello")
             }
+functions parameters (include types)
+functions return values (include types)
+
+06. 
+function to variable
 arrow function
-function with variable
 
