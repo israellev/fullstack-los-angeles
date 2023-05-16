@@ -1,4 +1,4 @@
-export {}
+export {};
 // /* 3 ways to loop: */
 
 // /* OPTION 1 */
@@ -23,17 +23,15 @@ export {}
 /*  Functions */
 
 function helloWorld() {
-    console.log("Hello world")   
+  console.log("Hello world");
 }
 
 // for (let i = 0; i < 10; i++) {
-//     helloWorld()
+helloWorld();
 // }
 
-
-
 function counter(num: number): void {
-    console.log(num)   
+  console.log(num);
 }
 
 // counter(1)
@@ -49,15 +47,14 @@ function counter(num: number): void {
 2. reusable of the same code
 */
 
-
 function isEven(num: number): boolean {
-    const oneOrZero = num % 2
-    const ifIsEven = oneOrZero === 0
-    return ifIsEven;
+  const oneOrZero = num % 2;
+  const ifIsEven = oneOrZero === 0;
+  return ifIsEven;
 }
 
 // const is1event = isEven(1)
 // console.log(is1event)
 
-const is2event = isEven(2)
-console.log(is2event)
+const is2event = isEven(2);
+console.log(is2event);
