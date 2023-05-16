@@ -8,14 +8,14 @@ export {}
 // Aviad is 23 years old.
 
 
-let birthday = 1;
-while (birthday <= 23) {
+// let birthday = 1;
+// while (birthday <= 23) {
 
-    // alert("Happy" + birthday + "birthday Aviad")
-    console.log("Happy " + birthday + " birthday Aviad")
-    birthday++
+//     // alert("Happy" + birthday + "birthday Aviad")
+//     console.log("Happy " + birthday + " birthday Aviad")
+//     birthday++
     
-}
+// }
 
 // 2. The Gardener's Plant Watering Schedule (use 'do while')
 // Background: Daniel Michael Peretz works in gardening and needs to keep track of when to 
@@ -23,10 +23,15 @@ while (birthday <= 23) {
 // Exercise: Use a do while loop to create a schedule that tells Daniel which 
 //day he needs to water the plants over a 10 day period.
 
+let days = 1 //assuming Daniel watered the plant in the first day,
+
 do {
-    water the plant
-    
-} while (didnt water in the last two days);
+    if ( days%2 === 0) {
+        console.log(`Daniel ${[days]} days passed, you need to water the plants`)          
+        alert(`Daniel its ${[days]} water the plants`)
+    }
+    days++    
+} while (days <= 10)
 
 
 // home puzzle:
