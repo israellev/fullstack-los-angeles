@@ -1,6 +1,8 @@
-export {}
-const fullName = (firstName: string, lastName: string): void => {
-    console.log(`Welcome ${firstName} ${lastName} ! We were waiting for you`);
+export {};
+
+const getFullName = (firstName: string, lastName: string): void => {
+    const greetingMessage = `Welcome ${firstName} ${lastName}! We were waiting for you`;
+    console.log(greetingMessage);
 };
 
-fullName("Sarit", "Tsvika");
+getFullName("Sarit", "Tsvika");
