@@ -42,16 +42,10 @@ function square(num) {
   console.log(num * num);
 }
 
-const number = 10;
+const number = 5;
 square(number);
 
-////////ב/////
-
-// function square(num: number) {
-//   console.log(num * num);
-// }
-
-////////  תרגיל מס 2......
+////////  תרגיל מס 3......
 
 function convertToFahrenheit(num: number) {
   console.log(`${[(num * 9) / 5 + 32]} ${"F"}`);
