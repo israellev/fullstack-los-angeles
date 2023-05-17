@@ -6,7 +6,8 @@ for (let year = 1; year <= 23; year++ ) {
 
 //puzzle 2
 for (let day = 1; day <=10; day++) {
-    if ( day % 2 == 0 ) {
-        console.log (`it's day number ${day}, you need to water the plant`)
+    if ( day % 2 === 0 ) {
+        console.log (`it's day number ${day}, you need to water your plant!`)
     }
 }
+
