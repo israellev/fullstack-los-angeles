@@ -53,13 +53,12 @@ const greeting2 = (name: string): void => {
 
 /* error handling - throw, try & catch, NaN  */
 
-
-/* const firstName = "Shir"
-throw `${firstName} hamalka!!`
+/* Example 1: the code is dead */
+/* throw `shir hamalka!!`
 console.log("It was error before")
  */
 
-
+/* Example 2: the error is catched and code is continue */
 /* try {
     throw "Error!!!"
 } catch(error) {
@@ -74,20 +73,15 @@ function getUserAge(): number {
     const ageNumber = Number(age) // 88, NaN
     const isNotNumber = isNaN(ageNumber) // false, true
     if (isNotNumber) {
-        throw `"${age}" is not a number!!!`
+        throw false
+    } else {
+        return ageNumber
     }
-    return ageNumber
 }
 
 try {
     const age = getUserAge()
     console.log("the user is age: ", age)
-} catch(errorMessage) {
-    alert(errorMessage)
-    const age = getUserAge()
-    console.log("the user is age: ", age)
+} catch(A) {
+    alert(A)
 }
-
-
-
-
