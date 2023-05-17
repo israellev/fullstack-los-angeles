@@ -80,8 +80,10 @@ function getUserAge(): number {
 }
 
 try {
-    const age = getUserAge()
+    const age = getUserAge() // 88
     console.log("the user is age: ", age)
 } catch(A) {
     alert(A)
 }
+
+console.log("The code is continue");
