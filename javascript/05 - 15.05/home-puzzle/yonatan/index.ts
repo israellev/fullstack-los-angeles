@@ -66,13 +66,17 @@ export {}
 // Write a function called square that takes one parameter num and returns the square of that number (num * num).
 // use that function and print the result.
 
-let x;
+let num1;
 
 function square(){
     
-    console.log(Math.pow(x,2))
-    alert(`Sqware of inserted number is ${[num1]} water the plants`)
+    console.log(Math.pow(num1,2))
+    
 }
+
+alert(`Sqware of inserted number is ${[square()]}`)
+console.log(square())
+
 
 
 // 3. Temperature Conversion Function:

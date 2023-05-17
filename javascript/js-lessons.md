@@ -35,6 +35,8 @@ functions parameters (include types)
 functions return values (include types)
 
 06. 
-function to variable
-arrow function
-
+variable scopes
+3 ways for functions - regular, function to variable, arrow function
+error handling - throw, try & catch
+isNaN
+callback function

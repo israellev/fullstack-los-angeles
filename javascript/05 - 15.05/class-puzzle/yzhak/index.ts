@@ -34,23 +34,24 @@ function greet() {
   console.log("hello");
 }
 greet();
-greet();
+
 // // /////// תרגיל 2
-// // function Square(num) {
-// //   result num * number;
 
-// //   const number=2;
+// ///א////
+function square(num) {
+  console.log(num * num);
+}
 
-// // }
+const number = 10;
+square(number);
 
-// const number = 48;
-// const result = square(number);
+////////ב/////
 
-// function square(num) {
-//   return num * num;
+// function square(num: number) {
+//   console.log(num * num);
 // }
 
-// console.log("The square of" + number + "is" + result);
+////////  תרגיל מס 2......
 
 function convertToFahrenheit(num: number) {
   console.log(`${[(num * 9) / 5 + 32]} ${"F"}`);
