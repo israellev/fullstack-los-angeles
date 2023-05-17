@@ -64,21 +64,32 @@ export {}
 
 // 2. Square Function:
 // Write a function called square that takes one parameter num and returns the square of that number (num * num).
-// use that function and print the result.
+// // use that function and print the result.
 
-let num1;
+// let num1;
 
-function square(){
+// function square(){
     
-    console.log(Math.pow(num1,2))
-    
-}
+//     console.log(Math.pow(num1,2))
+//     prompt()
+// }
 
-alert(`Sqware of inserted number is ${[square()]}`)
-console.log(square())
+// alert(`Sqware of inserted number is ${[square()]}`)
+// console.log(square())
 
 
 
 // 3. Temperature Conversion Function:
 // Write a function called convertToFahrenheit that takes a Celsius temperature as a parameter and returns 
 // the equivalent Fahrenheit temperature. The formula to convert Celsius to Fahrenheit is (celsius * 9/5) + 32.
+
+
+function convertToFahrenheit(celsius: number): number{
+    let celToFehr = (celsius * 9/5)+32;
+    return  (`the temp in Ferhnit is ${[square()]}`)
+    
+}
+console.log(`${"celsius to farhenit result is : "} ${celToFehr}`);
+convertToFahrenheit(Number(prompt("Enter calsius temparture")));
+   
+Number(prompt('enter celsius degrees'))
