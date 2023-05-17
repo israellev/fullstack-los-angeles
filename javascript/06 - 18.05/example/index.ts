@@ -34,7 +34,7 @@ console.log(a3)
 function greeting1(name: string): void {
     console.log(`welcome  ${name}1!`)
 }
-greeting1("Sarit")
+// greeting1("Sarit")
 
 /* anonimous function */
 /* () => {
@@ -47,8 +47,47 @@ true
 const greeting2 = (name: string): void => {
     console.log(`welcom ${name} 2!`)
 }
-greeting2("Yhonatan")
+
+// greeting2("Yhonatan")
 
 
-/* error handling - throw, try & catch  */
+/* error handling - throw, try & catch, NaN  */
+
+
+/* const firstName = "Shir"
+throw `${firstName} hamalka!!`
+console.log("It was error before")
+ */
+
+
+/* try {
+    throw "Error!!!"
+} catch(error) {
+    console.log(error)
+}
+console.log("Because of the catch the code is continue!")
+ */
+
+
+function getUserAge(): number {
+    const age = prompt("What your age (in numbers)?") // "88", "bla bla"
+    const ageNumber = Number(age) // 88, NaN
+    const isNotNumber = isNaN(ageNumber) // false, true
+    if (isNotNumber) {
+        throw `"${age}" is not a number!!!`
+    }
+    return ageNumber
+}
+
+try {
+    const age = getUserAge()
+    console.log("the user is age: ", age)
+} catch(errorMessage) {
+    alert(errorMessage)
+    const age = getUserAge()
+    console.log("the user is age: ", age)
+}
+
+
+
 

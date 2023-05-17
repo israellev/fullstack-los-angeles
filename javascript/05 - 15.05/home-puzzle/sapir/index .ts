@@ -8,20 +8,20 @@ function greet (name:string){
     console.log(`Hello ${name}!`);
 }
 
-
 //2. Square Function:
 //Write a function called square that takes one parameter num and returns the square of that number (num * num).
 //use that function and print the result.
-
+let result = 0;
 function square (num:number):number{
-    return(num * num);
+    return(result =num * num);
 }
-console.log(`the result is: ${square}`);
+console.log(`the result is: ${result}` );
 
 //3. Temperature Conversion Function:
 //Write a function called convertToFahrenheit that takes a Celsius temperature as a parameter and returns the equivalent Fahrenheit temperature.
 // The formula to convert Celsius to Fahrenheit is (celsius * 9/5) + 32.
 
+let celsius=0;
 function convertToFahrenheit (celsius:number):number{
     return(num = (celsius * 9/5) + 32);
 }
