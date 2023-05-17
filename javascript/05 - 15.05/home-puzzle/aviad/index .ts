@@ -13,7 +13,7 @@ greeting(Name);
 let userNumber = Number(prompt("Enter number"));
 function square(userNumber){
     let result =userNumber * userNumber;
-    return(result);
+    return result;
 }
 square(userNumber);
 
