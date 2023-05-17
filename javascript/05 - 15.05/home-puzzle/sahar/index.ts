@@ -17,4 +17,5 @@ function convertToFahrenheit(celsius) {
    return Fahrenheit
 }
 
-console.log(convertToFahrenheit (20))
+console.log(convertToFahrenheit (22));
+
