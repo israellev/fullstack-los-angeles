@@ -1,22 +1,20 @@
 //puzzle 1
 function greeting(name) {
-    console.log ("Hello " + name)
+    console.log (`Hello ${name}!`)
 }
 
 greeting ("sahar")
 
 //puzzle 2 
 function square(num) {
-   let result = num * num
-    console.log(`The result is ${result}`)
+   return num * num;
 }
+console.log(square (4))
 
-square (4)
-
-let celsius = 0
+//puzzle 3
 function convertToFahrenheit(celsius) {
-   const Fahrenheit = Number((celsius * 9/5) + 32)
+   const Fahrenheit = (celsius * 9/5) + 32;
    return Fahrenheit
 }
 
-convertToFahrenheit (20)
+console.log(convertToFahrenheit (20))
