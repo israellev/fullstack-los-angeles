@@ -19,3 +19,5 @@ use that function and print the result.
 
 3. Temperature Conversion Function:
 Write a function called convertToFahrenheit that takes a Celsius temperature as a parameter and returns the equivalent Fahrenheit temperature. The formula to convert Celsius to Fahrenheit is (celsius * 9/5) + 32.
+
+
