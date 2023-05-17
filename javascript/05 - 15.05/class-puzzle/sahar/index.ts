@@ -10,3 +10,4 @@ for (let day = 1; day <=10; day++) {
         console.log (`it's day number ${day}, you need to water your plant!`)
     }
 }
+
