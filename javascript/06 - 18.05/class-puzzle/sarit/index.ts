@@ -1,6 +1,6 @@
 export {}
-const greeting2 = (name: string, lastName: string): void => {
-    console.log(`Welcome ${name} ${lastName} 2!`);
+const greeting = (firstName: string, lastName: string): void => {
+    console.log(`Welcome ${firstName} ${lastName} ! We were waiting for you`);
 };
 
-greeting2("Sarit", "Tsvika");
+greeting("Sarit", "Tsvika");
