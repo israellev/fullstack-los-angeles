@@ -9,3 +9,4 @@ const firstName = prompt("your name is?");
 const lastName = prompt("Your last name is?");
 const fullName = getFullName(firstName, lastName);
 console.log(fullName);
+a;
