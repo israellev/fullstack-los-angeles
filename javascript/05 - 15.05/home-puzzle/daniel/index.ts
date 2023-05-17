@@ -7,4 +7,3 @@ for (let ageaviad=1; ageaviad<=23; ageaviad++){
 function name (grate){
     console.log ("hey daniel hayakar"+grate+"!")
 }
-
