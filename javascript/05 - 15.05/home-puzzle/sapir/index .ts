@@ -25,3 +25,11 @@ let celsius=0;
 function convertToFahrenheit (celsius:number):number{
     return(num = (celsius * 9/5) + 32);
 }
+
+//Calculate the Area of a Rectangle:
+//Write a function called calculateRectangleArea that takes two parameters, width and height, and returns the area of the rectangle.
+
+function calculateRectangleArea (width:number,height:number):number{
+    return(width*height)
+}
+
