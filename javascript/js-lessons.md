@@ -36,7 +36,7 @@ functions return values (include types)
 
 06. 
 variable scopes
-3 ways for functions - regular, function to variable, arrow function
+2 ways for functions - regular, anonymous function
 error handling - throw, try & catch
 isNaN
 callback function
