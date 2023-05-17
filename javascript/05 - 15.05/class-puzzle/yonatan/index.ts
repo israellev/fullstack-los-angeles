@@ -34,5 +34,14 @@ do {
 } while (days <= 10)
 
 
+function name(params:type):{
+    
+    
+}
+
+
 // home puzzle:
+
+
+
 
