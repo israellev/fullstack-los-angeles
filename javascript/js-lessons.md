@@ -14,7 +14,7 @@ js variables
 debug in chrome
 working with typescript - hero pluggin
 numbers operators -  + , - , * , / , % , ** 
-variables operators - ++, +=
+variables operators - ++, --, +=
 
 04. 
 conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
