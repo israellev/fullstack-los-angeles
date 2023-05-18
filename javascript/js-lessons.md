@@ -39,4 +39,10 @@ variable scopes
 2 ways for functions - regular, anonymous function
 error handling - throw, try & catch
 isNaN
-callback function
+
+07. 
+String functions - .length, index[0], .trim(), etc.
+-- callback function
+Simple Array
+push() for adding in the end, unshipt() for adding the start
+pop() for removing in the end, shift() for removing in the start
