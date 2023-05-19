@@ -12,8 +12,7 @@ greet("sarit");
 // home puzzle 2:
 
 function ribua(num) {
-
-
+    return num*num
 }
 
 console.log( )
