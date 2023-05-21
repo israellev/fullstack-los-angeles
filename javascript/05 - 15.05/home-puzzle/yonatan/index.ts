@@ -84,12 +84,12 @@ export {}
 // the equivalent Fahrenheit temperature. The formula to convert Celsius to Fahrenheit is (celsius * 9/5) + 32.
 
 
-function convertToFahrenheit(celsius: number): number{
-    let celToFehr = (celsius * 9/5)+32;
-    return  (`the temp in Ferhnit is ${[square()]}`)
+// function convertToFahrenheit(celsius: number): number{
+//     let celToFehr = (celsius * 9/5)+32;
+//     return  (`the temp in Ferhnit is ${[square()]}`)
     
-}
-console.log(`${"celsius to farhenit result is : "} ${celToFehr}`);
-convertToFahrenheit(Number(prompt("Enter calsius temparture")));
+// }
+// console.log(`${"celsius to farhenit result is : "} ${celToFehr}`);
+// convertToFahrenheit(Number(prompt("Enter calsius temparture")));
    
-Number(prompt('enter celsius degrees'))
+// Number(prompt('enter celsius degrees'))
