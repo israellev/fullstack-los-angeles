@@ -45,6 +45,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "ABC".toLowwercase() // "abc"
     "abc".toUppercase() // "ABC"
     "abca".replace("a", "AAA") // "AAAbca"
+    "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
 
     Array + array functions:
     const arr = ["a", "b", "c"]
@@ -54,7 +55,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     Functions that change the array it self:
     arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"]
     arr.pop() // console.log(arr) = ["a", "b", "c"]
-    arr.unshipt("aa") // console.log(arr) = ["aa", "a", "b", "c"]
+    arr.shift("aa") // console.log(arr) = ["aa", "a", "b", "c"]
     arr.shipt() // console.log(arr) = ["a", "b", "c"]
 
     use - array and loops
