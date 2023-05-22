@@ -35,7 +35,7 @@ functions parameters // function hello(name: string): void {}
 functions return values // function hello(name: string): string { return name }
 
 06. 
-variable scopes - each code bock or scope {} is a layer when you declare variables it's not available outside 
+variable scopes - each code block or scope {} is a layer when you declare variables it's not available outside 
 2 ways for functions - regular 'function greet() {}', anonymous function '() => {}'
 error handling - throw 'error', try {} catch(e) {}
 isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
