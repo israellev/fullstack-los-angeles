@@ -57,4 +57,6 @@ function numberDigitsCalculate () {
     }
 
 }
-numberDigitsCalculate()
+numberDigitsCalculate(){
+    
+}

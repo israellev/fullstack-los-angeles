@@ -1,5 +1,4 @@
 export {}
-// daniel peretz
 // prompt =שהלקוח יכול להכניס ערך או תשובה 
 // isNan = זה לא מספר 
 // !isNan = זה מספר! 
