@@ -2,18 +2,19 @@ export {}
 // // 1. Function and Loop - Multiplication Table:
 // // Write a function named multiplicationTable that takes a parameter num. The function should print the multiplication table for that number from 1 up to 10 using a for loop. if the num is 5 it'll print for example '5 * 1 = 5', than '5 * 2 = 10', etc up to 10.
 function multiplicationTable(parameter:number){
-
+    console.log("home - puzzle 1")
     for(let i=0 ; i<=10 ; i++){
         let result = i*parameter
         console.log(`${i} ${"*"} ${parameter} ${"="} ${result} `)
     }
 }
-// // const parameter = parseInt(prompt("Enter number between 1-100"))
-// // multiplicationTable(parameter)
+const parameter = parseInt(prompt("Enter number between 1-100"))
+multiplicationTable(parameter)
 // // // 2. Countdown Timer:
 // // // Write a function that asks the user for a number and then counts down from that number to zero, printing each number on a new line. Use a for loop to accomplish this.
 // // // If the user enter something not number - throw error.
 const countDownTimer = ()=>{
+    console.log("home - puzzle 2")
     const num = parseInt(prompt("enter the time"))
     if(isNaN(num)){
         throw `${"its not number"}`
@@ -36,6 +37,7 @@ try {
 // // "ab"[2] //  you'll recieved - undefined
 
 const checksPolindrome = ()=>{
+    console.log("home - puzzle Bonus 3")
     const string = prompt("enter a string ")
     console.log(`${string}`);
     const inpurStr = string.toLowerCase().replace(/\s/g, "");
@@ -67,14 +69,16 @@ console.log(`${"the string"} ${result}`)
 // if (/^\d$/.test(ch)) 
 
 function calculateDigitSum() {
+    console.log("home - puzzle Bonus 4")
     const input = prompt("Enter a number:");
     console.log(input)
-    const inputNumber = input.replace(/\s/g, "")
+    const inputNumber = input.replace(/\s/g, "");
     console.log(inputNumber)
     let sum = 0;
     let i = 0;
   
-    while (i < inputNumber.length) {
+    while (i < inputNumber.length) 
+    {
       const tempch = inputNumber.charAt(i);
       if (!isNaN(parseInt(tempch))) 
       {
