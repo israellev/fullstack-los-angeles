@@ -22,3 +22,11 @@ for example from [1, 2, 3] it returns 6
 Write a function that recive an array of numbers and returns the bigget number index.
 for example from [1, 2, 3] it returns 2 (the index of 3).
 
+3. avg number in array
+Write a function that recive an array of numbers and returns the average number.
+for example from [1, 2, 3] it returns 2.
+
+4. check if array contains
+Write a function that recive an array and value, return true if the value exists in the array, and false if not.
+for example from ([1, 2, 3], 4) it returns false.
+
