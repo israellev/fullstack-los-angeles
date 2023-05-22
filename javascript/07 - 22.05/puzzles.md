@@ -13,8 +13,12 @@ for example user enter 3, the function return [0, 1, 2, 3], etc.
 
 home puzzle:
 
-1. Sum the array numbers
+1. Sum the array
 Write a function that receive array of numbers (only) as a parameter, 
 and return the result of all numbers together.
+for example from [1, 2, 3] it returns 6
 
+2. max number in Array 
+Write a function that recive an array of numbers and returns the bigget number index.
+for example from [1, 2, 3] it returns 2 (the index of 3).
 
