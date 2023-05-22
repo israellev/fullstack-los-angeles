@@ -1,4 +1,5 @@
 export {}
+// daniel peretz
 // prompt =שהלקוח יכול להכניס ערך או תשובה 
 // isNan = זה לא מספר 
 // !isNan = זה מספר! 
@@ -29,15 +30,15 @@ function getAge(){
 }
 try{// נסיון נוסף (מחיה את השגאיה)
 const theUserAge = getAge();//שם של משתנה נוסף + משתנה של השגיאה 
-console.log("user age is"+theUserAge+); // הדפסה לקונסול לוג + משתנה חדש 
+console.log("user age is"+theUserAge); // הדפסה לקונסול לוג + משתנה חדש 
 }catch (error){
     alert("error has occured:" + error); //מקפיץ מודעת התרחשה שגיאה 
 }
 
 
 // -----------------------------------------------------------------------
-// (3) Homework - puzzle bonus  ,לבקש מהמשתמש להזין מספר, לאחר מכן לבדוק שמה שהתקבל הוא לא מספר,לטפל בשיגאה ולשלוח הודעה בהתאם בעזרת trow
+// (3) Homework - puzzle bonus  
+function isPalindrome(){
+    var input = prompt("pleas enter string:");
 
-function countdownTimer(){
-var input = prompt ("Please enter a number")
 }
