@@ -45,7 +45,8 @@ const checksPolindrome = () => {
     console.log(`${inpurStr}`);
     const len = inpurStr.length
 
-    for (var i = 0; i < len / 2; i++) {
+    for (var i = 0; i < len / 2; i++)
+     {
 
         if (inpurStr[i] !== inpurStr[len - 1 - i]) {
             return `is not palindrome`
@@ -77,7 +78,8 @@ function calculateDigitSum() {
     let sum = 0;
     let i = 0;
 
-    while (i < inputNumber.length) {
+    while (i < inputNumber.length) 
+    {
         const tempch = inputNumber.charAt(i);
         if (!isNaN(parseInt(tempch))) {
             const temDigit = parseInt(tempch);
@@ -94,3 +96,4 @@ function calculateDigitSum() {
 
 let sumOfDigits = calculateDigitSum();
 console.log(`${"The sum of the digits is: "}  ${sumOfDigits}`);
+// "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
