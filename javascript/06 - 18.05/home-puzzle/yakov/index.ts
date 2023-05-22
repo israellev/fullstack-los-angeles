@@ -14,43 +14,27 @@ export {};
 // 2. Countdown Timer:
 // Write a function that asks the user for a number and then counts down from that number to zero, printing each number on a new line. Use a for loop to accomplish this.
 // If the user enter something not number - throw error.
+/
+/ function countDownFromNumber() {
+  let userIn = Number(prompt("Enter a number:"));
 
-function countTimer() {
-  let userNum = prompt("enter number please");
-  if (isNaN(Number(userNum))) {
-    throw `input error`;
+  // Check if userInput is a valid number
+  if (isNaN(userIn)) {
+    throw new Error("Invalid input. Please enter a number.");
   }
-  let number = parseInt(userNum);
-  for (let i = number; i <= 0; i--) {
-    console.log(`${"the number is :"} ${i}`);
+
+  var number = userIn;
+
+  for (var i = number; i >= 0; i--) {
+    console.log(i);
   }
 }
+
 try {
-  //   const userNum = parseInt(prompt("enter number please"));
-  countTimer();
+  countDownFromNumber();
 } catch (error) {
-  console.log("input worng ");
+  console.log(error.message);
 }
-// function countDownFromNumber() {
-//   let userIn = Number(prompt("Enter a number:"));
-
-//   // Check if userInput is a valid number
-//   if (isNaN(userIn)) {
-//     throw new Error("Invalid input. Please enter a number.");
-//   }
-
-//   var number = userIn;
-
-//   for (var i = number; i >= 0; i--) {
-//     console.log(i);
-//   }
-// }
-
-// try {
-//   countDownFromNumber();
-// } catch (error) {
-//   console.log(error.message);
-// }
 
 // 3. Bonus - Palindrome Checker:
 // Create a function that asks the user for a string and checks whether the string is a palindrome or not. A palindrome is a word, phrase, number, or other sequence of characters that reads the same backward or forward. Note: This challenge must be accomplished without using array methods.
