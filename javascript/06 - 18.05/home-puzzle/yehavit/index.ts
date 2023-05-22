@@ -28,8 +28,8 @@ function countdown() {
     console.error(error);
   }
 
-  function palindromeChecker(str:string){
-
+  function palindromeChecker(){
+    let str = prompt("Please enter a string:");
     let stringlength = str.length
     let index = 0;
     let isPalindrome = 0;
@@ -42,7 +42,9 @@ function countdown() {
             else
                 index = stringlength/2
             }
-    return isPalindrome;  
+    if (isPalindrome===1)
+            console.log("Your string is a palindrome")
+            console.log("Your string is not a palindrome")
     }
 
 function sumOfDigits() {
