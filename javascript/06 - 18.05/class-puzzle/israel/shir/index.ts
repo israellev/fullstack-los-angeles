@@ -79,7 +79,7 @@ export {}
 
 //     let result= i * num ;
 
-    // console.log(`${num} * ${i} = ${result}`); // האם הקונסון לא היה צריך  להיות מחוץ לסקופ של הלולאה או הפונקציה?
+//     console.log(`${num} * ${i} = ${result}`); // האם הקונסון לא היה צריך  להיות מחוץ לסקופ של הלולאה או הפונקציה?
 
 // }
 // }
@@ -91,18 +91,44 @@ export {}
 
 // home puzzle 2. Countdown Timer:
 
-function countdownTimer (num: number) : number { 
+// function countdownTimer () { 
 
-    const giveMeNumbernu= Number(prompt("give me a numbrt"));
+//     const giveMeNumbernu= Number(prompt("give me a numbrt"));
 
-    let i= 0
 
-    for( i=0; i<= num; i++){
+//     let i= 0
+
+//     for( i=0; i<= giveMeNumbernu;i++ ){
      
-       let result= giveMeNumbernu- i ;
+//        let result= giveMeNumbernu- i ;
 
 
-     console.log (result);
+//      console.log (result); }
+
+//      const isnotnumber= isNaN (giveMeNumbernu);
+
+
+//     if( isnotnumber) {
+//     throw "error" }
+
+//     else{
+//     return result }
+
+// }
+
+// countdownTimer();
+
+
+//4. Bonus - Sum of Digits:
+
+function giveMeNumber () {
+
+const giveMe= Number (prompt("give me a number")); 
+
+const number_str= str(giveMe)
+
+
+
 }
-}
-countdownTimer(8);
+
+giveMeNumber();
