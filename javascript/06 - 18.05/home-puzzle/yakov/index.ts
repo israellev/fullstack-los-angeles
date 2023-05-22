@@ -5,17 +5,20 @@ export {};
 // 1. Function and Loop - Multiplication Table:
 // Write a function named multiplicationTable that takes a parameter num. The function should print the multiplication table for that number from 1 up to 10 using a for loop. if the num is 5 it'll print for example '5 * 1 = 5', than '5 * 2 = 10', etc up to 10.
 
-// function multiplicationTable(params: Number) {
-//   for (let num = 1; num <= 10; num++)
-//     console.log("the number now is" + num + "!");
-// }
-// const params = Number(prompt("enter number"));
-// multiplicationTable(params);
+function multiplicationTable(parameter: number) {
+  console.log("home - puzzle 1");
+  for (let i = 0; i <= 10; i++) {
+    let result = i * parameter;
+    console.log(`${i} ${"*"} ${parameter} ${"="} ${result} `);
+  }
+}
+const parameter = parseInt(prompt("Enter number between 1-100"));
+multiplicationTable(parameter);
 // 2. Countdown Timer:
 // Write a function that asks the user for a number and then counts down from that number to zero, printing each number on a new line. Use a for loop to accomplish this.
 // If the user enter something not number - throw error.
-/
-/ function countDownFromNumber() {
+
+function countDownFromNumber() {
   let userIn = Number(prompt("Enter a number:"));
 
   // Check if userInput is a valid number
