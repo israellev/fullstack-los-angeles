@@ -1,5 +1,4 @@
 export {}
-// daniel peretz
 // prompt =שהלקוח יכול להכניס ערך או תשובה 
 // isNan = זה לא מספר 
 // !isNan = זה מספר! 
@@ -31,7 +30,7 @@ function getAge(){
 try{// נסיון נוסף (מחיה את השגאיה)
 const theUserAge = getAge();//שם של משתנה נוסף + משתנה של השגיאה 
 console.log("user age is"+theUserAge); // הדפסה לקונסול לוג + משתנה חדש 
-}catch (error) {
+}catch (error){
     alert("error has occured:" + error); //מקפיץ מודעת התרחשה שגיאה 
 }
 
