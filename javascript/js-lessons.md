@@ -45,6 +45,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "ABC".toLowwercase() // "abc"
     "abc".toUppercase() // "ABC"
     "abca".replace("a", "AAA") // "AAAbca"
+    "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
 
     Array + array functions:
     const arr = ["a", "b", "c"]
