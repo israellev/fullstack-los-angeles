@@ -4,38 +4,39 @@ export {};
 
 // Get full name
 // make anonymous function that get firstName and lastName and return full name.
-// const getFullName = (firstName: string, lastName: string): string => {
-//   const full = firstName + " " + lastName;
-//   return full;
-// };
-// const firstName = prompt("your name is?");
-// const lastName = prompt("Your last name is?");
-// const fullName = getFullName(firstName, lastName);
-// console.log(fullName);
+const getFullName = (firstName: string, lastName: string): string => {
+  const Full = `${[firstName]} ${[lastName]}`;
+  return Full;
+};
 
+const firstName = prompt(`what yuore name ?`);
+const lastName = prompt(`waht youre last name ?`);
+const Full = getFullName(firstName, lastName);
+console.log(Full);
 ///--------------------------------------------------------------------------------
 
 // Get the user age
 // ask the user by a function what is age, if is not number (isNaN) throw an error,
 // use that function inside 'try catch'
-function userage(): Number {
-  const user = prompt(`waht your age?`);
-  const age = Number(user);
-  const isNotNumber = isNaN(age);
-  if (isNotNumber) {
-    throw `input error`;
-  } else {
-    return age;
-  }
-}
-try {
-  const user = userage();
-  console.log(`the user age is `, user);
-} catch (c) {
-  alert(c);
-}
 
-console.log("The code is continue");
+// function userage(): Number {
+//   const user = prompt(`waht your age?`);
+//   const age = Number(user);
+//   const isNotNumber = isNaN(age);
+//   if (isNotNumber) {
+//     throw `input error`;
+//   } else {
+//     return age;
+//   }
+// }
+// try {
+//   const user = userage();
+//   console.log(`the user age is `, user);
+// } catch (c) {
+//   alert(c);
+// }
+
+// console.log("The code is continue");
 // home puzzle:
 
 //  Function and Loop - Multiplication Table:
