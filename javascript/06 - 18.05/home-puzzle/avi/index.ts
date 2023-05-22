@@ -19,7 +19,8 @@ const countDownTimer = ()=>{
     if(isNaN(num)){
         throw `${"its not number"}`
     }
-    for(let i = num ; i>=0 ; i--){
+    for(let i = num ; i>=0 ; i--)
+    {
         console.log(`${"the number time now is :"} ${i} ${":00"}`)
     }
 }
