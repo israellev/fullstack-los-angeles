@@ -29,8 +29,8 @@ function userage():Number{
 try{
 const user = userage()
 console.log (`the user age is `,user) 
-}catch(A){
-alert (A)
+}catch(c){
+alert (c)
 }
 
 console.log("The code is continue");
