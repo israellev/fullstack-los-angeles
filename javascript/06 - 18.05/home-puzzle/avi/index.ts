@@ -39,9 +39,10 @@ try {
 
 const checksPolindrome = ()=>{
     console.log("home - puzzle Bonus 3")
-    const string = prompt("enter a string ")
+    const string = prompt("enter a string ");
     console.log(`${string}`);
-    const inpurStr = string.toLowerCase().replace(/\s/g, "");
+    const strInput = string.toLowerCase();
+    const inpurStr = strInput.replace(/\s/g, "");
     console.log(`${inpurStr}`);
     const len = inpurStr.length
 
