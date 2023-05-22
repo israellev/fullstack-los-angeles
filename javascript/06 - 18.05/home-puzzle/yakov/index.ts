@@ -5,52 +5,39 @@ export {};
 // 1. Function and Loop - Multiplication Table:
 // Write a function named multiplicationTable that takes a parameter num. The function should print the multiplication table for that number from 1 up to 10 using a for loop. if the num is 5 it'll print for example '5 * 1 = 5', than '5 * 2 = 10', etc up to 10.
 
-// function multiplicationTable(params: Number) {
-//   for (let num = 1; num <= 10; num++)
-//     console.log("the number now is" + num + "!");
-// }
-// const params = Number(prompt("enter number"));
-// multiplicationTable(params);
+function multiplicationTable(parameter: number) {
+  console.log("home - puzzle 1");
+  for (let i = 0; i <= 10; i++) {
+    let result = i * parameter;
+    console.log(`${i} ${"*"} ${parameter} ${"="} ${result} `);
+  }
+}
+const parameter = parseInt(prompt("Enter number between 1-100"));
+multiplicationTable(parameter);
 // 2. Countdown Timer:
 // Write a function that asks the user for a number and then counts down from that number to zero, printing each number on a new line. Use a for loop to accomplish this.
 // If the user enter something not number - throw error.
 
-function countTimer() {
-  let userNum = prompt("enter number please");
-  if (isNaN(Number(userNum))) {
-    throw `input error`;
+function countDownFromNumber() {
+  let userIn = Number(prompt("Enter a number:"));
+
+  // Check if userInput is a valid number
+  if (isNaN(userIn)) {
+    throw new Error("Invalid input. Please enter a number.");
   }
-  let number = parseInt(userNum);
-  for (let i = number; i <= 0; i--) {
-    console.log(`${"the number is :"} ${i}`);
+
+  var number = userIn;
+
+  for (var i = number; i >= 0; i--) {
+    console.log(i);
   }
 }
+
 try {
-  //   const userNum = parseInt(prompt("enter number please"));
-  countTimer();
+  countDownFromNumber();
 } catch (error) {
-  console.log("input worng ");
+  console.log(error.message);
 }
-// function countDownFromNumber() {
-//   let userIn = Number(prompt("Enter a number:"));
-
-//   // Check if userInput is a valid number
-//   if (isNaN(userIn)) {
-//     throw new Error("Invalid input. Please enter a number.");
-//   }
-
-//   var number = userIn;
-
-//   for (var i = number; i >= 0; i--) {
-//     console.log(i);
-//   }
-// }
-
-// try {
-//   countDownFromNumber();
-// } catch (error) {
-//   console.log(error.message);
-// }
 
 // 3. Bonus - Palindrome Checker:
 // Create a function that asks the user for a string and checks whether the string is a palindrome or not. A palindrome is a word, phrase, number, or other sequence of characters that reads the same backward or forward. Note: This challenge must be accomplished without using array methods.

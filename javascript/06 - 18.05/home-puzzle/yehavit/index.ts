@@ -55,7 +55,7 @@ function sumOfDigits() {
     if (isNaN(inputCheck)) {
       throw new Error("Invalid input. Please enter a number.");
     }
-    let str = String(num);
+    let str = String(input);
     let stringlength = str.length;
     let sum = 0;
     for (let index = 0; index < stringlength; index++) {

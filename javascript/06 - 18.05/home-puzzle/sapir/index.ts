@@ -6,3 +6,31 @@ function multiplicationTable (num:number){//אתחלתי פונקציה שמקב
         console.log(`${num} * ${i} = ${result}`);//בסיום כל איטרציה יודפס החישוב שהתבצע 
     }
 }
+
+
+//-----------------------------------------------------------------------
+
+function countdownTimer () {
+   const userInput = Number(prompt("please enter a number:"));
+   if (isNaN(userInput)){
+    throw("invalid: seems like you entered an argument which is not of type Number");
+   }
+   for(let i=num; i>=0; i--){
+   console.log(i);
+   }
+}
+
+//-----------------------------------------------------------------------
+
+function PalindromeChecker (){
+    const userInput = prompt("please enter a string in order to check whether it a Palindrome or not:");
+    let  stringInput = '';
+    for(let i = userInput.length - 1; i>= 0; i--){
+        stringInput += userInput[i];
+    }
+    if (userInput === stringInput){
+        console.log(`${userInput} is a Palindrome!`);
+    }else{
+        console.log(`${userInput} is not a Palindrome!`);
+    }
+}
