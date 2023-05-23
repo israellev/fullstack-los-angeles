@@ -48,7 +48,7 @@ function avgNumberInArray (numbers:number[]): number{
 }
 let numbers2 =[2, 4 , 6 ,8];
 let result2=avgNumberInArray(numbers);
-console.log(`the average numbers of the array is: ${result2}`);
+console.log(`the average of the array is: ${result2}`);
 
 
 
