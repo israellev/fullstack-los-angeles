@@ -1,36 +1,17 @@
-export{};
+export{}
 
-// const getFullName = (firstName:string, lastName:string):string => {
-//     const Full = `${[firstName]} ${[lastName]}`;
-//     return Full;
-// };
 
-// const firstName = (prompt(`what yuore name ?`));
-// const lastName = (prompt(`waht youre last name ?`));
-// const Full = getFullName(firstName , lastName);
-// console.log (Full);
+function printFirstAndLast(str){
+const firstName=str[0];
+const lastName =str[str.length -1 ];
+console.log (firstName);
+console.log (lastName);
+}
  
-
-
-/// home puzzle////////
-
-function userage():Number{
-    const user = prompt(`waht your age?`);
-    const age = Number(user)
-    const isNotNumber = isNaN(age) 
-    if (isNotNumber) {
-        throw `input error`;
-    }
-  else {
-    return age
-
-  }
-}
-try{
-const user = userage()
-console.log (`the user age is `,user) 
-}catch(c){
-alert (c)
+function printstate(str){
+  console.log  ([0],[str.length -1]);
 }
 
-console.log("The code is continue");
+const arr = [`w`,`e`,`w`,`f`]
+printstate(arr);
+printFirstAndLast(arr);
