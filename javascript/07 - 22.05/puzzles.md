@@ -30,7 +30,7 @@ for example from [1, 2, 3] it returns 2 (the index of 3).
 
 3. avg number in array
 Write a function that recive an array of numbers and returns the average number.
-for example from [1, 2, 3] it returns 2.
+for example from [0, 1, 2, 3] it returns 1.5.
 (arr: number[]) => number
 
 4. check if array contains the item
