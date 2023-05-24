@@ -26,7 +26,7 @@ console.log(result);
 // for example from [1, 2, 3] it returns 2 (the index of 3).
 
 console.log("Home pzzle - 2")
-function findMax(num) {
+function findMax(num:number[]):number{
     let max = 0;
     let count = 0;
     for (let i = 0 ; i < num.length ; i++){
@@ -84,7 +84,7 @@ function containsValue(arr:number[], value:number):string {
 //  bonus--------------------------------------
 
 console.log("Home pzzle from CHET-GPT - 5")
-function concatArrays (arr1 , arr2) {
+function concatArrays (arr1:number[] , arr2:number[]):number[] {
     
     if(arr1.length > arr2.length){
         for (let i = 0; i < arr1.length; i++) {
