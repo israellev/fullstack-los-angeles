@@ -38,10 +38,17 @@ Write a function that recive an array and value, return true if the value exists
 for example from ([1, 2, 3], 4) it returns false.
 (arr: number[], num: number) => boolean
 
-5. Capital Letters
+5. First Letter
+Write a funtion that gets array of names and return array with first letter of those names in upper case.
+for example from ["liad", "sarit"] it returns ["S", "L"]
+
+6. Capital Letters
 Write a funtion that gets array of names and return array with those names in capital letter.
 for example from ["liad", "sarit"] it returns ["Liad", "Sarit"]
+(I already showed)
 
-6. Upside Down
+7. Upside Down
 Write a funtion that gets array of names and return array with those names in upside order.
 for example from ["liad", "sarit"] it returns ["sarit", "liad"]
+
+
