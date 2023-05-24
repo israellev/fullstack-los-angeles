@@ -14,18 +14,15 @@
     variables operators - ++, --, +=
 
 4.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
+    conditions combine - &&, ||
     conditions - 'if() {} else {}' and 'switch() { case "": break; case "": break; }'
     numbers - int and float (integer - 1, float - 1.0)
     math library - abs, ceil, floor, max, min, round
     loops - welcome for:
-    for (let i = 0; i < 10; i++) {
-    console.log(i);
-    }
+    for (let i = 0; i < 10; i++) { console.log(i) }
 
 5.  3 ways for loops - for, while(true) {}, do {} while (true)
-    functions - function hello() {
-    console.log("hello")
-    }
+    functions - function hello() {console.log("hello")}
     functions parameters // function hello(name: string): void {}
     functions return values // function hello(name: string): string { return name }
 
@@ -37,7 +34,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
 07.  String functions:
     "abca".length // 4
-    "abca".index[0] // "a"
+    "abca"[0] // "a"
     "abca".indexOf("a") // 0
     "abca".lastIndexOf("a") // 4
     "abc".slice(0, 2) // "ab"
@@ -58,9 +55,16 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     arr.shift("aa") // console.log(arr) = ["aa", "a", "b", "c"]
     arr.shipt() // console.log(arr) = ["a", "b", "c"]
 
-    use - array and loops
-
-8.  callback function
+8.  
+    typeof "" // 'string'
+    typeof 1 // 'number'
+    typeof true // 'boolean'
+    typeof typeof (() => true) // 'function'
+    Array.isArray([]) // true
+    (typeof [] // 'object')
+    
+    ["a", "b", "c"].includes("a") // true
+    callback function
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items
     map((item): any => {}) return what you want instead each item
