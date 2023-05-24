@@ -67,7 +67,7 @@ console.log(`${"the average in this array is :"} ${resultAvg}`);
 // for example from ([1, 2, 3], 4) it returns false.
 
 console.log("Home pzzle - 4")
-function containsValue(arr, value) {
+function containsValue(arr:number[], value:number):string {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === value) {
         return `${value} ${"="} ${arr[i]}`;
