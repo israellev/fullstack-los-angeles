@@ -27,19 +27,28 @@ console.log(result);
 
 console.log("Home pzzle - 2")
 function findMax(num) {
-    let max = Math.max(...num)
-    return max
+    let max = 0;
+    let count = 0;
+    for (let i = 0 ; i < num.length ; i++){
+        if (max < num[i])
+        {
+            max = num[i];
+            count = i
+        }
+        
+    }
+    return count
 }
 let num = [1, 2, 13, 15,25, 2, 14];
 findMax(num);
-console.log(`${"the maximum number in this array is :"} ${findMax(num)}`);
+console.log(`${"the index of maximum number in this array is :"} ${findMax(num)}`);
 
 // 3. avg number in array
 // Write a function that recive an array of numbers and returns the average number.
 // for example from [1, 2, 3] it returns 2.
 
 console.log("Home pzzle - 3")
-function avgArray(numArray){
+function avgArray(numArray : number[]) :number{
     
     let sumArray = 0;
     for (let i = 0; i < numArray.length; i++)
