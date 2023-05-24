@@ -104,17 +104,34 @@ export { }
 
 //
 
-function avgNumber(num: number[]): number {
-let sum=0;
-for( let i=0; i<= num.length; i++) {
-    const value = num[i];
-     sum= sum+value
+// function avgNumber(num: number[]): number {
+// let sum=0;
+// for( let i=0; i< num.length; i++) {
+//     const value = num[i];
+//      sum= sum+value
+// }
+
+// return sum/ num.length;
+
+// }
+
+// console.log(avgNumber([ 1,2,3]));
+// console.log(avgNumber([ 1,2,7]));
+
+
+function checkIf(arr: number[], num: number): boolean {
+
+    for (let i = 0; i < arr.length; i++) {
+
+        const value = arr[i]
+
+        if (num === value)
+            return true;
+    }
+
+    return false;
+
 }
 
-return sum/ num.length
-
-}
-
-console.log(avgNumber([ 1,2,3]));
-console.log(avgNumber([ 1,2,7]));
-  
+console.log(checkIf([1, 2, 3], 4));
+console.log(checkIf([1, 2, 3], 2));
