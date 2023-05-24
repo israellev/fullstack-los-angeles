@@ -1,4 +1,4 @@
-export {}
+export { }
 
 
 /* use function inside the  */
@@ -34,17 +34,17 @@ console.log("Your age is: ", age) */
 
 /* Array + array method: */
 // number, stinrg, Nan, undefined, null, function, array, object;
-const arr = ["apple", "orange", "strawberry"] 
+const arr = ["apple", "orange", "strawberry"]
 arr[0] // "apple"
 arr[arr.length - 1] // "strawberry" 
 arr.indexOf("orange") // 1
 
 /* Functions that change the array it self: */
 
-arr.push("banana") 
+arr.push("banana")
 // it add the item to the end: ["apple", "orange", "strawberry", "banana"] 
 
-arr.pop() 
+arr.pop()
 // it remove item from the end: ["apple", "orange", "strawberry"] 
 
 arr.unshift("banana")
@@ -54,3 +54,28 @@ arr.shift()
 // it add the item to the start: ["apple", "orange", "strawberry"] 
 
 
+/* 2. max number in Array 
+Write a function that recive an array of numbers and returns the bigget number index.
+for example from [1, 2, 3] it returns 2 (the index of 3).
+(arr: number[]) => number
+ */
+
+/* 
+1. function name, parameters and return types.
+2. 
+*/
+
+function getMaxNumberIndex(arr: number[]): number {
+    // arr = [6, 2, 3, 5]
+    let maxNumber = 0;
+    for (let index = 0; index < arr.length; index++) {
+        const value = arr[index]
+        if (value > maxNumber) {
+            maxNumber = value
+        }
+    }
+    return arr.indexOf(maxNumber)
+}
+
+const maxNumber = getMaxNumberIndex([2, 3, 11, 8, 22, 6, 5])
+console.log(maxNumber)
