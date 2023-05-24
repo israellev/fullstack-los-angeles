@@ -56,7 +56,17 @@ console.log(`the average of the array is: ${result2}`);
 //Write a function that recive an array and value, return true if the value exists in the array, and false if not.
 //for example from ([1, 2, 3], 4) it returns false.
 
-function arrayContainsNumber(numbers:number []): number{
-
+function arrayContainsNumber(arr:any[], value:any[]): boolean{
+    for(let i =0; i < arr.length; i++){
+        if (arr[i]===value){
+            return true;
+        }
+        return false
+    }
 }
+
+const arr = [10, 22, 3];
+const value = 4;
+const contains = arrayContainsNumber(arr, value);
+console.log(contains); 
 

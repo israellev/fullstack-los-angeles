@@ -36,4 +36,5 @@ for example from [0, 1, 2, 3] it returns 1.5.
 4. check if array contains the item
 Write a function that recive an array and value, return true if the value exists in the array, and false if not.
 for example from ([1, 2, 3], 4) it returns false.
+(arr: number[], num: number) => boolean
 

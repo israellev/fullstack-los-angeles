@@ -123,7 +123,7 @@ export {}
 
 function giveMeNumber () {
 
-const giveMe= Number (prompt("give me a number")); 
+const giveMe= Number (prompt("give me a number with tow numbers")); 
 
 const number_str= str(giveMe)
 
@@ -132,3 +132,7 @@ const number_str= str(giveMe)
 }
 
 giveMeNumber();
+
+
+
+// 
