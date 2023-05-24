@@ -35,7 +35,7 @@ variable scopes - each code bock or scope {} is a layer when you declare variabl
 error handling - throw 'error', try {} catch(e) {}
 isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
-7.  String functions:
+07.  String functions:
     "abca".length // 4
     "abca".index[0] // "a"
     "abca".indexOf("a") // 0
