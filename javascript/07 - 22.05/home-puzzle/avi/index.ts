@@ -40,8 +40,8 @@ function findMax(num) {
     return count
 }
 let num = [1, 2, 13, 15,25, 2, 14];
-findMax(num);
-console.log(`${"the index of maximum number in this array is :"} ${findMax(num)}`);
+let count = findMax(num);
+console.log(`${"the index of maximum number in this array is :"} ${count}`);
 
 // 3. avg number in array
 // Write a function that recive an array of numbers and returns the average number.
