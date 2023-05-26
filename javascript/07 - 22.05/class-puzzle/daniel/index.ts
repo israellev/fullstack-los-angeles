@@ -55,15 +55,17 @@ export { }
 // (arr: number[], num: number) => boolean
 
 function isNumInArray(arr: number[], num: number): boolean {
-    for (let i = 0; i < arr.length; i++) {
-        const value = arr[i];
-        if (num === value)
+    for (let i = 0; i < arr.length; i++) { 
+        // const value = arr[i];
+        if (num === arr[i])
             return true
 
     }
-return false
+    return  false
+
 
 
 }
 console.log(isNumInArray([1, 2, 3], 4))
-console.log(isNumInArray([1, 2, 3],1))
+console.log(isNumInArray([1, 2, 3], 1))
+prompt("it's "+isNumInArray([1, 2, 3],1))
