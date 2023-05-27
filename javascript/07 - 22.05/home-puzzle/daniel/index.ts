@@ -6,18 +6,18 @@ export { }
 
 
 
-// function getFirstLetter(names: string[]): string[] {
-//     const  firstLetters: string [] = [];
-//     for (let i = 0; i < names.length; i++) {
-//         const name = names[i];
-//         const firstLetter = name.charAt(0).toUpperCase();
-//         firstLetters.push(firstLetter);
-//     }
-//     return firstLetters;
-// }
-// const names = ["liad","sarit"];
-// const result = getFirstLetter(names);
-// console.log(result);
+function getFirstLetter(names: string[]): string[] {
+    const  firstLetters: string [] = [];
+    for (let i = 0; i < names.length; i++) {
+        const name = names[i];
+        const firstLetter = name.charAt(0).toUpperCase();
+        firstLetters.push(firstLetter);
+    }
+    return firstLetters;
+}
+const names = ["liad","sarit"];
+const result = getFirstLetter(names);
+console.log(result);
 
 
 
