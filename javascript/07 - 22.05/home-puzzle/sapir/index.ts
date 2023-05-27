@@ -70,3 +70,58 @@ const value = 4;
 const contains = arrayContainsNumber(arr, value);
 console.log(contains); 
 
+//5. First Letter
+//Write a funtion that gets array of names and return array with first letter of those names in upper case.
+//for example from ["liad", "sarit"] it returns ["S", "L"]
+
+function getFirstLetter(names: string[]): string[]{
+    const firstLetters:string[]=[];// משתנה מסוג מערך חדש שיכיל את האותיות הראשונות של השמות
+    for (let i =0; i < names.length; i++){//לולאה שתעבור על כל משתנה במערך 
+        const name= names[i];// משתנה בתוך הלולאה אשר יקבל את השם הנוכחי מהמערך
+        const firstLetter = name.charAt[0].toUpperCase();//משתנה אשר יקבל את האות הראשונה של כל שם במערך ושירשור שהאות תהפוך לגדולה
+        firstLetters.push(firstLetter); //דוחפים בשיטת פוש את האות הראשונה הגדולה למשתנה מסוג מערך שיצרנו בשורה 78
+}
+   return firstLetters;
+}
+
+  const names = ["liad", "sarit"];
+  const result3 = getFirstLetter(names);
+  console.log(result3); 
+
+
+//6. Capital Letters
+//Write a funtion that gets array of names and return array with those names in capital letter.
+//for example from ["liad", "sarit"] it returns ["Liad", "Sarit"]
+//(I already showed)
+
+function getNameToCapLetter(names: string[]): string[]{
+    const capitalLetters: string [] = [];
+    for (let i = 0; i < names.length; i++) {
+        const name = names[i];
+        const capLetters = name.toUpperCase();
+        capitalLetters.push(capLetters);
+        
+    }
+    return capitalLetters;
+}
+
+const name = ["liad", "sarit","sapir", "shir"];
+const result4 = getNameToCapLetter(name);
+console.log(result4);
+
+//7. Upside Down
+//Write a funtion that gets array of names and return array with those names in upside order.
+//for example from ["liad", "sarit"] it returns ["sarit", "liad"]
+
+function reverseNames(names: string[]): string[] {
+    return names.reverse();
+  }
+  
+  const names4 = ["sapir", "sarit", "liad"];
+  const reversedNames = reverseNames(names4);
+  
+  console.log(reversedNames);
+
+
+
+
