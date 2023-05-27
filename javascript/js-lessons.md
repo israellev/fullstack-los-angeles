@@ -50,10 +50,10 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     arr.indexOf("a") // 0
 
     Functions that change the array it self:
-    arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"]
-    arr.pop() // console.log(arr) = ["a", "b", "c"]
-    arr.shift("aa") // console.log(arr) = ["aa", "a", "b", "c"]
-    arr.shipt() // console.log(arr) = ["a", "b", "c"]
+    arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"] //- להוסיף מהסוף
+    arr.pop() // console.log(arr) = ["a", "b", "c"]//-למחוק מהסוף
+    arr.shift("aa") // console.log(arr) = ["aa", "a", "b", "c"]//- להוסיף מהתחלה 
+    arr.unshift() // console.log(arr) = ["a", "b", "c"]//- למחוק מהתחלה 
 
 8.  
     typeof "" // 'string'
