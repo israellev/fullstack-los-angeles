@@ -1,6 +1,8 @@
 export { }
 // // 1. Function and Loop - Multiplication Table:
-// // Write a function named multiplicationTable that takes a parameter num. The function should print the multiplication table for that number from 1 up to 10 using a for loop. if the num is 5 it'll print for example '5 * 1 = 5', than '5 * 2 = 10', etc up to 10.
+// // Write a function named multiplicationTable that takes a parameter num. 
+//The function should print the multiplication table for that number from 1 up to 10 using a for loop. 
+//if the num is 5 it'll print for example '5 * 1 = 5', than '5 * 2 = 10', etc up to 10.
 function multiplicationTable(parameter: number) {
     console.log("home - puzzle 1")
     for (let i = 0; i <= 10; i++) {
