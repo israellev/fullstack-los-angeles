@@ -1,56 +1,51 @@
 export { }
 
-// //puzzle 1
-// function printState(str) {
-//     console.log(str[0]);
-//     console.log(str[str.length - 1]);
-// }
-// printState("lion")
+//puzzle 1
+// 1. fisrt and last of string
+// Write a function that calls 'printState' that get 'str' parameter and print 
+// the first and last string.
 
-// //puzzle 2
-// function stringValidation() {
-//     const str = prompt("Enter the letters A in any order")
-//     if (!isNaN(Number(str)))
-//         throw "Error"    
-//     else {
-//         console.log(str.trim().toLowerCase().replace(/a/g, "b"))
-//     }
-// }
+function printState(str) {
+    console.log(str[0]);
+    console.log(str[str.length - 1]);
+}
+printState("lion")
 
-// try {
-//     stringValidation()
-// }
-// catch (Error) {
-//     alert(Error)
-// }
+//puzzle 2
+// string validation
+// Create a function that takes in a string, removes whitespace from both ends,
+//  converts it to lower case and then replaces all occurrences of the letter 'a' with 'b'. Make sure the function throws an error if something other than a string is input. 
+// for example from " aaa " it will returs "bbb".
+// hint: 'const isString = isNaN(Number(str))'
 
-// // create dynamic array 
-// // Creat a function that received a 'num' and return array of numbers 
-// // that start from 0 to the number of the 'num'. 
-// // // for example user enter 3, the function return [0, 1, 2, 3], etc. 
-// function returnArrayNumbers () {
-//     const numberInput = Number(prompt("Enter a number"))
-//     for (let i = 0; i <= numberInput; i++) {
-//         console.log (i)
-//     }
-// }
+function stringValidation() {
+    const str = prompt("Enter the letters A in any order")
+    if (!isNaN(Number(str)))
+        throw "Error"    
+    else {
+        console.log(str.trim().toLowerCase().replace(/a/g, "b"))
+    }
+}
 
-// returnArrayNumbers()
+try {
+    stringValidation()
+}
+catch (Error) {
+    alert(Error)
+}
 
-// // Sum the array numbers
-// // Write a function that receive array of numbers (only) as a parameter, 
-// // and return the result of all numbers together.
+// create dynamic array 
+// Creat a function that received a 'num' and return array of numbers 
+// that start from 0 to the number of the 'num'. 
+// // for example user enter 3, the function return [0, 1, 2, 3], etc. 
+function returnArrayNumbers () {
+    const numberInput = Number(prompt("Enter a number"))
+    for (let i = 0; i <= numberInput; i++) {
+        console.log (i)
+    }
+}
 
-// function sumArrayNumbers(numbers) {
-//     let total = 0;
-//     for (let i = 0; i < numbers.length; i++) {
-//       total += numbers[i];
-//     }
-//     return total;
-//   }
-//   const myArray = [2, 4, 6, 8, 12];
-//   const result = sumArrayNumbers(myArray);
-//   console.log(result); 
+returnArrayNumbers()
 
   
 // // FizzBuzz Array
