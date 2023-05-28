@@ -78,7 +78,7 @@ function getFirstLetter(names: string[]): string[]{
     const firstLetters:string[]=[];// משתנה מסוג מערך חדש שיכיל את האותיות הראשונות של השמות
     for (let i =0; i < names.length; i++){//לולאה שתעבור על כל משתנה במערך 
         const name= names[i];// משתנה בתוך הלולאה אשר יקבל את השם הנוכחי מהמערך
-        const firstLetter = name.charAt(0).toUpperCase();//משתנה אשר יקבל את האות הראשונה של כל שם במערך ושירשור שהאות תהפוך לגדולה
+        const firstLetter = name.charAt[0].toUpperCase();//משתנה אשר יקבל את האות הראשונה של כל שם במערך ושירשור שהאות תהפוך לגדולה
         firstLetters.push(firstLetter); //דוחפים בשיטת פוש את האות הראשונה הגדולה למשתנה מסוג מערך שיצרנו בשורה 78
 }
    return firstLetters;

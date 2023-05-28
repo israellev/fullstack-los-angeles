@@ -26,20 +26,29 @@ console.log(result);
 // for example from [1, 2, 3] it returns 2 (the index of 3).
 
 console.log("Home pzzle - 2")
-function findMax(num) {
-    let max = Math.max(...num)
-    return max
+function findMax(num:number[]):number{
+    let max = 0;
+    let count = 0;
+    for (let i = 0 ; i < num.length ; i++){
+        if (max < num[i])
+        {
+            max = num[i];
+            count = i
+        }
+        
+    }
+    return count
 }
 let num = [1, 2, 13, 15,25, 2, 14];
-findMax(num);
-console.log(`${"the maximum number in this array is :"} ${findMax(num)}`);
+let count = findMax(num);
+console.log(`${"the index of maximum number in this array is :"} ${count}`);
 
 // 3. avg number in array
 // Write a function that recive an array of numbers and returns the average number.
 // for example from [1, 2, 3] it returns 2.
 
 console.log("Home pzzle - 3")
-function avgArray(numArray){
+function avgArray(numArray : number[]) :number{
     
     let sumArray = 0;
     for (let i = 0; i < numArray.length; i++)
@@ -58,7 +67,7 @@ console.log(`${"the average in this array is :"} ${resultAvg}`);
 // for example from ([1, 2, 3], 4) it returns false.
 
 console.log("Home pzzle - 4")
-function containsValue(arr, value) {
+function containsValue(arr:number[], value:number):string {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === value) {
         return `${value} ${"="} ${arr[i]}`;
@@ -75,7 +84,7 @@ function containsValue(arr, value) {
 //  bonus--------------------------------------
 
 console.log("Home pzzle from CHET-GPT - 5")
-function concatArrays (arr1 , arr2) {
+function concatArrays (arr1:number[] , arr2:number[]):number[] {
     
     if(arr1.length > arr2.length){
         for (let i = 0; i < arr1.length; i++) {
