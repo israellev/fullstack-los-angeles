@@ -72,17 +72,64 @@ export{}
 // const result3 = itemChecker(array, myNumber);
 // console.log(result3);
 
-function lowestNumber (arr: number[]) : number {
-    let minimumNumber = arr[0]
-    for (let i = 0; i < arr.length; i++) {
-        console.log("minimumNumber is ",minimumNumber,arr[i],minimumNumber > arr[i])
-        if (minimumNumber > arr[i]) {
-            minimumNumber = arr[i]
-        }
-    }
-    return minimumNumber
-}
+// function lowestNumber (arr: number[]) : number {
+//     let minimumNumber = arr[0]
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log("minimumNumber is ",minimumNumber,arr[i],minimumNumber > arr[i])
+//         if (minimumNumber > arr[i]) {
+//             minimumNumber = arr[i]
+//         }
+//     }
+//     return minimumNumber
+// }
 
-const array2 = [1,5,6,-1,4]
-const result4 = lowestNumber(array2)
-console.log(result4)
+// const array2 = [1,5,6,-1,4]
+// // const result4 = lowestNumber(array2)
+// // console.log(result4)
+
+// // //5. First Letter
+// // // Write a funtion that gets array of names and return array with first letter of those names in upper case.
+// // // for example from ["liad", "sarit"] it returns ["S", "L"]
+
+// function getFirstLetterName (arr) {
+//     var newArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         var name = arr[i]
+//         var firstLetter = name[0].toUpperCase();
+//         newArr.push(firstLetter)
+
+//     }
+//     return (newArr);
+// }
+// console.log(getFirstLetterName(["sarit","liad"]));
+
+
+//6. Capital Letters
+// Write a funtion that gets array of names and return array with those names in capital letter.
+// for example from ["liad", "sarit"] it returns ["Liad", "Sarit"]
+
+// function getFirstLetterName (arr) {
+//     var newArr = [];
+//     for (let i = 0; i < arr.length; i++ ) {
+//         var name = arr[i];
+//         var firstLetterName = name[0].toUpperCase();
+//         var restName = name.slice(1);
+//         newArr.push(firstLetterName + restName);
+//     }
+//     return newArr;
+// }
+// console.log(getFirstLetterName(["sarit","liad"]));
+
+// 7. Upside Down
+// Write a funtion that gets array of names and return array with those names in upside order.
+// for example from ["liad", "sarit"] it returns ["sarit", "liad"]
+
+// function getReversedArray(arr) {
+//     var namesArr = []
+//     for (let i = 0; i = arr.length; i++) {
+//         var names = namesArr.reverse
+//         namesArr.push (names)
+//     }
+//     return (namesArr)
+// }
+// console.log (getReversedArray(["liad","sarit","sapir","shir"]))
