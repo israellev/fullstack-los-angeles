@@ -85,8 +85,8 @@ function lowestNumber (arr: number[]) : number {
 
 const array2 = [1,5,6,-1,4]
 
-// const result4 = lowestNumber(array2)
-// console.log(result4)
+const result4 = lowestNumber(array2)
+console.log(result4)
 
 // //5. First Letter
 // // Write a funtion that gets array of names and return array with first letter of those names in upper case.
@@ -112,9 +112,9 @@ console.log(getFirstLetterName(["sarit","liad"]));
 function FirstLetterName (arr) {
     var newArr = [];
     for (let i = 0; i < arr.length; i++ ) {
-        var name = arr[i];
-        var firstLetterName = name[0].toUpperCase();
-        var restName = name.slice(1);
+        var names = arr[i];
+        var firstLetterName = names[0].toUpperCase();
+        var restName = names.slice(1,names.length);
         newArr.push(firstLetterName + restName);
     }
     return newArr;
