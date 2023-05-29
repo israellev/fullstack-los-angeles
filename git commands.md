@@ -14,9 +14,4 @@ git pull
 git push origin master
 
 
-מחיקת כל השינויים שלא נעשה להם קומיט:
-git stash
-
-
-
 
