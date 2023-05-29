@@ -1,5 +1,58 @@
  export{}
 
+//1. fisrt and last of string
+//Write a function that calls 'printState' that get 'str' parameter and print the fisrt and last string.
+
+// function printstate(){
+//   const userinput = prompt(`plase enter word:`);
+
+//   const firstString = userinput[0];
+//   console.log ("the first letter is"+firstString );
+
+//   const lastString = userinput.length-1
+//   console.log ("the last letter is" + lastString);
+
+// }
+// printstate()
+
+//2. string validation
+//Create a function that takes in a string, removes whitespace from both ends, converts it to lower case and then replaces all occurrences of the letter 'a' with 'b'.
+// Make sure the function throws an error if something other than a string is input. 
+//for example from " aaa " it will returs "bbb".
+//hint: 'const isString = isNaN(Number(str))'
+
+// function validation(){
+//   const userInput = prompt("please inter a string : ");
+//   if(isNaN(Number(userInput)))
+//   throw new Error ("oops! you didnt enter a string ");
+//   else{
+//     console.log (userInput.trim().toLocaleLowerCase().replace(/a/g,"b"))
+//   }
+// }
+
+
+
+//.3 create dynamic array 
+//Creat a function that received a 'num' and return array of numbers 
+//that start from 0 to the number of the 'num'. 
+//for example user enter 3, the function return [0, 1, 2, 3], etc. 
+
+function dynamicArray(){
+  const userInput=Number(prompt("please entre number:"));
+  const myArray = [];
+  for (let i = 0; i < userInput; i++) {
+    const element = userInput[i];
+    
+  }
+}
+
+function dynamicArray (){
+  const userInput=Number(prompt("please enter a number:")); 
+  const myArray=[];
+  for(let i =0; i<=userInput; i++){
+      myArray.push(i); 
+  }
+  return myArray;
 
 // home puzzle:
 
@@ -8,18 +61,6 @@
 // and return the result of all numbers together.
 // for example from [1, 2, 3] it returns 6
 // // 
-// function sumOfArray (numbers:number[]):number{
-//   let sum : number = 0;
-//   for(let i: number = 0; i < numbers.length ; i++ ){
-//     sum += numbers [i]; 
-//   }
-//   return sum;
-// }
-
-// let numbers:number[]= [13,10,91];
-// let result :numbers = sumOfArray([numbers]);
-// console.log(`the sum of the array numbers are: ${result}`);
-
 
 
 // 2. max number in Array 
