@@ -1,3 +1,4 @@
+
 export { }
 
 
@@ -65,7 +66,7 @@ for example from [1, 2, 3] it returns 2 (the index of 3).
 2. 
 */
 
-/* function getMaxNumberIndex(arr: number[]): number {
+function getMaxNumberIndex(arr: number[]): number {
     // arr = [6, 2, 3, 5]
     let maxNumber = 0;
     for (let index = 0; index < arr.length; index++) {
@@ -79,17 +80,3 @@ for example from [1, 2, 3] it returns 2 (the index of 3).
 
 const maxNumber = getMaxNumberIndex([2, 3, 11, 8, 22, 6, 5])
 console.log(maxNumber)
- */
-
-
-function getArrayCapitalLetters(arr: string[]): string[] {
-    const newArr = []
-    for(let i = 0; i < arr.length; i++) {
-        const name = arr[i]
-        const firstLetter = name[0].toUpperCase() // "S"
-        const restName = name.slice(1, name.length)  // "arit"
-        newArr.push(firstLetter + restName)
-    }
-    return newArr
-}
-console.log(getArrayCapitalLetters(["liad", "sarit"]))

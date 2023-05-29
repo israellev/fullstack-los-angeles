@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+   
+
+// <!-- 3. - צור/צרי תוכנה שתבקש מהמשתמש להכניס את רמת הIQ שהוא חושב שיש לו (מספר בין 1 ל20) ואם הוא/היא גבר או אישה. אם הוא קטן מ10 להשיב לו "אתה אהבל" אם הוא גדול או שווה לעשר "אתה גאון חביבי" - בלשון זכר או נקבה לפי הinput
+// . (בערבית, כדי לומר "חביבי" בלשון נקבה, אתה אומר "حبيبتي" (Habibti). המילה "Habibti" משמעה "אהובתי" או "חביבתי") -->
+ 
+ var IQ = Number(prompt("Please enter your IQ level From 1 to 20"))
+ var gender = prompt("Are you male or female")
+ if (IQ >= 0 && IQ<=20){
+    if (IQ >=10 && gender == "male" )
+console.log(" אתה גאון")
+ 
+ else if (IQ <=10 && gender == "male" ) {
+ console.log(" אתה אהבל")
+}
+
+if (IQ >= 10 && gender=="female" ){
+console.log(" את גאונה חביבתי")
+}
+ else if(IQ <=10 && gender=="female") {
+     console.log("את אהבלית חביבתי")
+
+ }
+}
+ 
+// בונוס 2 - צור/צרי תוכנה שממליצה על קטגוריית סרטים לפי גילאים, אם המשתמש קטן מ12 היא תציע לו אנימציה, אם הוא בין 12 ל22 היא תציע לו אקשן, ואם הוא מעל 22 (מבוגר :->) אז היא תציע לו דרמה. 
+if (IQ >= 10 && gender=="female" ){
+console.log(" את גאונה חביבתי")
+}
+ else if(IQ <=10 && gender=="female") {
+     console.log("את אהבלית חביבתי")
+
+ }
+
+
+
+</script>
+
+
+</body>
+</html>18

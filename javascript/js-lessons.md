@@ -39,8 +39,8 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "abca".lastIndexOf("a") // 4
     "abc".slice(0, 2) // "ab"
     " abc ".trim() // "abc"
-    "ABC".toLowwercase() // "abc"
-    "abc".toUppercase() // "ABC"
+    "ABC".toLowwerCase() // "abc"
+    "abc".toUpperCase() // "ABC"
     "abca".replace("a", "AAA") // "AAAbca"
     "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
 
@@ -48,22 +48,26 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     const arr = ["a", "b", "c"]
     arr[0] // "a"
     arr.indexOf("a") // 0
+    ["a", "b", "c"].includes("a") // true
 
     Functions that change the array it self:
-    arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"]
-    arr.pop() // console.log(arr) = ["a", "b", "c"]
-    arr.shift("aa") // console.log(arr) = ["aa", "a", "b", "c"]
-    arr.shipt() // console.log(arr) = ["a", "b", "c"]
+    arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"] //- להוסיף מהסוף
+    arr.pop() // console.log(arr) = ["a", "b", "c"]//-למחוק מהסוף
+    arr.unshift("aa") // console.log(arr) = ["aa", "a", "b", "c"]//- להוסיף מהתחלה 
+    arr.shift() // console.log(arr) = ["a", "b", "c"]//- למחוק מהתחלה 
 
 8.  
     typeof "" // 'string'
     typeof 1 // 'number'
     typeof true // 'boolean'
-    typeof typeof (() => true) // 'function'
+    typeof (() => true) // 'function'
     Array.isArray([]) // true
-    (typeof [] // 'object')
+    typeof [] // 'object'
     
-    ["a", "b", "c"].includes("a") // true
+    if operators:
+    && - and
+    || - or
+
     callback function
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items

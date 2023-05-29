@@ -92,32 +92,72 @@ export {}
 // Write a function that asks the user for a number and then counts down from that number to zero, printing each number on a new line. Use a for loop to accomplish this.
 // If the user enter something not number - throw error.
 
-function countdown() {
-        const number = parseInt(prompt("Enter a number please:"));
+// function countdown() {
+//         const number = parseInt(prompt("Enter a number please:"));
       
-        if (isNaN(number)) {
-          throw new Error("Invalid input. Please enter a number.");
-        }
+//         if (isNaN(number)) {
+//           throw new Error("Invalid input. Please enter a number.");
+//         }
       
-        for (let i = number; i >= 0; i--) {
-          console.log(i);
-        }
-      }
+//         for (let i = number; i >= 0; i--) {
+//           console.log(i);
+//         }
+//       }
       
-      try {
-        countdown();
-      } catch (error) {
-        console.log("Error:", error.message);
-      }
+//       try {
+//         countdown();
+//       } catch (error) {
+//         console.log("Error:", error.message);
+//       }
       
 
 // 3. Bonus - Palindrome Checker:
-// Create a function that asks the user for a string and checks whether the string is a palindrome or not. A palindrome is a word, phrase, number, or other sequence of characters that reads the same backward or forward. Note: This challenge must be accomplished without using array methods.
+// Create a function that asks the user for a string and checks 
+// whether the string is a palindrome 
+//or not. A palindrome is a word, phrase, number, or other 
+// sequence of characters that reads the 
+//same backward or forward. Note: This challenge must be 
+// accomplished without using array methods.
 // Help tools:
 // in string, each word has index, if you do: 
 // "ab"[0] // you'll recieved - "a"
 // "ab"[1] // you'll recieved - "b"
 // "ab"[2] //  you'll recieved - undefined
+
+function getUserString() {
+  const userString = prompt("Please enter a string : ");
+  
+  let userStringLength = userString.length;
+  let halfLength = Math.floor(userStringLength/2)
+  return [userString, halfLength];
+  console.log(halfLength)
+
+}
+
+console.log(getUserString())
+
+
+const checksPolindrome = () => {
+  console.log("home - puzzle Bonus 3")
+  const string = prompt("enter a string ");
+  console.log(`${string}`);
+  const strInput = string.toLowerCase();
+  const inpurStr = strInput.replace(/\s/g, "");
+  console.log(`${inpurStr}`);
+  const len = inpurStr.length
+
+  for (var i = 0; i < len / 2; i++)
+   {
+
+      if (inpurStr[i] !== inpurStr[len - 1 - i]) {
+          return `is not palindrome`
+      }
+      console.log(`${inpurStr[i]} ${"="} ${inpurStr[len - 1 - i]}`);
+  }
+  return `is palindrome`
+}
+const result = checksPolindrome()
+console.log(`${"the string"} ${result}`)
 
 // 4. Bonus - Sum of Digits:
 // Create a function that asks the user to enter a number and calculates the sum of its digits. 
