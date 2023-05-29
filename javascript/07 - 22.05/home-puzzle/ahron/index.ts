@@ -6,11 +6,11 @@
 // function printstate(){
 //   const userinput = prompt(`plase enter word:`);
 
-//   const firstString = userinput[0];
-//   console.log ("the first letter is"+firstString );
+  // const firstString = userinput[0];
+  // console.log ("the first letter is"+firstString );
 
-//   const lastString = userinput.length-1
-//   console.log ("the last letter is" + lastString);
+  // const lastString = userinput.length-1
+  // console.log ("the last letter is" + lastString);
 
 // }
 // printstate()
@@ -37,23 +37,23 @@
 //that start from 0 to the number of the 'num'. 
 //for example user enter 3, the function return [0, 1, 2, 3], etc. 
 
-function dynamicArray(){
-  const userInput=Number(prompt("please entre number:"));
-  const myArray = [];
-  for (let i = 0; i < userInput; i++) {
-    const element = userInput[i];
+// function dynamicArray(){
+//   const userInput=Number(prompt("please entre number:"));
+//   const myArray = [];
+//   for (let i = 0; i < userInput; i++) {
+//     const element = userInput[i];
     
-  }
-}
+//   }
+// }
 
-function dynamicArray (){
-  const userInput=Number(prompt("please enter a number:")); 
-  const myArray=[];
-  for(let i =0; i<=userInput; i++){
-      myArray.push(i); 
-  }
-  return myArray;
-
+// function dynamicArray (){
+//   const userInput=Number(prompt("please enter a number:")); 
+//   const myArray=[];
+//   for(let i =0; i<=userInput; i++){
+//       myArray.push(i); 
+//   }
+//   return myArray;
+// }
 // home puzzle:
 
 // 1. Sum the array
@@ -74,4 +74,3 @@ function dynamicArray (){
 // 4. check if array contains the item
 // Write a function that recive an array and value, return true if the value exists in the array, and false if not.
 // for example from ([1, 2, 3], 4) it returns false.
-

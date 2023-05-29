@@ -56,10 +56,28 @@ const buyingList = ["Milk", "Flower", "Banana", "Chokolate"]
 console.log(buyingList)
 // console.log(map(buyingList, (product: string) => Math.floor(Math.random() * 10) ))
 
-/*  */
+/* Built-in 'map' function */
 
 console.log(buyingList.map((prodct) => Math.floor(Math.random() * 10)))
-[1, 2, 3].map((num) => num + num)
+console.log([1, 2, 3].map((num) => num + num))
 // const name = arr[i]
     // const newName = name[0].toUpperCase() + name[0].slice(1)
     // newArr.push(newName)
+
+
+/* Built-in 'forEach' function - just instead of for loop (not return nothing) */
+
+const names = ["liad", "sarit", "sapir"]
+const newNames = []
+
+names.forEach((name) => {  // 'sarit'
+    const newName = name[0].toLowerCase() + name.slice(1) // 'Sarit'
+    newNames.push(newName)
+});
+console.log(names) // ["liad", "sarit", "sapir"]
+console.log(newNames)// ["Liad", "Sarit", "Sapir"]
+
+
+/* Built-in 'filter' function  - anonymous function return boolean if stay in the array*/
+const numbers2 = [1, 2, 3].filter(num => num === 1)
+console.log(numbers2) // [1]
