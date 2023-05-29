@@ -48,6 +48,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     const arr = ["a", "b", "c"]
     arr[0] // "a"
     arr.indexOf("a") // 0
+    ["a", "b", "c"].includes("a") // true
 
     Functions that change the array it self:
     arr.push("cc") // console.log(arr) = ["a", "b", "c", "cc"] //- להוסיף מהסוף
@@ -63,7 +64,6 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     Array.isArray([]) // true
     (typeof [] // 'object')
     
-    ["a", "b", "c"].includes("a") // true
     callback function
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items
