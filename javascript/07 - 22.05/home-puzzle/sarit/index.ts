@@ -4,13 +4,13 @@ export{}
 //  and return the result of all numbers together. 
 //  for example from [1, 2, 3] it returns 6
 
-// function sumArray(numbers: number[]): number {
-//     let sum = 0;
-//     for (const num of numbers) {
-//       sum += num;
-//     }
-//     return sum;
-//   }
+function sumArray(numbers: number[]): number {
+    let sum = 0;
+    for (const num of numbers) {
+      sum += num;
+    }
+    return sum;
+  }
 
 //   2. max number in Array 
 // Write a function that recive an array of numbers and returns the bigget number index.
@@ -48,11 +48,11 @@ function calculateAverage(numbers: number[]): number {
 //   Write a function that recive an array and value, return true if the value exists in the array, and false if not.
 //   for example from ([1, 2, 3], 4) it returns false.
 
-//   function containsValue(array: any[], value: any): boolean {
-//     for (const item of array) {
-//       if (item === value) {
-//         return true;
-//       }
-//     }
-//     return false;
-//   }
+  function containsValue(array: any[], value: any): boolean {
+    for (const item of array) {
+      if (item === value) {
+        return true;
+      }
+    }
+    return false;
+  }
