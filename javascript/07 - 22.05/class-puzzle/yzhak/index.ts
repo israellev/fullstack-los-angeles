@@ -1,27 +1,22 @@
-export {};
+// export {};
 
-// Write a function that calls 'printState' that get 'str' parameter and print the fisrt and last string.
-// const userInput = prompt("Enter a string:");
+// // Write a function that calls 'printState' that get 'str' parameter and print the fisrt and last string.
+// // const userInput = prompt("Enter a string:");
 
-// function printState(params:string) {
-//     const
+function printFirstAndLast(str) {
+  printState(str[0], str[str.length - 1]);
+}
 
-// }
+function printState(first, last) {
+  console.log(`First character: ${first}Last character: ${last}`);
+}
 
-// function printFirstAndLast(str) {
-//   printState(str[0], str[str.length - 1]);
-// }
+const Inputuser = prompt("Enter a string:");
+printFirstAndLast(Inputuser);
 
-// function printState(first, last) {
-//   console.log(`First character: ${first}Last character: ${last}`);
-// }
+// // ----------------------------------------------------
 
-// const userInput = prompt("Enter a string:");
-// printFirstAndLast(userInput);
-
-// ----------------------------------------------------
-
-function String(str) {
+function Str(str) {
   if (typeof str === "string") {
     throw new Error("Invalid input.Try again string.");
   }
@@ -35,27 +30,31 @@ function String(str) {
 
 try {
   const userInput = prompt("Enter a string:");
-  const transformedString = String(userInput);
+  const trans = String(userInput);
 
-  console.log(`Transformed string: ${transformedString}`);
+  console.log(`Transformed string: ${trans}`);
 } catch (error) {
   console.error(error.message);
 }
 
-//   -----------------------------------------
+// //   -----------------------------------------
 
-// function Array(num) {
-//   const dynamicArray = [];
+function Arr(num) {
+  const dynamicArray = [];
 
-//   for (let i = 0; i <= num; i++) {
-//     dynamicArray.push(i);
-//   }
+  for (let i = 0; i <= num; i++) {
+    dynamicArray.push(i);
+  }
 
-//   return dynamicArray;
-// }
+  return dynamicArray;
+}
 
-// // Example usage:
-// const userInput = parseInt(prompt("Enter a number:"));
-// const resultArray = Array(userInput);
+const userInput = parseInt(prompt("Enter a number:"));
+const resultArray = Array(userInput);
 
-// console.log(" Array:", resultArray);
+console.log(" Array:", resultArray);
+
+// avg number in array
+// Write a function that recive an array of numbers and returns the average number.
+// for example from [0, 1, 2, 3] it returns 1.5.
+// (arr: number[]) => number
