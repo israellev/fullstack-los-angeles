@@ -11,7 +11,8 @@ export {}
 // for example from [1, 2, 3] it returns 2 (the index of 3).
 
 // 3. avg number in array
-// Write a function that recive an array of numbers and returns the average number.
+// Write a function that recive an array of numbers and returns 
+//the average number.
 // for example from [1, 2, 3] it returns 2.
 
 function Averagers(arr: number[]): number {
@@ -26,13 +27,51 @@ function Averagers(arr: number[]): number {
     
   }
   
-  const numbers = [1, 2, 3];
+  const numbers = [1, 2, 3, 9, 10];
   const result = Averagers(numbers);
   
-  console.log(result); // Output: 8
+  console.log(result); // Output: total average
 
 
 // 4. check if array contains the item
-// Write a function that recive an array and value, return true if the value exists in the array, and false if not.
+// Write a function that recive an array and value, 
+//return true if the value exists in the array, and false if not.
 // for example from ([1, 2, 3], 4) it returns false.
 
+function Checker(arr, value: number[]): boolean {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === value)
+    return true;
+  }
+  return false;
+}
+
+const arr[] = prompt("enter a list of numbers") 
+
+console.log(result); // Output: total average
+
+this is how chatGPT gets an array from the user using prompt, and than user inserts a IDBCursorWithValue
+and we check
+function checkValueInArray() {
+  // Get user input for the array
+  var arrInput = prompt("Enter numbers separated by commas:");
+
+  // Convert the input string into an array
+  var arr = arrInput.split(",").map(Number);
+
+  // Get user input for the value to check
+  var value = Number(prompt("Enter a number to check:"));
+
+  // Check if the value exists in the array
+  var result = arr.includes(value);
+
+  // Output the result
+  if (result) {
+    alert("The value exists in the array!");
+  } else {
+    alert("The value does not exist in the array.");
+  }
+}
+
+// Call the function to start the process
+checkValueInArray();
