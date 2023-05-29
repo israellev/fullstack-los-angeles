@@ -20,11 +20,12 @@ console.log(`the sum of the array numbers are: ${result}`);
 //2. max number in Array 
 //Write a function that recive an array of numbers and returns the bigget number index.
 //for example from [1, 2, 3] it returns 2 (the index of 3).
+//מתבקשים להחזיר את האינדקס של המספר הגבוה 
 
-function maxNumberInArray (numbers:number []): number{
+function maxNumberInArray (arr:number []): number{
     let max: number =0;
     for (let i: number =0; i < numbers.length ; i++){
-        if(numbers[i] > numbers[max]){
+        if(arr[i] > arr[max]){
             max=i;
         }
     }
@@ -98,9 +99,12 @@ function getNameToCapLetter(names: string[]): string[]{
     const capitalLetters: string [] = [];
     for (let i = 0; i < names.length; i++) {
         const name = names[i];
-        const capLetters = name.toUpperCase();
-        capitalLetters.push(capLetters);
-        
+        const firstLatter = name[0].toUpperCase()//מקבל את האינדקס הראשון של האות והופך אותה לאות גדולה
+        const restname = name.slice(1, name.length);//מקבלים את שאר השם עד סוף האורך שלה 
+        capitalLetters.push(firstLatter + restname);// מחברים את שניהם
+        //const newWay = firstLatter.replace(firstlatter[0], firstLatter[0].toUpperCase())//דרך נוספת שניתן לעשות את התרגיל במקום שורות 103 104 
+        //capitalLatter.push(newWay)
+    
     }
     return capitalLetters;
 }
