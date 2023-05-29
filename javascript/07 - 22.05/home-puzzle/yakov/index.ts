@@ -6,7 +6,9 @@ console.log("home puzzle 1 -------------------");
 // Write a function that receive array of numbers (only) as a parameter,
 // and return the result of all numbers together.
 // for example from [1, 2, 3] it returns 6
-function multiplay(arr: number[]) {}
+function multiplay(arr: number[]) {
+  let array = arr;
+}
 
 // 2. max number in Array
 // Write a function that recive an array of numbers and returns the bigget number index.
