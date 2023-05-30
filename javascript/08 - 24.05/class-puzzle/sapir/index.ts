@@ -35,7 +35,9 @@ console.log(capitalLatter);
 
 
 
-//3. Type Detector:
+//---------------------------------------------------------------------------------------------------------
+
+//1. Type Detector:
 //Write a function detectType that takes 
 //an argument and prints out whether it's a string, number, boolean, function, or an array.
 
@@ -57,37 +59,51 @@ function TypeDetector (type: any){
  }
 
  
-// 4. Print Shopping List (forEach)
+// 2. Print Shopping List (forEach)
 // You have a shopping list represented as an array of strings. 
 //Use the forEach function to print each item on the shopping list.
 
-const shoppingList = ["apple", "orange", "milk", "potatos", "bamba"];
+const shoppingList = ["apple", "orange", "milk", "potatos", "bamba"];//משתנה אשר מקבל מערך עם מוצרים
 
-shoppingList.forEach((item) => {
-    console.log(item);
+shoppingList.forEach((item) => {//פונקצית פור איץ' תעבור על כל המוצרים 
+    console.log(item);//ותדפיס אותם
 
 });
 
-//5. Grocery Filter (filter): 
+//3. Grocery Filter (filter): 
 //You have an array of grocery items. Some of them are healthy and some are not.
 // Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
 
-const groceries= ["apple", "orange", "milk", "potatos", "cake", "candy"];
+const groceries= ["apple", "orange", "milk", "potatos", "cake", "candy"];//משתנה אשר מקבל מערך של מוצרים 
 
-const filterGrocery = groceries.filter (item => item !=='cake' && item !=='candy' );
+const filterGrocery = groceries.filter (item => item !=='cake' && item !=='candy' );//משתנה חדש אשר יקבל את המערך החדש ללא עוגה וממתק. 
+            //וזאת באמצעות קבלת המערך הקןדם שעליו מופעלת פונקצית פילטר 
+            //על כל אייטם  תופעל הפונקציה ומה שאינו עוגה וגם מה שאינו ממתק יודפס לתוך המשתנה החדש 
+console.log(filterGrocery);//הדפסת המערך במשתנה החדש ללא עוגה וממתק 
 
-console.log(filterGrocery);
 
-
-//6. Temperature Conversion (map)
+//4. Temperature Conversion (map)
 //You have an array of temperatures in Fahrenheit.
 // Use the map function to convert each temperature to Celsius and save the results in a new array.
 
-const temperatureFahrenheit =[45, 75, 67, 38];
+const temperatureFahrenheit =[45, 75, 67, 38];//משתנה אשר מקבל מערך של טמפטורות פרנהייט
 
-const convertFerToCel = temperatureFahrenheit.map((temperature)=> {
-    const Celsius=(temperature-32) * (5/9);
+const convertFerToCel = temperatureFahrenheit.map((temperature)=> {//יצרנו משתנה חדש אשר יקבל את הטמפרטורות מומרות לסלציוס . 
+    const Celsius=(temperature-32) * (5/9);// וזאת באמצעות פונקצית מאפ אשר תעבור על כל טמפרטורה במערך הראשןןעליו תופעל לוגיקת המרה ולאחר מכן נקבל מערך חדש של טמפ' מומרות
     return Celsius;
 });
- console.log (convertFerToCel);
+ console.log (convertFerToCel);//הדפסה
 
+ //5. Get Array Types (map)
+ //a. Create a function that takes an array of different types of data (numbers, strings, arrays, objects, booleans)
+ //b. This function should use the map function to return a new array that indicates the type of each element in the input array.
+ //for example from [1, "", [], true] it'll return ['number', 'string', 'array', 'boolean']
+
+ function typeofData (arr:any[]):any[]{
+    const newArr = arr.map((item)=> typeof item);
+    return newArr;
+ }
+
+ const array = [1, "sapir", true,];
+ const types = typeofData(array);
+ console.log(types);

@@ -18,11 +18,12 @@ console.log(square);
 
 
 
+
 //Bonus:
 //1. Creating Custom Filter Function:
 //Implement your own filter function named myFilter. 
 //It should take an array and a callback function that returns a boolean. 
 //myFilter should return a new array containing only the elements of the original array for which the callback function returns true.
 
-//2. Creating Custom Filter Function:
-//Implement your own filter function named myFilter. It should take an array and a callback function that returns a boolean. myFilter should return a new array containing only the elements of the original array for which the callback function returns true.
+
+
