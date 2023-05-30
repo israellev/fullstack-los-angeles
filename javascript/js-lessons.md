@@ -76,7 +76,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 09. 
     get the index from build-it array functions (item, index)
     
-    array extraction:
+    array destructuring:
     let array = [1, 2, 3, 4, 5];
     let [a, b] = array; // a = 1, b = 2
     
@@ -99,11 +99,12 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     
     // accessing:
     console.log(man.name) // "Aharon"
+    console.log(man["name"]) // "Aharon"
     
     // modifing: 
     man.name = "Yitzhak"
-    console.log(man.name) // "Yitzhak"
-    
+    console.log(man.name, man["name"]) // "Yitzhak", "Yitzhak"
+
     // methods:
     console.log(man.age) // 17
     man.celebrateBirthday()
@@ -117,9 +118,18 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     Obejcts (and arrasy) - by referance, all others - by value:
     {...obj, name: "Moshe"}
 
-    Objects 
-    Object.keys({a: "A"}).forEach(key => console.log(key))
-    
+    Objects destructuring:
+    let obj = {a: 1, b: 2, c: 3};
+    let {a, b} = obj;
+    console.log(a, b);  // prints: 1, 2
+    // with name updates:
+    let obj = {a: 1, b: 2, c: 3};
+    let {a: first, b: second} = obj;
+    console.log(first, second);  // 1, 2
+
+    Objects usefull function: 
+    const man = {name: "Avi"}
+    Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
     
     
     classes 
