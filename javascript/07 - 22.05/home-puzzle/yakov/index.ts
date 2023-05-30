@@ -6,17 +6,22 @@ console.log("home puzzle 1 -------------------");
 // Write a function that receive array of numbers (only) as a parameter,
 // and return the result of all numbers together.
 // for example from [1, 2, 3] it returns 6
-function multiplay(arr: number[]) {
-  let sum :number =0;
-  for( let i =0; i<=  )
+function multiplay(arr: number[]): number {
+  let sum = 0;
+  for (let index = 0; index <= arr.length - 1; index++) sum += arr[index];
+  return sum;
 }
+let arr: number[] = [10, 20, 30];
+let resolt: Number = multiplay(arr);
+console.log(`the sum of the array numbers are: ${resolt}`);
 
 // 2. max number in Array
 // Write a function that recive an array of numbers and returns the bigget number index.
 // for example from [1, 2, 3] it returns 2 (the index of 3).
 // (arr: number[]) => number
-
-
+const maxNumberr = (arr: number[]): void => {
+  let v = 0;
+};
 
 // 3. avg number in array
 // Write a function that recive an array of numbers and returns the average number.

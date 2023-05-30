@@ -51,13 +51,13 @@ console.log("class puzzle: 2------------------");
 // for example user enter 3, the function return [0, 1, 2, 3], etc.
 // (num: number) => number[]
 
-console.log("class puzzle: 3------------------");
+// console.log("class puzzle: 3------------------");
 
-function createNumberArray(num: number): Array<number> {
-  let numberArray = [];
-  for (var i = 0; i <= num; i++) {
-    numberArray.push(i);
-  }
-  return numberArray;
-}
-console.log(createNumberArray(5));
+// function createNumberArray(num: number): Array<number> {
+//   let numberArray = [];
+//   for (var i = 0; i <= num; i++) {
+//     numberArray.push(i);
+//   }
+//   return numberArray;
+// }
+// console.log(createNumberArray(5));
