@@ -1,19 +1,19 @@
-1.  Git class - https://github.com/israellev/fullstack-los-angeles.git
+01.  Git class - https://github.com/israellev/fullstack-los-angeles.git
     vscode pluggins
     js variables
     3 system api - alert, prompt, console.log
     8 data types - String, Boolean, Number, null, undefined, array, object, NaN
 
-2.  4 ways to convert string "1" to number 1 - Number(), parseInt(), +"1", parseFloat()
+02.  4 ways to convert string "1" to number 1 - Number(), parseInt(), +"1", parseFloat()
 
-3.  3 ways to create variables - var, let, const
+03.  3 ways to create variables - var, let, const
     2 ways to connect variables with strings - +, `${}`
     debug in chrome
     working with typescript - hero pluggin
     numbers operators - + , - , \* , / , % , \*\*
     variables operators - ++, --, +=
 
-4.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
+04.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
     conditions combine - &&, ||
     conditions - 'if() {} else {}' and 'switch() { case "": break; case "": break; }'
     numbers - int and float (integer - 1, float - 1.0)
@@ -21,7 +21,7 @@
     loops - welcome for:
     for (let i = 0; i < 10; i++) { console.log(i) }
 
-5.  3 ways for loops - for, while(true) {}, do {} while (true)
+05.  3 ways for loops - for, while(true) {}, do {} while (true)
     functions - function hello() {console.log("hello")}
     functions parameters // function hello(name: string): void {}
     functions return values // function hello(name: string): string { return name }
@@ -56,7 +56,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     arr.unshift("aa") // console.log(arr) = ["aa", "a", "b", "c"]//- להוסיף מהתחלה 
     arr.shift() // console.log(arr) = ["a", "b", "c"]//- למחוק מהתחלה 
 
-8.  
+08.  
     typeof "" // 'string'
     typeof 1 // 'number'
     typeof true // 'boolean'
@@ -68,7 +68,58 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     && - and
     || - or
 
-    callback function
+    callback function,
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items
     map((item): any => {}) return what you want instead each item
+
+09. 
+    get the index from build-it array functions (item, index)
+    
+    array extraction:
+    let array = [1, 2, 3, 4, 5];
+    let [a, b] = array; // a = 1, b = 2
+    
+    Arrays (and objects) - by referance, all others - by value:
+    [...names, "Kobi"]
+
+    (manual build - forEech, map, filter)
+
+    ------- Objects
+    syntax:
+    let man = {
+        name: "Aharon",
+        age: 17,
+        
+        // methods:
+        celebrateBirthday: () => {
+            this.age ++
+        }
+    }
+    
+    // accessing:
+    console.log(man.name) // "Aharon"
+    
+    // modifing: 
+    man.name = "Yitzhak"
+    console.log(man.name) // "Yitzhak"
+    
+    // methods:
+    console.log(man.age) // 17
+    man.celebrateBirthday()
+    console.log(man.age) // 18
+
+    // adding values
+    man.city = "Kiryat Malachi"
+    console.log(man.city) // "Kiryat Malachi"
+
+10. 
+    Obejcts (and arrasy) - by referance, all others - by value:
+    {...obj, name: "Moshe"}
+
+    Objects 
+    Object.keys({a: "A"}).forEach(key => console.log(key))
+    
+    
+    
+    classes 
