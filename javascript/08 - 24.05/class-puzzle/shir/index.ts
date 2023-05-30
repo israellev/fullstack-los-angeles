@@ -11,3 +11,4 @@ const squareNumbers = (numbers:number[]): number[] => {
 const arr = [1,2,3];
 console.log(arr);
 console.log(squareNumbers(arr));
+
