@@ -7,7 +7,6 @@ function squareNumbers(numbers: number[]): number[] {
     return numbers.map(num => num*num)
 }
 const array = [3,4,5]
-const mapFunction = (a) => (Math.pow(a,2));
 console.log(squareNumbers(array))
 
 // 2. Print Shopping List (forEach)
@@ -19,3 +18,25 @@ const shoppingList = ["sugar","milk","bread","eggs"]
 shoppingList.forEach((products) => {
     console.log(products)
 })
+
+// 3. Grocery Filter (filter): 
+// You have an array of grocery items. Some of them are healthy 
+// and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
+
+const groceryItems = ["cheese", "carrots", "cake", "bread", "candy"].filter(pro => pro !== "cake" && "candy")
+console.log(groceryItems);
+
+
+// 4. Temperature Conversion (map)
+// You have an array of temperatures in Fahrenheit. Use the map function to convert each temperature to Celsius 
+// and save the results in a new array.
+
+const fahrenheitTemperture = [20,30,50,44]
+
+function convertTemperture (numbers: number[]): number[] {
+    return numbers.map(a => (a-32)/1.8)
+};
+
+console.log(convertTemperture(fahrenheitTemperture))
+
+
