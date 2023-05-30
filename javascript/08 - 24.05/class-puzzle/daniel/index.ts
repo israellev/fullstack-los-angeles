@@ -46,7 +46,7 @@ export { }
 // console.log(products)
 
 //דרך מס 2 
-function ShoppingLists(products1: string[]): string[] {
+function ShoppingLists(products1: string[]){
 
     return products1.forEach((L)=>)
 
