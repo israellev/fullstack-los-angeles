@@ -1,4 +1,4 @@
-export {}
+export { }
 
 // function squareNumbers(numbers: number[]): number[] {
 //     return numbers.map(nu => nu * nu)
@@ -51,30 +51,32 @@ export {}
 
 //home puzzle2:
 
-const list= ["banana","apple","cake","candy"]
+const list = ["banana", "apple", "cake", "candy"]
 
 
-const newlist= list.filter(item=> item!=="cake" && item !== "candy")
+const newlist = list.filter(item => item !== "cake" && item !== "candy")
 console.log(newlist);
 
-    
+
 //home puzzle 3:
 
-const Fahrenheit=[100,200,300,400]
-const Celsius= Fahrenheit.map((temperature)=> (temperature  - 32) * (5/9)
-
-
-)
-console.log(Celsius);
+const Fahrenheit = [100, 200, 300, 400]
+console.log("Fahrenheit", Fahrenheit)
+const Celsius = Fahrenheit.map((temperature) => {
+    return (temperature - 32) * (5 / 9)
+})
+console.log("Celsius", Celsius);
 
 // home puzzle 4:
 
-function GetArrayTypes ( arr:any[]) : any[] {
-
-const newarr= arr.map( typeany=> typeof typeany)
-
-return newarr
-
-} 
-
-console.log ( GetArrayTypes([ 1, "shir,", true, false]))
+function GetArrayTypes(arr: any[]): any[] {
+    const newarr = arr.map(typeany => {
+        if (Array.isArray(typeany))
+            return 'array'
+        return typeof typeany
+    })
+    return newarr
+}
+const arr = [1, "shir,", true, false, [], {}]
+console.log(arr)
+console.log(GetArrayTypes(arr))

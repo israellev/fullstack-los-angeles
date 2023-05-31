@@ -14,7 +14,7 @@
     variables operators - ++, --, +=
 
 04.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
-    conditions combine - &&, ||
+    conditions combine - && (and), || (or)
     conditions - 'if() {} else {}' and 'switch() { case "": break; case "": break; }'
     numbers - int and float (integer - 1, float - 1.0)
     math library - abs, ceil, floor, max, min, round
@@ -131,5 +131,5 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     const man = {name: "Avi"}
     Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
     
-    
+11. 
     classes 

@@ -31,7 +31,7 @@ function capitalNames(names) {
 // b. This function should use the map function to return a new array that indicates the type of each element in the input array.
 // for example from [1, "", [], true] it'll return ['number', 'string', 'array', 'boolean']
   
-function getArrayTypes(arr) {
+function getArrayTypes(arr: any[]) {
     return arr.map(function(item) {
       return typeof item;
     });
@@ -39,7 +39,8 @@ function getArrayTypes(arr) {
   
   const data = [1, "", [], true];
   const types = getArrayTypes(data);
-  console.log(types);
+  console.log(types); // ['number', 'string', 'object', 'boolean']
+  
   
 
 
