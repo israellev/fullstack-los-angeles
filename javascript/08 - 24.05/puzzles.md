@@ -17,6 +17,7 @@ You have a shopping list represented as an array of strings. Use the forEach fun
 
 2. Grocery Health Filter (filter): 
 You have an array of grocery items. Some of them are healthy and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
+for example from ['cake', 'orange', 'apple'] it'll return ['orange', 'apple'] 
 
 3. Arr Temperature Conversion (map)
 You have an array of temperatures in Fahrenheit. Use the map function to convert each temperature to Celsius and save the results in a new array.

@@ -14,7 +14,7 @@
     variables operators - ++, --, +=
 
 04.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
-    conditions combine - &&, ||
+    conditions combine - && (and), || (or)
     conditions - 'if() {} else {}' and 'switch() { case "": break; case "": break; }'
     numbers - int and float (integer - 1, float - 1.0)
     math library - abs, ceil, floor, max, min, round
@@ -42,7 +42,8 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "ABC".toLowwerCase() // "abc"
     "abc".toUpperCase() // "ABC"
     "abca".replace("a", "AAA") // "AAAbca"
-    "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
+    "avi avi".replace(/avi/g,"yakov") // "yakov yakov" 
+    "avi avi".includes("yakov") // false 
 
     Array + array functions:
     const arr = ["a", "b", "c"]
@@ -69,21 +70,43 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     || - or
 
     callback function,
+    
+    Array functions:
+    includes(item) // true if item exits in the array
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items
     map((item): any => {}) return what you want instead each item
 
 09. 
-    get the index from build-it array functions (item, index)
+
+    (manual build - forEech, map, filter)
+
+    /* Just to know - These are the Fathers objects of those types  */
+    Number()
+    String()
+    Array()
+    Object()
+    Boolean()
+
+    const set = new Set([1, 2, 3, 3]) // {1, 2, 3}
+    set.has(5) // false
+    set.has(2) // true
+    set.add(4) // {1, 2, 3, 4}
+    /* convert set back to array */
+    Array.from(new Set([1, 2, 3, 3]))
+
+    array functions (forEach, map, filter) give the parameters - (item, index, arr)
     
     array destructuring:
     let array = [1, 2, 3, 4, 5];
     let [a, b] = array; // a = 1, b = 2
-    
-    Arrays (and objects) - by referance, all others - by value:
-    [...names, "Kobi"]
 
-    (manual build - forEech, map, filter)
+    Arrays (and objects) - by referance, all others - by value:
+    by referance - JS is save the actual arr in the memory, and same the address in the variable.
+    by value - JS save the actual value in the variable.
+
+    How to copy array by value?
+    var newNames = [...names, "Kobi"]
 
     ------- Objects
     syntax:
@@ -131,5 +154,5 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     const man = {name: "Avi"}
     Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
     
-    
+11. 
     classes 
