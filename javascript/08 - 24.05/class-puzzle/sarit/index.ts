@@ -16,11 +16,11 @@ export {}
 // Create a function named capitalNames that takes an array of strings and returns a new array with same string in capital first letter. Use the map function to achieve this.
 // example: from ["john", "smith"] it returns ["John", "Smith"]
 
-function capitalNames(names: string[]): string[] {
-   const capitalLetters = names.map(name => name.charAt(0).toUpperCase() + name.slice(1));
-return capitalLetters;
-}
+// function capitalNames(names: string[]): string[] {
+//    const capitalLetters = names.map(name => name.charAt(0).toUpperCase() + name.slice(1));
+// return capitalLetters;
+// }
 
-const inputNames = ["sarit", "yuval", "chana", "shon"];
-const result= capitalNames(inputNames);
-console.log(result);
+// const inputNames = ["sarit", "yuval", "chana", "shon"];
+// const result= capitalNames(inputNames);
+// console.log(result);
