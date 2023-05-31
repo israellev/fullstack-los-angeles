@@ -64,13 +64,16 @@ const convertFerToCel = temperatureFahrenheit.map((temperature)=> {//יצרנו 
  //for example from [1, "", [], true] it'll return ['number', 'string', 'array', 'boolean']
 
  function typeofData (arr:any[]):any[]{
-    const newArr = arr.map((item)=> typeof item);
-    return newArr;
+    const newArr = arr.map(itemType => {
+        if(Array.isArray(itemType))//חובה לתת למערך דגש משלו מאחר והברירת מחדל של פונקצית טייפאוף לזהות מערך כאובייקט ועל מנת להימנע מזה נוסיף את השורה הזאת.
+           return 'array';
+           return typeof itemType 
+ })
+           return newArr
  }
-
- const array = [1, "sapir", true,];
+ const array = [1, "sapir", true,[],{}];
  const types = typeofData(array);
- console.log(types);
+ console.log(types);//['number', 'string', 'boolean','array','object']
 //-------------------------------------------------------------------------------------------------------------------------
 
 //1. Using Filter and Map Together:
