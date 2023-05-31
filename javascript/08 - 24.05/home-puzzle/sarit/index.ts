@@ -15,15 +15,16 @@ export {}
 // 2. Grocery Health Filter (filter): 
 // You have an array of grocery items. Some of them are healthy and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
 
-// function filterGroceryItems(groceryItems: string[]): string[] {
-//     const unhealthyItems = ['cake', 'candy'];
-//     return groceryItems.filter(item => !unhealthyItems.includes(item));
-//   }
+function filterGroceryItems(groceryItems: string[]): string[] {
+    const unhealthyItems = ['cake', 'candy'];
+    return groceryItems.filter(item => !unhealthyItems.includes(item));
+  }
   
 //   // Example usage
-//   const groceryItems = ['apple', 'cake', 'banana', 'candy', 'carrot'];
-//   const filteredItems = filterGroceryItems(groceryItems);
-//   console.log(filteredItems);
+const groceryItems = ['apple', 'cake', 'banana', 'candy', 'carrot'];
+console.log(groceryItems)
+const filteredItems = filterGroceryItems(groceryItems);
+console.log(filteredItems);
 
 
 // 3. Arr Temperature Conversion (map)

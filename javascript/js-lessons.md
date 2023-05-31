@@ -42,7 +42,8 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "ABC".toLowwerCase() // "abc"
     "abc".toUpperCase() // "ABC"
     "abca".replace("a", "AAA") // "AAAbca"
-    "avi avi".replace(/avi/g,"yakov") מחליף את כל האבי ביעקב 
+    "avi avi".replace(/avi/g,"yakov") // "yakov yakov" 
+    "avi avi".includes("yakov") // false 
 
     Array + array functions:
     const arr = ["a", "b", "c"]
