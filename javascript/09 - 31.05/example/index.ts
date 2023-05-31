@@ -2,7 +2,7 @@ export { }
 
 /* functions ways - all are the same*/
 
-/* 
+
 function giveOne() {
     return 1
 }
@@ -11,12 +11,13 @@ const giveOne2 = () => {
 }
 const giveOne3 = () => 1
 
-const arr = [2, 4, 6]
+const arr = [2, 4, 6];
 
 //  all are the same!!!! 
 console.log(arr.map(giveOne)) // [1, 1, 1]
 console.log(arr.map(giveOne2)) // [1, 1, 1]
 console.log(arr.map(giveOne3)) // [1, 1, 1]
+
 console.log(arr.map(function giveOne() {
     return 1
 })) // [1, 1, 1]
@@ -24,7 +25,7 @@ console.log(arr.map(() => {
     return 1
 })) // [1, 1, 1]
 console.log(arr.map(() => 1)) // [1, 1, 1]
- */
+
 
 
 /* Just to know - These are the Fathers objects of those types  */
@@ -124,4 +125,19 @@ console.log(arr7) // [1, 2, 3]
 console.log(arr6 === arr7) // false
 
 
-/* Chin functions */
+
+
+/*  class puzzle 1 & 2 */
+/* const arr = [" banana", 1, "apple "]
+const newArr = arr
+    .filter(item => typeof item === 'string')  //  [" banana", "apple "]
+    .map(item => item.trim()); //  ["banana", "apple"]
+console.log(newArr) // ["banana", "apple"]
+
+const itemToReplace = (arr: sting[], itemToReplace: string, replaceWith: string): string[] {
+    return arr.map()
+}
+
+
+itemToReplace(["shir", "yakov"], "yakov", "sapir") // ["shir", "sapir"]
+ */
