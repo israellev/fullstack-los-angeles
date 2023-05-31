@@ -79,4 +79,4 @@ function GetArrayTypes(arr: any[]): any[] {
 }
 const arr = [1, "shir,", true, false, [], {}]
 console.log(arr)
-console.log(GetArrayTypes(arr))
+console.log(GetArrayTypes(arr)) // ['number', 'string', 'boolean', 'boolean', 'array', 'object']

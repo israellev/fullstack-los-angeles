@@ -74,6 +74,15 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     map((item): any => {}) return what you want instead each item
 
 09. 
+    /* Just to know - These are the Fathers objects of those types  */
+    Number()
+    String()
+    Array()
+    Object()
+    Boolean()
+
+
+
     get the index from build-it array functions (item, index)
     
     array destructuring:

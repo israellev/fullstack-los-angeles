@@ -27,3 +27,11 @@ console.log(arr.map(() => {
 })) // [1, 1, 1]
 console.log(arr.map(() => 1)) // [1, 1, 1]
 
+
+/* Just to know - These are the Fathers objects of those types  */
+Number()
+String()
+Array()
+Object()
+Boolean()
+
