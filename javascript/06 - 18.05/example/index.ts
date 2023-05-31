@@ -1,4 +1,4 @@
-export {}
+export {};
 
 /* variable scope:
 if we delared new variale (let or const) in the external - it'will be available in the internal scope
@@ -26,13 +26,11 @@ console.log(a2)
 console.log(a3)
  */
 
-
-
 /* 2 ways for functions - regular, anonymous function  */
 
 /* regular function */
 function greeting1(name: string): void {
-    console.log(`welcome  ${name}1!`)
+  console.log(`welcome  ${name}1!`);
 }
 // greeting1("Sarit")
 
@@ -45,11 +43,10 @@ true
 24345 */
 
 const greeting2 = (name: string): void => {
-    console.log(`welcom ${name} 2!`)
-}
+  console.log(`welcom ${name} 2!`);
+};
 
 // greeting2("Yhonatan")
-
 
 /* error handling - throw, try & catch, NaN  */
 
@@ -60,30 +57,26 @@ console.log("It was error before")
 
 /* Example 2: the error is catched and code is continue */
 try {
-    throw "Error!!!"
-} catch(aa) {
-
-}
-console.log("Because of the catch the code is continue!")
-
-
+  throw "Error!!!";
+} catch (aa) {}
+console.log("Because of the catch the code is continue!");
 
 function getUserAge(): number {
-    const age = prompt("What your age (in numbers)?") // "88", "bla bla"
-    const ageNumber = Number(age) // 88, NaN
-    const isNotNumber = isNaN(ageNumber) // false, true
-    if (isNotNumber) {
-        throw "dflgkhsdlfkj"
-    } else {
-        return ageNumber
-    }
+  const age = prompt("What your age (in numbers)?"); // "88", "bla bla"
+  const ageNumber = Number(age); // 88, NaN
+  const isNotNumber = isNaN(ageNumber); // false, true
+  if (isNotNumber) {
+    throw "dflgkhsdlfkj";
+  } else {
+    return ageNumber;
+  }
 }
 
 try {
-    const age = getUserAge() // 88
-    console.log("the user is age: ", age)
-} catch(A) {
-    alert(A)
+  const age = getUserAge(); // 88
+  console.log("the user is age: ", age);
+} catch (A) {
+  alert(A);
 }
 
 console.log("The code is continue");
