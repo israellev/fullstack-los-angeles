@@ -70,6 +70,9 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     || - or
 
     callback function,
+    
+    Array functions:
+    includes(item) // true if item exits in the array
     forEach((item): void => {}) just loop
     filter((item): boolean => {}) filter the items
     map((item): any => {}) return what you want instead each item
