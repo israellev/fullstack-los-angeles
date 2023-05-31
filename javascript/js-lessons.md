@@ -75,6 +75,9 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     map((item): any => {}) return what you want instead each item
 
 09. 
+
+    (manual build - forEech, map, filter)
+
     /* Just to know - These are the Fathers objects of those types  */
     Number()
     String()
@@ -89,17 +92,18 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     /* convert set back to array */
     Array.from(new Set([1, 2, 3, 3]))
 
-
-    get the index from build-it array functions (item, index)
+    array functions (forEach, map, filter) give the parameters - (item, index, arr)
     
     array destructuring:
     let array = [1, 2, 3, 4, 5];
     let [a, b] = array; // a = 1, b = 2
-    
-    Arrays (and objects) - by referance, all others - by value:
-    [...names, "Kobi"]
 
-    (manual build - forEech, map, filter)
+    Arrays (and objects) - by referance, all others - by value:
+    by referance - JS is save the actual arr in the memory, and same the address in the variable.
+    by value - JS save the actual value in the variable.
+
+    How to copy array by value?
+    var newNames = [...names, "Kobi"]
 
     ------- Objects
     syntax:

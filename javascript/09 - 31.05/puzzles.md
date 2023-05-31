@@ -1,11 +1,11 @@
-Practice arrys:
+Class puzzle - Practice arrys:
 
 1. Filter out non-string types and trim whitespace (map)
 
 Write a function that accepts an array of different types of data. It should first use the filter function to keep only the elements that are of type string, and then use map to return a new array where each string has been trimmed of whitespace using the trim() function.
 for example from [" banana", 1, "apple "] it return ["banana", "apple"]
 
-2. replace function (map)
+2. Replace function (map)
 Write a function reaplaceItem that:
 a. find the 'itemToReplace' in the array, and replace it with 'replaceWith',
 b. return the new array.
@@ -13,12 +13,15 @@ b. return the new array.
 for example from itemToReplace(["shir", "yakov"], "yakov", "sapir")
 it will return ["shir", "sapir"].
 
-
-Class puzzle:
-
-1. getFirstAndLast:
+3. getFirstAndLast:
 from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
 than use extraction to save 1 and 2 to "first" and "last" variables.
+
+
+
+
+
+
 
 
 Objects follow-up:
@@ -35,6 +38,19 @@ Add a property isRead to your book object (set to false initially). Then add a m
 
 
 home puzzle:
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Bonuses - arrays:
