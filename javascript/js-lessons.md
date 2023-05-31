@@ -82,6 +82,12 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     Object()
     Boolean()
 
+    const set = new Set([1, 2, 3, 3]) // {1, 2, 3}
+    set.has(5) // false
+    set.has(2) // true
+    set.add(4) // {1, 2, 3, 4}
+    /* convert set back to array */
+    Array.from(new Set([1, 2, 3, 3]))
 
 
     get the index from build-it array functions (item, index)
