@@ -43,32 +43,63 @@ concatArrays(arr1,arr2);
 
 
 // 1. Write a function that calls 'printState' that get 'str' parameter and print the fisrt and last string.
-// console.log("class pzzle - 1")
-// function printState(arrStr){
-//     let leng = arrStr.length
-//     console.log(`${"the firs index is :"} ${arrStr[0]}`)
+console.log("class pzzle - 1")
+function printState(arrStr){
+    let leng = arrStr.length
+    console.log(`${"the firs index is :"} ${arrStr[0]}`)
 
-//     console.log(`${"the lest index is :"} ${arrStr[(leng-1)]}`)
-// }
-// let arrStr = ["avraham" , "yakov" , "aharon" , "orna"] 
-// printState(arrStr)
+    console.log(`${"the lest index is :"} ${arrStr[(leng-1)]}`)
+}
+let arrStr = ["avraham" , "yakov" , "aharon" , "orna"] 
+printState(arrStr)
 
 // // 2. Create a function named stringManipulation that takes in a string, removes whitespace from both ends, converts it to lower case and then replaces all occurrences of the letter 'a' with 'x'. Make sure the function throws an error if something other than a string is input
-// console.log("class pzzle - 2")
+console.log("class pzzle - 2")
+
+function stringManipulation(inputString) {
+    if (typeof inputString !== 'string') {
+      throw false
+    }
+    let modifiedString = inputString.trim().toLowerCase().replace(/a/g, 'x').replace(/\s/g,"");
+    return modifiedString;
+  }
+  try{
+  let result = "Hallo Word Poeple"
+  console.log(stringManipulation(result)); }
+  catch(error){
+    console.log('Input must be a string')}
+   
+  
+
 
 // 3. create dynamic array 
 // Creat a function that received a 'num' and return array of numbers 
 // that start from 0 to the number of the 'num'. 
 // for example user enter 3, the function return [0, 1, 2, 3], etc. 
-// console.log("class pzzle - 3")
-// function stringManipulation(num1 : number){
-//     let arra = []
-//     for (let i = 0 ; i<=num1 ; i++){
-//         arra[i] = i
-//     }
-//     return arra
+console.log("class pzzle - 3")
+function dynamicArray (num1 : number){
+    let arra = []
+    for (let i = 0 ; i<=num1 ; i++){
+        arra.push(i)
+    }
+    return arra
 
-// }
-// let num1 = parseInt(prompt("Enter number"));
-// const arra=stringManipulation(num1);
-// console.log(arra)
+}
+let num1 = parseInt(prompt("Enter number"));
+const arra=dynamicArray(num1);
+console.log(arra)
+// 1. 'printState', fisrt and last of string
+// Write a function that calls 'printState' that get 'str' parameter and print the fisrt and last string.
+// (str: string) => string
+
+// 2. stringValidation
+// Create a function that takes in a string, removes whitespace from both ends, converts it to lower case and then replaces all occurrences of the letter 'a' with 'b'. Make sure the function throws an error if something other than a string is input. 
+// for example from " aaa " it will returs "bbb".
+// hint: 'const isString = isNaN(Number(str))'
+// (str: string) => string
+
+// 3. create dynamicArray 
+// Creat a function that received a 'num' and return array of numbers 
+// that start from 0 to the number of the 'num'. 
+// for example user enter 3, the function return [0, 1, 2, 3], etc. 
+// (num: number) => number[]
