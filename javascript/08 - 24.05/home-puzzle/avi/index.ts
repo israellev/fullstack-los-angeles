@@ -84,16 +84,19 @@ console.log(`Home puzzle 2`)
 function myForEach(array, callback) {
     for (let i = 0; i < array.length; i++) {
       callback(array[i], i, array);
+      
     }
+    
   }
   
   const numbers = ['hallo',2,'avi',7];
   
-  myForEach(numbers, (el, ind, arr) => {
+ const result2 =  myForEach(numbers, (el, ind, arr) => {
     console.log(`Element at index ${ind} in this array [${arr}] is: ${el}`);
     console.log("---------");
   });
-
+  console.log(result2)
+ 
 
   
 // // Bonus:
@@ -104,17 +107,14 @@ function myFilter(arr5 , callback){
   let filterodd =[]
   for(let i = 0 ; i<arr5.length ; i++)
   {
-    let elem = arr5[i]
-    if(callback(elem)){
-      filterodd.push(elem)
-    }
-   
+    if(callback(arr5[i])){
+      filterodd.push(arr5[i])
+    } 
   }
   return filterodd
 }
 const arr5 = [1,2,3,4,5];
-const isOdd = (x) => x % 2 !== 0;
-const filterodd = myFilter(arr5, isOdd);
+const filterodd = myFilter(arr5,((x) => x % 2 !== 0));
 console.log(filterodd);
 
 // Write a function called getDuplicates that takes an array of numbers as input and returns a new array containing only the numbers that occur more than once.
