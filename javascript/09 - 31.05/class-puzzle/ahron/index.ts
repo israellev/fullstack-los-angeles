@@ -13,15 +13,11 @@ shoppingList.forEach(function(string){
     // You have an array of grocery items. Some of them are healthy and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
 
 const groceryItems = ["תפוחים", "עוגה", "תפו''א", "מלח", "סוכריות"];
-function isHealthy(item) {
-    return item !== "עוגה" && item !== "סוכריות";
-    }
-    const filteredItems = groceryItems.filter(isHealthy);{
-        console.log(filteredItems); 
 
-    }
-  
-  
+const filteredItems = groceryItems.filter((item) => item !== "עוגה" && item !== "סוכריות");
+
+        console.log(filteredItems);
+
 // 3. Arr Temperature Conversion (map)
 // You have an array of temperatures in Fahrenheit. Use the map function to convert each temperature to Celsius and save the results in a new array.
 // for example from 

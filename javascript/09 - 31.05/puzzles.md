@@ -3,7 +3,7 @@ Class puzzle - Practice arrys:
 1. Filter out non-string types and trim whitespace (map & filter)
 
 Write a function that accepts an array of different types of data. It should first use the filter function to keep only the elements that are of type string, and then use map to return a new array where each string has been trimmed of whitespace using the trim() function.
-for example from [" banana", 1, "apple "] it return ["banana", "apple"]
+for example from [" banana", 1, "apple "] it return ["banana", "apple"]                                             
 
 2. function ReplaceItemInArray (map)
 Write a function reaplaceItem that:

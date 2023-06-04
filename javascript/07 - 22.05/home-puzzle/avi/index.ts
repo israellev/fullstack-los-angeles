@@ -84,7 +84,7 @@ function containsValue(arr:number[], value:number):string {
 //  bonus--------------------------------------
 
 console.log("Home pzzle from CHET-GPT - 5")
-function concatArrays (arr1:number[] , arr2:number[]):number[] {
+function concatArrays (arr1 , arr2) {
     
     if(arr1.length > arr2.length){
         for (let i = 0; i < arr1.length; i++) {
