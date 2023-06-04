@@ -10,7 +10,15 @@ export{}
 //   const data: any[] = [" banana", 1, "apple "];
 //   const result: string[] = filterAndTrimStrings(data);
   
-//   console.log(result); // Output: ["banana", "appx
+//   console.log(result); // 
 
 
-const arr =[" banana",]
+// // 1. Print Shopping List (forEach)
+// // You have a shopping list represented as an array of strings. Use the forEach function to print each item on the shopping list.
+
+// const shoppingList = ["milk", "bread", "potato", "cheese"]
+
+// shoppingList.forEach(function(string){
+//     console.log(string)
+// });
+    
