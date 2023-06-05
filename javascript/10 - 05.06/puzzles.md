@@ -29,6 +29,8 @@ Given an array with duplicate values, use the Set object to remove the duplicate
 
 
 Bonus:
+
+
 1. Get average of list of objects
 Create a function getAverageScors that gets array of object with 'score' value, and return the average class score.
 (arrOfObj): number
