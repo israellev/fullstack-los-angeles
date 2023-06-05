@@ -87,3 +87,21 @@ function getFirstAndLast(arr3:number[]) : number[]{
       const [first, last] = getFirstAndLast(arr3);
       console.log("First item:", first); // 1
       console.log("Last item:", last); // 3
+
+
+
+  Array.prototype.custonFilter = function custonFilter(cbFunction) {
+    const newArr = []
+
+    for (let i = 0; i < this.length; i++) {
+        const item = this[i]
+        const result = cbFunction(item, index, this)
+        if (result) {
+            newArr.push(item)
+        }
+    }
+    return newArr;
+  }
+    
+    const newArr4 = arr.custonFilter((item) => item % 2 === 0)  // [2, 4, 6]
+    console.log(newArr4)

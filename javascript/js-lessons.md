@@ -108,6 +108,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     How to copy array by value?
     var newNames = [...names, "Kobi"]
 
+10. 
     ------- Objects
     syntax:
     let man = {
@@ -137,7 +138,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     man.city = "Kiryat Malachi"
     console.log(man.city) // "Kiryat Malachi"
 
-10. 
+
     Obejcts (and arrasy) - by referance, all others - by value:
     {...obj, name: "Moshe"}
 

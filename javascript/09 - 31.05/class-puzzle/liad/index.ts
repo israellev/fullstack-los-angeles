@@ -21,7 +21,7 @@ export {}
   const result = filterAndTrimStrings(data)
   console.log(result)
 
-
+  
 
 // 3. function getFirstAndLast:
 // from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
@@ -34,13 +34,11 @@ function getFirstAndLast(arr) {
  
   const originalArray = [1, 2, 3];
   const newArray = getFirstAndLast(originalArray);
-  const [first,last] = getFirstAndLast(originalArray)
+  
   console.log(newArray); 
-  console.log(first);
-  console.log(last);
-
-
-  //   home puzzle:
+ 
+  
+//   home puzzle:
 
 // Bonuses - arrays:
 
