@@ -138,7 +138,6 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     man.city = "Kiryat Malachi"
     console.log(man.city) // "Kiryat Malachi"
 
-
     Obejcts (and arrasy) - by referance, all others - by value:
     {...obj, name: "Moshe"}
 
