@@ -51,6 +51,12 @@ console.log(result2);  // ["sapir", "sarit", "yakov"]
 // from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
 // than use extraction to save 1 and 2 to "first" and "last" variables.
 
+function getFirstAndLast(arr:any[]) {
+  
+
+
+}
+
 // 1. Implementing ForEach:
 // Implement a function myForEach that takes an array and a callback function and behaves like the forEach method.
 // It should apply the callback function to each element in the array.
