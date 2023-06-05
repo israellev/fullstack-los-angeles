@@ -3,8 +3,45 @@ export {}
 
 // 1. Filter out non-string types and trim whitespace (map)
 
-// Write a function that accepts an array of different types of data. It should first use the filter function to keep only the elements that are of type string, and then use map to return a new array where each string has been trimmed of whitespace using the trim() function.
+// Write a function that accepts an array of different types of data. 
+//It should first use the filter function to keep only the elements that 
+//are of type string, and then use map to return a new array where each string 
+//has been trimmed of whitespace using the trim() function.
 // for example from [" banana", 1, "apple "] it return ["banana", "apple"]
+//" abc ".trim() // "abc"
+function rawData(arr: any[], num: number, )
+
+arr.forEach((__, _, source) => {
+    console.log("item: ", __, "index: ", _, "all array: ", source)
+});
+
+function filterAndTrimStrings(arr) {
+    /*
+    Function to filter out non-string elements and trim whitespace from 
+    strings in an array.
+    Parameters:
+    arr (array): The input array containing different data types.
+    Returns:
+    array: A new array with only string elements trimmed of whitespace.
+    */
+    var filteredStrings = arr.filter(function(element) {
+      return typeof element === 'string';
+    });
+  
+    var trimmedStrings = filteredStrings.map(function(element) {
+      return element.trim();
+    });
+  
+    return trimmedStrings;
+  }
+
+  var data = [1, '  John  ', 'Emma ', true, ' Peter  ', 5.6];
+
+var filteredAndTrimmed = filterAndTrimStrings(data);
+console.log(filteredAndTrimmed);
+// Output: ["John", "Emma", "Peter"]
+
+
 
 // 2. function ReplaceItemInArray (map)
 // Write a function reaplaceItem that:
