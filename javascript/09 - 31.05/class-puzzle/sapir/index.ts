@@ -24,7 +24,9 @@ console.log(result1);
 // it will return ["shir", "sapir"].
 
 function replaceItemInArray (arr:string[], itemToReplace: string, replaceWith:string ): string[]{//מצהירים על פונקציה שמקבלת 3 פרמטרים , המערך שמתקבל + הערך מתוך המערך שיוחלף+ הערך שיתקבל במקום הערך שיוחלף
-    const newArr= arr.map((item)=> item === itemToReplace ? replaceWith: item);//יוצרים משתנה חדש אשר יקבל את המערך החדש באמצעות פונקצית מאפ 
+    const newArr= arr.map((item)=> {
+        return item === itemToReplace ? replaceWith : item
+    });//יוצרים משתנה חדש אשר יקבל את המערך החדש באמצעות פונקצית מאפ 
     //הפונקציה שתופעל על המערך הקודם ותחזיר מערך חדש היא החלפה של איבר נוכחי באיבר חדש 
     //ראשית הפונקציה בודקת האם האיבר הנוכחי שווה לערך שיוחלף 
     //אם הערך הנוכחי אכן שווה לערך שיוחלף אז הוא יוחלף 
@@ -36,7 +38,14 @@ const itemToReplace ="shir";
 const replaceWith = "sarit";
 
 const result2 = replaceItemInArray(arr2, itemToReplace, replaceWith);
-console.log(result2);
+console.log(result2);  // ["sapir", "sarit", "yakov"]
+
+
+
+
+
+
+
 
 // 3. function getFirstAndLast:
 // from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
