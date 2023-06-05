@@ -10,7 +10,6 @@ const book: any = {
   author: "Robert T.Kiyosaki",
   yearPublished: "April 1 ,2000",
   pages: "336",
-  getSummary: function () {},
 };
 console.log(book.title);
 console.log(book.author);
@@ -44,3 +43,21 @@ console.log(books.author);
 console.log(books.yearPublished);
 console.log(books.pages);
 console.log(books.getSummary());
+
+// 3. Modifying Object Properties
+// Add a property isRead to your book object (set to false initially).
+//  Then add a method readBook to the book object which changes the value of isRead to true.
+const books: any = {
+  title: "Rich Dad Poor Dad",
+  author: "Robert T.Kiyosaki",
+  yearPublished: "April 1 ,2000",
+  pages: "336",
+  isRead: false,
+};
+
+book.readBook = function () {
+  this.isRead = true;
+};
+console.log(book.isRead);
+book.readBook();
+console.log(book.isRead);
