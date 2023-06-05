@@ -31,7 +31,7 @@ const book2: any= {
     },
     
 }  
-console.log(book2.getSummary())
+console.log(book2.getSummery())
 
 //3. Modifying Object Properties
 //Add a property isRead to your book object (set to false initially). Then add a method readBook to the book object which changes the value of isRead to true.
