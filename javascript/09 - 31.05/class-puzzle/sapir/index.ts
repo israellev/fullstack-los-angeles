@@ -15,32 +15,41 @@ const arr1= [1, "10  ", "  hello"];
 const result1 = nonString(arr1);
 console.log(result1);
 
-//2. function ReplaceItemInArray (map)
-//Write a function reaplaceItem that:
-//a. find the 'itemToReplace' in the array, and replace it with 'replaceWith',
-//b. return the new array.
-//(arr: sting[], itemToReplace: string, replaceWith: string): string[]
-//for example from itemToReplace(["shir", "yakov"], "yakov", "sapir")
-//it will return ["shir", "sapir"].
+// 2. function ReplaceItemInArray (map)
+// Write a function reaplaceItem that:
+// a. find the 'itemToReplace' in the array, and replace it with 'replaceWith',
+// b. return the new array.
+// (arr: sting[], itemToReplace: string, replaceWith: string): string[]
+// for example from itemToReplace(["shir", "yakov"], "yakov", "sapir")
+// it will return ["shir", "sapir"].
 
-// function replaceItemInArray (arr:string[], itemToReplace: string, replaceWith:string ): string[]{//מצהירים על פונקציה שמקבלת 3 פרמטרים , המערך שמתקבל + הערך מתוך המערך שיוחלף+ הערך שיתקבל במקום הערך שיוחלף
-//     const newArr= arr.map((item)=> item === itemToReplace ? replaceWith: item);//יוצרים משתנה חדש אשר יקבל את המערך החדש באמצעות פונקצית מאפ 
-//     //הפונקציה שתופעל על המערך הקודם ותחזיר מערך חדש היא החלפה של איבר נוכחי באיבר חדש 
-//     //ראשית הפונקציה בודקת האם האיבר הנוכחי שווה לערך שיוחלף 
-//     //אם הערך הנוכחי אכן שווה לערך שיוחלף אז הוא יוחלף 
-//     // ואם לא אז יישאר כפי שהוא  
-//     return newArr;
-// }
-// const arr2 =["sapir", "shir", "yakov"];
-// const itemToReplace ="shir";
-// const replaceWith = "sarit";
+function replaceItemInArray (arr:string[], itemToReplace: string, replaceWith:string ): string[]{//מצהירים על פונקציה שמקבלת 3 פרמטרים , המערך שמתקבל + הערך מתוך המערך שיוחלף+ הערך שיתקבל במקום הערך שיוחלף
+    const newArr= arr.map((item)=> {
+        return item === itemToReplace ? replaceWith : item
+    });//יוצרים משתנה חדש אשר יקבל את המערך החדש באמצעות פונקצית מאפ 
+    //הפונקציה שתופעל על המערך הקודם ותחזיר מערך חדש היא החלפה של איבר נוכחי באיבר חדש 
+    //ראשית הפונקציה בודקת האם האיבר הנוכחי שווה לערך שיוחלף 
+    //אם הערך הנוכחי אכן שווה לערך שיוחלף אז הוא יוחלף 
+    // ואם לא אז יישאר כפי שהוא  
+    return newArr;
+}
+const arr2 =["sapir", "shir", "yakov"];
+const itemToReplace ="shir";
+const replaceWith = "sarit";
 
-// const result2 = replaceItemInArray(arr2, itemToReplace, replaceWith);
-// console.log(result2);
+const result2 = replaceItemInArray(arr2, itemToReplace, replaceWith);
+console.log(result2);  // ["sapir", "sarit", "yakov"]
 
-//3. function getFirstAndLast:
-//from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
-//than use extraction to save 1 and 2 to "first" and "last" variables.
+
+
+
+
+
+
+
+// 3. function getFirstAndLast:
+// from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
+// than use extraction to save 1 and 2 to "first" and "last" variables.
 
 // 1. Implementing ForEach:
 // Implement a function myForEach that takes an array and a callback function and behaves like the forEach method.

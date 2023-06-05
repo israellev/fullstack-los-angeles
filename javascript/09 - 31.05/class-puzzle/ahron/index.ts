@@ -1,28 +1,43 @@
 export{}
 
-// 1. Print Shopping List (forEach)
-// You have a shopping list represented as an array of strings. Use the forEach function to print each item on the shopping list.
+// function filterAndTrimStrings(arr: any[]): string[] {
+//     const stringArr: string[] = arr.filter((item) => typeof item === 'string');
+//     const trimmedArr: string[] = stringArr.map((item) => item.trim());
 
-const shoppingList = ["milk", "bread", "potato", "cheese"]
+//     return trimmedArr;
+//   }
+  
+//   const data: any[] = [" banana", 1, "apple "];
+//   const result: string[] = filterAndTrimStrings(data);
+  
+//   console.log(result); // 
 
-shoppingList.forEach(function(string){
-    console.log(string)
-});
-    
-    // 2. Grocery Health Filter (filter): 
-    // You have an array of grocery items. Some of them are healthy and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
+ 
 
-const groceryItems = ["תפוחים", "עוגה", "תפו''א", "מלח", "סוכריות"];
 
-const filteredItems = groceryItems.filter((item) => item !== "עוגה" && item !== "סוכריות");
+//     // 2. Grocery Health Filter (filter): 
+//     // You have an array of grocery items. Some of them are healthy and some are not. Use the filter function to create a new array without 'cake' and 'candy' if they're exists.
 
-        console.log(filteredItems);
+// const groceryItems = ["תפוחים", "עוגה", "תפו''א", "מלח", "סוכריות"];
 
-// 3. Arr Temperature Conversion (map)
-// You have an array of temperatures in Fahrenheit. Use the map function to convert each temperature to Celsius and save the results in a new array.
-// for example from 
+// const filteredItems = groceryItems.filter((item) => item !== "עוגה" && item !== "סוכריות");
 
-// 4. Get Array Types (map)
-// a. Create a function that takes an array of different types of data (numbers, strings, arrays, objects, booleans)
-// b. This function should use the map function to return a new array that indicates the type of each element in the input array.
-// for example from [1, "", [], true] it'll return ['number', 'string', 'array', 'boolean']
+//         console.log(filteredItems);
+
+// // 3. function getFirstAndLast:
+// from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
+// than use extraction to save 1 and 2 to "first" and "last" variables.
+
+const getFirstAndLast = (arrey:any[]) :any[]=>{
+    const first = arrey[0];
+
+    const last = arrey[length-1]; 
+
+    const slicearr= arrey.slice(first && last) ;
+
+    return slicearr
+};
+
+let  exmples = [1,2,3,4];
+const result = getFirstAndLast(exmples);
+console.log (result);
