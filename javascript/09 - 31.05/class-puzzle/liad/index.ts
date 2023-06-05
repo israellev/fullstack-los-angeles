@@ -21,12 +21,26 @@ export {}
   const result = filterAndTrimStrings(data)
   console.log(result)
 
+  
 
-  // 2. function ReplaceItemInArray (map)
-// Write a function reaplaceItem that:
-// a. find the 'itemToReplace' in the array, and replace it with 'replaceWith',
-// b. return the new array.
-// (arr: sting[], itemToReplace: string, replaceWith: string): string[]
-// for example from itemToReplace(["shir", "yakov"], "yakov", "sapir")
-// it will return ["shir", "sapir"].
+// 3. function getFirstAndLast:
+// from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
+// than use extraction to save 1 and 2 to "first" and "last" variables.
+
+function getFirstAndLast(arr) { 
+    return [arr[0], arr[arr.length - 1]];
+  }
+  
+ 
+  const originalArray = [1, 2, 3];
+  const newArray = getFirstAndLast(originalArray);
+  
+  console.log(newArray); 
+ 
+  
+//   home puzzle:
+
+// Bonuses - arrays:
+
+
 
