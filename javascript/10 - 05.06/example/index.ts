@@ -1,4 +1,4 @@
-export {}
+    export {}
 
 /*  short way to aggin variable by if else */
 const index = 0
