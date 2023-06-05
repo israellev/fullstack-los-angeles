@@ -24,14 +24,6 @@ home puzzle:
 
 
 
-
-
-
-
-
-
-
-
 Bonuses - arrays:
 
 1. Implementing ForEach:
