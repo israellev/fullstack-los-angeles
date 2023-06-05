@@ -32,14 +32,14 @@ export { }
 
 // home puzzle 1 :
 
-// const list=["banana", "apple", "chocolate"];
-// const newlist=[];
-// list.forEach((parameter1)=>{
-// const newparameter= list[0]
-// newlist.push(newparameter)
-// })
+const list=["banana", "apple", "chocolate"];
+const newlist=[];
+list.forEach((parameter1)=>{
+const newparameter= list[0]
+newlist.push(newparameter)
+})
 
-// console.log(newlist)
+console.log(newlist)
 
 // home puzzle1:
 
