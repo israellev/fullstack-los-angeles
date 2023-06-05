@@ -4,7 +4,7 @@ const id = {
 
 Name : "liad" ,
 age : 24 ,
-Dateofbirth : 24/09/1999 ,
+Dateofbirth : "24/09/1999" ,
 Weight : 74 
 
 };
