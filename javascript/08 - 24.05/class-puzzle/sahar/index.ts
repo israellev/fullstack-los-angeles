@@ -40,3 +40,18 @@ function convertTemperture (numbers: number[]): number[] {
 console.log(convertTemperture(fahrenheitTemperture))
 
 
+// 2. Convert list of names to capital letters (map)
+// Create a function named capitalNames that takes an array of strings 
+// and returns a new array with same string in capital first letter. Use the map function to achieve this.
+// example: from ["john", "smith"] it returns ["John", "Smith"]
+
+function capitalNames(arr: string[]): string[] {
+    const newArray = arr.map(name => name.charAt(0).toUpperCase() + name.slice(1));
+    return newArray;
+  }
+  
+  const names = ["john", "smith"];
+  console.log(capitalNames(names));
+  
+
+
