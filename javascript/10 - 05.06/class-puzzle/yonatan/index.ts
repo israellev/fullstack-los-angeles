@@ -54,7 +54,7 @@ console.log(book1.numOfPages)
 
 function getSummary(book1) {
     const { title, author, yearPublished, numOfPages } = book1;
-    return `${title}, written by ${author} in ${yearPublished}, contains ${pages} pages.`;
+    return `${title}, written by ${author} in ${yearPublished}, contains ${numOfPages} pages.`;
   }
   
 
