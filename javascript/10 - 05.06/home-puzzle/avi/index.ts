@@ -164,7 +164,22 @@ console.log(sortedLibrary);
 // 1. Get average of list of objects
 // Create a function getAverageScors that gets array of object with 'score' value, and return the average class score.
 // (arrOfObj): number
+console.log(`Bonus- 6`);
 
-function getAverageScors(){
-    
+function getAverageScors(arrOfObj){
+
+  let totalSum = arrOfObj.reduce((sum, obj) => sum + obj.score, 0);
+  const totalAverage = totalSum/arrOfObj.length
+   return totalAverage
+
 }
+let scores = [
+  { score: 80 },
+  { score: 90 },
+  { score: 75 },
+  { score: 95 },
+  { score: 85 }
+];
+
+let average = getAverageScors(scores);
+console.log("the average is : " + average);
