@@ -152,7 +152,36 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
     Objects usefull function: 
     const man = {name: "Avi"}
+
+11. 
+    // new names
+    let {a: first, b: second} = obj;
+    // get object keys
     Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
     
-11. 
-    classes 
+
+    --------- Classes
+    class Car {
+        
+        // constructor
+        constructor(company: string) {
+            this.company = company
+        }
+
+        // method
+        getCarCompany(): string {
+            return this.company
+        }
+    }
+
+    // instance
+    const tesla = new Car("Tesla")
+    const mercedes = new Car("Mercedes")
+    
+    // use
+    console.log(tesla.getCarDetails())
+    console.log(mercedes.getCarDetails())
+
+    1. 'public', 'private' (isEngineOn, startEngine)
+    2. inherit (Tesla)
+    3. 'protected', get and set methods (speed).
