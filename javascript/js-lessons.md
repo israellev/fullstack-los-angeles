@@ -152,7 +152,10 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
     Objects usefull function: 
     const man = {name: "Avi"}
+
+11. 
+    // new names
+    let {a: first, b: second} = obj;
+    // get object keys
     Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
     
-11. 
-    classes 
