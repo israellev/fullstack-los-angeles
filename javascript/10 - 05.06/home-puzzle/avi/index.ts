@@ -174,7 +174,7 @@ function getAverageScors(arrOfObj){
 
 }
 let scores = [
-  { score: 80 },
+  { score: 88 },
   { score: 90 },
   { score: 75 },
   { score: 95 },
