@@ -157,8 +157,8 @@ library.forEach((book, index) => {
 })
 const chosenBook = library[state.bookIndex]
 
-// result
 
 
-// home puzzle 6:
-const publicationyear= library.sort()
+// 
+const years= library.year
+const storebooks= library.sort( ())
