@@ -90,3 +90,9 @@ console.log(earliestBook);
 // 6. Sort the books by publication year
 // Use the sort function to create a new array that contains the books sorted by their publication year.
 // tip - read in GPT about 'sort' function (we didn't leaned that in the class).
+
+const sortedBooks = library.sort((book1, book2) => {
+    return book1.year - book2.year;
+  });
+  
+  console.log("Sorted Books:", sortedBooks);
