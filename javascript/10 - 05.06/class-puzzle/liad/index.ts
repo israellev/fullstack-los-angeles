@@ -126,12 +126,13 @@ export {}
 
 function findBookByTitle(library, searchInput) {
   return library.find(function(book) {
-    return book.title === searchInput;
+    return book.title.includes(searchInput);
   });
 }
 
-const searchInput = "1984";
+const searchInput = "198";
 const book = findBookByTitle(library, searchInput);
 
 console.log(book);
+
 
