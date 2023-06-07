@@ -8,10 +8,10 @@ export {}
 // using the trim() function.
 // for example from [" banana", 1, "apple "] it return ["banana", "apple"]
 
-const array = [" banana", 1, "apple "];
+const array2 = [" banana", 1, "apple "];
 
 function filterAndTrim() {
-  const newArr = array
+  const newArr = array2
     .filter(item => typeof item === 'string')
     .map((item :string) => item.trim());
   return newArr;
@@ -35,7 +35,7 @@ function replaceItemInArray(arr: string[], itemToReplace : string, replaceWith: 
         return item;
       }
     });
-}
+};
   
 const array = ["shir", "yakov"];
 const newItem = "sapir";
@@ -53,8 +53,28 @@ function getFirstAndLast(arr) {
     return [first, last];
   }
   
-  const array = [1, 2, 3];
-  const [first, last] = getFirstAndLast(array);
+  const array1 = [1, 2, 3, 4, 5];
+  const [first, last] = getFirstAndLast(array1);
   
-  console.log(first); // Output: 1
-  console.log(last); // Output: 3
+  console.log("First item:",first); // Output: 1
+  console.log("Last item:",last); // Output: 3
+
+  // option 2:
+  
+function getFirstAndLast1(arr: number[]) {
+  let first1, last1
+  arr.forEach(function fun(item, index, array) {
+    if (index === 0) {
+      first1 = item;
+    }
+    else if (index === array.length - 1) {
+      last1 = item
+    }
+  });
+  return [first1, last1]
+}
+
+const arr3 = [1,2,3,4,5,6];
+const [first1, last1] = getFirstAndLast1(arr3);
+console.log("First item:", first1); // 1
+console.log("Last item:", last1); // 3
