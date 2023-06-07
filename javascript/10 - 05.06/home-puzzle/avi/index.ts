@@ -71,10 +71,9 @@ console.log(uniqueAuthors);
 console.log(`home puzzle - 3`);
 
 const genreCounts = {};
-console.log(genreCounts);
 library.forEach((book) => {
-  const { genre } = book;
-  if (genreCounts.hasOwnProperty(genre)) {
+  const {genre} = book;
+  if (genreCounts[genre]) {
 
     genreCounts[genre] = genreCounts[genre]+1;
     
@@ -127,8 +126,12 @@ console.log(`Bonus- 1`);
 
 function getAverageScors(arrOfObj:any):number
 { 
-  let totalSum = arrOfObj.reduce((sum, obj) => sum + obj.score,0);
-  const totalAverage = totalSum/arrOfObj.length
+  let sum = 0
+  for (let i in arrOfObj){ 
+
+      sum = sum +  arrOfObj[i].score
+  }
+  const totalAverage = sum/arrOfObj.length
    return totalAverage
 }
 let scores =
