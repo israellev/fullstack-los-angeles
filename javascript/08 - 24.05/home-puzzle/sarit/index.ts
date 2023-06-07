@@ -20,11 +20,10 @@ function filterGroceryItems(groceryItems: string[]): string[] {
     return groceryItems.filter(item => !unhealthyItems.includes(item));
   }
   
-//   // Example usage
-const groceryItems = ['apple', 'cake', 'banana', 'candy', 'carrot'];
-console.log(groceryItems)
-const filteredItems = filterGroceryItems(groceryItems);
-console.log(filteredItems);
+  // Example usage
+  const groceryItems = ['apple', 'cake', 'banana', 'candy', 'carrot'];
+  const filteredItems = filterGroceryItems(groceryItems);
+  console.log(filteredItems);
 
 
 // 3. Arr Temperature Conversion (map)
