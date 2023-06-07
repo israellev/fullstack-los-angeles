@@ -53,25 +53,85 @@ export {}
 
 
 
-  const beg = {
-    lastName : "liad" ,
-    firstName : "beg" ,
+  // const beg = {
+  //   lastName : "liad" ,
+  //   firstName : "beg" ,
 
-  }
+  // }
 
-  const peretz = {
-    lastName : "daniel" ,
-    firstName : "peretz" ,
+  // const peretz = {
+  //   lastName : "daniel" ,
+  //   firstName : "peretz" ,
     
-  }
+  // }
 
-  const benita = {
-    lastName : "roi" ,
-    firstName : "benita" ,
+  // const benita = {
+  //   lastName : "roi" ,
+  //   firstName : "benita" ,
+  //   toApperCase : function (arr) {
+  //     return this.lastName[0].toUpperCase()
     
-  }
+  //   }
+  // }
+ 
+ 
+  // const friends = [beg,peretz,benita]
+  // const toApperCase = [arr]
+  // console.log(toApperCase)
 
-  const friends = [beg,peretz,benita]
+  // ---------------------------------------------------------------------------------------------------------------------------------
 
-  console.log(friends)
+
+  let library = [
+    {
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        genre: "Fiction",
+        year: 1925
+    },
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        genre: "Fiction",
+        year: 1960
+    },
+    {
+        title: "A Brief History of Time",
+        author: "Stephen Hawking",
+        genre: "Science",
+        year: 1988
+    },
+    {
+        title: "1984",
+        author: "George Orwell",
+        genre: "Fiction",
+        year: 1949
+    },
+    {
+        title: "The Selfish Gene",
+        author: "Richard Dawkins",
+        genre: "Science",
+        year: 1976
+    },
+    {
+        title: "The Fishing Lake",
+        author: "Richard Dawkins",
+        genre: "Story",
+        year: 1980
+    }
+]
+
+// const yearArray = [...library].sort((a,b) => a.year-b.year)
+// console.log(yearArray)
+
+function findBookByTitle(library, searchInput) {
+  return library.find(function(book) {
+    return book.title === searchInput;
+  });
+}
+
+const searchInput = "1984";
+const book = findBookByTitle(library, searchInput);
+
+console.log(book);
 
