@@ -71,7 +71,7 @@ console.log(authorName);
 const bookGaner = {}; // משתנה של אובייקט ריק שיכיל את מונה הספרים לפי ז'אנר
 
 library.forEach(book => { // לולאה שתרוץ על כל ספר במערך הספריה
-    const {genre} = book; // הפיכת המאפיין ז'אנר של הספר למשתנה בשם ז'אנר
+    const {genre} = book; // הפיכת המאפיין ז'אנר של הספר מהאובייקט למעלה למשתנה בשם ז'אנר
     if (bookGaner[genre]) // בדיקה האם כבר קיים מאפיין בשם הז'אנר בתוך האובייקט בוק-ז'אנר
         bookGaner[genre]++; // אם כן, עליה בערך המאפיין של הז'אנר
     else 
@@ -87,7 +87,6 @@ console.log(bookGaner); // הדפסת האובייקט בוק-ז'אנר שמכי
 const bookTitle = library.map((title)=> title.title)
 console.log(bookTitle);
 
-// 5. Find the shortest book
 // 5. Find the book with the earliest publication year
 // Use the 'forEach' function to find the book with the earliest publication year.
 
@@ -106,9 +105,16 @@ console.log(earliestBook); // הדפסת הספר המוקדם ביותר
 // Use the sort function to create a new array that contains the books sorted by their publication year.
 // tip - read in GPT about 'sort' function (we didn't leaned that in the class).
 
+//מהשנה המוקדת ביותר
 const sortedBooks = library.sort((book1, book2) => {// פונקצית סורט משווה בין ערכים באמצעות הפחתה של ערך אחד מהשני אז נעשה משתנה חדש שיקבל את המערך הספריה ונשתמש בפונקצית סורט וניתן לה את הערכים להשוואה
     return book1.year - book2.year;//אנחנו נפחית את הערכים אחד מהשני ובמידה והתוצאה של ההפחתה שלילית אז זה אומר שהספר זה אומר שהשנה של הספר הראשון מוקדמת יותר ואם זה מספר חיובי אז השנה של הספר השני היא מוקדמת יותר
   });
   
   console.log("Sorted Books:", sortedBooks);
 
+  //מהשנה האחרונה ביותר
+  const sortedBooks2 = library.sort((book1, book2) => {// פונקצית סורט משווה בין ערכים באמצעות הפחתה של ערך אחד מהשני אז נעשה משתנה חדש שיקבל את המערך הספריה ונשתמש בפונקצית סורט וניתן לה את הערכים להשוואה
+    return book2.year - book1.year;
+  });
+  console.log("Sorted Books:", sortedBooks2);
+  
