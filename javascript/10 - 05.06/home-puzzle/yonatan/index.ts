@@ -129,10 +129,9 @@ Use the 'filter' function to create a new array that only
 contains books from the library array that were published 
 before 1950.
 
-Need to user the filter array.filter that will include
-books that the year is < 1950, and put these books in new
-array
-arr.filter((item) => item % 2 === 0)
+let BC_Books = library.filter(book => book.year < 1950);
+/* go to the object, and look at the year param, and send all the books that are under 1950 will be sent to BC_Books*/
+console.log(BC_Books);
 
 // 2. Create a list of all authors
 // Use the map function to create a new array that consists of 
@@ -140,20 +139,13 @@ arr.filter((item) => item % 2 === 0)
 // Then use 'new Set' and 'Array.from()' to remove the 
 // duplicates. the result will be like:
 // ["F. Scott Fitzgerald", "Richard Dawkins", "Harper Lee"] etc.
-need to make a array.map((item) => book.author)
+let AuthorOnly =  array.map((book) => book.author);
 
-/*  This is an example from CHatGPT, on how to find duplicates 
-using an object to count\summerize)
+let uniqueArray = Array.from(new Set(AuthorOnly));
 
-const countMap = {};
-const array = [1, 2, 3, 4, 2, 3];
+console.log(uniqueArray);
 
-for (const item of array) {
-  countMap[item] = (countMap[item] || 0) + 1;
-}
 
-console.log(countMap); // Output: {1: 1, 2: 2, 3: 2, 4: 1}
- */
 
 3. Count books by genre
 Use the forEach function to create an object where each key 
