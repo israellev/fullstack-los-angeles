@@ -20,9 +20,17 @@ export{}
 
 
 
-// 2. Creating Custom Filter Function:
-// Implement your own filter function named myFilter. It should take an array and a callback function that returns a boolean. myFilter should return a new array containing only the elements of the original array for which the callback function returns true.
+// 2. Object Methods
+// Continuing from the previous exercise, add a method getSummary to the book object, which when called, returns a summary of the book as a string: "title, written by author in yearPublished, contains pages pages".
  
-const myFilter = (arr:any[] , callback:(item: any)=> boolean): any[]=>{
-  
+ const book : any = {
+
+title :`full stack`,
+author :`ahron dawit`,
+yearPublished : 2023, 
+page : 200,
+
+getSummary:function(){
+return `${this.title},written by ${this.author}in,${this.yearPublished}contains,${this.page}pages`   
+},
 }
