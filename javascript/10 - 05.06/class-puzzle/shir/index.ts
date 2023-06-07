@@ -55,16 +55,11 @@ export { }
 
 
 //home puzzle:
-
-
-
+const state = {
+    earliestYear: 1925,
+    bookIndex: 2,
+}
 let library = [
-    {
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        genre: "Fiction",
-        year: 1925
-    },
     {
         title: "To Kill a Mockingbird",
         author: "Harper Lee",
@@ -76,6 +71,12 @@ let library = [
         author: "Stephen Hawking",
         genre: "Science",
         year: 1988
+    },
+    {
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        genre: "Fiction",
+        year: 1925
     },
     {
         title: "1984",
@@ -112,30 +113,52 @@ console.log(allauthors);
 console.log(newarrayauthors);
 
 //home puzzle 3:
-
-const booksgenre= {};
+/* {
+    Fiction: 3,
+    Science: 2,
+    Story: 1,
+}
+ */
+const booksgenre = {};
+booksgenre["Finction"] // undefined
 
 library.forEach(book=> {
-    const {genre}= book;
-
+    //const genre = book.genre;  // "Fiction"
+    const {genre, year} = book;
+    if (booksgenre[genre])
+        booksgenre[genre] ++
+    else
+        booksgenre[genre] = 1
 })
-
+console.log(booksgenre)
 
 
 //home puzzle 4:  למה בעצם זה מחזיר לי מערך אם לא כתבתי בשם מקום שזה מערך?
 
-const titels= library.map(book=> book.title);
+const titels= library.map((book)=> book.title);
 console.log (titels); 
 
 // home puzzle 5:  מתי אני משתמשת בפונקציה ומתי בקונסט כדי להתחיל את התשובה?
 
-function earliestyear(num: number): number {
+/* const years = library.map(book => book.year) // [1960, 1988, 1925, 1949, 1976, 1980]
+Math.min(...years) // 1925
+ */
 
-library.forEach(book=> book.year < )
-
+const state = {
+    earliestYear: 1925,
+    bookIndex: 2,
 }
 
+library.forEach((book, index) => {
+    if (!state.earliestYear || book.year < state.earliestYear) {
+        state.earliestYear = book.year;
+        state.bookIndex = index
+    }
+})
+const chosenBook = library[state.bookIndex]
 
 
-// home puzzle 6:
-const publicationyear= library.sort()
+
+// 
+const years= library.year
+const storebooks= library.sort( ())

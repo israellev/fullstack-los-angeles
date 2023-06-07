@@ -37,13 +37,14 @@ Boolean()
 
 /*  'Set' (system class), item can't be twice and for that it works fast than array, and  */
 
-const set = new Set([1, 2, 3, 3]) // (1, 2, 3)
+const set = new Set([1, 2, 3, 3]) // {1, 2, 3}
 set.has(5) // false
 set.has(2) // true
-set.add(4) // (1, 2, 3, 4)
+set.add(4) // {1, 2, 3, 4}
+
 
 /* convert set back to array */
-Array.from(new Set([1, 2, 3, 3]))
+Array.from(set)  // [1, 2, 3, 4]
 
 
 

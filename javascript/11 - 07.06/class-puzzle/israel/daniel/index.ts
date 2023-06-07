@@ -1,5 +1,14 @@
 export {}
 
+
+// 1. Sort the books by publication year
+// Use the sort function to create a new array that contains the books sorted by their publication year.
+// tip - read in GPT about 'sort' function (we didn't leaned that in the class).
+// a. fromAtoZ
+// b. fromZtoA
+
+
+
 let library = [
     {
         title: "To Kill a Mockingbird",
@@ -38,26 +47,15 @@ let library = [
         year: 1980
     }
 ]
+// sort =  משמשת למיון מערך בפונקציה הזאת ממיין את השנים מהקטן לגדול
+ const libararyAtoZ =[...library].sort(function(a,b){
+    return a.year- b.year; 
+});
 
+console.log(libararyAtoZ);
 
-/* distract array to function parameters  */
+const libararyZtoA =[...library].sort(function(a,b){
+    return b.year- a.year; 
+});
 
-/* const years = library.map(book => book.year) // [1925, 1960, 1988, 1949, 1976, 1980]
-// instead of Math.min(1925, 1960, 1988, 1949, 1976, 1980) we can use:
-Math.min(...years) // 1925
- */
-
-/* Solution for home-puzzle number 5 */
-
-const state = {
-    earliestYear: 1925,
-    bookIndex: 2,
-}
-
-library.forEach((book, index) => {
-    if (!state.earliestYear || book.year < state.earliestYear) {
-        state.earliestYear = book.year;
-        state.bookIndex = index
-    }
-})
-const chosenBook = library[state.bookIndex]
+console.log(libararyZtoA);

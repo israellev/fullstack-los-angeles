@@ -21,13 +21,13 @@ const person: any = {
     name: "sapir",
     age: 30,
     address: {
-        city: "rechovot"
+        country: "israel",
+        city: "rechovot",
     },
     hobbies: ["fishing", "diving"],
     studies: {
         schoolName: "tichon"
     },
-    isMarried: false,
     celebrateBirthday: function(greeting) {
         this.age ++
         console.log(greeting)
@@ -42,8 +42,13 @@ console.log(person["age"]) // 30
 console.log(person.studies["schoolName"]) // "tichon"
 
 /* add new values */
-person.address = "Kiryat Malachi"
-console.log(person.address) // "Kiryat Malachi"
+person.isMarried = false
+person["isMarried"] = false
+console.log(person.isMarried) // false
+
+/* remove values */
+delete person.isMarried
+console.log(person.isMarried) // undefined
 
 /* edit exising value */
 person.name = "daniel"
@@ -134,3 +139,19 @@ const prices = books.map(book => book.price)
 console.log(prices)
 const expeniveBooks = books.filter(book => book.price > 30)
 console.log(expeniveBooks)
+
+
+/* home-puzzle 4 */
+
+const booksgenre = {};
+library.forEach(book=> {
+    //const genre = book.genre;  // "Fiction"
+    //const year = book.year;  // "Fiction"
+    const {genre, year} = book; // "Fiction"
+    if (booksgenre[genre])
+        booksgenre[genre] ++
+    else
+        booksgenre[book.genre] = 1
+})
+console.log(booksgenre)
+
