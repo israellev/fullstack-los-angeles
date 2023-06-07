@@ -140,17 +140,25 @@ console.log(BC_Books);
 // duplicates. the result will be like:
 // ["F. Scott Fitzgerald", "Richard Dawkins", "Harper Lee"] etc.
 let AuthorOnly =  array.map((book) => book.author);
-
 let uniqueArray = Array.from(new Set(AuthorOnly));
-
 console.log(uniqueArray);
-
-
 
 3. Count books by genre
 Use the forEach function to create an object where each key 
 is a genre and each value is the number of books in that 
 genre.
+
+let genreCount = {};
+
+library.forEach(book => {
+    if (genreCount[book.genre]) {
+        genreCount[book.genre]++;
+    } else {
+        genreCount[book.genre] = 1;
+    }
+});
+
+console.log(genreCount);
 the result will be:
 {
     Fiction: 3
