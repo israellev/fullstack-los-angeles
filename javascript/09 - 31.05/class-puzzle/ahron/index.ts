@@ -28,16 +28,33 @@ export{}
 // from example from [1, 2, 3] it'll return [1, 3] (the first and last item only)
 // than use extraction to save 1 and 2 to "first" and "last" variables.
 
-const getFirstAndLast = (arrey:any[]) :any[]=>{
-    const first = arrey[0];
+// const getFirstAndLast = (arrey:any[]) :any[]=>{
+//     const first = arrey[0];
 
-    const last = arrey[length-1]; 
+//     const last = arrey[length-1]; 
 
-    const slicearr= arrey.slice(first && last) ;
+//     const slicearr= arrey.slice(first && last) ;
 
-    return slicearr
-};
+//     return slicearr
+// };
 
-let  exmples = [1,2,3,4];
-const result = getFirstAndLast(exmples);
-console.log (result);
+// let  exmples = [1,2,3,4];
+// const result = getFirstAndLast(exmples);
+// console.log (result);
+
+
+//hom puzzll//
+
+// 1. Implementing ForEach:
+// Implement a function myForEach that takes an array and a callback function and behaves like the forEach method. It should apply the callback function to each element in the array.
+
+  function myForEach(arr:number[],callback:(item: number,index:number,array: number[])=> void ): void {
+arr.forEach((item,index) => {
+    callback(item,index,arr);
+});
+  }
+
+const numbers = [1, 2, 3, 4, 5];
+myForEach(numbers, (item, index) => {
+  console.log(`Index ${index}: ${item}`);
+});
