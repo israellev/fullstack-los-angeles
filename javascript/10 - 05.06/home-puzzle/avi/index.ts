@@ -99,13 +99,13 @@ console.log(title);
 
 console.log(`home puzzle - 5`);
 
-let earliestBook = library[0]; 
-
-library.forEach(book => {
-  if (book.year < earliestBook.year) {
-    earliestBook = book; 
-  }
-});
+let earlier = library[0]; 
+let earliestBook = library.map(book => book.year < earlier.year)
+// library.forEach(book => {
+//   if (book.year < earliestBook.year) {
+//     earliestBook = book; 
+//   }
+// });
 console.log(earliestBook);
   
 // 6. Sort the books by publication year
