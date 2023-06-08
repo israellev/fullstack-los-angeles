@@ -34,37 +34,38 @@ let arrnum = [5, 322, 14, 81, 61];
 let Maxnum = arrbignum(arrnum);
 console.log(Maxnum);
 
-// const maxNumberr = (arr: number[]): number => {
-//   let inputarr = arr[0];
-//   let maxindex = 0;
-//   for (let i = 0; i < arr.length; i++)
-//     if (arr[i] > inputarr) {
-//       inputarr = arr[i];
-//       maxindex = i;
-//     }
-//   return maxindex;
-// };
-// console.log(maxNumberr([20, 50, 40]));
-
 // 3. avg number in array
 // Write a function that recive an array of numbers and returns the average number.
 // for example from [0, 1, 2, 3] it returns 1.5.
 // (arr: number[]) => number
-// console.log("home puzzle 3 -------------------");
-// const avgNum = (are: number[]): number => {
-//   let sum = 0;
-//   for (let i = 0; i < arr.length - 1; i++) sum += arr[i];
-//   sum = 0;
-//   let calc = sum / arr.length;
+console.log("home puzzle 3 -------------------");
+const avegnum = (yakov: number[]): number => {
+  let summ = 0;
+  for (let index = 0; index < yakov.length; index++) summ += yakov[index];
+  let avgsum = summ / yakov.length;
 
-//   return calc;
-// };
-// console.log(avgNum([0, 1, 2, 3]));
+  return avgsum;
+};
+
+let yakov = [0, 1, 2, 4];
+let resolt = avegnum(yakov);
+console.log(resolt);
 
 // 4. check if array contains the item
 // Write a function that recive an array and value, return true if the value exists in the array, and false if not.
 // for example from ([1, 2, 3], 4) it returns false.
 // (arr: number[], num: number) => boolean
+console.log("home puzzle 4 -------------------");
+const existsvalue = (arr: number[], num: number): any => {
+  let value = num;
+  for (let index = 0; index < arr.length; index++)
+    if (arr[index] === value) return true;
+    else arr[index] !== value;
+  return false;
+};
+let arr = [1, 2, 3, 4];
+let result = existsvalue(arr, 5);
+console.log(result);
 
 // 5. First Letter
 // Write a funtion that gets array of names and return array with first letter of those names in upper case.
