@@ -61,3 +61,19 @@ library.forEach((book, index) => {
     }
 })
 const chosenBook = library[state.bookIndex]
+
+
+
+
+// 2. Find Book by Title
+// Create a function that accepts a book title as input and returns the full book object.
+// (libraries: Book[], searchInput): Book[] | undefined
+
+function findBookByTitle(library, textSearch: string) {
+    const books = library.filter(book => {
+        return book.title.toLowerCase().includes(textSearch.toLowerCase().trim())
+    })
+    return books
+}
+
+console.log(findBookByTitle(library, "Gene "))
