@@ -70,11 +70,32 @@ console.log(result);
 // 5. First Letter
 // Write a funtion that gets array of names and return array with first letter of those names in upper case.
 // for example from ["liad", "sarit"] it returns ["S", "L"]
+console.log("home puzzle 5 -------------------");
+const firstletter = (arrr: string[]) => {
+  let newarr = arrr.map(function (name) {
+    return name.charAt(0).toUpperCase() + name.slice(name.length);
+  });
+  return newarr;
+};
+let arrr = ["yakov", "shir", "yzchk"];
+var firstlette = firstletter(arrr);
+console.log(firstlette);
 
 // 6. Capital Letters
 // Write a funtion that gets array of names and return array with those names in capital letter.
 // for example from ["liad", "sarit"] it returns ["Liad", "Sarit"]
 // (I already showed)
+
+console.log("home puzzle 6 -------------------");
+const capitalname = (arrr: string[]) => {
+  let newarr = arrr.map(function (name) {
+    return name.charAt(0).toUpperCase() + name;
+  });
+  return newarr;
+};
+let arrr = ["yakov", "shir", "yzchk"];
+var firstlette = capitalname(arrr);
+console.log(firstlette);
 
 // 7. Upside Down
 // Write a funtion that gets array of names and return array with those names in upside order.
