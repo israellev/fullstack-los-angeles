@@ -112,9 +112,48 @@ const sortedBooks = library.sort((book1, book2) => {// פונקצית סורט �
   
   console.log("Sorted Books:", sortedBooks);
 
-  //מהשנה האחרונה ביותר
+  //מהשנה המאוחרת ביותר
   const sortedBooks2 = library.sort((book1, book2) => {// פונקצית סורט משווה בין ערכים באמצעות הפחתה של ערך אחד מהשני אז נעשה משתנה חדש שיקבל את המערך הספריה ונשתמש בפונקצית סורט וניתן לה את הערכים להשוואה
     return book2.year - book1.year;
   });
   console.log("Sorted Books:", sortedBooks2);
   
+ //1. Create list of authors with Multiple Books
+
+ const authorList ={};//הצהרה על אובייקט ריק שיכיל את מספר הספרים של כל סופר
+
+ library.forEach(book => {//לולאה שתרוץ על כל האלמנטים במערך ספריה
+    const{author} = book;//העברת המאפיין של סופר מהספר הנוכחי למשתנה סופר
+    if (authorList[author]){//בודק האם המשתנה סופר קיים ברשימת סופרים 
+        authorList[author] ++;//אם קיים זה מעלה את הערך ב1
+    } else {
+        authorList[author]= 1;//אם לא קיים זה משאיר את הערך 1 
+    }
+ });
+ console.log("Author List:", authorList);
+
+
+//2. Create a function that accepts a decade (for example, 1980) and returns all books in the library that were released during that decade
+
+function findBooksByDecade(library, decade) {
+    const startYear = decade;
+    const endYear = decade + 9;
+  
+    return library.filter(book => book.year >= startYear && book.year <= endYear);
+  }
+
+  const booksIn1980s = findBooksByDecade(library, 1980);
+  console.log(booksIn1980s);
+
+//   Find Book by Title
+// Create a function that accepts a book title as input and returns the full book object.
+// (libraries: Book[], searchInput): Book[] | undefined
+
+function findBookByTitle(library, searchInput) {
+    const  books = library.find(book => {
+        return book.title.toLowerCase().includes(searchInput.toLowerCase().trim());
+  })
+  return books
+  
+}
+console.log(findBookByTitle(library, "selfish"));
