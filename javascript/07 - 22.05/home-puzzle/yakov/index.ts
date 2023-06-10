@@ -93,8 +93,8 @@ const capitalname = (arrr: string[]) => {
   });
   return newarr;
 };
-let arrr = ["yakov", "shir", "yzchk", "ahron"];
-var firstlette = capitalname(arrr);
+let arrrr = ["yakov", "shir", "yzchk", "ahron"];
+var firstlette = capitalname(arrrr);
 console.log(firstlette);
 
 // 7. Upside Down
