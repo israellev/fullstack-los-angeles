@@ -89,14 +89,24 @@ console.log(firstlette);
 console.log("home puzzle 6 -------------------");
 const capitalname = (arrr: string[]) => {
   let newarr = arrr.map(function (name) {
-    return name.charAt(0).toUpperCase() + name;
+    return name.charAt(0).toUpperCase() + name.slice(1);
   });
   return newarr;
 };
-let arrr = ["yakov", "shir", "yzchk"];
+let arrr = ["yakov", "shir", "yzchk", "ahron"];
 var firstlette = capitalname(arrr);
 console.log(firstlette);
 
 // 7. Upside Down
 // Write a funtion that gets array of names and return array with those names in upside order.
 // for example from ["liad", "sarit"] it returns ["sarit", "liad"]
+console.log("home puzzle 7 -------------------");
+const ChangingOrderOfnames = (name: string[]) => {
+  let NewArry = [];
+  for (let i = name.length - 1; i >= 0; i--) NewArry.push(name[i]);
+  return NewArry;
+};
+
+let names = ["yakov", "shir", "yzchk", "ahron"];
+let ordernems = ChangingOrderOfnames(names);
+console.log(ordernems);
