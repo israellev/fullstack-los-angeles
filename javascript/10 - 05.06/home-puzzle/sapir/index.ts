@@ -145,7 +145,7 @@ function findBooksByDecade(library, decade) {
   const booksIn1980s = findBooksByDecade(library, 1980);
   console.log(booksIn1980s);
 
-//   Find Book by Title
+//  2. Find Book by Title
 // Create a function that accepts a book title as input and returns the full book object.
 // (libraries: Book[], searchInput): Book[] | undefined
 
