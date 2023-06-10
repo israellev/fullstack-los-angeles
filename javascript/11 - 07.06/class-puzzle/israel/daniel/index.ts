@@ -59,3 +59,15 @@ const libararyZtoA =[...library].sort(function(a,b){
 });
 
 console.log(libararyZtoA);
+//------------------------------------------------------------------
+
+// 2. Find Book by Title
+// Create a function that accepts a book title as input and returns the full book object.
+// (libraries: Book[], searchInput): Book[] | undefined
+
+const bookTitle = "To Kill a Mockingbird" //פתחתי משתנה בשם בוק טייטל ואת הכותרת מהספר שאני רוצה לחפש
+function getBookByTitle(library: any[], searchInput) { // פתחתי פונקציה בשם + פרמטר של המערך ספרים ועוד פרמטר שהוא שווה ל משתנה בוק סטייל פשוט בשם אחר 
+    let bookResult = library.find((library) => library.title === searchInput) //פתחתי משתנה בשם = המערך ספרים ופקודת פיינד מחפשת את הכותרת מהספר 
+    return bookResult;  // מבקש שיחזיר לי את המשתנה החדש לאחר כל התרגיל חיפוש 
+}
+console.log(getBookByTitle(library,bookTitle)) // מדפיס את הפונקציה ואת המערך ספרים ואת התרגיל חיפוש 
