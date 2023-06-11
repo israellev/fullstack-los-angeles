@@ -99,13 +99,13 @@ console.log(title);
 
 console.log(`home puzzle - 5`);
 
-let earlier = library[0]; 
-let earliestBook = library.map(book => book.year < earlier.year)
-// library.forEach(book => {
-//   if (book.year < earliestBook.year) {
-//     earliestBook = book; 
-//   }
-// });
+let earliestBook = library[0]; 
+
+library.forEach(book => {
+  if (book.year < earliestBook.year) {
+    earliestBook = book; 
+  }
+});
 console.log(earliestBook);
   
 // 6. Sort the books by publication year
@@ -145,3 +145,14 @@ let scores =
 
 let average = getAverageScors(scores);
 console.log("the average is : " + average);
+
+// 2. Find Book by Title
+// Create a function that accepts a book title as input and returns the full book object.
+// (libraries: Book[], searchInput): Book[] | undefined
+
+const bookTitle = "To Kill a Mockingbird"
+function getBookByTitle(library: any[], searchInput) {
+    let bookResult = library.find((library) => library.title === searchInput)
+    return bookResult;  
+}
+console.log(getBookByTitle(library,bookTitle))
