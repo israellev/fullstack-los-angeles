@@ -124,7 +124,7 @@ console.log(gotJobInterview);
 // 2. Get Class Score Average
 // Make a list of the class scores and get it's average.
 
-const classScore = students.map((student) => student.score)
+const classScore = students.map((student) => student.score)//משתנה חדש אשר מקבל מערך חדש באמצעות שימוש בפונקצית מאפ ובכל איטרציה אנחנו שואבים את הציון של הסטודנט אשר מתווסף למערך החדש 
 
  const classAvarage = classScore.reduce((accum, cuurentVal) => accum + cuurentVal, 0) / classScore.length;
  //שימוש בשיטת רדיוס אשר צוברת ערכים במערך לערך יחיד , השיטה מקבלת פונקצית קולבק אשר מקבלת 2 פרמטרים : צבירה וערך נוכחי 
