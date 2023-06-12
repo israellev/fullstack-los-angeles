@@ -1,9 +1,4 @@
-export { }
-
-// 1. print in the console for each student in the list using Object.keys():
-// key: value
-
-
+export {}
 const students = [
     {
         name: "Sapir Peretz",
@@ -26,11 +21,11 @@ const students = [
         score: 78
     },
     {
-        name: "Avi Berehanu Bayna",
+        name: "Brahanu Avraham Beyene",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Continue current job for another year",
-        score: 110
+        score: 50
     },
     {
         name: "Sharit Tzvika",
@@ -47,7 +42,7 @@ const students = [
         occupation: "Security",
         motivation: "Need more money",
         impactOnLife: 12,
-        score: 65
+        score: 99
     },
     {
         name: "Sahar Kalaifish",
@@ -56,14 +51,14 @@ const students = [
         degree: "Architecture",
         motivation: "Increase income (husband is a social worker), hopefully find it interesting",
         impactOnLife: 8,
-        score: 85
+        score: 92
     },
     {
         name: "Yaakov Mengistu",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Develop programming skills, not planning to work in this profession in the future, considering it an additional skill for the future",
-        score: 52
+        score: 100
     },
     {
         name: "Shir Malka",
@@ -90,12 +85,12 @@ const students = [
         score: 84
     },
     {
-        name: "Aharon Dawit",
+        name: "Aharon Dwight",
         age: 30,
         occupation: "SMC - machine operation, some programming, network management and data security",
         futurePlans: "Willing to do anything with it",
         impactOnLife: 10,
-        score: 86
+        score: 98
     },
     {
         name: "Liad Bag",
@@ -115,11 +110,23 @@ const students = [
     }
 ]
 
-students.forEach(student => {
-    const keys = Object.keys(student)
-    // console.log(keys)
-    keys.forEach(key => {
-        console.log(`${key}: `, student[key])
-    })
-    
-})
+// 1. print in the console for each student in the list using Object.keys():
+// key: value
+// let key = Object.keys(students)
+// console.log(key)
+// console.log(`_____________________________________`) 
+// let value =Object.values(students)
+// console.log()
+// console.log(`_____________________________________`) 
+// students.forEach(student =>{
+//     let keys = Object.keys(student)
+//     keys.forEach(key=>{
+//         console.log(`${key} :`,student[key])
+//     })
+// })
+students.forEach((student) => {
+    Object.entries(student).forEach(([key, value]) => {
+      console.log(`${key}: ${value}`);
+    });
+    console.log(`_____________________________________`);
+  });
