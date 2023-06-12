@@ -191,15 +191,15 @@ console.log(ageOfStudent)
 
 // Count Future Plans: Count the number of students who have specified their future plans in the futurePlans property.
 console.log(`----------------------------------------------------------------------------------------------------------------------`)
-let countFuturePlans = 0;
+let countMotivation = 0;
 
 students.forEach((students)=>{
     if(students.motivation){
-        countFuturePlans ++;
+        countMotivation ++;
     }
 });
 
-console.log(countFuturePlans)
+console.log(countMotivation)
 
 // Skills Concatenation: Create a string that concatenates all the skills of the students, separated by commas.
 
