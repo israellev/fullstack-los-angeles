@@ -1,5 +1,5 @@
 export {}
-
+import {students} from "../../11 - 07.06/students"
 
 
 // var arr = [2, 4, 6]
