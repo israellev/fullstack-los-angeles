@@ -125,7 +125,6 @@ console.log("home puzzle 1 ---------------");
 const sstudentsjob = students.filter(function (studentscore) {
   if (studentscore.score > 90) return students;
 });
-
 console.log(sstudentsjob);
 
 // 2. Get Class Score Average
@@ -226,6 +225,14 @@ let searchTerm = "Electrical Engineer";
 let searchResults = searchStudents(searchTerm);
 console.log(searchResults);
 
+<<<<<<< HEAD
+const result =
+  students.reduce((state, student): any => {
+    state += student.score;
+    return state;
+  }, 0) / students.length;
+console.log(result);
+=======
 
 
 
@@ -234,3 +241,4 @@ const result = students.reduce((state, student) => {
   state += student.score
   return state
 }, 0) / students.length
+>>>>>>> 54fc5313969021e80a12143a7bf594c615ed8bf3
