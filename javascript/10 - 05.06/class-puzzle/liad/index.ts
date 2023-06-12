@@ -121,18 +121,22 @@ export {}
     }
 ]
 
-// const yearArray = [...library].sort((a,b) => a.year-b.year)
+// 1 .const yearArray = [...library].sort((a,b) => a.year-b.year)
 // console.log(yearArray)
+
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 function findBookByTitle(library, searchInput) {
   return library.find(function(book) {
-    return book.title.includes(searchInput);
+    return book.title === searchInput;
   });
 }
 
-const searchInput = "198";
+const searchInput = "1984";
 const book = findBookByTitle(library, searchInput);
 
 console.log(book);
+
+
 
 

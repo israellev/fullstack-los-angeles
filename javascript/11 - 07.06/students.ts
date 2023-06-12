@@ -84,7 +84,7 @@ export const students = [
         score: 84
     },
     {
-        name: "Aharon Dwight",
+        name: "Aharon Dawit",
         age: 30,
         occupation: "SMC - machine operation, some programming, network management and data security",
         futurePlans: "Willing to do anything with it",

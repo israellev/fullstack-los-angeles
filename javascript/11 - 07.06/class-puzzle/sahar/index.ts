@@ -1,5 +1,5 @@
-export {}
-console.log(`home puzzle - 1`);
+export{}
+
 let library = [
     {
         title: "The Great Gatsby",
@@ -38,6 +38,26 @@ let library = [
         year: 1980
     }
 ]
- console.log("class puzzle")
 
- 
+// 2. Find Book by Title
+// Create a function that accepts a book title as input and returns the full book object.
+// (libraries: Book[], searchInput): Book[] | undefined
+
+const bookTitle = "To Kill a Mockingbird"
+function findBookByTitle(library: any[], searchInput) {
+    let bookResult = library.find((library) => library.title === searchInput)
+    return bookResult;  
+}
+console.log(findBookByTitle(library,bookTitle));
+
+function findBookByWord(library,textSearch) {
+    const books = library.filter(book => {
+        return book.title.toLowerCase().includes(textSearch.toLowerCase().trim())
+    })
+    return books
+}
+
+console.log(findBookByWord(library,"Gene "))
+
+
+
