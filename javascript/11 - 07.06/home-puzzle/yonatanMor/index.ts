@@ -155,3 +155,9 @@ const Avarage = sum / score.length ;
 // 6. Smart Search
 // Create search function that take input and find it in all 
 // possible student values.
+
+
+forEach()
+
+console.log(key)
+console.log(value)

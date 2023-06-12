@@ -27,3 +27,36 @@ console.log(state)
 // }, 0) / students.length
 
 
+/* convert array to string */
+var names = ["Sapir", "Yehonatan", "Avi"]
+console.log(names.join(", ")) // "Sapir, Yehonatan, Avi"
+
+/* convert string to array */
+var names2 = "Sapir, Yehonatan, Avi"
+names2.split(" ") // ["Sapir,", "Yehonatan,", "Avi"]
+names2.split(", ") // ["Sapir", "Yehonatan", "Avi"]
+
+console.log("------------------")
+
+
+/* Object.keys() method */
+var person = {
+    name: "Yehavit",
+    proffession: "Teacher",
+    score: 55,
+}
+
+person.name
+person["name"]
+person["Yehavit"] // undefined
+
+// Object.values(person) // ["Yehavit", "Teacher", 55]
+var keys = Object.keys(person)
+console.log(keys) // ["name", "proffession", "score"]
+
+// "name", "Yehavit"
+// "proffession", "Teacher"
+
+keys.forEach(key => {
+    console.log(`${key}: `, person[key])
+})
