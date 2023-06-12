@@ -109,50 +109,8 @@ export const students = [
     }
 ]
 
-// 1. Got Job Interview
-// Filter from students list those who will got a job interview - having score above 90.
-
-const jobInterviewStudents: Student[] = students.filter((student) => student.score > 90);
-console.log(jobInterviewStudents);
-
-
-
-// 2. Get Class Score Average
-// Make a list of the class scores and get it's average.
-
-const classScores: number[] = students.map((student) => student.score);
-const classScoreAverage: number = classScores.reduce((sum, score) => sum + score, 0) / students.length;
-console.log(classScoreAverage);
-
-// 3. Last names list
-// Create a list of all fimaly names
-// Tip - read in GPT about string split function "a b".split(" ").
-
-const lastNames: string[] = students.map((student) => student.name.split(' ')[1]);
-console.log(lastNames);
-
-// 4. Need to wake-up list
-// Create a list with the names of students that need to make up now - got score under 80.
-// And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים" 
-
-const studentsToMakeUp: Student[] = [];
-for (const student of students) {
-  if (student.score < 80) {
-    studentsToMakeUp.push(student);
-    console.log(`חאלאס ${student.name} להימרח על החיים שלך, הקורס תכף מסתיים`);
-  }
-}
-
-// 5. Impact vs Score
-// Print for each student 
-// `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`
-// and if the score is above 85 print `well done!` and if not print `WTF?!`
-
-for (const student of students) {
-    console.log(`Hey ${student.name}, the studies have an impact on your life of '${student.impactOnLife}', and your score is ${student.score}.`);
-    if (student.score > 85) {
-      console.log('Well done!');
-    } else {
-      console.log('WTF?!')
-    }
-  }
+students.forEach(student=>{
+    Object.keys(student).forEach(key=> {
+        console.log(`${key}:`, student[key])
+    })
+})
