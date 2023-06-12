@@ -59,12 +59,11 @@ console.log(books1950);
 // the result will be like:
 // ["F. Scott Fitzgerald", "Richard Dawkins", "Harper Lee"] etc.
 console.log("home puzzle 2 --------------");
-
-const listofallauthors = library.map(function (list) {
-  let newset = new Set(list.author);
-  let oneNameEach = Array.from(newset);
-});
-console.log(listofallauthors);
+const newarrrr = [];
+const listofallauthors = library.map((book) => book.author);
+newarrrr.push(listofallauthors);
+const result = Array.from(new Set(newarrrr));
+console.log(result);
 
 // 3. Count books by genre
 // Use the 'forEach' function to create an object where each key is a genre and each value is the number of books in that genre.
