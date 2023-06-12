@@ -111,8 +111,10 @@ const students = [
     }
 ]
 
-var keys = Object.keys(students)
 
-keys.forEach(key => {
-    console.log(`${key}: `, students[key])
+students.forEach(student => {
+    const keys = Object.keys(student)
+    keys.forEach(key =>{
+        console.log(key,student[key])
+    })
 })
