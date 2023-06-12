@@ -162,11 +162,23 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     const man = {name: "Avi"}
 
 11. 
-    // new names
-    let {a: first, b: second} = obj;
+    Repetition of a previous lesson
+
+12. 
+    /* convert array to string */
+    var names = ["Sapir", "Yehonatan", "Avi"]
+    console.log(names.join(", ")) // "Sapir, Yehonatan, Avi"
+
+    /* convert string to array - cut the string where you tell him to */
+    var names2 = "Sapir, Yehonatan, Avi"
+    names2.split(" ") // ["Sapir,", "Yehonatan,", "Avi"]
+    names2.split(", ") // ["Sapir", "Yehonatan", "Avi"]
+
     // get object keys
     Object.keys(man).forEach(key => console.log(key, man[key])) // "name", "Avi"
-    
+
+    // new names
+    let {a: first, b: second} = obj;
 
     --------- Classes
     class Car {
