@@ -135,24 +135,3 @@ let resultCheck = containsValue(arra, value);
 console.log(resultCheck);
 
 //  bonus--------------------------------------
-
-console.log("Home pzzle from CHET-GPT - 5");
-function concatArrays(arr1: number[], arr2: number[]): number[] {
-  if (arr1.length > arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
-      arr2.push(arr1[i]);
-    }
-    return console.log(`${arr2}`);
-  } else {
-    for (let i = 0; i < arr2.length; i++) {
-      arr1.push(arr2[i]);
-    }
-    return console.log(`${arr1}`);
-  }
-}
-let arr1 = [1, 2, 13, 5, 2, 4];
-let arr2 = [1, 2, 13, 5];
-concatArrays(arr1, arr2);
-
-console.log(`------------------------------`);
-console.log(`Avraham You Are The BEST!!!!!`);

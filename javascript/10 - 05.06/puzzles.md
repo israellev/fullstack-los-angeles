@@ -74,7 +74,7 @@ the result will be like:
 ["F. Scott Fitzgerald", "Richard Dawkins", "Harper Lee"] etc.
 
 3. Count books by genre
-Use the forEach function to create an object where each key is a genre and each value is the number of books in that genre.
+Use the 'forEach' function to create an object where each key is a genre and each value is the number of books in that genre.
 the result will be:
 {
     Fiction: 3
@@ -91,7 +91,8 @@ Use the 'forEach' function to find the book with the earliest publication year.
 6. Sort the books by publication year
 Use the sort function to create a new array that contains the books sorted by their publication year.
 tip - read in GPT about 'sort' function (we didn't leaned that in the class).
-
+fromAtoZ
+fromZtoA
 
 Bonus:
 
