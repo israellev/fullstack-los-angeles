@@ -17,7 +17,7 @@ Import "students.ts" file, and do the next exercies on it:
 
 1. Got Job Interview
 Filter from students list those who will got a job interview - having score above 90.
-
+array.filter()
 2. Get Class Score Average
 Make a list of the class scores and get it's average.
 
