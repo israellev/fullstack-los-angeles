@@ -1,6 +1,4 @@
-export {}
-
-const students = [
+export const students = [
     {
         name: "Sapir Peretz",
         age: 31,
@@ -22,11 +20,11 @@ const students = [
         score: 78
     },
     {
-        name: "Brahanu Avraham Beyene",
+        name: "Avi Berehanu Bayna",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Continue current job for another year",
-        score: 50
+        score: 110
     },
     {
         name: "Sharit Tzvika",
@@ -43,7 +41,7 @@ const students = [
         occupation: "Security",
         motivation: "Need more money",
         impactOnLife: 12,
-        score: 99
+        score: 65
     },
     {
         name: "Sahar Kalaifish",
@@ -52,14 +50,14 @@ const students = [
         degree: "Architecture",
         motivation: "Increase income (husband is a social worker), hopefully find it interesting",
         impactOnLife: 8,
-        score: 92
+        score: 85
     },
     {
         name: "Yaakov Mengistu",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Develop programming skills, not planning to work in this profession in the future, considering it an additional skill for the future",
-        score: 100
+        score: 52
     },
     {
         name: "Shir Malka",
@@ -86,12 +84,12 @@ const students = [
         score: 84
     },
     {
-        name: "Aharon Dwight",
+        name: "Aharon Dawit",
         age: 30,
         occupation: "SMC - machine operation, some programming, network management and data security",
         futurePlans: "Willing to do anything with it",
         impactOnLife: 10,
-        score: 98
+        score: 86
     },
     {
         name: "Liad Bag",
@@ -111,98 +109,50 @@ const students = [
     }
 ]
 
-
 // 1. Got Job Interview
 // Filter from students list those who will got a job interview - having score above 90.
 
-console.log("Home puzzle Avraham -1")
+// const jobInterviewStudents: Student[] = students.filter((student) => student.score > 90);
+// console.log(jobInterviewStudents);
 
-const gotJobInterview = students.filter(score => score.score > 90 )
-const nameOfStudent = gotJobInterview.map(name=>name.name )
-console.log("The students who accepted to jod is :",nameOfStudent)
-console.log("------------------------------------------------------")
+
+
 // 2. Get Class Score Average
 // Make a list of the class scores and get it's average.
-console.log("Home puzzle Avraham - 2")
-let classScoreAverage = 0
-for (let i in students){ 
 
-    classScoreAverage = classScoreAverage +  students[i].score
-}
-const totalAverage = (classScoreAverage/students.length).toFixed(1)
+// const classScores: number[] = students.map((student) => student.score);
+// const classScoreAverage: number = classScores.reduce((sum, score) => sum + score, 0) / students.length;
+// console.log(classScoreAverage);
 
-console.log("The Class Score Average =:" , totalAverage)
-console.log("------------------------------------------------------")
 // 3. Last names list
 // Create a list of all fimaly names
 // Tip - read in GPT about string split function "a b".split(" ").
 
-console.log("Home puzzle Avraham - 3")
+// const lastNames: string[] = students.map((student) => student.name.split(' ')[1]);
+// console.log(lastNames);
 
-const lastName = students.map(last => last.name.split(" ").pop());
-
-console.log(lastName)
 // 4. Need to wake-up list
 // Create a list with the names of students that need to make up now - got score under 80.
 // And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים" 
 
-console.log("Home puzzle Avraham - 4")
-students.forEach(name => {
-  if (name.score < 80)
-   {
-    console.log(name.name, ": Stop wasting your time , the course is about to end") 
-    console.log(`----------------------------------------------------------------`)
-  }
-});
-console.log("------------------------------------------------------")
+// const studentsToMakeUp: Student[] = [];
+// for (const student of students) {
+//   if (student.score < 80) {
+//     studentsToMakeUp.push(student);
+//     console.log(`חאלאס ${student.name} להימרח על החיים שלך, הקורס תכף מסתיים`);
+//   }
+// }
+
 // 5. Impact vs Score
-// Print for each students 
+// Print for each student 
 // `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`
-// and if the score is above 85 print `well done!` and if not print `WTF?!`.
-console.log("Home puzzle Avraham - 5")
-students.forEach((mamder) => {
-      console.log(`Hey ${mamder.name}, the studies has impact on your life of ${mamder.impactOnLife}, and your score is ${mamder.score}.`) 
-      if(mamder.score < 85){
-        console.log(`WTF!!!!!!!!!!!!!!!`)
-        console.log(`----------------------------------------------------------------------------------------------------------------------`)
-      }
-      else{
-        console.log(`Wall Done :)`)
-        console.log(`----------------------------------------------------------------------------------------------------------------------`)
-      }
-    
-  });
-  
-// Bonus
+// and if the score is above 85 print `well done!` and if not print `WTF?!`
 
-// 6. Smart Search
-// Create search function that take input and find it in all possible students values.
-console.log("Home puzzle bonus Avraham - 6")
-function smartSearch(students,input) {
-   let searchResult = []}
-
-smartSearch(students, "electrical");
-
-// ----------------------------------------------------------------------------------//
-// Sort by Age: Sort the students array in ascending order based on the students' ages.
-console.log(`----------------------------------------------------------------------------------------------------------------------`)
-const ageOfStudent = students.sort((a,b) => a.age-b.age)
-console.log(ageOfStudent)
-
-// Count Future Plans: Count the number of students who have specified their future plans in the futurePlans property.
-console.log(`----------------------------------------------------------------------------------------------------------------------`)
-let countMotivation = 0;
-
-students.forEach((students)=>{
-    if(students.motivation){
-        countMotivation ++;
+for (const student of students) {
+    console.log(`Hey ${student.name}, the studies have an impact on your life of '${student.impactOnLife}', and your score is ${student.score}.`);
+    if (student.score > 85) {
+      console.log('Well done!');
+    } else {
+      console.log('WTF?!')
     }
-});
-
-console.log(countMotivation)
-
-// Skills Concatenation: Create a string that concatenates all the skills of the students, separated by commas.
-
-const skillOfStudent = Array.from(students.filter(s => s.skills))
-console.log(skillOfStudent)
-
+  }

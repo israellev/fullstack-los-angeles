@@ -130,13 +130,16 @@ console.log(sstudentsjob);
 // 2. Get Class Score Average
 // Make a list of the class scores and get it's average.
 console.log("home puzzle 2 ---------------");
+let sum = 0;
 const SumgList = students.map(function (scoree): number {
+  sum += scoree.score
   return scoree.score;
 });
 let sum = 0;
 for (let i = 0; i < SumgList.length; i++) {
   sum = SumgList[i] + sum;
 }
+
 let averg = sum / SumgList.length;
 console.log(SumgList);
 console.log(averg);
@@ -222,9 +225,20 @@ let searchTerm = "Electrical Engineer";
 let searchResults = searchStudents(searchTerm);
 console.log(searchResults);
 
+<<<<<<< HEAD
 const result =
   students.reduce((state, student): any => {
     state += student.score;
     return state;
   }, 0) / students.length;
 console.log(result);
+=======
+
+
+
+
+const result = students.reduce((state, student) => {
+  state += student.score
+  return state
+}, 0) / students.length
+>>>>>>> 54fc5313969021e80a12143a7bf594c615ed8bf3
