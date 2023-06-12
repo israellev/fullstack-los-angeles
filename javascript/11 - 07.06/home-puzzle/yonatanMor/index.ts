@@ -1,4 +1,5 @@
 export {}
+//import {students} from ../../full/11 - 07.06/students
 
 const students = [
     {
@@ -121,16 +122,16 @@ const students = [
 // having score above 90.
 // array.filter()
 
-const gotCalled = students.filter((student)=> student.score > 90);
-console.log(gotCalled);
+// const gotCalled = students.filter((student)=> student.score > 90);
+// console.log(gotCalled);
 
-// 2. Get Class Score Average
-// Make a list of the class scores and get it's average.
+// // 2. Get Class Score Average
+// // Make a list of the class scores and get it's average.
 
 
-const score = students.map ((students)=>students.score) ;
-const sum = score.reduce((accumulator,score)=>accumulator + score, 0);
-const Avarage = sum / score.length ;
+// const score = students.map ((students)=>students.score) ;
+// const sum = score.reduce((accumulator,score)=>accumulator + score, 0);
+// const Avarage = sum / score.length ;
 
 // 3. Last names list
 // Create a list of all fimaly names
@@ -156,8 +157,14 @@ const Avarage = sum / score.length ;
 // Create search function that take input and find it in all 
 // possible student values.
 
+// Print in the console for each student in the list key and values separately,
+// using object.keys,
 
-forEach()
+// const = unoStudent.forEach()
 
-console.log(key)
-console.log(value)
+// Object.keys(students) // ["Yehavit", "Teacher", 55]
+var keys = Object.keys(students)
+
+keys.forEach(key => {
+    console.log(`${key}: `, students[key])
+})

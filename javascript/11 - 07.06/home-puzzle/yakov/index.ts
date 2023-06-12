@@ -132,7 +132,7 @@ console.log(sstudentsjob);
 console.log("home puzzle 2 ---------------");
 let sum = 0;
 const SumgList = students.map(function (scoree): number {
-  sum += scoree.score
+  sum += scoree.score;
   return scoree.score;
 });
 let sum = 0;
@@ -224,21 +224,3 @@ function searchStudents(input) {
 let searchTerm = "Electrical Engineer";
 let searchResults = searchStudents(searchTerm);
 console.log(searchResults);
-
-<<<<<<< HEAD
-const result =
-  students.reduce((state, student): any => {
-    state += student.score;
-    return state;
-  }, 0) / students.length;
-console.log(result);
-=======
-
-
-
-
-const result = students.reduce((state, student) => {
-  state += student.score
-  return state
-}, 0) / students.length
->>>>>>> 54fc5313969021e80a12143a7bf594c615ed8bf3
