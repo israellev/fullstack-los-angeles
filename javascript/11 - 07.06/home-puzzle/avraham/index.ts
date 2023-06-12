@@ -177,11 +177,11 @@ students.forEach((mamder) => {
 
 // 6. Smart Search
 // Create search function that take input and find it in all possible students values.
-console.log("Home puzzle bonus Avraham - 6")
-function smartSearch(students,input) {
-   let searchResult = []}
+// console.log("Home puzzle bonus Avraham - 6")
+// function smartSearch(students,input) {
+//    let searchResult = []}
 
-smartSearch(students, "electrical");
+// smartSearch(students, "electrical");
 
 // ----------------------------------------------------------------------------------//
 // Sort by Age: Sort the students array in ascending order based on the students' ages.
