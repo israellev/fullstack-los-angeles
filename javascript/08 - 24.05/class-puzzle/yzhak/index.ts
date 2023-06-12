@@ -26,17 +26,29 @@ console.log(capitalizedNames);
 // /// 1 Print Shopping List (forEach)
 // You have a shopping list represented as an array of strings. Use the forEach function to print each item on the shopping list.
 
-const shoppingList = ["apple", "banana", "orange", "milk"];
+// const shoppingList = ["apple", "banana", "orange", "milk"];
 
-shoppingList.forEach((item) => {
-  console.log(item);
-});
+// shoppingList.forEach((item) => {
+//   console.log(item);
+// });
 
-///////////-------------2
-const groceryItems = ["apple", "banana", "cake", "orange", "candy", "milk"];
+// ///////////-------------2
+// const groceryItems = ["apple", "banana", "cake", "orange", "candy", "milk"];
 
-const filteredItems = groceryItems.filter(
-  (item) => item === "cake" || item === "candy"
-);
+// const filteredItems = groceryItems.filter(
+//   (item) => item === "cake" || item === "candy"
+// );
 
-console.log(filteredItems);
+// console.log(filteredItems);
+// ////
+
+function filterAndTrim(array) {
+  return array
+    .filter((item) => typeof item === "string")
+    .map((item) => item.trim());
+}
+
+const arr = [" banana", 1, "apple "];
+const filteredAndTrimmed = filterAndTrim(arr);
+console.log(filteredAndTrimmed);
+alert(filteredAndTrimmed);

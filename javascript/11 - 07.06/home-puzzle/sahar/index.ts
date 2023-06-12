@@ -1,5 +1,4 @@
-export {}
-
+export{}
 const students = [
     {
         name: "Sapir Peretz",
@@ -111,73 +110,89 @@ const students = [
     }
 ]
 
-// home puzzle:
-
-// Import "students.ts" file, and do the next exercies on it:
 
 // 1. Got Job Interview
 // Filter from students list those who will got a job interview - having score above 90.
-
-const gotJobInterview = students.filter((student)=> student.score > 90);
-console.log(gotJobInterview);
+const studentsWithJobInterview = students.filter((student) => {
+    return student.score > 90;
+});
+console.log("The students that would get a job interview are: " ,studentsWithJobInterview)
 
 // 2. Get Class Score Average
 // Make a list of the class scores and get it's average.
+let classScore = 0;
+let scoreCount = 0;
+students.forEach((student) => {
+    classScore += student.score 
+    scoreCount++;
+ return scoreCount && classScore
+ });
 
-const classScore = students.map((student) => student.score)//משתנה חדש אשר מקבל מערך חדש באמצעות שימוש בפונקצית מאפ ובכל איטרציה אנחנו שואבים את הציון של הסטודנט אשר מתווסף למערך החדש 
-
- const classAvarage = classScore.reduce((accum, cuurentVal) => accum + cuurentVal, 0) / classScore.length;
- //שימוש בשיטת רדיוס אשר צוברת ערכים במערך לערך יחיד , השיטה מקבלת פונקצית קולבק אשר מקבלת 2 פרמטרים : צבירה וערך נוכחי 
- //הפרמטר צבירה משמש לערך הצבור הנוכחי 
- //הפרמטר ערך נוכחי משמש לציון הנוכחי שמתווסף לפרמטר צבירה 
- // בתוך פונקצית קול בק אנחנו משתמשים באופרטור + כדי לחבר בין 2 הפרמטרים ומאתחילם ל0 כדי שהתוצאה תהיה מדויקת
- //בסוף מחלקים את התוצאה באורך המערך קלאססקור
- console.log("the Avarage is : " + classAvarage);
+const averageScore = classScore/scoreCount;
+console.log("The average score of the students is ", averageScore);
 
 // 3. Last names list
 // Create a list of all fimaly names
 // Tip - read in GPT about string split function "a b".split(" ").
- 
-const lastName = students.map((student)=> student.name.split(" ").pop());
-    console.log(lastName);
-    //יצרתי משתנה חדש 
-    //עשיתי שימוש בפונקצית מאפ אשר משמשת לאיטרציה על כל סטודנט במערך האובייקטים
-    //עבור כל סטודנט אנחנו ניגשים לשם שלו 
-    //עשיתי שימוש בפונקצית ספליט אשר מטרתה לפצל סטרינגים למערך והיא בעצם מפצלת שם פרטי ושם משפחה 
-    //המרכאות בתוך הסוגריים נועדו להפריד כל מילה בסטרינג במקרה הזה היא מפרידה בין שם פרטי לשם משפחה 
-    //שימוש בשיטת פופ נועדה להוציא ולהחזיר למערך את האלמנט האחרון שבמקרה הזה מדובר בשמות משפחה 
-
+const familyNames = students.map((student) => {
+    let names = student.name.split(" ");
+    return names[1];
+});
+console.log(familyNames);
 
 // 4. Need to wake-up list
 // Create a list with the names of students that need to make up now - got score under 80.
 // And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים" 
 
-const needToWakeUp = students.filter((student) => student.score < 80);//פונקצית פילטר תיצור לנו מערך חדש עם הסטודנטים שקיבלו ציון מתחת ל80
-  needToWakeUp.forEach((student) => {//כל סטודנט שקיבל מתחת ל80 תודפס לו הודעה 
-    console.log(`חאלאס ${student.name} להימרח על החיים שלך, הקורס תכף מסתיים`)
-    
-  }); 
+let lowRateStudents = students.filter(students => students.score < 80)
+lowRateStudents.forEach((student) => {
+    let names = student.name
+    console.log(`"חאלאס ${names} להימרח על החיים שלך, הקורס תכף מסתיים"`)
+});
+
 // 5. Impact vs Score
 // Print for each student 
 // `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`
 // and if the score is above 85 print `well done!` and if not print `WTF?!`.
 
-students.forEach(student => {
-    const {name, impactOnLife, score } = student;//העברת המאפיינים בסוגריים מסולסלות למשתנה בשם סטודנט
-    console.log(`Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`);
-    if (student.score > 85 )
-    console.log ( `well done!`);
-    else(`WTF?!`);
+students.forEach((students) => {
+    let name1 = students.name;
+    let impactOnLife = students.impactOnLife;
+    let score = students.score;
+    console.log(`Hey ${name1}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`)
+    if (students.score >= 85) {
+    console.log("well done")}
+    else  {
+        console.log("WTF?!");
+    };    
 });
+
 // Bonus
 
 // 6. Smart Search
 // Create search function that take input and find it in all possible student values.
-function smartSearch (searchInput){//פונקציה שמקבלת פרמטר 
-   return students.filter((student) => {//שימוש בפונקצית פילטר אשר תחזיר מערך מסונן 
-    Object.values(student) //
-    .some((value)=> value && value.toString().toLowerCase().includes(searchInput.toLowerCase()));
-   // בדיקה האם לפחות ערך אחד מהתכונות של אובייקט תלמיד מתאים לקלט החיפוש 
-    //הערך צריך להיות קיים ולהיות מומר למחזרוזת לצורך השוואה
-   });
-};
+
+  const searchInput = (input) => {
+    const lowercasedInput = input.toLowerCase();
+  
+    const matchingStudents = students.filter((student) =>
+      Object.values(student).some(
+        (value) =>
+          typeof value === 'string' && value.toLowerCase().includes(lowercasedInput)
+      )
+    );
+  
+    return matchingStudents;
+  };
+  
+  // Call the searchInput function with an input
+  const input = 'Job';
+  const matchingStudents = searchInput(input);
+  console.log(matchingStudents);
+  
+      
+
+
+
+
+   

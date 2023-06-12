@@ -4,7 +4,11 @@
     3 system api - alert, prompt, console.log
     8 data types - String, Boolean, Number, null, undefined, array, object, NaN
 
-02.  4 ways to convert string "1" to number 1 - Number(), parseInt(), +"1", parseFloat()
+02.  4 ways to convert string "1" to number 1 - 
+Number(), 
+parseInt(), 
++"1", 
+parseFloat()
 
 03.  3 ways to create variables - var, let, const
     2 ways to connect variables with strings - +, `${}`
@@ -21,13 +25,16 @@
     loops - welcome for:
     for (let i = 0; i < 10; i++) { console.log(i) }
 
-05.  3 ways for loops - for, while(true) {}, do {} while (true)
+05.  3 ways for loops - 
+    for, 
+    while(true) {}, 
+    do {} while (true)
     functions - function hello() {console.log("hello")}
     functions parameters // function hello(name: string): void {}
     functions return values // function hello(name: string): string { return name }
 
 06. 
-variable scopes - each code bock or scope {} is a layer when you declare variables it's not available outside 
+variable scopes - each code block or scope {} is a layer when you declare variables it's not available outside 
 2 ways for functions - regular 'function greet() {}', anonymous function '() => {}'
 error handling - throw 'error', try {} catch(e) {}
 isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
@@ -36,7 +43,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     "abca".length // 4
     "abca"[0] // "a"
     "abca".indexOf("a") // 0
-    "abca".lastIndexOf("a") // 4
+    "abca".lastIndexOf("a") // 3
     "abc".slice(0, 2) // "ab"
     " abc ".trim() // "abc"
     "ABC".toLowwerCase() // "abc"
@@ -79,7 +86,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
 09. 
 
-    (manual build - forEech, map, filter)
+    (manual build - forEach, map, filter)
 
     /* Just to know - These are the Fathers objects of those types  */
     Number()
@@ -138,6 +145,7 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     man.city = "Kiryat Malachi"
     console.log(man.city) // "Kiryat Malachi"
 
+10. 
     Obejcts (and arrasy) - by referance, all others - by value:
     {...obj, name: "Moshe"}
 
