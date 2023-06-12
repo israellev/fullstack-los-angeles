@@ -177,7 +177,55 @@ function smartSearch (searchInput){//פונקציה שמקבלת פרמטר
    return students.filter((student) => {//שימוש בפונקצית פילטר אשר תחזיר מערך מסונן 
     Object.values(student) //
     .some((value)=> value && value.toString().toLowerCase().includes(searchInput.toLowerCase()));
-   // בדיקה האם לפחות ערך אחד מהתכונות של אובייקט תלמיד מתאים לקלט החיפוש 
+   // בדיקה האם לפחות ערך אחד מהתכונות של אובייקט תלמיד מתאים לקלט החיפוש וזה ע"י שימוש בשיטת סאם
     //הערך צריך להיות קיים ולהיות מומר למחזרוזת לצורך השוואה
    });
 };
+
+
+// Filter students by age: Create a new array that contains only the students who are 30 years old or younger.
+
+const studentLessThen30 = students.filter((age) => age.age <= 30);
+console.log(studentLessThen30);
+
+// Map student names: Create a new array that contains only the names of the students.
+ const studentName = students.map((name)=> name.name);
+ console.log(studentName);
+
+// Find a specific student: Find the student with the name "Sahar Kalaifish" and return the entire student object.
+//פןנקציה לתוצאה שאינה מדויקת ולא רגישה לאותיות גדולות
+function findStudents(students, searchInput){
+    const student = students.find (student=>{
+        return student.name.toLowerCase().includes(searchInput.toLowerCase().trim());
+    })
+    return student
+}
+const searchInput = "Sahar Kalaifish";
+const student = findStudents(students, searchInput);
+console.log(student);
+
+//פונקציה יותר מדויקת ורגישה לאותיות גדולות או קטנות 
+
+function findStudentByName(students, name){
+    return students.find((student)=> student.name === name )
+}
+const studentN = findStudentByName(students, "Sahar Kalaifish");
+console.log(studentN);
+
+// Check if all students have future plans: Check if all students in the array have the futurePlans property defined.
+
+const hasFuturePlan = students.every((student)=> student.hasOwnProperty("futurePlans"));
+
+console.log(hasFuturePlan);
+
+// Calculate the total impact on life: Calculate the sum of the impactOnLife values for all students.
+
+// Check if any student has a degree: Check if at least one student in the array has the degree property defined.
+
+// Convert skills to a single array: Create a new array that contains all the skills of all the students, without duplication.
+
+// Check if a specific student is in the array: Check if there is a student with the name "Aviad Kaduri" in the array.
+
+// Sort students by score: Sort the students array in ascending order based on their scores.
+
+// Convert occupation to uppercase: Create a new array that contains the occupations of all the students, but in uppercase.

@@ -9,7 +9,7 @@ function giveOne() {
 const giveOne2 = () => {
     return 1
 }
-const giveOne3 = () => 1
+const giveOne3 = () => 1;
 
 const arr = [2, 4, 6];
 
