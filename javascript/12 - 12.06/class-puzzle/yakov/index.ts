@@ -121,7 +121,10 @@ const students = [
 // 1. print in the console for each student in the list using Object.keys():
 // key: value
 
-let keys = Object.keys(students);
-keys.forEach((key) => {
-  console.log(`${key}: `, students[key]);
+let stud = students.forEach((student) => {
+  var keys = Object.keys(student);
+  console.log(keys);
+  keys.forEach((key) => {
+    console.log(`${key}: `, student[key]);
+  });
 });

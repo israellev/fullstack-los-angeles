@@ -1,5 +1,4 @@
 export {};
-import { students } from "../../11 - 07.06/students";
 
 // var arr = [2, 4, 6]
 var arr = ["I", "Love", "Ice", "Cream"];
@@ -49,13 +48,8 @@ person["Yehavit"]; // undefined
 // Object.values(person) // ["Yehavit", "Teacher", 55]
 let stud = students.forEach((student) => {
   var keys = Object.keys(student);
-
-  keys.forEach((keys) => {
-    console.log(`${keys}: `, person[keys]);
+  console.log(keys);
+  keys.forEach((key) => {
+    console.log(`${key}: `, student[key]);
   });
 });
-
-// ["name", "proffession", "score"]
-
-// "name", "Yehavit"
-// "proffession", "Teacher"
