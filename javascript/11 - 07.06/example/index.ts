@@ -77,3 +77,34 @@ function findBookByTitle(library, textSearch: string) {
 }
 
 console.log(findBookByTitle(library, "Gene "))
+
+
+
+function cutThemAll(lengths, minLength) {
+    let sum = lengths.reduce((state, item) => state+=item)
+    const lastItem = lengths[lengths.length - 1]
+    for (let item of lengths) {
+        if (item === lastItem)
+            return "Possible"
+        if (sum < minLength)
+            return "Impossible"
+        sum -= item    
+    }
+}
+
+console.log(cutThemAll([2, 3, 4], 7))
+console.log(cutThemAll([3, 2, 4], 7))
+console.log(cutThemAll([3, 6, 5, 3, 10], 7))
+console.log(cutThemAll([5000, 10512913, 2160207, 2558435], 7))
+
+
+
+
+
+
+
+
+
+
+
+
