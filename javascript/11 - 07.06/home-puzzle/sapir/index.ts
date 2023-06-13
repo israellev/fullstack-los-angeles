@@ -180,7 +180,7 @@ function smartSearch (searchInput){//פונקציה שמקבלת פרמטר
    // בדיקה האם לפחות ערך אחד מהתכונות של אובייקט תלמיד מתאים לקלט החיפוש וזה ע"י שימוש בשיטת סאם
     //הערך צריך להיות קיים ולהיות מומר למחזרוזת לצורך השוואה
    });
-};
+};  
 
 
 // Filter students by age: Create a new array that contains only the students who are 30 years old or younger.
