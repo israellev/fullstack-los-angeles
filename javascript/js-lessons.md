@@ -205,3 +205,19 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     1. 'public', 'private' (isEngineOn, startEngine)
     2. inherit (Tesla)
     3. 'protected', get and set methods (speed).
+
+13. 
+    // json is string that use in all internet and laguages 
+    JSON.stringify({a: 1}) // '{a: 1}' - object to json
+    JSON.parse('{a: 1}') // {a: 1} - json to object
+    
+    JSON.stringify([{a: 1}]) // '[{a: 1}]' - array to json
+    JSON.stringify('[{a: 1}]') // [{a: 1}] - json to array
+    
+    // https://jsonplaceholder.typicode.com/guide/
+    fetch(url: string | RequestParams) // function for connect with API 
+
+    (new Promise() // async function) 
+    .then(data => {}) // when promise return with data 
+    .catch(err => {}) //  when promise failed
+    'async' 'await' // modern replace 'then()', for debug line by line

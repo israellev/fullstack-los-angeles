@@ -156,11 +156,15 @@ const students = [
 // Bonus
 
 // 6. Smart Search
-// Create search function that take input and find it in all 
-// possible student values.
+// Create search function that take input students array, and after that parameter, we need to search it in all 
+// possible student values. in each value of each property of students,
+the function returns after it filters student list, and than object.key and from there pull out the value 
+and need to use include to see if value is in somewhere.
 
 // Print in the console for each student in the list key and values separately,
 // using object.keys,
+array.filter()
+inclues in the value? 
 
 // Object.keys(students) // ["Yehavit", "Teacher", 55]
 
