@@ -25,9 +25,10 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
         searchInput.addEventListener('keyup', () => {
             document.getElementById("postContainer").innerHTML = "" // delete all posts
             
-            const value = searchInput.value // what the user search
+            const value = searchInput.value // what the user type
             res.filter(post => {
-                return false
+                // return true if you find the search in the post, and false if not
+                
             }).forEach(createPost)
         })
     })
