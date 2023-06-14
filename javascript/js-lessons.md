@@ -211,8 +211,6 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     JSON.parse(), JSON.stringify()
     fetch(url: string | RequestParams) // function for connect with API 
 
-    
-
     (new Promise() // async function) 
     .then(data => {}) // when promise return with data 
     .catch(err => {}) //  when promise failed
