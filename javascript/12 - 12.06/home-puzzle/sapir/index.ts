@@ -113,18 +113,19 @@ const students = [
 
 // 1. Smart Search
 // Create search function that take input and find it in all possible student values.
-function smartSearch (searchInput){//פונקציה שמקבלת פרמטר 
-    return students.filter((student) => {//שימוש בפונקצית פילטר אשר תחזיר מערך מסונן 
-     Object.values(student) //
+function smartSearch (){//פונקציה חיפוש 
+    const searchInput = prompt ("Enter your search query:") 
+    const searchResult=  students.filter((student) => {//שימוש בפונקצית פילטר אשר תחזיר מערך מסונן 
+     Object.values(student) //מקבלת מערך מסונן עם כל הערכים של הסטונדים
      .some((value)=> value && value.toString().toLowerCase().includes(searchInput.toLowerCase()));
     // בדיקה האם לפחות ערך אחד מהתכונות של אובייקט תלמיד מתאים לקלט החיפוש וזה ע"י שימוש בשיטת סאם
      //הערך צריך להיות קיים ולהיות מומר למחזרוזת לצורך השוואה
     });
+    return searchResult;
  };  
 
- const searchInput = "web";
- const searchResult = smartSearch(searchInput);
- console.log(searchResult);
+ const result = smartSearch();
+ console.log(result);
 
 //  Exercise 2: Calculate the average score of students who have a motivation
 
