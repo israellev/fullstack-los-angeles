@@ -115,8 +115,7 @@ const students = [
 
 function smartSearch(array, value) {
   const matches = array.filter(item =>
-    Object.values(item).some(propValue =>
-      (typeof propValue === 'string' || typeof propValue === 'number') &&
+    Object.values(item).find(propValue =>
       String(propValue).toLowerCase().includes(value.toLowerCase().trim())
     )
   );
@@ -124,7 +123,7 @@ function smartSearch(array, value) {
   return matches.length > 0 ? matches : 'No match found';
 }
 
-const input = 32;
+const input = 3;
 const searchResult = smartSearch(students, isNaN(Number(input)) ? input : Number(input).toString());
 console.log(searchResult);
   
