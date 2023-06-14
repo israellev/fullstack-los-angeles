@@ -1,12 +1,12 @@
 export { }
 
 // json is string that use in all internet and laguages 
-console.log(JSON.stringify({a: 1})) // '{a: 1}' - object to json
+console.log(JSON.stringify({ a: 1 })) // '{a: 1}' - object to json
 console.log(JSON.parse('{"a": 1}')) // {a: 1} - json to object
 
-console.log(JSON.stringify([{a: 1}])) // '[{a: 1}]' - array to json
+console.log(JSON.stringify([{ a: 1 }])) // '[{a: 1}]' - array to json
 console.log(JSON.parse('[{"a": 1}]')) // [{a: 1}] - json to array
-    
+
 
 /* Rest API - 
 url = "https://jsonplaceholder.typicode.com/posts/1"
@@ -15,17 +15,28 @@ headers = {}
 */
 
 // @ts-ignore
-fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
-.then(res => res.json())
-.then((res: any[]) => {
-    res.reverse().forEach(post => {
-        // {
-        //     "userId": 1,
-        //     "id": 1,
-        //     "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-        //     "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-        //   }
-        const htmlPost = `
+fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+    .then(res => res.json())
+    .then((res: any[]) => {
+        res.forEach(createPost) // deploy all posts
+
+        const searchInput = document.querySelector("#searchInput") as HTMLInputElement
+        
+        searchInput.addEventListener('keyup', () => {
+            document.getElementById("postContainer").innerHTML = "" // delete all posts
+            
+            const value = searchInput.value // what the user search
+            res.filter(post => {
+                return false
+            }).forEach(createPost)
+        })
+    })
+    .catch(error => console.log(error))
+
+
+
+function createPost(post) {
+    const htmlPost = `
         <div class="card mb-4" id="post-${post.id}">
             <div class="card-header">
                 <h5 class="card-title">${post.id} - ${post.title}</h5>
@@ -42,18 +53,10 @@ fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
             </div>
         </div>
         `;
-        const newDiv = document.createElement("div")
-        newDiv.innerHTML = htmlPost
-        document.getElementById("postContainer").appendChild(newDiv)
-    })
-
-
-
-   
-
-
-})
-.catch(error => console.log(error))
+    const newDiv = document.createElement("div")
+    newDiv.innerHTML = htmlPost
+    document.getElementById("postContainer").appendChild(newDiv)
+}
 
 
 
