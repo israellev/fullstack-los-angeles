@@ -1,4 +1,3 @@
-export {}
 export const students = [
     {
         name: "Sapir Peretz",

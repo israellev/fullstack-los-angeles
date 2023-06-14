@@ -1,10 +1,4 @@
-export { }
-
-// 1. print in the console for each student in the list using Object.keys():
-// key: value
-
-
-const students = [
+export const students = [
     {
         name: "Sapir Peretz",
         age: 31,
@@ -115,11 +109,8 @@ const students = [
     }
 ]
 
-students.forEach(student => {
-    const keys = Object.keys(student)
-    // console.log(keys)
-    keys.forEach(key => {
-        console.log(`${key}: `, student[key])
+students.forEach(student=>{
+    Object.keys(student).forEach(key=> {
+        console.log(`${key}:`, student[key])
     })
-    
 })

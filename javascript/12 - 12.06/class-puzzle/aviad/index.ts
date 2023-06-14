@@ -1,8 +1,4 @@
-export { }
-
-// 1. print in the console for each student in the list using Object.keys():
-// key: value
-
+export {}
 
 const students = [
     {
@@ -115,11 +111,10 @@ const students = [
     }
 ]
 
+
 students.forEach(student => {
     const keys = Object.keys(student)
-    // console.log(keys)
-    keys.forEach(key => {
-        console.log(`${key}: `, student[key])
+    keys.forEach(key =>{
+        console.log(key,student[key])
     })
-    
 })

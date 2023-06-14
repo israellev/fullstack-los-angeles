@@ -112,36 +112,36 @@ export const students = [
 // 1. Got Job Interview
 // Filter from students list those who will got a job interview - having score above 90.
 
-// const jobInterviewStudents: Student[] = students.filter((student) => student.score > 90);
-// console.log(jobInterviewStudents);
+const jobInterviewStudents: Student[] = students.filter((student) => student.score > 90);
+console.log(jobInterviewStudents);
 
 
 
 // 2. Get Class Score Average
 // Make a list of the class scores and get it's average.
 
-// const classScores: number[] = students.map((student) => student.score);
-// const classScoreAverage: number = classScores.reduce((sum, score) => sum + score, 0) / students.length;
-// console.log(classScoreAverage);
+const classScores: number[] = students.map((student) => student.score);
+const classScoreAverage: number = classScores.reduce((sum, score) => sum + score, 0) / students.length;
+console.log(classScoreAverage);
 
 // 3. Last names list
 // Create a list of all fimaly names
 // Tip - read in GPT about string split function "a b".split(" ").
 
-// const lastNames: string[] = students.map((student) => student.name.split(' ')[1]);
-// console.log(lastNames);
+const lastNames: string[] = students.map((student) => student.name.split(' ')[1]);
+console.log(lastNames);
 
 // 4. Need to wake-up list
 // Create a list with the names of students that need to make up now - got score under 80.
 // And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים" 
 
-// const studentsToMakeUp: Student[] = [];
-// for (const student of students) {
-//   if (student.score < 80) {
-//     studentsToMakeUp.push(student);
-//     console.log(`חאלאס ${student.name} להימרח על החיים שלך, הקורס תכף מסתיים`);
-//   }
-// }
+const studentsToMakeUp: Student[] = [];
+for (const student of students) {
+  if (student.score < 80) {
+    studentsToMakeUp.push(student);
+    console.log(`חאלאס ${student.name} להימרח על החיים שלך, הקורס תכף מסתיים`);
+  }
+}
 
 // 5. Impact vs Score
 // Print for each student 
