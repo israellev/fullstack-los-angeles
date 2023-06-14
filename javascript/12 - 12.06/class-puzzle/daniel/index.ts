@@ -1,6 +1,10 @@
-export { }
+export {}
 
-export const students = [
+// 1. print in the console for each student in the list using Object.keys():
+// key: value
+
+
+const students = [
     {
         name: "Sapir Peretz",
         age: 31,
@@ -86,7 +90,7 @@ export const students = [
         score: 84
     },
     {
-        name: "Aharon Dwight",
+        name: "Aharon Dawit",
         age: 30,
         occupation: "SMC - machine operation, some programming, network management and data security",
         futurePlans: "Willing to do anything with it",
@@ -110,42 +114,12 @@ export const students = [
         score: 62
     }
 ]
-// 1:
-const interview = students.filter(student => student.score > 90).map(student => student.name);
-console.log(interview);
-
-//2: להסביר איך עושים ממוצע
-// const listcores = students.map(names1 => names1.score);
-// console.log(listcores);
-// const sumAverage = students.reduce((name2, student) => name2 + student.score, 0);
-// const average = sumAverage / students.length;
-// console.log(average);
-
-//תשובה של ישראל:
-const result= students.reduce((state, student) => {
-
-    state+= student.score
-    return state
-}, 0 )   / students.length
-
-
-
-//3: האם אפשר לעשות יותר מרווח אחד? במקרה שיש רשימה ארוכה יותר
-const fimalynames = students.map(student => student.name.split(" ")[1]);
-console.log(fimalynames);
-
-//4:
-const wakeupnow = students.filter(student => student.score < 80).map(student => student.name);
-console.log(`${wakeupnow} תתעורר על החיים שלך, חלאס להמרח`);
-
-//5:
 
 students.forEach(student => {
-    const { name, impactOnLife, score } = student
-
-       console.log( `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`)
-
-        if (student.score > 85)
-        console.log("well done!")
-    else console.log("WTF?!");
+    const keys = Object.keys(student)
+    // console.log(keys)
+    keys.forEach(key => {
+        console.log(`${key}: `, student[key])
+    })
+    
 })

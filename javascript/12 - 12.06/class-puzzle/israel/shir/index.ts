@@ -1,4 +1,5 @@
-export { }
+export {}
+
 
 export const students = [
     {
@@ -110,42 +111,31 @@ export const students = [
         score: 62
     }
 ]
-// 1:
-const interview = students.filter(student => student.score > 90).map(student => student.name);
-console.log(interview);
 
-//2: להסביר איך עושים ממוצע
-// const listcores = students.map(names1 => names1.score);
-// console.log(listcores);
-// const sumAverage = students.reduce((name2, student) => name2 + student.score, 0);
-// const average = sumAverage / students.length;
-// console.log(average);
 
-//תשובה של ישראל:
-const result= students.reduce((state, student) => {
-
-    state+= student.score
-    return state
-}, 0 )   / students.length
+ students.forEach(student=> {
+    var keys = Object.keys(student)
+    console.log(keys)
+    keys.forEach(key => {
+        console.log(`${key}: `, student[key])
+    })
+ });
 
 
 
-//3: האם אפשר לעשות יותר מרווח אחד? במקרה שיש רשימה ארוכה יותר
-const fimalynames = students.map(student => student.name.split(" ")[1]);
-console.log(fimalynames);
+ students.forEach(student=> {Object.keys(student)})
 
-//4:
-const wakeupnow = students.filter(student => student.score < 80).map(student => student.name);
-console.log(`${wakeupnow} תתעורר על החיים שלך, חלאס להמרח`);
 
-//5:
+ //bonus: 
 
-students.forEach(student => {
-    const { name, impactOnLife, score } = student
+ function SmartSearch (input) {
 
-       console.log( `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`)
+ students.filter(student=> Object.keys(student).forEach(key=> student[key])
+ 
+ if (input===student[key]) 
 
-        if (student.score > 85)
-        console.log("well done!")
-    else console.log("WTF?!");
-})
+  return console.log(student[key])
+ 
+ )
+
+ }
