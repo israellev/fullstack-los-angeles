@@ -111,142 +111,167 @@ export const students = [
 
 
 
-// var arr = [2, 4, 6]
-var arr = ["I", "Love", "Ice", "Cream"]
-// arr.join(" ")
+// // var arr = [2, 4, 6]
+// var arr = ["I", "Love", "Ice", "Cream"]
+// // arr.join(" ")
 
-var result = arr.reduce((state, item, index) => {
-    state += `${item} `
-    return state
-}, "")
-console.log(result);
-
-/* reduce is exactly like this: */
-var state = ""
-arr.forEach((item) => {
-    state += `${item} `
-})
-console.log(state)
-
-
-/*  solution for exercise number 2 */
-// const result = students.reduce((state, student) => {
-//     state += student.score
+// var result = arr.reduce((state, item, index) => {
+//     state += `${item} `
 //     return state
-// }, 0) / students.length
+// }, "")
+// console.log(result);
+
+// /* reduce is exactly like this: */
+// var state = ""
+// arr.forEach((item) => {
+//     state += `${item} `
+// })
+// console.log(state)
 
 
-/* convert array to string */
-var names = ["Sapir", "Yehonatan", "Avi"]
-console.log(names.join(", ")) // "Sapir, Yehonatan, Avi"
-
-/* convert string to array */
-var names2 = "Sapir, Yehonatan, Avi"
-names2.split(" ") // ["Sapir,", "Yehonatan,", "Avi"]
-names2.split(", ") // ["Sapir", "Yehonatan", "Avi"]
-
-console.log("------------------")
+// /*  solution for exercise number 2 */
+// // const result = students.reduce((state, student) => {
+// //     state += student.score
+// //     return state
+// // }, 0) / students.length
 
 
-/* Object.keys() method */
-var person = {
-    name: "Yehavit",
-    proffession: "Teacher",
-    score: 55,
-}
+// /* convert array to string */
+// var names = ["Sapir", "Yehonatan", "Avi"]
+// console.log(names.join(", ")) // "Sapir, Yehonatan, Avi"
 
-person.name
-person["name"] // "Yehavit"
-person["Yehavit"] // undefined
+// /* convert string to array */
+// var names2 = "Sapir, Yehonatan, Avi"
+// names2.split(" ") // ["Sapir,", "Yehonatan,", "Avi"]
+// names2.split(", ") // ["Sapir", "Yehonatan", "Avi"]
 
-// Object.values(person) // ["Yehavit", "Teacher", 55]
-var keys = Object.keys(person)
-console.log(keys) // ["name", "proffession", "score"]
-
-// "name", "Yehavit"
-// "proffession", "Teacher"
+// console.log("------------------")
 
 
-students.forEach(student => {
-    
-    // student.name // Yehavit
-    // student["name"] //  Yehavit
+// /* Object.keys() method */
+// var person = {
+//     name: "Yehavit",
+//     proffession: "Teacher",
+//     score: 55,
+// }
 
-    const keys = Object.keys(student)
-    console.log(keys) // ["name", "proffession", "score"]
-    
-    keys.forEach(key => {
-        const value = student[key]
-        console.log(key, value)
+// person.name
+// person["name"] // "Yehavit"
+// person["Yehavit"] // undefined
+
+// // Object.values(person) // ["Yehavit", "Teacher", 55]
+// var keys = Object.keys(person)
+// console.log(keys) // ["name", "proffession", "score"]
+
+// // "name", "Yehavit"
+// // "proffession", "Teacher"
+
+
+// students.forEach(student => {
+
+//     // student.name // Yehavit
+//     // student["name"] //  Yehavit
+
+//     const keys = Object.keys(student)
+//     console.log(keys) // ["name", "proffession", "score"]
+
+//     keys.forEach(key => {
+//         const value = student[key]
+//         console.log(key, value)
+//     })
+
+
+// })
+
+
+// /*  Classes */
+
+
+// var human = {
+//     name: "Sarit",
+//     age: 22,
+//     celebrateBirthday: function () {
+//         this.age++
+//     },
+// }
+
+// var yakov = {
+//     ...human,
+//     name: "Yakov",
+//     age: 25
+// }
+
+// console.log("--------------------")
+
+// // class is abstract
+// class Human {
+//     private healthy = 10
+//     protected name = ""
+//     age = null
+//     speed = 0
+
+
+//     constructor(name, age) {
+//         this.name = name
+//         this.age = age
+//     }
+
+//     celebrateBirthday() {
+//         this.age++
+//     }
+
+//     startWalking(speed: number) {
+//         this.speed = speed
+//     }
+// }
+
+// const Sarit = new Human("Sarit", 22) // instace 
+// Sarit.startWalking(4) // use methods
+// Sarit.celebrateBirthday()
+// console.log(Sarit)
+
+// const Ahron = new Human("Ahron", 18)
+// console.log(Ahron)
+
+
+// class Student extends Human {
+//     collegeName = "";
+//     score = 0;
+
+//     constructor(name, age, collegeName) {
+//         super(name, age)
+//         this.collegeName = collegeName
+//     }
+// }
+
+// const Avi = new Student("Avi", 23, "INT")
+// Avi.score = 110
+// Avi.startWalking(5)
+
+// console.log(Avi)
+
+
+function searchInStudents(students, textToSearch: string) {
+    return students.filter(student => {
+        const keys = Object.keys(student)  // ["name", "age", "occupation", "futurePlans", "impactOnLife", "score"]
+        const result = keys.find(key => {
+            const value = student[key].toString().toLowerCase()  // "Liad Bag"
+            return value.includes(textToSearch.toLowerCase()) // 
+        })
+        return !!result
     })
-
-
-})
-
-
-/*  Classes */
-
-
-var human = {
-    name: "Sarit", 
-    age: 22,
-    celebrateBirthday: function () {
-        this.age ++
-    },
 }
 
-var yakov = {
-    ...human,
-    name: "Yakov",
-    age: 25
-}
+console.log(searchInStudents(students, "3"))
 
-console.log("--------------------")
+// forEach - just a loop, don't return nothing
 
-// class is abstract
-class Human {
-    private healthy = 10
-    protected name = ""
-    age = null
-    speed = 0
+// map - return new array in the same lenght - we can replace each item
+// ["a", "b"] => ["A", "B"]
 
+// filter - return new array - we can decide what stay and what leave
+// ["a", "b"] => ["a"]
 
-    constructor(name, age) {
-        this.name = name 
-        this.age = age 
-    }
-
-    celebrateBirthday() {
-        this.age ++
-    }
-
-    startWalking(speed: number) {
-        this.speed = speed
-    }
-}
-
-const Sarit = new Human("Sarit", 22) // instace 
-Sarit.startWalking(4) // use methods
-Sarit.celebrateBirthday()
-console.log(Sarit)
-
-const Ahron = new Human("Ahron", 18)
-console.log(Ahron)
-
-
-class Student extends Human {
-    collegeName = "";
-    score = 0;
-
-    constructor(name, age, collegeName) {
-        super(name, age)
-        this.collegeName = collegeName
-    }
-}
-
-const Avi = new Student("Avi", 23, "INT")
-Avi.score = 110
-Avi.startWalking(5)
-
-console.log(Avi)
+// find - return one item - if we return true
+// ["a", "b", "ab"] => "a" | undefined
 

@@ -207,8 +207,14 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     3. 'protected', get and set methods (speed).
 
 13. 
+    // json is string that use in all internet and laguages 
+    JSON.stringify({a: 1}) // '{a: 1}' - object to json
+    JSON.parse('{a: 1}') // {a: 1} - json to object
+    
+    JSON.stringify([{a: 1}]) // '[{a: 1}]' - array to json
+    JSON.stringify('[{a: 1}]') // [{a: 1}] - json to array
+    
     // https://jsonplaceholder.typicode.com/guide/
-    JSON.parse(), JSON.stringify()
     fetch(url: string | RequestParams) // function for connect with API 
 
     (new Promise() // async function) 
