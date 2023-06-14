@@ -112,6 +112,7 @@ const students = [
 
 // Smart Search
 // Create search function that take input and find it in all possible student values.
+
 function smartSearch(array, value) {
   const matches = array.filter(item =>
     Object.values(item).some(propValue =>
@@ -123,7 +124,7 @@ function smartSearch(array, value) {
   return matches.length > 0 ? matches : 'No match found';
 }
 
-const input = 5000;
-const searchResult = smartSearch(students, isNaN(input) ? input : Number(input).toString());
+const input = 32;
+const searchResult = smartSearch(students, isNaN(Number(input)) ? input : Number(input).toString());
 console.log(searchResult);
   
