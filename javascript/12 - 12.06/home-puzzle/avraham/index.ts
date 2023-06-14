@@ -116,7 +116,6 @@ const students = [
 function smartSearch(array, value) {
   const matches = array.filter(item =>
     Object.values(item).some(propValue =>
-      (typeof propValue === 'string' || typeof propValue === 'number') &&
       String(propValue).toLowerCase().includes(value.toLowerCase().trim())
     )
   );
