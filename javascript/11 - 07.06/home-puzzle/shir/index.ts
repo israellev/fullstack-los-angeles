@@ -115,11 +115,20 @@ const interview = students.filter(student => student.score > 90).map(student => 
 console.log(interview);
 
 //2: להסביר איך עושים ממוצע
-const listcores = students.map(names1 => names1.score);
-console.log(listcores);
-const sumAverage = students.reduce((name2, student) => name2 + student.score, 0);
-const average = sumAverage / students.length;
-console.log(average);
+// const listcores = students.map(names1 => names1.score);
+// console.log(listcores);
+// const sumAverage = students.reduce((name2, student) => name2 + student.score, 0);
+// const average = sumAverage / students.length;
+// console.log(average);
+
+//תשובה של ישראל:
+const result= students.reduce((state, student) => {
+
+    state+= student.score
+    return state
+}, 0 )   / students.length
+
+
 
 //3: האם אפשר לעשות יותר מרווח אחד? במקרה שיש רשימה ארוכה יותר
 const fimalynames = students.map(student => student.name.split(" ")[1]);
