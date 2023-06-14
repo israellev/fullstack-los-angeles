@@ -30,3 +30,9 @@ b. Display the user's name and email under the title of their post.
 
 home puzzle:
 
+1. study the example of lesson 12 carfully!!!
+2. write youself search function on the studets list - understand each word
+3. play with fetch function 
+4. play with the blog!!
+5. Bonus - impelemt search in the post!
+
