@@ -111,7 +111,7 @@ const students = [
     }
 ]
 
-// 6. Smart Search
+// 1. Smart Search
 // Create search function that take input and find it in all possible student values.
 function smartSearch (searchInput){//פונקציה שמקבלת פרמטר 
     return students.filter((student) => {//שימוש בפונקצית פילטר אשר תחזיר מערך מסונן 
@@ -121,4 +121,43 @@ function smartSearch (searchInput){//פונקציה שמקבלת פרמטר
      //הערך צריך להיות קיים ולהיות מומר למחזרוזת לצורך השוואה
     });
  };  
+
+ const searchInput = "web";
+ const searchResult = smartSearch(searchInput);
+ console.log(searchResult);
+
+//  Exercise 2: Calculate the average score of students who have a motivation
+
+const studentWithMotivation = students.filter(student => Object.keys(student).includes("motivation"));
+
+let sum = 0;
+studentWithMotivation.forEach(student => {
+    sum += student.score;
+});
+
+const averageScore = sum / studentWithMotivation.length;
+
+studentWithMotivation.forEach(student => {
+    console.log(`Name: ${student.name}, score: ${student.score}`);
+});
+
+console.log(`Avarage score: ${averageScore}`);
+console.log(`-----------------------------------------`)
+
+
+
+
+//Exercise 3: Filter students by occupation and map their names and ages.
+
+const studentOccupation = students.filter(student => Object.keys(student).includes("occupation"));
+
+const studentAgeAndName= students.map(student => ({
+    name : student.name , 
+    age : student.age
+}));
+
+studentAgeAndName.forEach(student => {
+    console.log(`Name: ${student.name}, Age: ${student.age}`);
+});
+
 
