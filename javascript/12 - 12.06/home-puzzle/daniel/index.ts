@@ -37,9 +37,3 @@ const students = [
   // קריאה לפונקציה עם הקלט של "שיפור התרגול"
   smartSearch("שיפור התרגול");
 
-
-  
-  const fruits = ["תפוח", "בננה", "גזר"];
-
-  console.log(fruits.includes("בננה")); // יחזיר true
-  console.log(fruits.includes("תפוחים")); // יחזיר false
