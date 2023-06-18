@@ -1,4 +1,4 @@
-export{}
+export {}
 const students = [
     {
         name: "Sapir Peretz",
@@ -111,93 +111,10 @@ const students = [
 ]
 
 
-// 1. Got Job Interview
-// Filter from students list those who will got a job interview - having score above 90.
-const studentsWithJobInterview = students.filter((student) => {
-    return student.score > 90;
-});
-console.log("The students that would get a job interview are: " ,studentsWithJobInterview)
 
-// 2. Get Class Score Average
-// Make a list of the class scores and get it's average.
-let classScore = 0;
-let scoreCount = 0;
 students.forEach((student) => {
-    classScore += student.score 
- return classScore
- });
+    Object.keys(student).forEach((key) => {
+        console.log(`${key} : `, student[key]);
+    })
+})
 
-const averageScore = classScore/students.length;
-console.log("The average score of the students is ", averageScore);
-
-//puzzle 2 with reduce function:
-const result = students.reduce((state, student) => {
-    state += student.score
-    return state
-} ,0) / students.length
-console.log("Option 2 : The average score of the students is ", result);
-
-
-// 3. Last names list
-// Create a list of all fimaly names
-// Tip - read in GPT about string split function "a b".split(" ").
-const familyNames = students.map((student) => {
-    let names = student.name.split(" ");
-    return names[1];
-});
-console.log(familyNames);
-
-// 4. Need to wake-up list
-// Create a list with the names of students that need to make up now - got score under 80.
-// And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים" 
-
-let lowRateStudents = students.filter(students => students.score < 80)
-lowRateStudents.forEach((student) => {
-    let names = student.name
-    console.log(`"חאלאס ${names} להימרח על החיים שלך, הקורס תכף מסתיים"`)
-});
-
-// 5. Impact vs Score
-// Print for each student 
-// `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`
-// and if the score is above 85 print `well done!` and if not print `WTF?!`.
-
-students.forEach((students) => {
-    let name1 = students.name;
-    let impactOnLife = students.impactOnLife;
-    let score = students.score;
-    console.log(`Hey ${name1}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`)
-    if (students.score >= 85) {
-    console.log("well done")}
-    else  {
-        console.log("WTF?!");
-    };    
-});
-
-// Bonus
-
-// 6. Smart Search
-// Create search function that take input and find it in all possible student values.
-
-  const searchInput = (input) => {
-    const lowercasedInput = input.toLowerCase();
-  
-    const matchingStudents = students.filter((student) =>
-      Object.values(student).some(
-        (value) =>
-          typeof value === 'string' && value.toLowerCase().includes(lowercasedInput)
-      )
-    );
-  
-    return matchingStudents;
-  };
-  
-  // Call the searchInput function with an input
-  const input = 'Job';
-  const matchingStudents = searchInput(input);
-  console.log(matchingStudents);
-
-
-
-
-   
