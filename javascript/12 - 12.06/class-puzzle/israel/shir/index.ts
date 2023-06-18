@@ -128,14 +128,57 @@ export const students = [
 
  //bonus: 
 
- function SmartSearch (input) {
+ function searchInStudents (students, textToSearch: string) : any[] {
 
- students.filter(student=> Object.keys(student).forEach(key=> student[key])
- 
- if (input===student[key]) 
-
-  return console.log(student[key])
- 
- )
+    return students.filter(student=> {
+     const keys= Object.keys(student) 
+                    const result= keys.find(key=>{
+                         const value= student[key].toString().toLowerCase()
+                         return value.includes(textToSearch.toLocaleLowerCase())
+    })
+    return !!result
+})
 
  }
+
+ console.log(searchInStudents(students, "shir")); 
+
+ //
+
+ function searchInStudents (students,textToSearch:string): any[] {
+
+    return students.filter(student=>{
+     const keys= Object.keys(students)
+     const result= keys.find(key=>{
+        const value= student[key].toString().toLocaleLowerCase()
+        return value.includes(textToSearch)
+     })
+     return !!result
+    })
+
+ }
+
+ console.log (searchInStudents(students, "shir"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -208,16 +208,19 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
 13. 
     // json is string that use in all internet and laguages 
-    JSON.stringify({a: 1}) // '{a: 1}' - object to json
-    JSON.parse('{a: 1}') // {a: 1} - json to object
+    JSON.stringify({a: 1}) // '{"a": 1}' - object to json
+    JSON.parse('{"a": 1}') // {a: 1} - json to object
     
-    JSON.stringify([{a: 1}]) // '[{a: 1}]' - array to json
-    JSON.stringify('[{a: 1}]') // [{a: 1}] - json to array
+    JSON.stringify([{a: 1}]) // '[{"a": 1}]' - array to json
+    JSON.parse('[{"a": 1}]') // [{a: 1}] - json to array
     
-    // https://jsonplaceholder.typicode.com/guide/
-    fetch(url: string | RequestParams) // function for connect with API 
+    regular function vs async 
 
-    (new Promise() // async function) 
+    // https://jsonplaceholder.typicode.com/guide/
+    fetch(url: string, RequestParams) // async function for connect with API 
     .then(data => {}) // when promise return with data 
     .catch(err => {}) //  when promise failed
+   
+14. 
+    (new Promise() // async function) 
     'async' 'await' // modern replace 'then()', for debug line by line
