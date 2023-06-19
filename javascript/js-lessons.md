@@ -214,13 +214,53 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     JSON.stringify([{a: 1}]) // '[{"a": 1}]' - array to json
     JSON.parse('[{"a": 1}]') // [{a: 1}] - json to array
     
-    regular function vs async 
-
     // https://jsonplaceholder.typicode.com/guide/
     fetch(url: string, RequestParams) // async function for connect with API 
-    .then(data => {}) // when promise return with data 
+    .then(res => res.json()) // when promise return with data 
+    .then(data => {}) // what return from previous then is comming here
     .catch(err => {}) //  when promise failed
-   
+    
+    Dom events:
+    document.querySelector("#searchInput").addEventListener('keyup', () => {})
+    events:  (list here - https://developer.mozilla.org/en-US/docs/Web/Events)
+    keyup, click, mouseenter, mouseleave...
+
+    Dynamic Elements:
+    const newDiv = document.createElement("div") // element in the code
+    newDiv.innerHTML = `<div></div>`
+    document.getElementById("postContainer").appendChild(newDiv) // add new div inside
+    document.getElementById("postContainer").innerHTML = ''  // delete all
+
 14. 
+    CRUD (create, read, update, delete)
+    
+    LocalStorage
+    localStorage.setItem('name', 'John Doe'); // create/update
+    const name = localStorage.getItem('name'); // read
+    localStorage.removeItem('name'); // remove
+    
+    regex:
+    /i - case-insensitive
+    console.log(/shir/.test('Shir')) // false 
+    console.log(/shir/i.test('Shir')) // true
+    
+    /g - global
+    console.log('shir shir'.replace(/shir/, '')) // ' shir'  
+    console.log('shir shir'.replace(/shir/g, '')) // ' '
+
+    /\d/ - number
+    /\D/ - not number
+    console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
+    console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
+    
+
+backlog:
+    Cookies - (server access)
+    // <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/src/js.cookie.min.js"></script>
+    Cookies.set('name', 'John Doe'); // create/update
+    const name = Cookies.get('name'); // read
+    Cookies.remove('name'); // remove
+
+    regular function vs async 
     (new Promise() // async function) 
     'async' 'await' // modern replace 'then()', for debug line by line
