@@ -255,6 +255,12 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     
 
 backlog:
+    
+    UrlParams
+    example url - https://example.com/?name=John
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams.get('name')); // 'John'
+
     Cookies - (server access)
     // <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/src/js.cookie.min.js"></script>
     Cookies.set('name', 'John Doe'); // create/update

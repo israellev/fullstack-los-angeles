@@ -8,18 +8,18 @@ fetch("https://jsonplaceholder.typicode.com/posts", // הפרמטר ההכרחי
             const searchInput = document.querySelector("#searchInput") as HTMLInputElement // אנו מקשרים בין האינדס לבין הגאווה על מנת לבצע מניפולציות בכניסה בחיפוש 
 
             searchInput.addEventListener('keyup', () => { // כעת ניצור פונקציה עבור המילת מפתח בכדי לבדוק מה הלקוח הכניס מול מה שמצאנו
-                document.getElementById("postContainer").innerHTML = "" // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
+                document.getElementById("postContainer").innerHTML = " " // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
                 const searchValue = searchInput.value.toLowerCase() // הערך שהמשתמש הכניס אלינו נשים אותו באותיות קטנות 
                 res.filter((post) => {
                     const filterPost = Object.values(post).find(propValue =>
                         propValue.toString().toLowerCase().includes(searchValue.toLowerCase()))
-                    return !!filterPost
+                    return filterPost
                 })
                 .forEach(createPost) //כאן אנו קוראים לפונקציה שתציג לנו את הפוסטים לאחר סינוון   
             })
         })
     })
-    .catch(error => console.log(error)); // הרי הפאטצ הוא פרומייס "הצלחה" במידע ולא הצלחנו לתפוס את המידע נקבל ארור
+    .catch(error => console.log(error)); //  הרי הפאטצ הוא פרומייס "הצלחה" במידע ולא הצלחנו לתפוס את המידע נקבל ארור ובשביל שלא תתקע התוכנית אנו תופסים את הארור ומטפלים בה
 
 
 
@@ -46,9 +46,3 @@ function createPost(post) {
     newDiv.innerHTML = htmlPost // להחיל את הדיב בתוך האייטיאמל
     document.getElementById("postContainer").appendChild(newDiv) // יצירת ילד לדיב הקיים
 }
-
-
-                    // return post.title.toLowerCase().includes(searchValue) || // כאן אנו מבצעים את הפילטר על כל הפוסטים ובודקים ערך ערך בפוסט בכדי למצוא את הערך הנדרש
-                    //     post.body.toLowerCase().includes(searchValue) ||
-                    //     post.userId.toString() === searchValue ||
-                    //     post.id.toString() === searchValue;
