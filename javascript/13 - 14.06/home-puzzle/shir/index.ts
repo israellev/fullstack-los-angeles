@@ -13,11 +13,23 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
             document.getElementById("postContainer").innerHTML = "" // delete all posts
             
             const value = searchInput.value // what the user type
-            res.filter(post => {
+            res.filter(post=>{ 
+                const keys= Object.keys(post);
+                const result= keys.find((key)=>{
+                    const value1= post[key].toString().toLowerCase()
+                return value1.includes(value);
+                });
+                return !!result
+            })
+
+
+               // return post.includes(value).toString().toLowerCase()  ???
+
+               
                 // return true if you find the search in the post, and false if not
                 
-            }).forEach(createPost)
-        })
+            .forEach(createPost)
+        });
     })
     .catch(error => console.log(error))
 
@@ -49,15 +61,13 @@ function createPost(post) {
 // bonus: 
 
 
-function searchInPost (res, textToSearch: string) {
 
-return res.filter(post=>{
-    const value= Object.values(post)
-    const result= value.find(post=> post.toString().toLowerCase())
-   return result.includes(textToSearch)
+//  res.filter(post=>{
+//     const value= Object.values(post)
+//     const result= value.find(post=> post.toString().toLowerCase())
+//    return result.includes(value)
+//    return !!result
 
-})
-return !!result
-}
+// })
 
-console.log(searchInPost(res, "shir"));
+
