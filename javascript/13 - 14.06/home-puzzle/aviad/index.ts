@@ -1,35 +1,23 @@
 export {}
 
 
-// @ts-ignore
+
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     .then(res => res.json())
     .then((res: any[]) => {
-        res.forEach(createPost) // deploy all posts
+        res.forEach(createPost)
 
         const searchInput = document.querySelector("#searchInput") as HTMLInputElement
         
         searchInput.addEventListener('keyup', () => {
-            document.getElementById("postContainer").innerHTML = "" // delete all posts
+            document.getElementById("postContainer").innerHTML = "" 
             
-            const value = searchInput.value // what the user type
-            res.filter(post=>{ 
-                const keys= Object.keys(post);
-                const result= keys.find((key)=>{
-                    const value1= post[key].toString().toLowerCase()
-                return value1.includes(value);
-                });
-                return !!result
-            })
-
-
-               // return post.includes(value).toString().toLowerCase()  ???
-
-               
-                // return true if you find the search in the post, and false if not
+            const value = searchInput.value
+            res.filter(post => {
                 
-            .forEach(createPost)
-        });
+                
+            }).forEach(createPost)
+        })
     })
     .catch(error => console.log(error))
 
@@ -57,17 +45,4 @@ function createPost(post) {
     newDiv.innerHTML = htmlPost
     document.getElementById("postContainer").appendChild(newDiv)
 }
-
-// bonus: 
-
-
-
-//  res.filter(post=>{
-//     const value= Object.values(post)
-//     const result= value.find(post=> post.toString().toLowerCase())
-//    return result.includes(value)
-//    return !!result
-
-// })
-
 
