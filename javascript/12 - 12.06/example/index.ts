@@ -257,6 +257,7 @@ function searchInStudents(students, textToSearch: string) {
         const result = keys.find(key => {
             const value = student[key].toString().toLowerCase()  // "Liad Bag"
             return value.includes(textToSearch.toLowerCase()) // 
+
         })
         return !!result
     })
