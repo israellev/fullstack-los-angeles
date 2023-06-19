@@ -124,12 +124,19 @@ let classScore = 0;
 let scoreCount = 0;
 students.forEach((student) => {
     classScore += student.score 
-    scoreCount++;
- return scoreCount && classScore
+ return classScore
  });
 
-const averageScore = classScore/scoreCount;
+const averageScore = classScore/students.length;
 console.log("The average score of the students is ", averageScore);
+
+//puzzle 2 with reduce function:
+const result = students.reduce((state, student) => {
+    state += student.score
+    return state
+} ,0) / students.length
+console.log("Option 2 : The average score of the students is ", result);
+
 
 // 3. Last names list
 // Create a list of all fimaly names
@@ -189,8 +196,6 @@ students.forEach((students) => {
   const input = 'Job';
   const matchingStudents = searchInput(input);
   console.log(matchingStudents);
-  
-      
 
 
 

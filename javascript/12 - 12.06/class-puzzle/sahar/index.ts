@@ -21,11 +21,11 @@ const students = [
         score: 78
     },
     {
-        name: "Brahanu Avraham Beyene",
+        name: "Avi Berehanu Bayna",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Continue current job for another year",
-        score: 50
+        score: 110
     },
     {
         name: "Sharit Tzvika",
@@ -42,7 +42,7 @@ const students = [
         occupation: "Security",
         motivation: "Need more money",
         impactOnLife: 12,
-        score: 99
+        score: 65
     },
     {
         name: "Sahar Kalaifish",
@@ -51,14 +51,14 @@ const students = [
         degree: "Architecture",
         motivation: "Increase income (husband is a social worker), hopefully find it interesting",
         impactOnLife: 8,
-        score: 92
+        score: 85
     },
     {
         name: "Yaakov Mengistu",
         age: 32,
         occupation: "Electrical Engineer",
         futurePlans: "Develop programming skills, not planning to work in this profession in the future, considering it an additional skill for the future",
-        score: 100
+        score: 52
     },
     {
         name: "Shir Malka",
@@ -90,7 +90,7 @@ const students = [
         occupation: "SMC - machine operation, some programming, network management and data security",
         futurePlans: "Willing to do anything with it",
         impactOnLife: 10,
-        score: 98
+        score: 86
     },
     {
         name: "Liad Bag",
@@ -110,20 +110,11 @@ const students = [
     }
 ]
 
-// Smart Search
-// Create search function that take input and find it in all possible student values.
 
-function smartSearch(array, value) {
-  const matches = array.filter(item =>
-    Object.values(item).find(propValue =>
-      propValue.toString().toLowerCase().includes(value.toLowerCase().trim())
-    )
-  );
 
-  return matches.length > 0 ? matches : 'No match found';
-}
+students.forEach((student) => {
+    Object.keys(student).forEach((key) => {
+        console.log(`${key} : `, student[key]);
+    })
+})
 
-const input = "liad";
-const searchResult = smartSearch(students, isNaN(Number(input)) ? input : Number(input).toString());
-console.log(searchResult);
-  

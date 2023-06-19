@@ -27,7 +27,6 @@ c. Make sure the filter is case-insensitive.
 a. For each post, fetch the details of the user who wrote the post from https://jsonplaceholder.typicode.com/users/{userId}.
 b. Display the user's name and email under the title of their post.
 
-
 home puzzle:
 
 1. study the example of lesson 12 carfully!!!
