@@ -1,26 +1,36 @@
 export {}
 
+type IPost = {id: number, userId: number, title: string, body: string}
+
 fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
 .then(res => res.json())
-.then((res: {id: number, userId: number, title: string, body: string}[]) => {
-
+.then((res: IPost[]) => {
   res.forEach(createPost)
+  const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
+  
+  
+  searchInputElement.addEventListener('keyup', () => {
+  const value = searchInputElement.value.toLowerCase().trim()
+  console.log(value)
 
-  const searchInput = document.querySelector("#searchInput") as HTMLInputElement
-  searchInput.addEventListener('keyup', () => {
+
     document.getElementById("postContainer").innerHTML = "" 
-
-    const value = searchInput.value
-
-    res.filter(post => {
-
-    }).forEach(createPost)
+    const filteredPostList = res.filter((post) => {
+    const values = Object.values(post)
+    const valuesToString = values.toString()
+    return valuesToString.includes(value.toLowerCase())
+    })
+   console.log(filteredPostList)
+  
+   filteredPostList.forEach(createPost)
   })
 })
-.catch(error => console.log(error))
+  .catch(error => console.log(error))
 
-function createPost(post) {
-    const htmlPost = `
+
+function createPost(post : IPost) {
+  const newDiv = document.createElement("div")  
+  const htmlPost = `
 <div class="card mb-4" id="post-${post.id}">
   <div class="card-header">
     <h5 class="card-title">${post.id} - ${post.title}</h5>
@@ -37,9 +47,7 @@ function createPost(post) {
   </div>
 </div>
 `;
-    const newDiv = document.createElement("div")
+
     newDiv.innerHTML = htmlPost
     document.getElementById("postContainer").appendChild(newDiv)
 }
-
-
