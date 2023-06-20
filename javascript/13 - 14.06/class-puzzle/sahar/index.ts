@@ -1,31 +1,61 @@
 export {}
 
-fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
+type IPost = {id: number, userId: number, title: string, body: string}
+
+fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     .then(res => res.json())
-    .then((res: any[]) => {
-        res.forEach(createPost)
-
-        const searchInput = document.querySelector("#searchInput") as HTMLInputElement
-
-        searchInput.addEventListener("keyup", () => {
-          document.getElementById("postContainer").innerHTML = ""; // delete all posts
+    .then((postList: IPost[]) => {
+        postList.forEach(createPost) // deploy all posts
+        const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
+        
+        // listener - every time keyboard up:
+        // 1. delete all posts
+        // 2. filter only posts you find the user input
+        // 3. deploy only filtered posts
+        searchInputElement.addEventListener('keyup', () => {
+            const value = searchInputElement.value.toLowerCase().trim()
+            localStorage.setItem("inputSearch", value)
+            console.log(value)
             
-          const value = searchInput.value.toLocaleLowerCase(); // what the user type
-          res
-          .filter(post => {
-              const key = Object.keys(post);
-              const result = key.find((keys) => {
-                const input = post[keys].toString().toLowerCase();
-                return input.includes(value);
-              });
-              return !!result;
-              
-            })
-            .forEach(createPost)
-          });
-      })
-      .catch(error => console.log(error));
+            // 1. delete all posts
+            document.getElementById("postContainer").innerHTML = ""
 
+            // 2. filter only posts you find the user input
+            const filteredPostList = postList.filter((post) => {
+                const values = Object.values(post) // [1, 1, "post title...", "post body..."]
+                const valuesToString = values.toString() // '1,1,post title...,post body...'
+                return valuesToString.includes(value.toLowerCase())
+            })
+            console.log(filteredPostList)
+
+            // 3. deploy only filtered posts
+            filteredPostList.forEach(createPost)
+        })
+
+        //extracting the user Id from the postlist & adding it to the selection bar on HTML by function
+        const userId = new Set(postList.map(post => post.userId))
+        userId.forEach((userId) => createSelectionBar(userId)); 
+
+        })      
+        
+    
+      .catch(error => console.log(error))
+
+        //creating a function that adds the extracted user Id to the selection bar
+        function createSelectionBar(userId) {
+          const selectElement = document.getElementById("selection");
+        
+          const optionElement = document.createElement("option");
+          optionElement.value = userId;
+          optionElement.textContent = `User ${userId}`;
+        
+          selectElement.appendChild(optionElement);
+          
+          
+      };
+      
+      
+       
 
 function createPost (post) {
   const htmlPost = `

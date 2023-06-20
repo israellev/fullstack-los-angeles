@@ -3,7 +3,7 @@ fetch("https://jsonplaceholder.typicode.com/posts", // הפרמטר ההכרחי
     { method: "GET" })// באמצעות המתודה הזאת אנו מושכים מידה 
     .then(res => res.json()) // את המידע אנו תופסים מהגייסון והוא מחזיר לנו חיובי יכול להחזיר שלילי ואז נצטרך לעבוד עם קאטצ
     .then((res: any[]) => { // כאן אנו משתמשים בעוד "דאן" על מנת להמשיך פעולה על המידה שקיבלנו בהצלחה מהגייסון 
-        res.forEach((post) => { // פה אנו חוזרים על לולאה מספר פעמים על מנת לעבור על הפוסטים 
+        res.forEach((post) => { // פה אbנו חוזרים על לולאה מספר פעמים על מנת לעבור על הפוסטים 
               document.getElementById("postContainer").innerHTML = "" // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
             const searchInput = document.querySelector("#searchInput") as HTMLInputElement // אנו מקשרים בין האינדס לבין הגאווה על מנת לבצע מניפולציות בכניסה בחיפוש 
 
