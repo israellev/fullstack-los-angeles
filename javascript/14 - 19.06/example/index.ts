@@ -40,13 +40,18 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
         const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
         userIds.forEach(createOption)  // deploy 10 users <option>
         
+        // check if exist in storage - add it to elements
         if (localStorage.getItem('searchValue'))
             searchInputElement.value = localStorage.getItem('searchValue')
         if (localStorage.getItem('selectedUserId'))
             selectUserElement.value = localStorage.getItem('selectedUserId')
-                
+        
+        // show all posts (with the filters)
         deletePostsAndActiveFilter(postList)
+        // postList.forEach(createPost)
 
+        
+        // listen to search and select 
         searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
         selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
     })
