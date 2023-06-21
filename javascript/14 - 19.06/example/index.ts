@@ -36,11 +36,17 @@ const selectUserElement = document.getElementById("selectUser") as HTMLSelectEle
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     .then(res => res.json())
     .then((postList: IPost[]) => {
-
+        
         const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
         userIds.forEach(createOption)  // deploy 10 users <option>
-        postList.forEach(createPost) // deploy all 100 posts
         
+        if (localStorage.getItem('searchValue'))
+            searchInputElement.value = localStorage.getItem('searchValue')
+        if (localStorage.getItem('selectedUserId'))
+            selectUserElement.value = localStorage.getItem('selectedUserId')
+                
+        deletePostsAndActiveFilter(postList)
+
         searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
         selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
     })
@@ -93,10 +99,11 @@ function deletePostsAndActiveFilter(postList: IPost[]) {
 
     // get input and select option values:
     const searchValue = searchInputElement.value.toLowerCase().trim()
-    console.log("searchValue", searchValue)
+    localStorage.setItem("searchValue", searchValue)
     const selectedUserId = selectUserElement.value;
-    console.log("selectedUserId", selectedUserId)
+    localStorage.setItem("selectedUserId", selectedUserId)
     
+
     // 1. delete all posts
     postContainerElement.innerHTML = ""
 
@@ -125,4 +132,5 @@ function isPostInUserList(post: IPost, selectedUserId: string): boolean {
 
 
 localStorage.setItem("name", "Sarit Tzvika") // save in the storage
-localStorage.getItem("name") // get from the storage
+localStorage.getItem("name") // "Sarit Tzvika"
+localStorage.removeItem("name")
