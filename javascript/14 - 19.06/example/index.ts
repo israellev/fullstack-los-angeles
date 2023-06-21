@@ -37,8 +37,9 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     .then(res => res.json())
     .then((postList: IPost[]) => {
         
+        // deploy 10 users <option>
         const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
-        userIds.forEach(createOption)  // deploy 10 users <option>
+        userIds.forEach(createOption)
         
         // check if exist in storage - add it to elements
         if (localStorage.getItem('searchValue'))
@@ -48,9 +49,9 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
         
         // show all posts (with the filters)
         deletePostsAndActiveFilter(postList)
-        // postList.forEach(createPost)
+        // postList.forEach(createPost) // show all 100 posts (without filter)
 
-        
+
         // listen to search and select 
         searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
         selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
