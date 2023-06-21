@@ -1,4 +1,5 @@
 export { }
+<<<<<<< HEAD
 // fetch("https://jsonplaceholder.typicode.com/posts", // הפרמטר ההכרחי והיחיד שנצטרך להעביר לפאטצ הוא כתובת שממנו אנו רוצי למשוך מידע  URL
 //     { method: "GET" })// באמצעות המתודה הזאת אנו מושכים מידה 
 //     .then(res => res.json()) // עוד הבטחה שתפקידה להפוך את הגייסון שקיבלנו לגאווה סקריפט 
@@ -6,6 +7,15 @@ export { }
 //         res.forEach((post) => { // פה אנו חוזרים על לולאה מספר פעמים על מנת לעבור על הפוסטים 
 //               document.getElementById("postContainer").innerHTML = "" // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
 //             const searchInput = document.querySelector("#searchInput") as HTMLInputElement // אנו מקשרים בין האינדס לבין הגאווה על מנת לבצע מניפולציות בכניסה בחיפוש 
+=======
+fetch("https://jsonplaceholder.typicode.com/posts", // הפרמטר ההכרחי והיחיד שנצטרך להעביר לפאטצ הוא כתובת שממנו אנו רוצי למשוך מידע  URL
+    { method: "GET" })// באמצעות המתודה הזאת אנו מושכים מידה 
+    .then(res => res.json()) // את המידע אנו תופסים מהגייסון והוא מחזיר לנו חיובי יכול להחזיר שלילי ואז נצטרך לעבוד עם קאטצ
+    .then((res: any[]) => { // כאן אנו משתמשים בעוד "דאן" על מנת להמשיך פעולה על המידה שקיבלנו בהצלחה מהגייסון 
+        res.forEach((post) => { // פה אbנו חוזרים על לולאה מספר פעמים על מנת לעבור על הפוסטים 
+              document.getElementById("postContainer").innerHTML = "" // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
+            const searchInput = document.querySelector("#searchInput") as HTMLInputElement // אנו מקשרים בין האינדס לבין הגאווה על מנת לבצע מניפולציות בכניסה בחיפוש 
+>>>>>>> 597ce50efacdb47d3ac0150311dc3f74ebe9f30d
 
 //             searchInput.addEventListener('input', () => { // כעת ניצור פונקציה עבור המילת מפתח בכדי לבדוק מה הלקוח הכניס מול מה שמצאנו
 //                 console.log(searchInput)
