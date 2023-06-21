@@ -110,38 +110,6 @@ function createPost(post: IPost) {
     postContainerElement.appendChild(newDiv)
 }
 
-async function showComments(postId: number) {
-    const commentsElement = document.getElementById(`comments-${postId}`)
-    if (!commentsElement.children.length) {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
-        const commentList = await res.json()
-        commentList.forEach(createCommnet)
-    } else {
-        if (commentsElement.classList.contains('collapse'))
-            commentsElement.classList.remove('collapse')
-        else
-            commentsElement.classList.add('collapse')
-    }
-}
-
-function createCommnet(comment: IComment) {
-    const commentsElement = document.getElementById(`comments-${comment.postId}`)
-    const newDiv = document.createElement("div")
-    const htmlPost = `
-    <div id="comments-${comment.id}">
-        <div class="card card-body">
-            <h6>Comments:</h6>
-            <div class="comment">
-                <strong>Name: </strong>${comment.name}<br>
-                <strong>Email: </strong>${comment.email}<br>
-                <strong>Comment: </strong>${comment.body}
-            </div>
-        </div>
-    </div>`;
-    newDiv.innerHTML = htmlPost
-    commentsElement.appendChild(newDiv)
-}
-
 function deletePostsAndActiveFilter(postList: IPost[]) {
      // listener - every time search keyboard up or change select user:
 
@@ -178,6 +146,40 @@ function isPostInUserList(post: IPost, selectedUserId: string): boolean {
         return true
     return post.userId.toString() === selectedUserId
 }
+
+
+// async function showComments(postId: number) {
+//     const commentsElement = document.getElementById(`comments-${postId}`)
+//     if (!commentsElement.children.length) {
+//         const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+//         const commentList = await res.json()
+//         commentList.forEach(createCommnet)
+//     } else {
+//         if (commentsElement.classList.contains('collapse'))
+//             commentsElement.classList.remove('collapse')
+//         else
+//             commentsElement.classList.add('collapse')
+//     }
+// }
+
+// function createCommnet(comment: IComment) {
+//     const commentsElement = document.getElementById(`comments-${comment.postId}`)
+//     const newDiv = document.createElement("div")
+//     const htmlPost = `
+//     <div id="comments-${comment.id}">
+//         <div class="card card-body">
+//             <h6>Comments:</h6>
+//             <div class="comment">
+//                 <strong>Name: </strong>${comment.name}<br>
+//                 <strong>Email: </strong>${comment.email}<br>
+//                 <strong>Comment: </strong>${comment.body}
+//             </div>
+//         </div>
+//     </div>`;
+//     newDiv.innerHTML = htmlPost
+//     commentsElement.appendChild(newDiv)
+// }
+
 
 
 localStorage.setItem("name", "Sarit Tzvika") // save in the storage
