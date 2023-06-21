@@ -253,6 +253,11 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
     console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
     
+    /[a-z]/ - english lowercase
+    /[A-Z]/ - english upercase
+    /[a-zA-Z]/ - all english letter
+    console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
+    console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
 
 backlog:
     

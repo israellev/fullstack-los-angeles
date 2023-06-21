@@ -20,6 +20,7 @@ headers = {}
 */
 
 type IPost = {id: number, userId: number, title: string, body: string}
+type IComment = {id: number, postId: number, name: string, email: string, body: string}
 
 const postContainerElement = document.getElementById("postContainer")
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
@@ -33,30 +34,40 @@ const selectUserElement = document.getElementById("selectUser") as HTMLSelectEle
 4. V actvie the search filter and select user filter together.
  */
 
-fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
-    .then(res => res.json())
-    .then((postList: IPost[]) => {
-        
-        // deploy 10 users <option>
-        const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
-        userIds.forEach(createOption)
-        
-        // check if exist in storage - add it to elements
-        if (localStorage.getItem('searchValue'))
-            searchInputElement.value = localStorage.getItem('searchValue')
-        if (localStorage.getItem('selectedUserId'))
-            selectUserElement.value = localStorage.getItem('selectedUserId')
-        
-        // show all posts (with the filters)
-        deletePostsAndActiveFilter(postList)
-        // postList.forEach(createPost) // show all 100 posts (without filter)
+init()
+
+async function init() {
+    // async await (in Promise functions)
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+    const postList = await res.json()
+
+    // deploy 10 users <option>
+    const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
+    userIds.forEach(createOption)
+    
+    // check if exist in storage - add it to elements
+    if (localStorage.getItem('searchValue'))
+        searchInputElement.value = localStorage.getItem('searchValue')
+    if (localStorage.getItem('selectedUserId'))
+        selectUserElement.value = localStorage.getItem('selectedUserId')
+    
+    // show all posts (with the filters)
+    deletePostsAndActiveFilter(postList)
+    // postList.forEach(createPost) // show all 100 posts (without filter)
+
+    // listen to search and select 
+    searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
+    selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
+    return true
+}
 
 
-        // listen to search and select 
-        searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
-        selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
-    })
-    .catch(error => console.log(error))
+// fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+//     .then(res => res.json())
+//     .then((postList: IPost[]) => {
+       
+//     })
+//     .catch(error => console.log(error))
 
 
 function getUserIdsFromPostList(postList: IPost[]): number[] {
@@ -86,10 +97,10 @@ function createPost(post: IPost) {
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
-                Show comments
+                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                    Show comments
                 </button>
-                <div class="collapse" id="comments-1">
+                <div id="comments-${post.id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
             </div>
@@ -99,12 +110,44 @@ function createPost(post: IPost) {
     postContainerElement.appendChild(newDiv)
 }
 
+async function showComments(postId: number) {
+    const commentsElement = document.getElementById(`comments-${postId}`)
+    if (!commentsElement.children.length) {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+        const commentList = await res.json()
+        commentList.forEach(createCommnet)
+    } else {
+        if (commentsElement.classList.contains('collapse'))
+            commentsElement.classList.remove('collapse')
+        else
+            commentsElement.classList.add('collapse')
+    }
+}
+
+function createCommnet(comment: IComment) {
+    const commentsElement = document.getElementById(`comments-${comment.postId}`)
+    const newDiv = document.createElement("div")
+    const htmlPost = `
+    <div id="comments-${comment.id}">
+        <div class="card card-body">
+            <h6>Comments:</h6>
+            <div class="comment">
+                <strong>Name: </strong>${comment.name}<br>
+                <strong>Email: </strong>${comment.email}<br>
+                <strong>Comment: </strong>${comment.body}
+            </div>
+        </div>
+    </div>`;
+    newDiv.innerHTML = htmlPost
+    commentsElement.appendChild(newDiv)
+}
 
 function deletePostsAndActiveFilter(postList: IPost[]) {
      // listener - every time search keyboard up or change select user:
 
     // get input and select option values:
-    const searchValue = searchInputElement.value.toLowerCase().trim()
+    const searchValue = searchInputElement.value.toLowerCase().trim().replace(/[<>]/g, '')
+
     localStorage.setItem("searchValue", searchValue)
     const selectedUserId = selectUserElement.value;
     localStorage.setItem("selectedUserId", selectedUserId)
@@ -140,3 +183,29 @@ function isPostInUserList(post: IPost, selectedUserId: string): boolean {
 localStorage.setItem("name", "Sarit Tzvika") // save in the storage
 localStorage.getItem("name") // "Sarit Tzvika"
 localStorage.removeItem("name")
+
+
+
+regex:
+//  /i - case-insensitive
+console.log(/shir/.test('Shir is walked')) // false 
+console.log(/shir/i.test('Shir is walked')) // true
+
+//  /g - global
+console.log('shir shir'.replace(/shir/, '')) // ' shir'  
+console.log('shir shir'.replace(/shir/g, '')) // ' '
+
+//  /\d/ - digit
+//  /\D/ - not digit
+console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
+console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
+
+//  /[a-z]/ - english lowercase
+//  /[A-Z]/ - english upercase
+//  /[a-zA-Z]/ - all english letter
+console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
+console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
+
+'<script>alert("wow!")</script>'.replace(/[<>]/g, '')
+
+
