@@ -1,4 +1,5 @@
-export {}
+
+ export {}
 
 fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
 .then(res => res.json())
@@ -23,8 +24,5 @@ fetch("https://jsonplaceholder.typicode.com/posts", {method: "GET"})
 `;
     // const newDiv = document.createElement("div")
     // newDiv.innerHTML = htmlPost
-    // document.getElementById("postContainer").appendChild(newDiv)
+    // document.getElementBy
 })
-
-
-  

@@ -123,6 +123,12 @@ console.log(earliestBook);
 // fromAtoZ
 // fromZtoA
 
+const sortedBooksstb = library.sort((a, b) => a.year - b.year);
+ 
+const sortedBooksbts = library.sort((a, b) => b.year - a.year);
+
+
+
 // Bonus:
 
 // 1. Get average of list of objects
