@@ -106,9 +106,10 @@ function createPost(post: IPost) {
             </div>
         </div>
         `;
-    newDiv.innerHTML = htmlPost
-    postContainerElement.appendChild(newDiv)
-}
+        newDiv.innerHTML = htmlPost
+        postContainerElement.appendChild(newDiv)
+    }
+    
 
 function deletePostsAndActiveFilter(postList: IPost[]) {
      // listener - every time search keyboard up or change select user:
@@ -130,6 +131,7 @@ function deletePostsAndActiveFilter(postList: IPost[]) {
         const isPostInList = isPostInUserList(post, selectedUserId)
         return isPostInSearch && isPostInList
     })
+
 
     // 3. deploy only filtered posts
     filteredPostList.forEach(createPost)
