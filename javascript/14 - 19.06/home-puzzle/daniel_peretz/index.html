@@ -17,15 +17,18 @@
     </script>
   </head>
   <body>
+
+    
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-white bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold fs-1" href="#">My Blog</a>
+        <a class="navbar-brand" href="#">My Blog</a>
       </div>
     </nav>
 
     <!-- Main Header -->
-    <header class="bg-primary text-white text-center py-5 mb-4">
+    <header class="bg-danger text-white text-center py-5 mb-4">
       <div class="container">
         <h1 class="font-weight-light">Welcome to My Blog</h1>
       </div>
@@ -36,22 +39,29 @@
       <div class="d-flex justify-content-center mb-4">
         <input
           id="searchInput"
-          class="form-control text-center me-2"
+          class="form-control me-2"
           type="search"
           placeholder="Search Posts"
           aria-label="Search"
         />
         <div class="col-md-3">
-          <select id="selectUser" class="form-select text-center " aria-label="Select User">
-            <option value="0" selected>Select User</optoin>
-            <!-- Optoins of user ids  will be added here dynamically -->
+          <select id="selectUser" class="form-select" aria-label="Select User">
+            <option value="all-users" selected>Select User</option>
+            <!-- Options of user ids  will be added here dynamically -->
           </select>
         </div>
       </div>
+
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
       </div>
     </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">© 2023 Copyright : Daniel Peretz</a>
+      </div>
+    </nav>
 
     <script src="./dist/index.js"></script>
   </body>
