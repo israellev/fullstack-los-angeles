@@ -1,35 +1,34 @@
 export {};
 
 // @ts-ignore
+type IPost = { id: number; userId: number; title: string; body: string };
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
   .then((res) => res.json())
-  .then(
-    (
-      postList: { id: number; userId: number; title: string; body: string }[]
-    ) => {
-      const searchInput = document.querySelector("#searchInput");
-      const postContainer = document.getElementById("postContainer");
+  .then((postList: IPost[]) => {
+    console.log(postList);
+    postList.forEach(creatPost);
+    const searchInput = document.querySelector(
+      "#searchInput"
+    ) as HTMLInputElement;
+    // const postContainer = document.getElementById("postContainer");
 
-      searchInput.addEventListener("keyup", () => {
-        postContainer.innerHTML = "";
-        postList.forEach(creatPost);
-      });
+    searchInput.addEventListener("keyup", () => {
+      const value = searchInput.value.toLocaleLowerCase().trim();
+      console.log(value);
+      document.getElementById("postContainer").innerHTML = "";
 
       postList
-        .filter((post, textToSearch: any): any => {
-          const keys = Object.keys(post);
-          const result = keys.find((key) => {
-            const value = post[key].toString().toLowerCase();
-            return value.includes(textToSearch.toLowerCase());
-          });
-          return !!result;
+        .filter((post) => {
+          const values = Object.values(post);
+          return values.toString().includes(value.toLocaleLowerCase());
         })
         .forEach(creatPost);
-    }
-  );
+    });
+  });
 
-function creatPost(post) {
-  const htmlPost = `s
+function creatPost(post: IPost) {
+  const newDiv = document.createElement("div");
+  const htmlPost = `
 <div class="card mb-4" id="post by ${post.userId} ">
   <div class="card-header">
     <h5 class="card-title">${post.id} - ${post.title}</h5>
@@ -46,4 +45,6 @@ function creatPost(post) {
   </div>
 </div>
 `;
+  newDiv.innerHTML = htmlPost;
+  document.getElementById("postContainer").appendChild(newDiv);
 }
