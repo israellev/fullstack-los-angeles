@@ -11,23 +11,32 @@
       crossorigin="anonymous"
     />
 
-    <title>My Blog</title>
+    <title>My blog</title>
     <script>
       var exports = {};
     </script>
   </head>
   <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <style>
+      .custom-backgroundd {
+        background-color: #97ff93; /* Replace with your desired color code */
+      }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-blue custom-backgroundd">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">My Blog</a>
+        <a class="navbar-brand" href="#">Yakov Blog</a>
       </div>
     </nav>
 
     <!-- Main Header -->
-    <header
-      class="background-color:powderblue text-white text-center py-5 mb-4"
-    >
+    <style>
+      .custom-background {
+        background-color: #93cfff; /* Replace with your desired color code */
+      }
+    </style>
+
+    <header class="text-black text-center py-5 mb-4 custom-background">
       <div class="container">
         <h1 class="font-weight-light">Welcome to My Blog</h1>
       </div>
@@ -43,24 +52,15 @@
           placeholder="Search Posts"
           aria-label="Search"
         />
-        <div class="col-md-3">
-          <select id="selectUser" class="form-select" aria-label="Select User">
-            <option value="all-users" selected>Select User</option>
-            <!-- Options of user ids  will be added here dynamically -->
-          </select>
-        </div>
+        <!-- <select>
+          <option>Select User</optoin>
+            
+        </select>  -->
       </div>
-
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
       </div>
     </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">© 2023 Copyright : Daniel Peretz</a>
-      </div>
-    </nav>
 
     <script src="./dist/index.js"></script>
   </body>
