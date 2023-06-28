@@ -1,11 +1,12 @@
 export {}
 
 type IPost = {id: number, userId: number, title: string, body: string, image: any}
+type IComment = {id: number, postId: number, name: string, email: string, body: string}
+
 
 const postContainerElement = document.getElementById("postContainer");
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
 const selectionElement = document.getElementById("selection") as HTMLSelectElement
-const postElement = document.getElementById("post-${post.id}")
 
 const imagesByUser = {
   1: "images/user_1.jpg",
@@ -28,8 +29,8 @@ async function init() {
     const postList = await res.json()
     
 
-        const userIds = getUserFromPostList(postList)
-        userIds.forEach(createOption)
+      const userIds = getUserFromPostList(postList)
+      userIds.forEach(createOption)
 
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
@@ -76,7 +77,7 @@ function deletePostAndActivefilter(postList : IPost[]){
 
 //function number 2:
 //creating a function that adds the extracted user Id to the selection bar
-function createOption(userId) {
+function createOption(userId: number) {
   const newOption = document.createElement('option')
   newOption.value = userId.toString();
   newOption.textContent = `User ${userId}`;
@@ -113,7 +114,7 @@ function addImageByUser(userId) {
     return imagesByUser[userId];
   }
   // If the userId doesn't match any keys in imagesByUser, return a default image URL
-  return '/images/default.jpg';
+  //return '/images/default.jpg';
 }
 
 //function number 7:
@@ -123,36 +124,40 @@ function hoverMouse(element) {
   });  
 }
 
-
-///function number 8:
+///function number 9:
 function createPost (post) {
   
   const image = addImageByUser(post.userId);
 
   const htmlPost = `
-    <div class="card mb-4" id="post-${post.id}">
-      <div class="card-header">
-        <h5 class="card-title">${post.title}</h5>
-        <small class="text-muted">Posted by User ${post.userId}</small>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-3">
+  <div class="card mb-4" id="post-${post.id}">
+    <div class="card-header">
+      <h5 class="card-title">${post.id} - ${post.title}</h5>
+      <small class="text-muted">Posted by User ${post.userId}</small>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
           <a href="profileUser.html" target="_blank">
-            <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image">
+            <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
           </a>
-          </div>
+        </div>
         <div class="col-9">
-          <p class="card-text">${post.body}.</p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+          <div class="card-body">
+            <p class="card-text">${post.body}</p>
+          </div>
+          <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
             Show comments
           </button>
-        <div class="collapse" id="comments-1">
-          <!-- Comments will be dynamically added here -->
+          <div id="comments-${post.id}">
+            <!-- Comments will be dynamically added here -->
+          </div>
         </div>
       </div>
     </div>
-    `;
+  </div>
+`;
+
 
   const newDiv = document.createElement("div");
    newDiv.innerHTML = htmlPost;
@@ -160,4 +165,39 @@ function createPost (post) {
 
    const imageElement = newDiv.querySelector('a,img');
    hoverMouse(imageElement);
- }
+
+  }
+
+async function showComments(postId: number) {
+  const commentsElement = document.getElementById(`comments-${postId}`)
+  if (!commentsElement.children.length){
+      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+      const commentList = await res.json()
+      commentList.forEach(createCommnet)
+  } else  {
+    if (commentsElement.classList.contains(`collapse`))
+        commentsElement.classList.remove(`collapse`)
+    else 
+      commentsElement.classList.add('collapse')
+  }
+      
+}
+
+  
+function createCommnet(comment: IComment) {
+  const commentsElement = document.getElementById(`comments-${comment.postId}`)
+  const newDiv = document.createElement("div")
+  const htmlPost = `
+  <div id="comments-${comment.id}">
+      <div class="card card-body">
+          <h6>Comments:</h6>
+          <div class="comment">
+              <strong>Name: </strong>${comment.name}<br>
+              <strong>Email: </strong>${comment.email}<br>
+              <strong>Comment: </strong>${comment.body}
+          </div>
+      </div>
+  </div>`;
+  newDiv.innerHTML = htmlPost
+  commentsElement.appendChild(newDiv)
+}

@@ -103,6 +103,7 @@ function createPost(post: IPost) {
                 <div id="comments-${post.id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
             </div>
         </div>
         `;
