@@ -1,4 +1,4 @@
-export { }
+export {}
 
 // https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
@@ -210,5 +210,3 @@ console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
 console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
 
 '<script>alert("wow!")</script>'.replace(/[<>]/g, '')
-
-
