@@ -259,6 +259,14 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
     console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
 
+15. Firebas Hosting:
+    go to your project folder
+    npm install -g firebase-tools
+    firebase login
+    firebase init -> hosting: Configure files -> main dir to '.' in firebase.json
+    firebase deploy
+    
+    
 backlog:
     
     UrlParams
