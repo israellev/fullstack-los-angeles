@@ -1,15 +1,33 @@
 export {};
 
 // @ts-ignore
+type IPost = { id: number; userId: number; title: string; body: string };
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
   .then((res) => res.json())
-  .then(
-    (res: { id: number; userId: number; title: string; body: string }[]) => {
-      res.forEach(creatPost);
-    }
-  );
+  .then((postList: IPost[]) => {
+    console.log(postList);
+    postList.forEach(creatPost);
+    const searchInput = document.querySelector(
+      "#searchInput"
+    ) as HTMLInputElement;
+    // const postContainer = document.getElementById("postContainer");
 
-function creatPost(post) {
+    searchInput.addEventListener("keyup", () => {
+      const value = searchInput.value.toLocaleLowerCase().trim();
+      console.log(value);
+      document.getElementById("postContainer").innerHTML = "";
+
+      postList
+        .filter((post) => {
+          const values = Object.values(post);
+          return values.toString().includes(value.toLocaleLowerCase());
+        })
+        .forEach(creatPost);
+    });
+  });
+
+function creatPost(post: IPost) {
+  const newDiv = document.createElement("div");
   const htmlPost = `
 <div class="card mb-4" id="post by ${post.userId} ">
   <div class="card-header">
@@ -27,7 +45,6 @@ function creatPost(post) {
   </div>
 </div>
 `;
-  const newDiv = document.createElement("div");
   newDiv.innerHTML = htmlPost;
   document.getElementById("postContainer").appendChild(newDiv);
 }
