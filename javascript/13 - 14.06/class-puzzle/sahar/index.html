@@ -11,10 +11,18 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+      integrity="sha384-REePx4UQe2+s7kxUt5RtOU1H8uAbBJzOVG2fuAjaZkxvt2VBt4tqboSH2Br0u+1d36r+OMwChzH2DRzHy6FpEg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>My Blog</title>
     <script>
       var exports = {};
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     
@@ -43,7 +51,7 @@
           id="searchInput"
         />
         <select id="selection">
-          <option>Select User</option>
+          <option value="0" selected>Select User</option>
         </select>
         <button class="btn btn-outline-light" type="submit" id="searchButton">
           Search
@@ -51,7 +59,9 @@
       </div>
       <div id="postContainer" class="row"> 
           <!-- Posts will be added here dynamically -->
+          <i class="fa fa-heart" aria-hidden="true"></i>
       </div>
+      <i class="fa fa-thumbs-up" aria-hidden="true"></i>
     </div>
 
     <script src="./dist/index.js"></script>

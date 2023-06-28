@@ -95,3 +95,4 @@ function createPost(post: IPost) {
 
 localStorage.setItem("name", "Sarit Tzvika") // save in the storage
 localStorage.getItem("name") // get from the storage
+localStorage
