@@ -57,6 +57,7 @@ async function init() {
 //     })
 //     .catch(error => console.log(error))
 
+
 //functions list:
 
 //function number 1:
@@ -138,7 +139,7 @@ function createPost (post) {
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-3">
+        <div class="col-2">
           <a href="profileUser.html" target="_blank">
             <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
           </a>
@@ -154,6 +155,7 @@ function createPost (post) {
             <!-- Comments will be dynamically added here -->
           </div>
         </div>
+        <i style="font-size:18px" class="fa">&#xf08a;</i>
       </div>
     </div>
   </div>
