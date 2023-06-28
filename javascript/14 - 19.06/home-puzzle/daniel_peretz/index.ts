@@ -8,12 +8,13 @@ document.getElementById("searchInput").value = localStorage.getItem("inputSearch
 // טייפים מה כל מערך מכיל 
 type IPost = { id: number, userId: number, title: string, body: string }
 type IComment = { id: number, postId: number, name: string, email: string, body: string }
+// type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
 
 //  יצירת אלמנטים חדשים על ידי קריאת האיי די שלהם בדף אייצטיאמל
 const postContainerElement = document.getElementById("postContainer")// דיב 
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement//החיפוש בדיב 
 const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement// הדרופ דאון משתמשים
-
+// const albumContainer = document.getElementById("album-container");
 
 /* Goal: add select user filter
 1. V add html <select> with id of "selectUser"
@@ -150,7 +151,7 @@ async function showComments(postId: number) {
             commentsElement.classList.add('collapse')
     }
 }
- 
+
 function createCommnet(comment: IComment) {
     const commentsElement = document.getElementById(`comments-${comment.postId}`)
     const newDiv = document.createElement("div")
@@ -169,7 +170,174 @@ function createCommnet(comment: IComment) {
     commentsElement.appendChild(newDiv)
 }
 
+// // create show Photos
+
+type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
+async function fetchAlbums() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+    const albumList = await response.json();
+    return albumList;
+}
+
+function createAlbum(album) {
+    const albumDiv = document.createElement("div");
+    albumDiv.classList.add("album");
+
+    const albumTitle = document.createElement("h3");
+    albumTitle.classList.add("album-title");
+    albumTitle.innerText = album.title;
+
+    const albumPhoto = document.createElement("img");
+    albumPhoto.classList.add("album-photo");
+    albumPhoto.src = album.thumbnailUrl;
+    albumPhoto.alt = album.title;
+
+    albumDiv.appendChild(albumTitle);
+    albumDiv.appendChild(albumPhoto);
+
+    albumDiv.addEventListener("click", () => {
+        showPhotos(album.albumId);
+    });
+
+    return albumDiv;
+}
+
+async function displayAlbums() {
+    const albumsContainer = document.getElementById("album-container");
+    const albumList = await fetchAlbums();
+
+    albumList.forEach((album) => {
+        const albumDiv = createAlbum(album);
+        albumsContainer.appendChild(albumDiv);
+    });
+}
+
+function showPhotos(albumId) {
+    // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
+}
+
+displayAlbums();
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// async function showPhotos(albumId:number){
+
+// }
+
+
+// albums.forEach(album => {
+// function createPhoto(photo: Iphoto) {
+//     const newPhoto = document.createElement("div")
+//     const htmlPhoto = `
+//     <div class="album" id="album-${album.id}">
+//       <h3 class="album-title">${album.title}</h3>
+//       <div class="photo-gallery">
+//         ${generatePhotos(album.photos)} <!-- הפעלה של פונקצית יצירת התמונות -->
+//       </div>
+//     </div>
+//   `;
+//   albumContainer.innerHTML += albumTemplate;
+// });
+
+
+// async function albums() {
+
+//     const photo = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" })
+//     const photoList = await photo.json()//הפיכת רשימת הפוסטים לגייסון 
+
+
+// //-----------------------------------------------------------------------------------
+
+// async function fetchPhotos() {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
+//     const photoList = await response.json();
+//     return photoList;
+// }
+
+// function createPhoto(photo) {
+//     const newPhoto = document.createElement("div");
+//     const htmlPhoto = `
+//         <div class="album" id="album-${photo.albumId}">
+//             <h3 class="album-title">${photo.title}</h3>
+//             <div class="photo-gallery">
+//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
+//             </div>
+//         </div>
+//     `;
+//     newPhoto.innerHTML = htmlPhoto;
+
+//     newPhoto.addEventListener("click", () => {
+//         showPhotos(photo.albumId);
+//     });
+
+//     return newPhoto;
+// }
+
+// async function showPhotos(albumId) {
+   
+// }
+
+// async function displayAlbums() {
+//     const albumsContainer = document.getElementById("album-container");
+
+//     const photoList = await fetchPhotos();
+
+//     photoList.forEach((photo) => {
+//         const albumDiv = createPhoto(photo);
+//         albumsContainer.appendChild(albumDiv);
+//     });
+// }
+
+// displayAlbums();
+
+
+// //--------------------------------------------------------------------------------------
+
+// const albumsContainer = document.getElementById("album-container");
+
+// const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
+// const photoList = await response.json();
+// photoList.forEach(createPhoto);
+
+// function createPhoto(photo) {
+//     const htmlPhoto = `
+//         <div class="album" id="album-${photo.albumId}">
+//             <h3 class="album-title">${photo.title}</h3>
+//             <div class="photo-gallery">
+//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
+//             </div>
+//         </div>
+//     `;
+//     const newPhoto = document.createElement("div");
+//     newPhoto.innerHTML = htmlPhoto;
+//     albumsContainer.appendChild(newPhoto);
+// }
