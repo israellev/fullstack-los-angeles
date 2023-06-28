@@ -259,7 +259,12 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
     console.log('abc123xyz456'.replace(/\d/g, '')) // abcxyz
     console.log('abc123xyz456'.replace(/\D/g, '')) // 123456
 
-15. Firebas Hosting:
+15. Install nvm (node version manager) and node:
+    install nvm - https://github.com/coreybutler/nvm-windows/releases/download/1.1.11/nvm-setup.exe
+    install node version - nvm install 18.16.1
+    use node version - nvm use 18.16.1
+
+    Firebas Hosting:
     go to your project folder
     npm install -g firebase-tools
     firebase login
