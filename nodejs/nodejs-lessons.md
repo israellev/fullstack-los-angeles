@@ -1,4 +1,11 @@
-01. 
+01.   
+    Install nvm (node version manager) and node:
+    install nvm - https://github.com/coreybutler/nvm-windows/releases/download/1.1.11/nvm-setup.exe
+    install node version:
+    nvm install 18.16.1
+    use node version:
+    nvm use 18.16.1
+
     Create node environment:
     go to empty folder
     npm init -y
