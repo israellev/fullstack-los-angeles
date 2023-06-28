@@ -6,6 +6,12 @@ export {};
 
 // @ts-ignore
 type IPost = { id: number; userId: number; title: string; body: string };
+const postContainer = document.getElementById("postContainer");
+const searchInputElement = document.querySelector(
+  "searchInput"
+) as HTMLInputElement;
+const selectUser = document.getElementById("selectUser");
+
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
   .then((res) => res.json())
   .then((postList: IPost[]) => {
@@ -13,7 +19,10 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     const searchInput = document.querySelector(
       "#searchInput"
     ) as HTMLInputElement;
-    // const postContainer = document.getElementById("postContainer");
+    console.log("postList", postList);
+    const userIds = Array.from(new Set(postList.map((post) => post.userId)));
+
+    console.log("userId", userIds);
 
     searchInput.addEventListener("keyup", () => {
       const value = searchInput.value.toLocaleLowerCase().trim();
