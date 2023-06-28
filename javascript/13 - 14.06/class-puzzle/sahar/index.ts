@@ -31,6 +31,7 @@ async function init() {
 
       const userIds = getUserFromPostList(postList)
       userIds.forEach(createOption)
+      postList.forEach(showComments)
 
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
