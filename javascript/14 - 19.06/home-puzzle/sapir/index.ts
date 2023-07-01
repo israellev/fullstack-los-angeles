@@ -8,29 +8,46 @@ type IComment = {id: number, postId: number, name: string, email: string, body: 
         const postContainerElement = document.getElementById("postContainer")
         const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
         const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
-                
-fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
-    .then(res => res.json())//התגובה הראשונה מהאיי פי איי מגיעה בפורמט גולמי אז השימוש בדן הראשוני נועדה כדי להמיר את התגובה לפורמט גייסון בשימוש רס.גייסו
-    .then((postList: IPost[]) => {//הדן השני מקבל את הקובץ גייסון המנותח שצפוי להיות מערך אובייקטים של פוסטים ומקבל פונקצית קולבק פוראיץ
-        const userIds = getUserIdsFromPostLis(postList)//הפעלת הפונקציה 
-        userIds.forEach(createOption)// הפעלת הפונקציה בלולאה כך שנקבל את כל היוזרים ולכל יוזר יווצר טקסט יוזר ומספר 
+   
+        
+init()
 
-       // postList.forEach(createPost) //לולאה שתעבור על כל אובייקט פוסט במערך  ניתן לראות מטה מה הפונקציה עושה כולל הסבר 
-
-
+        async function init() {
+            // async await (in Promise functions)
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+            const postList = await res.json()
+        
+            // deploy 10 users <option>
+            const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
+            userIds.forEach(createOption)
+            
+            // check if exist in storage - add it to elements
+            if (localStorage.getItem('searchValue'))
+                searchInputElement.value = localStorage.getItem('searchValue')
+            if (localStorage.getItem('selectedUserId'))
+                selectUserElement.value = localStorage.getItem('selectedUserId')
+            
             // show all posts (with the filters)
-        deletePostsAndActiveFilter(postList)
+            deletePostsAndActiveFilter(postList)
+            // postList.forEach(createPost) // show all 100 posts (without filter)
+        
+            // listen to search and select 
+            searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
+            selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
+            return true
+        }
 
-        searchInputElement.addEventListener('keyup',()=> deletePostsAndActiveFilter(postList))
-        selectUserElement.addEventListener('change', ()=> deletePostsAndActiveFilter(postList))
-        return true;
+// fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+//     .then(res => res.json())//התגובה הראשונה מהאיי פי איי מגיעה בפורמט גולמי אז השימוש בדן הראשוני נועדה כדי להמיר את התגובה לפורמט גייסון בשימוש רס.גייסו
+//     .then((postList: IPost[]) => {//הדן השני מקבל את הקובץ גייסון המנותח שצפוי להיות מערך אובייקטים של פוסטים ומקבל פונקצית קולבק פוראיץ
+        
 
-    })
-    .catch(error => console.log(error))
+//     })
+//     .catch(error => console.log(error))
 
 
 
-    function getUserIdsFromPostLis(postList: IPost[]): number[]{//פונקציה אשר תקבל מערך של היוזרים המסוננים ללא כפילויות
+    function getUserIdsFromPostList(postList: IPost[]): number[]{//פונקציה אשר תקבל מערך של היוזרים המסוננים ללא כפילויות
         const userIds = Array.from(new Set(postList.map((post)=> post.userId)))
         return userIds;
           
@@ -100,7 +117,7 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
    function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
        const values = Object.values(post) // [1, 1, "post title...", "post body..."]
        const valuesToString = values.toString().toLowerCase() // '1,1,post title...,post body...'
-       return valuesToString.includes(searchValue)
+       return valuesToString.includes(searchValue.toLowerCase())
    }
    
    function isPostInUserList(post: IPost, selectedUserId: string): boolean {
@@ -109,3 +126,43 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
        return post.userId.toString() === selectedUserId
    }
 
+//    function hoverMouse(element) {
+//     element.addEventListener('mouseover', () => {
+//       element.style.cursor = 'pointer';
+//     });  
+//   }
+
+//    async function showComments(postId: number) {
+//     const commentsElement = document.getElementById(`comments-${postId}`)
+//     if (!commentsElement.children.length){
+//         const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+//         const commentList = await res.json()
+//         commentList.forEach(createCommnet)
+//     } else  {
+//       if (commentsElement.classList.contains(`collapse`))
+//           commentsElement.classList.remove(`collapse`)
+//       else 
+//         commentsElement.classList.add('collapse')
+//     }
+        
+//   }
+  
+    
+//   function createCommnet(comment: IComment) {
+//     const commentsElement = document.getElementById(`comments-${comment.postId}`)
+//     const newDiv = document.createElement("div")
+//     const htmlPost = `
+//     <div id="comments-${comment.id}">
+//         <div class="card card-body">
+//             <h6>Comments:</h6>
+//             <div class="comment">
+//                 <strong>Name: </strong>${comment.name}<br>
+//                 <strong>Email: </strong>${comment.email}<br>
+//                 <strong>Comment: </strong>${comment.body}
+//             </div>
+//         </div>
+//     </div>`;
+//     newDiv.innerHTML = htmlPost
+//     commentsElement.appendChild(newDiv)
+//   }
+  
