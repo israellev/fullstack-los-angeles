@@ -9,7 +9,18 @@ type IComment = {id: number, postId: number, name: string, email: string, body: 
         const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
         const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
    
-        
+        const imagesByUser = {
+            1: "images/user1.jpg",
+            2: "images/user2.jpg",
+            3: "images/user3.jpg",
+            4: "images/user4.jpg",
+            5: "images/user5.jpg",
+            6: "images/user6.jpg",
+            7: "images/user7.jpg",
+            8: "images/user8.jpg",
+            9: "images/user9.jpg",
+            10: "images/user10.jpg",
+        }
 init()//הרצת פונרמית איניט
 
         async function init() {//פונקצית איניט המחליפה את פטץ' מאחר וככה יותר נקי לקרוא לפקודות פרומיס
@@ -65,12 +76,21 @@ init()//הרצת פונרמית איניט
 
     function createPost(post) {//The createPost function takes a post object as a parameter.
         const newDiv = document.createElement("div")// It generates HTML markup representing the post's data and creates a new div element.
+        const image = addImageByUser(post.userId);//// Get the image URL based on the user ID
          const htmlPost = `
                 <div class="card mb-4" id="post-${post.id}">
                     <div class="card-header">
                         <h5 class="card-title">${post.id} - ${post.title}</h5>
                         <small class="text-muted">Posted by User ${post.userId}</small>
                     </div>
+                    <div class="card-body">
+                    <div class="row">
+                      <div class="col-3">
+                        <a href="profileUser.html" target="_blank">
+                          <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
+                        </a>
+                      </div>
+                      <div class="col-9">
                     <div class="card-body">
                         <p class="card-text">${post.body}</p>
                         <button onClick = "showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">  
@@ -84,12 +104,25 @@ init()//הרצת פונרמית איניט
                 `;
             newDiv.innerHTML = htmlPost;
             document.getElementById("postContainer").appendChild(newDiv)
+
+            const imageElement = newDiv.querySelector('a,img');
+            hoverMouse(imageElement);
         }
         
         // The HTML markup is assigned to the innerHTML property of the div element.
         // Finally, the div element is appended to the postContainer element in the document.
         //בכפתור הוספנו אירוע לחיצת כפתור אשר יפעיל לנו את הפונקציה showComments
-        
+    
+    function addImageByUser(userId) {
+            if (userId in imagesByUser) {
+              return imagesByUser[userId];
+            } } 
+    
+    function hoverMouse(element) {
+             element.addEventListener('mouseover', () => {
+                 element.style.cursor = 'pointer';
+            });  
+            }
 
     function deletePostsAndActiveFilter(postList: IPost[]) {// listener - every time search keyboard up or change select user:
    
@@ -162,3 +195,4 @@ init()//הרצת פונרמית איניט
     commentsElement.appendChild(newDiv)
   }
   
+
