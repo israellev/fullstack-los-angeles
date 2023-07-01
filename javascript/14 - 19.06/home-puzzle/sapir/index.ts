@@ -10,9 +10,9 @@ type IComment = {id: number, postId: number, name: string, email: string, body: 
         const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
    
         
-init()
+init()//הרצת פונרמית איניט
 
-        async function init() {
+        async function init() {//פונקצית איניט המחליפה את פטץ' מאחר וככה יותר נקי לקרוא לפקודות פרומיס
             // async await (in Promise functions)
             const res = await fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
             const postList = await res.json()
