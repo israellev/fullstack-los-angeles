@@ -20,6 +20,7 @@ init()//הרצת פונרמית איניט
             // deploy 10 users <option>
             const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
             userIds.forEach(createOption)
+            postList.forEach(showComments)
             
             // check if exist in storage - add it to elements
             if (localStorage.getItem('searchValue'))
@@ -72,22 +73,22 @@ init()//הרצת פונרמית איניט
                     </div>
                     <div class="card-body">
                         <p class="card-text">${post.body}</p>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                        <button onClick = "showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">  
                         Show comments
                         </button>
-                        <div class="collapse" id="comments-1">
+                        <div id="comments-${post.id}">
                         <!-- Comments will be dynamically added here -->
                         </div>
                     </div>
                 </div>
                 `;
-            newDiv.innerHTML = htmlPost
+            newDiv.innerHTML = htmlPost;
             document.getElementById("postContainer").appendChild(newDiv)
         }
         
         // The HTML markup is assigned to the innerHTML property of the div element.
         // Finally, the div element is appended to the postContainer element in the document.
-        
+        //בכפתור הוספנו אירוע לחיצת כפתור אשר יפעיל לנו את הפונקציה showComments
         
 
     function deletePostsAndActiveFilter(postList: IPost[]) {// listener - every time search keyboard up or change select user:
@@ -126,43 +127,38 @@ init()//הרצת פונרמית איניט
        return post.userId.toString() === selectedUserId
    }
 
-//    function hoverMouse(element) {
-//     element.addEventListener('mouseover', () => {
-//       element.style.cursor = 'pointer';
-//     });  
-//   }
 
-//    async function showComments(postId: number) {
-//     const commentsElement = document.getElementById(`comments-${postId}`)
-//     if (!commentsElement.children.length){
-//         const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
-//         const commentList = await res.json()
-//         commentList.forEach(createCommnet)
-//     } else  {
-//       if (commentsElement.classList.contains(`collapse`))
-//           commentsElement.classList.remove(`collapse`)
-//       else 
-//         commentsElement.classList.add('collapse')
-//     }
+   async function showComments(postId: number) {
+    const commentsElement = document.getElementById(`comments-${postId}`)
+    if (!commentsElement.children.length){
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+        const commentList = await res.json()
+        commentList.forEach(createCommnet)
+    } else  {
+      if (commentsElement.classList.contains(`collapse`))
+          commentsElement.classList.remove(`collapse`)
+      else 
+        commentsElement.classList.add('collapse')
+    }
         
-//   }
+  }
   
     
-//   function createCommnet(comment: IComment) {
-//     const commentsElement = document.getElementById(`comments-${comment.postId}`)
-//     const newDiv = document.createElement("div")
-//     const htmlPost = `
-//     <div id="comments-${comment.id}">
-//         <div class="card card-body">
-//             <h6>Comments:</h6>
-//             <div class="comment">
-//                 <strong>Name: </strong>${comment.name}<br>
-//                 <strong>Email: </strong>${comment.email}<br>
-//                 <strong>Comment: </strong>${comment.body}
-//             </div>
-//         </div>
-//     </div>`;
-//     newDiv.innerHTML = htmlPost
-//     commentsElement.appendChild(newDiv)
-//   }
+  function createCommnet(comment: IComment) {
+    const commentsElement = document.getElementById(`comments-${comment.postId}`)
+    const newDiv = document.createElement("div")
+    const htmlPost = `
+    <div id="comments-${comment.id}">
+        <div class="card card-body">
+            <h6>Comments:</h6>
+            <div class="comment">
+                <strong>Name: </strong>${comment.name}<br>
+                <strong>Email: </strong>${comment.email}<br>
+                <strong>Comment: </strong>${comment.body}
+            </div>
+        </div>
+    </div>`;
+    newDiv.innerHTML = htmlPost
+    commentsElement.appendChild(newDiv)
+  }
   
