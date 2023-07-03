@@ -23,7 +23,6 @@
     Then run it:
     'node server.js'
     Then see it on the browser in - localhost:3000
-    
 
     Refresh:
     run 'ctl + c'
@@ -44,10 +43,17 @@
     it creates new folder of "node_modules" with that package
     it add to "package.json" -> "dependencies" the "express" package.
 
+    install nodemon:
+    'npm install -g nodemon'
+    now we can runing our server using this command:
+    'nodemon server.js'
+    and now each change in the code - is auto-refresh
+
     now you can run:
     'node server.js'
     or
     'npm run start'
+
 
     
 
