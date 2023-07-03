@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 
 // Define a route handler for the root path
+app.get('/hello', (req, res) => {
+  res.send('Hello!');
+});
 app.get('/', (req, res) => {
   res.send('Hello World!!!');
 });
