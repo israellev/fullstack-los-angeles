@@ -261,17 +261,16 @@ isNaN(1) // false. isNaN("1") // false. isNaN("aa") // true
 
 15. Install nvm (node version manager) and node:
     install nvm - https://github.com/coreybutler/nvm-windows/releases/download/1.1.11/nvm-setup.exe
-    install node version - nvm install 18.16.1
-    use node version - nvm use 18.16.1
+    install node version - 'nvm install 18.16.1'
+    use node version - 'nvm use 18.16.1'
 
     Firebas Hosting:
     go to your project folder
-    npm install -g firebase-tools
-    firebase login
-    firebase init -> hosting: Configure files -> main dir to '.' in firebase.json
-    firebase deploy
-    
-    
+    'npm install -g firebase-tools'
+    'firebase login'
+    'firebase init' -> hosting: Configure files -> main dir to '.' in firebase.json
+    'firebase deploy'
+
 backlog:
     
     UrlParams
