@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>My blog</title>
+    <script>
+      var exports = {};
+    </script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <style>
+      .custom-backgroundd {
+        background-color: #c9c0bb  ; /* Replace with your desired color code */
+      }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-blue custom-backgroundd">
+      <div class="container-fluid">
+        <a class="navbar-brand  href="#">Yakov Blog</a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <style>
+      .custom-background {
+        background-color: #1e90ff; /* Replace with your desired color code */
+      }
+    </style>
+
+    <header class="text-black text-center py-5 mb-4 custom-background">
+      <div class="container">
+        <h1 class="font-weight-light">Welcome to My Blog</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <input
+          id="searchInput"
+          class="form-control me-2"
+          type="search"
+          placeholder="Search Posts"
+          aria-label="Search"
+        />
+        <div class="col-md-3">
+         <select id="selectUser" class="form-select" aria-label="select-User">
+          <option value="0" selected >Select User</optoin>
+          
+            
+        </select> 
+      </div>
+      </div>
+      <div id="postContainer" class="row">
+        <!-- Posts will be added here dynamically -->
+      </div>
+    </div>
+
+    <script src="./dist/index.js"></script>
+  </body>
+</html>
