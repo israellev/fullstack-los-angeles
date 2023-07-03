@@ -2,4 +2,9 @@
 node_modules
 .idea
 dist
-.firebase
+.firebaserc
+firebase.json
+*.png
+*.jpg
+*.jpeg
+**/*.gitignore
