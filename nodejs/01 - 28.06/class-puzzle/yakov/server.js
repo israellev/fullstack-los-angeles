@@ -1,11 +1,15 @@
-const http = require("http");
+const express = require("express");
 
-// Create the server
-const server = http.createServer((req, res) => {
-  res.end("Hello World!!!");
+// Create an Express application
+const app = express();
+
+// Define a route handler for the root path
+app.get("/", (req, res) => {
+  res.send("Hello World!!!??");
 });
 
 // Start the server
-server.listen(3000, () => {
-  console.log(`Server listening on port ${3000}`);
+const port = 3001;
+app.listen(port, () => {
+  console.log(`Server listening on port http://localhost:${port}`);
 });

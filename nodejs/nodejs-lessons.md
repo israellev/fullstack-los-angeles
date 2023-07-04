@@ -1,89 +1,71 @@
-01. Install nvm (node version manager) and node:
+01. 
+* Install nvm (node version manager) and node:
     install nvm - https://github.com/coreybutler/nvm-windows/releases/download/1.1.11/nvm-setup.exe
     
-    install node version:
+    install a specific node version:
     'nvm install 18.16.1'
-    
-    use node version:
+
+    use that version:
     'nvm use 18.16.1'
 
-
-    Run simple server on server.js file:
-    const http = require('http');
-    // Create the server
-    const server = http.createServer((req, res) => {
-      res.end('Hello World!!!');
+    Create a simple server in 'server.js' file:
+    """
+    const express = require('express');
+    const app = express();
+    app.get('/', (req, res) => {
+      res.send('Hello World');
     });
-    // Start the server
-    server.listen(3000, () => {
-      console.log(`Server listening on port ${3000}`);
+    const port = 3000;
+    app.listen(port, () => {
+      console.log(`Server listening on port http://localhost:${port}`);
     });
-
-
-    Then run it:
-    'node server.js'
-    Then see it on the browser in - localhost:3000
-
-    Refresh:
-    run 'ctl + c'
-    make change
-    save
-    run 'node server.js'
-    refresh the page
+    """
 
     NPM - node package manager
-    (npm -g = global packages)
     
-    Create local npm:
-    'npm init -y' (it creates local node environment)
-    it creates file of package.json
+    Create local node environment:
+    'npm init -y' (-y is confirm all the default settings)
+    it creates file of 'package.json'
     
-    install express:
+    Then install express in your local environment:
     'npm install express'
     it creates new folder of "node_modules" with that package
     it add to "package.json" -> "dependencies" the "express" package.
 
-    install nodemon:
-    'npm install -g nodemon'
-    now we can runing our server using this command:
+    Then run your server:
+    'node server.js'
+    Then see it on the browser in - localhost:3000
+
+    For refresh the server after each change:
+    trun off the server - 'ctl + c'
+    run again 'node server.js'
+    refresh the page
+
+    for auto-refresh install nodemon:
+    'npm install -g nodemon' (-g is global node_modules folder, usually in 'C:\Program Files\nodejs\node_modules')
+    now you can runing the server using this command:
     'nodemon server.js'
     and now each change in the code - is auto-refresh
-
-    now you can run:
-    'node server.js'
-    or
-    'npm run start'
-
-
     
-
-
-
-
-
-
-
+    Install Postman from the internet https://dl.pstmn.io/download/latest/win64
+    Make sure you did 'git pull'
 
 02. 
-    Create node environment:
-    go to empty folder
-    npm init -y
-    npm install -g typescript (only once)
-    npm install --save-dev typescript
-    npm install --save-dev @types/node
-    npm install --save-dev nodemon ts-node
-    paste in tsconfig.json:
+    Working with typescript:
+    'npm install -g typescript' (only once)
+    'npm install -D typescript @types/node nodemon ts-node'
+    paste in 'tsconfig.json':
     {
-  "compilerOptions": {
-    "target": "es6", 
-    "module": "commonjs",
-    "outDir": "./dist", 
-    "strict": true,   
-    "esModuleInterop": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
-}
-    add to "scripts" in package.json:
-        "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
+      "compilerOptions": {
+        "target": "es6", 
+        "module": "commonjs",
+        "outDir": "./dist", 
+        "strict": true,   
+        "esModuleInterop": true
+      },
+      "include": ["src/**/*.ts"],
+      "exclude": ["node_modules"]
+    }
+    Then add this into "scripts" in package.json:
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
 
