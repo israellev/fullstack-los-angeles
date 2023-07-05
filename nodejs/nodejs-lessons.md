@@ -56,19 +56,18 @@ Make sure you did 'git pull'
 
 
 02. 
-* Working with TS:
-add "type": "module" to 'package.json"
-update 'start' in 'package.json' to: 'nodemone dist/server.js'
-then run the server with 'npm run start'
-
 * get POST body
 npm install body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 
-* Working with Postman:
-Blog API - GET, POST, PUT, DELETE
+* Blog API:
+Working with Postman
+Blog API - GET, POST, DELETE
+
+
+
 Routing (express.Router())
 Send a file
 Serve static files 
@@ -77,6 +76,10 @@ Serve static files
 
 
 3. 
+* Working with TS:
+add "type": "module" to 'package.json"
+update 'start' in 'package.json' to: 'nodemone dist/server.js'
+then run the server with 'npm run start'
 
 * Working with typescript:
 'npm install -g typescript' (only once)
