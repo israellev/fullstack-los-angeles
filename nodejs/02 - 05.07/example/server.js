@@ -1,13 +1,22 @@
+// imports
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
+// create app
 const app = express();
+
+// middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 const posts = []
 let id = 1;
 
-app.get('/', (req, res) => {
-  res.send('hello world!');
+
+// routes
+app.get('/hello-world', (req, res) => {
+  res.send("hello world");
 });
 
 app.get('/posts', (req, res) => {
@@ -22,7 +31,6 @@ app.get('/posts/:id', (req, res) => {
 
 app.post('/posts', (req, res) => {
   console.log(req.body)
-  
   const newPost = {
     ...req.body,
     id,
@@ -39,6 +47,10 @@ app.delete('/posts/:id', (req, res) => {
   posts.splice(postIndex, 1);
 })
 
+// middleware
+app.use(express.static('front'));
+
+// deploy
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
