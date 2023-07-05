@@ -32,7 +32,7 @@ async function init() {
       const userIds = getUserFromPostList(postList)
       userIds.forEach(createOption)
       postList.forEach(showComments)
-
+     
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
         // searchInputElement.value = localStorage.getItem('searchValue')
@@ -44,11 +44,11 @@ async function init() {
        // postList.forEach(createPost) // show all 100 posts (without filter)
         
         searchInputElement.addEventListener('keyup', () => deletePostAndActivefilter(postList))
-        selectionElement.addEventListener('change', () => deletePostAndActivefilter(postList))   
+        selectionElement.addEventListener('change', () => deletePostAndActivefilter(postList))
         return true    
         
       }   
-      
+    
     
 // fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
 //     .then(res => res.json())
@@ -56,6 +56,7 @@ async function init() {
        
 //     })
 //     .catch(error => console.log(error))
+
 
 //functions list:
 
@@ -130,7 +131,7 @@ function createPost (post) {
   
   const image = addImageByUser(post.userId);
 
-  const htmlPost = `
+   const htmlPost = `
   <div class="card mb-4" id="post-${post.id}">
     <div class="card-header">
       <h5 class="card-title">${post.id} - ${post.title}</h5>
@@ -138,7 +139,7 @@ function createPost (post) {
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-3">
+        <div class="col-2">
           <a href="profileUser.html" target="_blank">
             <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
           </a>
@@ -150,28 +151,45 @@ function createPost (post) {
           <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
             Show comments
           </button>
-          <div id="comments-${post.id}">
+          <div id="comment-${post.id}">
             <!-- Comments will be dynamically added here -->
           </div>
         </div>
+        <i id="icon-${post.id}" style="font-size:18px" class="fa">&#xf08a;</i>
       </div>
     </div>
   </div>
 `;
 
-
   const newDiv = document.createElement("div");
    newDiv.innerHTML = htmlPost;
    document.getElementById("postContainer").appendChild(newDiv);
 
-   const imageElement = newDiv.querySelector('a,img');
-   hoverMouse(imageElement);
+   const iconElement = newDiv.querySelector(`#icon-${post.id}`);
+    let isIconToggled = false;
 
+    iconElement.addEventListener("click", function() {
+    if (isIconToggled) {
+      iconElement.className = "fa";
+      iconElement.innerHTML = "&#xf08a;";
+      isIconToggled = false;
+    } else {
+      iconElement.className = "fa";
+      iconElement.innerHTML = "&#xf004;";
+      isIconToggled = true;
+    }
+    });
+  
+   const elementsToHover = newDiv.querySelectorAll('a, img, i');
+ 
+   elementsToHover.forEach((element) => {
+     hoverMouse(element);})
+     
   }
 
 async function showComments(postId: number) {
-  const commentsElement = document.getElementById(`comments-${postId}`)
-  if (!commentsElement.children.length){
+  const commentsElement = document.getElementById(`comment-${postId}`)
+  if (commentsElement !== null && !commentsElement.children.length){
       const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
       const commentList = await res.json()
       commentList.forEach(createCommnet)
@@ -186,7 +204,7 @@ async function showComments(postId: number) {
 
   
 function createCommnet(comment: IComment) {
-  const commentsElement = document.getElementById(`comments-${comment.postId}`)
+  const commentsElement = document.getElementById(`comment-${comment.postId}`)
   const newDiv = document.createElement("div")
   const htmlPost = `
   <div id="comments-${comment.id}">
@@ -202,3 +220,4 @@ function createCommnet(comment: IComment) {
   newDiv.innerHTML = htmlPost
   commentsElement.appendChild(newDiv)
 }
+

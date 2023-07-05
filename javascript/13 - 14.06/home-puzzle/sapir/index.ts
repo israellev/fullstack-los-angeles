@@ -59,6 +59,3 @@ function createPost(post) {
 // The HTML markup is assigned to the innerHTML property of the div element.
 // Finally, the div element is appended to the postContainer element in the document.
 
-
-
-

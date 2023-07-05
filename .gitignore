@@ -1,5 +1,12 @@
 .vscode
+package-lock.json
 node_modules
 .idea
 dist
-.firebase
+.firebaserc
+firebase.json
+*.png
+*.jpg
+*.jpeg
+**/*.gitignore
+*.env

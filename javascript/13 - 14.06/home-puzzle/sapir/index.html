@@ -42,9 +42,12 @@
           aria-label="Search"
           id="searchInput"
         />
-        <button class="btn btn-outline-light" type="submit" id="searchButton">
-          Search
-        </button>
+        <div class="col-md-3">
+        <select id="selectUser" class="form-select" aria-label="select User"> 
+          <option value="0" selected> Select User</option>
+           <!-- users will be added here dynamically -->
+        </select>
+      </div>
       </div>
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
@@ -54,3 +57,5 @@
     <script src="./dist/index.js"></script>
   </body>
 </html>
+
+
