@@ -82,14 +82,14 @@ app.use(cors());
       http://localhost:3000/images/[image name].jpg - return the image
       etc...
 
-Routing (express.Router())
+3. 
+* Deploying the entire app to the Firebase
+
+* Routing (express.Router())
 Send a file
-Serve static files 
 *middleware
 *error handling
 
-
-3. 
 * Working with TS:
 add "type": "module" to 'package.json"
 update 'start' in 'package.json' to: 'nodemone dist/server.js'
