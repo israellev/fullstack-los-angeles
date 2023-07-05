@@ -61,6 +61,23 @@ add "type": "module" to 'package.json"
 update 'start' in 'package.json' to: 'nodemone dist/server.js'
 then run the server with 'npm run start'
 
+* get POST body
+npm install body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+
+* Working with Postman:
+Blog API - GET, POST, PUT, DELETE
+Routing (express.Router())
+Send a file
+Serve static files 
+*middleware
+*error handling
+
+
+3. 
+
 * Working with typescript:
 'npm install -g typescript' (only once)
 'npm install -D typescript @types/node nodemon ts-node'
@@ -79,15 +96,7 @@ paste in 'tsconfig.json':
 Then add this into "scripts" in package.json:
 "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
 
-* Working with Postman:
-Blog API - GET, POST, PUT, DELETE
-Routing (express.Router())
-Send a file
-Serve static files 
-*middleware
-*error handling
 
-3. 
 MongoDB:
 Open account in mongodb
 
