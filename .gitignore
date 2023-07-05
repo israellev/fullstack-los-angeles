@@ -10,3 +10,5 @@ firebase.json
 *.jpeg
 **/*.gitignore
 *.env
+.firebase
+**/dist
