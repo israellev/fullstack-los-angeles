@@ -85,7 +85,7 @@ function createPost(post: IPost) {
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
-                <button onClick="showComments(${post.id})" class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
                     Show comments
                 </button>
                 <div id="comments-${post.id}">
