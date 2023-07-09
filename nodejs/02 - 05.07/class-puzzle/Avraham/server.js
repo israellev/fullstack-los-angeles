@@ -1,13 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require(`cors`);
 const app = express();
+
 app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static(`front`));
 
 const posts = [];
 let id = 1;
 
 app.get('/', (req, res) => {
-  res.send(posts);
+  res.send(`index.html`);
 });
 
 app.get('/posts', (req, res) => {
