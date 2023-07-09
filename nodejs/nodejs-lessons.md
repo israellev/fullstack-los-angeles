@@ -56,6 +56,26 @@ Make sure you did 'git pull'
 
 
 02. 
+* get POST body
+npm install body-parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+
+* Blog API:
+Working with Postman
+Blog API - GET, POST, DELETE
+
+
+
+Routing (express.Router())
+Send a file
+Serve static files 
+*middleware
+*error handling
+
+
+3. 
 * Working with TS:
 add "type": "module" to 'package.json"
 update 'start' in 'package.json' to: 'nodemone dist/server.js'
@@ -79,15 +99,7 @@ paste in 'tsconfig.json':
 Then add this into "scripts" in package.json:
 "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
 
-* Working with Postman:
-Blog API - GET, POST, PUT, DELETE
-Routing (express.Router())
-Send a file
-Serve static files 
-*middleware
-*error handling
 
-3. 
 MongoDB:
 Open account in mongodb
 

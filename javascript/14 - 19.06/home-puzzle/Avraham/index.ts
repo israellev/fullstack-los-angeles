@@ -49,6 +49,7 @@ fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
         const userIdList = userIdSearch(postList)
         userIdList.forEach(createOption)
         postList.forEach(createPost)
+        postList.forEach(showComments)
         
         searchInputElement.addEventListener(`input`, () => deletePostsAndActiveFilter(postList))
         selectUserElement.addEventListener(`change`, () => deletePostsAndActiveFilter(postList))
@@ -64,9 +65,9 @@ function createPost(post) {
                 </div>
                 <div class="card-body">
                     <p class="card-text">${post.body}</p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                    <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
                     Show comments
-                    </button>
+                </button>
                     <div class="collapse" id="comments-1">
                     <!-- Comments will be dynamically added here -->
                     </div>
@@ -126,7 +127,7 @@ function userIdSearch(postList){
 }
 
 // create option for select user 
-function createOption(userId: number) {
+function createOption(userId) {
     const newOption = document.createElement('option')
     newOption.value = userId.toString()
     newOption.innerText = `User ${userId}`
@@ -134,4 +135,38 @@ function createOption(userId: number) {
 }
 
 //--------------------------------------------------------------------------------------------------------------
+
+async function showComments(postId) {
+    const commentsElement = document.getElementById(`comments-${postId}`)
+    if (!commentsElement.children.length) {
+        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
+        const commentList = await res.json()
+        commentList.forEach(createCommnet)
+    } else {
+        if (commentsElement.classList.contains('collapse'))
+            commentsElement.classList.remove('collapse')
+        else
+            commentsElement.classList.add('collapse')
+    }
+}
+
+
+
+function createCommnet(comment) {
+    const commentsElement = document.getElementById(`comments-${comment.postId}`)
+    const newDiv = document.createElement("div")
+    const htmlPost = `
+    <div id="comments-${comment.id} ">
+        <div class="card card-body">
+            <h6>Comments:</h6>
+            <div class="comment">
+                <strong>Name: </strong>${comment.name}<br>
+                <strong>Email: </strong>${comment.email}<br>
+                <strong>Comment: </strong>${comment.body}
+            </div>
+        </div>
+    </div>`;
+    newDiv.innerHTML = htmlPost
+    commentsElement.appendChild(newDiv)
+}
 
