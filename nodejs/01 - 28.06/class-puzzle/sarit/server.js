@@ -5,7 +5,7 @@ const app = express();
 
 // Define a route handler for the root path
 app.get('/', (req, res) => {
-  res.send('Hello, Sapir!');
+  res.send('Hello, World!');
 });
 
 // Start the server

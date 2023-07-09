@@ -2,20 +2,25 @@ export { }
 fetch("https://jsonplaceholder.typicode.com/posts", 
 // הפרמטר ההכרחי והיחיד שנצטרך להעביר לפאטצ הוא כתובת שממנו
 // אנו רוצי למשוך מידע  URL
-    { method: "GET" })// באמצעות המתודה הזאת אנו מושכים מידה 
+    { method: "GET" })// באמצעות המתודה הזאת אנו מושכים מידע 
     .then(res => res.json()) // את המידע אנו תופסים מהגייסון
-    // והוא מחזיר לנו חיובי יכול
+    // והוא מחזיר לנו חיובי יכול 
     // להחזיר שלילי ואז נצטרך לעבוד עם קאטצ
-    .then((res: any[]) => { // כאן אנו משתמשים בעוד "דאן" על מנת להמשיך פעולה
-        // על המידה שקיבלנו בהצלחה מהגייסון 
-        res.forEach((post) => { // פה אbנו חוזרים על לולאה מספר פעמים
+    .then((res: any[]) => { // כאן אנו משתמשים בעוד "then" על מנת להמשיך פעולה
+        // על המידע שקיבלנו בהצלחה מהגייסון 
+        res.forEach((post) => { // פה אנו חוזרים על לולאה מספר פעמים
             // על מנת לעבור על הפוסטים 
               document.getElementById("postContainer").innerHTML = "" 
               // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
-            const searchInput = document.querySelector("#searchInput") as HTMLInputElement // אנו מקשרים בין האינדס לבין הגאווה על מנת לבצע מניפולציות בכניסה בחיפוש 
+            const searchInput = document.querySelector("#searchInput") as HTMLInputElement 
+            // אנו מקשרים בין האינדס לבין הגאווה
+            // על מנת לבצע מניפולציות בכניסה בחיפוש 
 
-            searchInput.addEventListener('keyup', () => { // כעת ניצור פונקציה עבור המילת מפתח בכדי לבדוק מה הלקוח הכניס מול מה שמצאנו
-                document.getElementById("postContainer").innerHTML = " " // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
+            // כעת ניצור פונקציה  עבור המילת מפתח
+            //  בכדי לבדוק מה הלקוח הכניס מול מה שמצאנו
+             
+            searchInput.addEventListener('keyup', () => { 
+                   document.getElementById("postContainer").innerHTML = " " // לכתחילה אנו לא נציג כלום ולא יופיע לנו כלום 
                 const searchValue = searchInput.value.toLowerCase() // הערך שהמשתמש הכניס אלינו נשים אותו באותיות קטנות 
                 res.filter((post) => {
                     const filterPost = Object.values(post).find(propValue =>
@@ -50,7 +55,11 @@ function createPost(post) {
             </div>
         </div>
         `;
-    const newDiv = document.createElement("div") // יצירת דיב בתוך הגאווה סקריפט עבור הפוסטים
+    // יצירת דיב
+    //  בתוך הגאווה סקריפט עבור הפוסטים
+    const newDiv = document.createElement("div") 
+    
     newDiv.innerHTML = htmlPost // להחיל את הדיב בתוך האייטיאמל
-    document.getElementById("postContainer").appendChild(newDiv) // יצירת ילד לדיב הקיים
+    // יצירת ילד לדיב הקיים
+    document.getElementById("postContainer").appendChild(newDiv) 
 }
