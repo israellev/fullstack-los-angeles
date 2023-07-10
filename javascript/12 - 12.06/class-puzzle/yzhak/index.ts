@@ -1,6 +1,4 @@
-export {};
-
-const students = [
+export const students = [
   {
     name: "Sapir Peretz",
     age: 31,
@@ -117,54 +115,13 @@ const students = [
   },
 ];
 
-// home puzzle:
+// print in the console for each student in the list using Object.keys():
+// key: value
+// put line space between each student
 
-// // Import "students.ts" file, and do the next exercies on it:
-
-// // 1. Got Job Interview
-// // Filter from students list those who will got a job interview - having score above 90.
-
-// const Gotjobinterview = students.filter((students) => students.score > 90);
-// console.log(Gotjobinterview);
-
-// 2. Get Class Score Average
-// Make a list of the class scores and get it's average.
-// const result =
-//   students.reduce((state, student): any => {
-//     state += student.score;
-//     return state;
-//   }, 0) / students.length;
-// console.log(result);
-// // 3. Last names list
-// // Create a list of all fimaly names
-// // Tip - read in GPT about string split function "a b".split(" ").
-
-// const lastNames = students.map((student) => student.name.split(" ")[1]);
-
-// console.log("Family Names:", lastNames);
-
-// // 4. Need to wake-up list
-// // Create a list with the names of students that need to make up now - got score under 80.
-// // And for each print in the console "חאלאס {name} להימרח על החיים שלך, הקורס תכף מסתיים"
-
-// const wakeUplist = students.filter((students) => students.score < 80);
-
-// wakeUplist.forEach((students) => {
-//   console.log(`חלאס להימרח על החיים שלך תכף הקורס נגמר ${students.name}`);
-// });
-
-// // 5. Impact vs Score
-// // Print for each student
-// // `Hey ${name}, the studies has impact on your life of '${impactOnLife}', and your score is ${score}.`
-// // and if the score is above 85 print `well done!` and if not print `WTF?!`.
-
-// students.forEach((students) => {
-//   console.log(
-//     `Hey ${students.name}, the studies has impact on your life of '${students.impactOnLife}', and your score is ${students.score}. `
-//   );
-//   if (students.score > 85) {
-//     console.log("well done! ");
-//   } else {
-//     console.log("WTF?!");
-//   }
-// });
+students.forEach((student) => {
+  const keys = Object.keys(student);
+  keys.forEach((key) => {
+    console.log(key, student[key]);
+  });
+});
