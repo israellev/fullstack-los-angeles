@@ -3,9 +3,9 @@ home puzzle:
 1. implement all apis:
 GET /
 GET /posts
-GET /posts/:id
 POST /posts               
 body: {"title": "", "body": "", "userId": 1}
+GET /posts/:id
 DELETE /posts/:id
 
 2. Use our server for API:
