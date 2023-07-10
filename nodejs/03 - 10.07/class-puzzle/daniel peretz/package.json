@@ -1,16 +1,19 @@
 {
-  "name": "example",
+  "name": "daniel-peretz",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "israel lev",
+  "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }

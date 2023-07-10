@@ -1,13 +1,10 @@
 export {};
 
-// https://getbootstrap.com/docs/5.0/getting-started/introduction/
-
-// json is string that use in all internet and laguages
 console.log(JSON.stringify({ a: 1 })); // '{"a": 1}' - object to json
 console.log(JSON.parse('{"a": 1}')); // {a: 1} - json to object
 
 console.log(JSON.stringify([{ a: 1 }])); // '[{a: 1}]' - array to json
-console.log(JSON.parse('[{"a": 1}]')); // [{a: 1}] - json to array
+console.log(JSON.parse('[{"a": 1}]'));
 
 // @ts-ignore
 document.getElementById("searchInput").value =

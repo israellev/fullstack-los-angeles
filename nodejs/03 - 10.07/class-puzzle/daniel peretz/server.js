@@ -3,24 +3,29 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// create app
+// create an Express application
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = [];
+const posts = []
 let id = 1;
 
-
-// routes
+// Define a route handler for the root path
 app.get('/hello-world', (req, res) => {
-  res.send("hello world");
+  res.send('Hello, World!');
 });
 
 app.get('/posts', (req, res) => {
   res.send(posts);
+})
+
+app.get('/posts/:id', (req, res) => {
+  const postId = +req.params.id;
+  const post = posts.find(post => post.id === postId)
+  res.send(post);
 });
 
 app.post('/posts', (req, res) => {
@@ -29,16 +34,10 @@ app.post('/posts', (req, res) => {
     ...req.body,
     id,
   }
-  id ++
+  id++
   posts.push(newPost)
   res.send(newPost)
-});
-
-app.get('/posts/:id', (req, res) => {
-  const postId = +req.params.id;
-  const post = posts.find(post => post.id === postId)
-  res.send(post);
-});
+})
 
 app.delete('/posts/:id', (req, res) => {
   const postId = +req.params.id;
@@ -50,7 +49,9 @@ app.delete('/posts/:id', (req, res) => {
 // middleware
 app.use(express.static('front'));
 
-// deploy
+
+
+// Start the server
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
