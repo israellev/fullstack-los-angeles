@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = [];
+const posts = []
 let id = 1;
 
 
