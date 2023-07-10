@@ -1,6 +1,7 @@
 home puzzle:
 
 1. implement all apis:
+GET /hello-world
 GET /
 GET /posts
 POST /posts               
