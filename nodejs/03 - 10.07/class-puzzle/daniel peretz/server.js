@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 // create an Express application
+
 const app = express();
 
 // middleware
