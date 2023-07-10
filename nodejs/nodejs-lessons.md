@@ -83,10 +83,13 @@ app.use(cors());
       etc...
 
 3. 
-* Deploying the entire app to the Firebase
 
 * Routing (express.Router())
-Send a file
+
+* Static files - posts.json in the local
+
+* Deploying the entire app to the Firebase
+
 *middleware
 *error handling
 
