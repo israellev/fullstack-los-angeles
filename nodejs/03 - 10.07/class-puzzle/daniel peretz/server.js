@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
-
 // create an Express application
 const app = express();
 
@@ -19,13 +18,6 @@ app.use('/posts', postsRouter);
 app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
-
-
-
-// middleware
-app.use(express.static('front'));
-
-
 
 // Start the server
 const port = 3000;
