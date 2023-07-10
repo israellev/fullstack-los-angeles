@@ -23,12 +23,6 @@ app.get('/posts', (req, res) => {
   res.send(posts);
 });
 
-app.get('/posts/:id', (req, res) => {
-  const postId = +req.params.id;
-  const post = posts.find(post => post.id === postId)
-  res.send(post);
-});
-
 app.post('/posts', (req, res) => {
   console.log(req.body)
   const newPost = {
@@ -38,6 +32,12 @@ app.post('/posts', (req, res) => {
   id ++
   posts.push(newPost)
   res.send(newPost)
+});
+
+app.get('/posts/:id', (req, res) => {
+  const postId = +req.params.id;
+  const post = posts.find(post => post.id === postId)
+  res.send(post);
 });
 
 app.delete('/posts/:id', (req, res) => {
