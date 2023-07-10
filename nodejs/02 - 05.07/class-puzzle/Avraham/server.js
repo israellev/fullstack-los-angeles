@@ -5,13 +5,17 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(`front`));
+
 
 const posts = [];
 let id = 1;
 
 app.get('/', (req, res) => {
-  res.send(`index.html`);
+  res.send(`hello world`);
+});
+
+app.get('/', (req, res) => {
+  res.send(posts);
 });
 
 app.get('/posts', (req, res) => {
@@ -37,6 +41,7 @@ app.delete('/posts/:id',(req,res)=>{
   posts.splice(postIndex,1)
   res.send(posts[postIndex])
 })
+app.use(express.static(`front`)); 
 
 const port = 3000;
 app.listen(port, () => {

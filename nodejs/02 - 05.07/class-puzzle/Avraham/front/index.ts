@@ -42,7 +42,7 @@ const postContainerElement = document.getElementById("postContainer")
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
 const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
 
-fetch("http://localhost:3000/", { method: "GET" })
+fetch("http://localhost:3000/posts", { method: "GET" })
     .then(res => res.json())
     .then((postList) => {
 
