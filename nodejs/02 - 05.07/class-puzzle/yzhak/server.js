@@ -1,16 +1,21 @@
+//import
 const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require(`cors`);
+const postRouter = require("./router/posts");
 
 // Create an Express application
 const app = express();
-const posts = [];
-// Define a route handler for the root path
-app.get("/", (req, res) => {
+// middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+app.get("/hello-world", (req, res) => {
   res.send("Hello World??");
 });
 
-app.get("/posts", (req, res) => {
-  res.send(posts);
-});
+app.use(express.static("front"));
+app.use("/posts", postRouter);
 
 // Start the server
 const port = 3000;

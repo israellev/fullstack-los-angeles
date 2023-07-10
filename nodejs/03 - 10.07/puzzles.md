@@ -26,3 +26,10 @@ c. make sure the front got all the files he needed:
 
 
 home puzzle:
+
+1. implement 'posts' router yourself.
+2. add pictures to your blog
+
+Bonus:
+
+2. read about mongodb
