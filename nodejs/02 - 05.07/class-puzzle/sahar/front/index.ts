@@ -25,7 +25,7 @@ init()
 
 async function init() {
     // async await (in Promise functions)
-    const res = await fetch("http://localhost:3000/posts", { method: "GET" })
+    const res = await fetch("/posts", { method: "GET" })
     const postList = await res.json()
     
 

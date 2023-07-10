@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const postsRouter = require('./router/posts-router')
 
 // Create an Express application
 const app = express();
@@ -8,42 +9,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = [];
-let id = 1;
-
-// Define a route handler for the root path
-app.get('/', (req, res) => {
+app.get('/hello-world', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.get('/posts', (req, res) => {
-  res.send(posts);
-});
-
-app.get('/posts/:id', (req, res) => {
-  const postId = +req.params.id;
-  const post = posts.find(post => post.id === postId)
-  res.send(post);
-});
-
-
-app.post('/posts', (req, res) => {
-  console.log(req.body)
-  const newPost = {
-    ...req.body,
-    id,
-  }
-  id ++
-  posts.push(newPost)
-  res.send(newPost)
-});
-
-app.delete('/posts/:id', (req, res) => {
-  const postId = +req.params.id;
-  const postIndex = posts.findIndex(post => post.id === postId);
-  res.send(posts[postIndex])
-  posts.splice(postIndex, 1);
-});
+//router
+app.use('/posts', postsRouter);
 
 // middleware
 app.use(express.static('front'));
