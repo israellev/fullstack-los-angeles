@@ -1,8 +1,13 @@
+// imports
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
+// create app
 const app = express();
+// middleware
 app.use(bodyParser.json());
-// Create an Express application
+app.use(cors());
 
 const posts = []
 let id = 1;//משתנה חדש
@@ -37,8 +42,12 @@ app.delete('/posts/:id', (req, res)=>{//הפקודה של מחיקה מקבלת 
   const postId= +req.params.id;//שליפה של האיי די באמצעות גישה לפרמטרים של הבקשה והפיכה של הסטירנג למספר באמצעות סימן הפלוס
   const postIndex = posts.findIndex((post, i)=> post.id === postId)
   res.send(posts[postIndex])
-  post.splica(postIndex, 1);//
+  posts.splica(postIndex, 1);//
 });
+
+// middleware
+app.use(express.static('front'));
+
 // Start the server
 const port = 3000;
 app.listen(port, () => {
