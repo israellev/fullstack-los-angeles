@@ -10,24 +10,42 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="index.css">
 
     <title>My Blog</title>
     <script>
       var exports = {};
     </script>
   </head>
+  <style>
+    
+    @font-face {
+      font-family: 'Bacasime Antique';
+      src: url('path/to/bacasime-antique.ttf');
+    
+    }
+    
+    body{ background-color: hotpink;
+      font-family:'Bacasime Antique' ;
+    }
+    
+    .custom-font {
+      font-family: 'Bacasime Antique', sans-serif;
+    }
+  </style>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">My Blog</a>
+        <a class="navbar-brand custom-font" href="#">My Dearest Blog</a>
+        <div class="pen"></div>
+        <button class="pink-button">Click Me!</button>
       </div>
     </nav>
 
     <!-- Main Header -->
-    <header class="bg-primary text-white text-center py-5 mb-4">
+    <header class="bg-pink text-white text-center py-5 mb-4">
       <div class="container">
-        <h1 class="font-weight-light">Welcome to My Blog</h1>
+        <h1 class="font-weight-light">Welcome to My Dearest Blog</h1>
       </div>
     </header>
 

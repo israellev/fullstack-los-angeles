@@ -1,11 +1,9 @@
-// imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// create app
+// Create an Express application
 const app = express();
-
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -13,10 +11,9 @@ app.use(cors());
 const posts = [];
 let id = 1;
 
-
-// routes
-app.get('/hello-world', (req, res) => {
-  res.send("hello world");
+// Define a route handler for the root path
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 });
 
 app.get('/posts', (req, res) => {
@@ -28,6 +25,7 @@ app.get('/posts/:id', (req, res) => {
   const post = posts.find(post => post.id === postId)
   res.send(post);
 });
+
 
 app.post('/posts', (req, res) => {
   console.log(req.body)
@@ -45,13 +43,14 @@ app.delete('/posts/:id', (req, res) => {
   const postIndex = posts.findIndex(post => post.id === postId);
   res.send(posts[postIndex])
   posts.splice(postIndex, 1);
-})
+});
 
 // middleware
 app.use(express.static('front'));
 
-// deploy
+// Start the server
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
+
