@@ -1,4 +1,4 @@
-home puzzle:
+class puzzle:
 
 1. implement all apis:
 GET /
@@ -23,3 +23,6 @@ c. make sure the front got all the files he needed:
       http://localhost:3000/dist/index.js - return the javascript file
       http://localhost:3000/images/[image name].jpg - return the image
       etc...
+
+
+home puzzle:
