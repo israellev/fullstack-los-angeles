@@ -13,8 +13,8 @@ const posts = []
 let id = 1;//משתנה חדש
 
 // Define a route handler for the root path
-app.get('/', (req, res) => {
-  res.send('Hello, Sapir!');
+app.get('/hello-world', (req, res) => {
+  res.send('Hello, aviad!');
 });
 
 app.get('/posts', (req, res) => {
@@ -42,11 +42,11 @@ app.delete('/posts/:id', (req, res)=>{//הפקודה של מחיקה מקבלת 
   const postId= +req.params.id;//שליפה של האיי די באמצעות גישה לפרמטרים של הבקשה והפיכה של הסטירנג למספר באמצעות סימן הפלוס
   const postIndex = posts.findIndex((post, i)=> post.id === postId)
   res.send(posts[postIndex])
-  posts.splica(postIndex, 1);//
+  posts.splice(postIndex, 1);//
 });
 
 // middleware
-app.use(express.static('front'));
+app.use(express.static('aviad'));
 
 // Start the server
 const port = 3000;
