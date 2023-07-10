@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "fullstack-los-angeles",
   "version": "1.0.0",
   "description": "",
@@ -10,9 +9,4 @@
   "keywords": [],
   "author": "",
   "license": "ISC"
-=======
-  "dependencies": {
-    "body-parser": "^1.20.2"
-  }
->>>>>>> 9dcd3e23580232e71cfb156f57d7f36aa5798f2f
 }

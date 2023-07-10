@@ -21,45 +21,48 @@ headers = {}
 
 type IPost = {id: number, userId: number, title: string, body: string}
 
-/* Goals 
-1.
-2.
-3.
-4.
-  */
+const postContainerElement = document.getElementById("postContainer")
+const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
+const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
+
+
+/* Goal: add select user filter
+1. V add html <select> with id of "selectUser"
+2. V make list of user ids number[] from IPost[] without duplications
+3. V build <option value="{userId}">User {userId}</optoin> dynamiclly from user ids list.
+4. V actvie the search filter and select user filter together.
+ */
+
 fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
     .then(res => res.json())
     .then((postList: IPost[]) => {
-        postList.forEach(createPost) // deploy all posts
-        const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
+
+        const userIds = getUserIdsFromPostList(postList) // [1, 2, 3, ...]
+        userIds.forEach(createOption)  // deploy 10 users <option>
+        postList.forEach(createPost) // deploy all 100 posts
         
-        // listener - every time keyboard up:
-        // 1. delete all posts
-        // 2. filter only posts you find the user input
-        // 3. deploy only filtered posts
-        searchInputElement.addEventListener('keyup', () => {
-            const value = searchInputElement.value.toLowerCase().trim()
-            localStorage.setItem("inputSearch", value)
-            console.log(value)
-            
-            // 1. delete all posts
-            document.getElementById("postContainer").innerHTML = ""
-
-            // 2. filter only posts you find the user input
-            const filteredPostList = postList.filter((post) => {
-                const values = Object.values(post) // [1, 1, "post title...", "post body..."]
-                const valuesToString = values.toString() // '1,1,post title...,post body...'
-                return valuesToString.includes(value.toLowerCase())
-            })
-            console.log(filteredPostList)
-
-            // 3. deploy only filtered posts
-            filteredPostList.forEach(createPost)
-        })
+        searchInputElement.addEventListener('keyup', () => deletePostsAndActiveFilter(postList))
+        selectUserElement.addEventListener('change', () => deletePostsAndActiveFilter(postList))
     })
     .catch(error => console.log(error))
 
 
+function getUserIdsFromPostList(postList: IPost[]): number[] {
+    console.log("postList", postList)
+    const allUserIds = postList.map(post => post.userId)
+    console.log("allUserIds", allUserIds)
+    const userIds = Array.from(new Set(allUserIds))
+    console.log("userIds", userIds)
+    return userIds
+}
+    
+
+function createOption(userId: number) {
+    const newOption = document.createElement('option')
+    newOption.value = userId.toString()
+    newOption.innerText = `User ${userId}`
+    selectUserElement.appendChild(newOption)
+}
 
 function createPost(post: IPost) {
     const newDiv = document.createElement("div")
@@ -81,23 +84,47 @@ function createPost(post: IPost) {
         </div>
         `;
     newDiv.innerHTML = htmlPost
-    document.getElementById("postContainer").appendChild(newDiv)
+    postContainerElement.appendChild(newDiv)
 }
 
 
-// const json = `[
-//     {
-//       "userId": 1,
-//       "id": 1,
-//       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-//       "body": "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
-//     }
-// ]`
-  
-//   const arrayOfObjects = JSON.parse(json)
-//   console.log(arrayOfObjects)
+function deletePostsAndActiveFilter(postList: IPost[]) {
+     // listener - every time search keyboard up or change select user:
 
+    // get input and select option values:
+    const searchValue = searchInputElement.value.toLowerCase().trim()
+    console.log("searchValue", searchValue)
+    const selectedUserId = selectUserElement.value;
+    console.log("selectedUserId", selectedUserId)
+    
+    // 1. delete all posts
+    postContainerElement.innerHTML = ""
+
+    // 2. filter only posts you find the user input
+    const filteredPostList = postList.filter((post: IPost) => {
+        const isPostInSearch = isSearchIncludesInThePost(post, searchValue)
+        const isPostInList = isPostInUserList(post, selectedUserId)
+        return isPostInSearch && isPostInList
+    })
+
+    // 3. deploy only filtered posts
+    filteredPostList.forEach(createPost)
+}
+
+function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
+    const values = Object.values(post) // [1, 1, "post title...", "post body..."]
+    const valuesToString = values.toString().toLowerCase() // '1,1,post title...,post body...'
+    return valuesToString.includes(searchValue)
+}
+
+function isPostInUserList(post: IPost, selectedUserId: string): boolean {
+    if (selectedUserId === 'all-users')
+        return true
+    return post.userId.toString() === selectedUserId
+}
 
 
 localStorage.setItem("name", "Sarit Tzvika") // save in the storage
 localStorage.getItem("name") // get from the storage
+localStorage.removeItem("name") // remove from the storage
+

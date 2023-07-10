@@ -41,9 +41,12 @@
           placeholder="Search Posts"
           aria-label="Search"
         />
-        <!-- <select>
-          <option>Select User</optoin>
-        </select> -->
+        <div class="col-md-3">
+          <select id="selectUser" class="form-select" aria-label="Select User">
+            <option value="all-users" selected>Select User</option>
+            <!-- Options of user ids  will be added here dynamically -->
+          </select>
+        </div>
       </div>
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
