@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "yakov",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "israel lev",
+  "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {

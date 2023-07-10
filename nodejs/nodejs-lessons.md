@@ -56,6 +56,40 @@ Make sure you did 'git pull'
 
 
 02. 
+* get POST body
+'npm install body-parser'
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+
+* Blog API:
+Working with Postman
+Blog API - GET, POST, DELETE
+
+* Use our server:
+1.'npm install cors'
+app.use(cors());
+2.replace link from 'https://jsonplaceholder.typicode.com/posts' to '[your server]/posts'
+3.add "userId" to the POST request.
+
+* Serve blog from the server
+1.Copy the blog to a folder name 'front' in your server
+2.Add this middleware 'app.use(express.static('front'))'
+  is doing:
+    a. if somebody get to our server base ('http://localhost:3000') it return the index.html file.
+    b. if somebody ask for files in 'front' it return all!!!:
+      http://localhost:3000/dist/index.js - return the javascript file
+      http://localhost:3000/images/[image name].jpg - return the image
+      etc...
+
+3. 
+* Deploying the entire app to the Firebase
+
+* Routing (express.Router())
+Send a file
+*middleware
+*error handling
+
 * Working with TS:
 add "type": "module" to 'package.json"
 update 'start' in 'package.json' to: 'nodemone dist/server.js'
@@ -79,15 +113,7 @@ paste in 'tsconfig.json':
 Then add this into "scripts" in package.json:
 "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
 
-* Working with Postman:
-Blog API - GET, POST, PUT, DELETE
-Routing (express.Router())
-Send a file
-Serve static files 
-*middleware
-*error handling
 
-3. 
 MongoDB:
 Open account in mongodb
 
