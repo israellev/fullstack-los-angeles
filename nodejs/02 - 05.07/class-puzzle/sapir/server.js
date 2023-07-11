@@ -13,7 +13,7 @@ const posts = []
 let id = 1;//משתנה חדש
 
 // Define a route handler for the root path
-app.get('/', (req, res) => {
+app.get('/Hello-Sapir', (req, res) => {
   res.send('Hello, Sapir!');
 });
 
@@ -42,7 +42,7 @@ app.delete('/posts/:id', (req, res)=>{//הפקודה של מחיקה מקבלת 
   const postId= +req.params.id;//שליפה של האיי די באמצעות גישה לפרמטרים של הבקשה והפיכה של הסטירנג למספר באמצעות סימן הפלוס
   const postIndex = posts.findIndex((post, i)=> post.id === postId)
   res.send(posts[postIndex])
-  posts.splica(postIndex, 1);//
+  posts.splice(postIndex, 1);
 });
 
 // middleware
@@ -51,5 +51,5 @@ app.use(express.static('front'));
 // Start the server
 const port = 3000;
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+  console.log(`Server listening on port http://localhost:${port}`);
 });
