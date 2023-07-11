@@ -1,39 +1,33 @@
 export {}
 
-//class-puzzle 1 from last lesson
-const gender = prompt("Are you a man or a woman?")
-// const IQ = Number(prompt("what is your IQ level ? (put a number between 1 to 20)"))
+//Exe 1
 
-// if (gender === "man") {
-//     if (IQ < 10) {
-//         alert("אתה אהבל !")
-//     } else {
-//         alert("אתה גאון")
-//     }
-// } else if (gender === "woman") {
-//     if (IQ < 10) {
-//         alert("את אהבלה !")
-//     } else {
-//         alert("את גאונה!")
-//     }
-// } else {
-//     alert("You are not currct!")
+// let spaceshipsOneSpeed = +prompt("Please enter the speed of the first spaceship")
+// let spaceshipsTwoSpeed = +prompt("Please enter the speed of the secand spaceship")
+// if(spaceshipsOneSpeed>spaceshipsTwoSpeed){
+//     alert("Aviad is winning the rac")}
+// if(spaceshipsOneSpeed<spaceshipsTwoSpeed){
+//     alert("Aviad please speed up")}
+// if(spaceshipsOneSpeed===spaceshipsTwoSpeed){
+//     alert("Its a tie")}
+
+// //Exe 2
+
+// let electricityPerDay = +prompt("How much electricity does a solar panel generated for a day?")
+// if(electricityPerDay%2===0){
+//     alert("The number is even")}
+// else{
+//     alert("The number is odd")}
+
+//Loops
+
+//Exe 1
+
+// for (let index = 1; index < 11; index++) {
+//     alert("Floor number "+index+" approved!");    
 // }
 
-///
+//Exe 2
 
-switch (gender) {
-    case "man":
-        console.log("man")
-        // if (IQ < 10) {
-        //     alert("אתה אהבל !")
-        // } else {
-        //     alert("אתה גאון")
-        // }
-        break;
-    case "woman":
-        console.log("woman")
-        break;
-    default:
-        console.log("a binary")
-}
+for (let index = 1; index < 13; index++) {
+    alert("The hour now is " + index);}
