@@ -1,47 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require(`cors`);
+const postRouter = require(`./router/posts`);
+
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(`/posts`,postRouter)
 
-
-const posts = [];
-let id = 1;
+app.use(express.static("front"));
 
 app.get('/', (req, res) => {
   res.send(`hello world`);
 });
-
-app.get('/', (req, res) => {
-  res.send(posts);
-});
-
-app.get('/posts', (req, res) => {
-  res.send(posts);
-});
-
-app.post('/posts', (req, res) => {
-  console.log(req.body)
-  const newPost ={
-    ...req.body,
-    id,
-  }
-  id++
-
-  posts.push(newPost)
-  
-  res.send(posts);
-});
-
-app.delete('/posts/:id',(req,res)=>{
-  const postId = +req.params.id;
-  const postIndex = posts.findIndex(post => post.id === postId)
-  posts.splice(postIndex,1)
-  res.send(posts[postIndex])
-})
-app.use(express.static(`front`)); 
 
 const port = 3000;
 app.listen(port, () => {
