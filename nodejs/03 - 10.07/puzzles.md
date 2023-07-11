@@ -28,7 +28,8 @@ c. make sure the front got all the files he needed:
 home puzzle:
 
 1. implement 'posts' router yourself.
-2. add pictures to your blog
+2. add form to create new post in the frontend - and implement the POST call of create it.
+3. add link to picture for each blog, and show it in the front-end
 
 Bonus:
 
