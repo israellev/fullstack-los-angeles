@@ -38,11 +38,14 @@
     <!-- Main Content -->
     <div class="container">
       <div class="d-flex justify-content-center mb-4">
-        <!-- <a href="/create-post"> -->
-        <button class="btn btn-primary me-2" onclick="createPostToggle()">
+        <a href="/create-post">
+          <button class="btn btn-primary me-2">
+            <i class="fas fa-plus-circle text-white" id="plusPost"></i>
+          </button>
+        </a>
+        <!-- <button class="btn btn-primary me-2" onclick="createPostToggle()">
           <i class="fas fa-plus-circle text-white" id="plusPost"></i>
-        </button>
-        <!-- </a> -->
+        </button> -->
         <input
           id="searchInput"
           class="form-control me-2"
@@ -59,55 +62,55 @@
       </div>
       <!-- <img src="http://localhost:3000/images/download.jpg"/> -->
 
-    <!-- Create Post -->
-    <div class="container" style="display: none" id="createPostForm">
-      <div class="form-container">
-        <h2>Create a New Post</h2>
-        <form id="postForm" onsubmit="submitPostForm(event)">
-          <div class="mb-3">
-            <label for="userId" class="form-label">User ID</label>
-            <input
-              type="number"
-              class="form-control"
-              id="userId"
-              placeholder="Enter User ID"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              placeholder="Enter Title"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="body" class="form-label">Body</label>
-            <textarea
-              class="form-control"
-              id="body"
-              rows="5"
-              placeholder="Enter Post Body"
-              required
-            ></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input
-              type="file"
-              class="form-control"
-              id="image"
-              accept="image/jpeg"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Create Post</button>
-        </form>
+      <!-- Create Post -->
+      <div class="container" style="display: none" id="createPostForm">
+        <div class="form-container">
+          <h2>Create a New Post</h2>
+          <form id="postForm" onsubmit="submitPostForm(event)">
+            <div class="mb-3">
+              <label for="userId" class="form-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="userId"
+                placeholder="Enter User ID"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter Title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="5"
+                placeholder="Enter Post Body"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="image"
+                accept="image/jpeg"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Create Post</button>
+          </form>
+        </div>
       </div>
-    </div>
 
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
