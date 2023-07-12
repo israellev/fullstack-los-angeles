@@ -2,31 +2,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const postsRouter = require('./router/posts')
 // create an Express application
+
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('front'));
 
-// Define a route handler for the root path
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
+// router
+app.use('/posts', postsRouter);
+
+// routes
+app.get('/hello-world', (req, res) => {
+  res.send("hello world");
 });
-
-const posts = []
-
-
-app.get('/posts', (req, res) => {
-  res.send(posts);
-});
-
-app.post('/posts', (req, res) => {
-  console.log(req.body)
-  res.send(posts);
-});
-
 
 // Start the server
 const port = 3000;

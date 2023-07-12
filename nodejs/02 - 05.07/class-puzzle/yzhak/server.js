@@ -1,26 +1,41 @@
+<<<<<<< HEAD
 // imports
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+=======
+//import
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require(`cors`);
+const postRouter = require("./router/posts");
+>>>>>>> 21bdd132e490e0862f57b16c751d0489673c5d14
 
 // create app
 const app = express();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21bdd132e490e0862f57b16c751d0489673c5d14
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
 
+<<<<<<< HEAD
 const posts = [];
 let id = 1;
 
 // routes
 app.get("/hello-world", (req, res) => {
   res.send("hello world");
+=======
+app.get("/hello-world", (req, res) => {
+  res.send("Hello World??");
+>>>>>>> 21bdd132e490e0862f57b16c751d0489673c5d14
 });
 
-app.get("/posts", (req, res) => {
-  res.send(posts);
-});
+app.use(express.static("front"));
+app.use("/posts", postRouter);
 
 app.post("/posts", (req, res) => {
   console.log(req.body);

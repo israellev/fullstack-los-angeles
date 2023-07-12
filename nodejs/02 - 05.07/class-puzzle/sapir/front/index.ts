@@ -25,7 +25,7 @@ init()//הרצת פונרמית איניט
 
         async function init() {//פונקצית איניט המחליפה את פטץ' מאחר וככה יותר נקי לקרוא לפקודות פרומיס
             // async await (in Promise functions)
-            const res = await fetch("server.js/posts", { method: "GET" })
+            const res = await fetch("/posts", { method: "GET" })
             const postList = await res.json()
         
             // deploy 10 users <option>

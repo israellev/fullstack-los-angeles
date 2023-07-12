@@ -85,6 +85,31 @@ app.use(cors());
 3. 
 
 * Routing (express.Router())
+open folder 'router'
+create file 'posts.js':
+  'const express = require('express');'
+  'const router = express.Router();'
+  cut all routers that starts with '/posts' to this file
+  cut 'const posts = []' and 'let id = 1' to this file
+  replace all 'app.get...' to 'router.get...'
+  delete 'posts' from all the paths (instead of '/posts...' do '/...', etc.)
+  add in the end of the file:
+  'module.exports = router' (this export the variable outside for imports)
+changes in 'server.js' file:
+  'const postsRouter = require('./router/posts')'
+  '//router'
+  'app.use('/posts', postsRouter);'
+
+* package.json concepts:
+  'npm install' installing all "dependencies" in 'node_modules' folder
+  'npm uninstall cors' - delete 'cors' library.
+  'npm install' === 'npm i'
+  "package.json"."scripts":
+    ready scripts that we can run:
+      'npm run [script_name]'
+      'npm run start' instead of 'nodemon server.js'
+
+* use 'npm start'
 
 * Static files - posts.json in the local
 
@@ -93,10 +118,6 @@ app.use(cors());
 *middleware
 *error handling
 
-* Working with TS:
-add "type": "module" to 'package.json"
-update 'start' in 'package.json' to: 'nodemone dist/server.js'
-then run the server with 'npm run start'
 
 * Working with typescript:
 'npm install -g typescript' (only once)
