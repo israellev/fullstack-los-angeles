@@ -56,10 +56,12 @@
         <div class="container py-4">
           <div class="row">
             <div class="col-lg-8 offset-lg-2">
-              <form action="#" method="post" id="subscription-form" class="d-flex">
-                <label for="email-input" class="visually-hidden">Email Address:</label>
-                <input type="email" id="email-input" class="form-control me-2" placeholder="Enter your email address" required>
-                <button type="submit" class="btn btn-light">Subscribe</button>
+              <form id="postForm" action="/posts" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="body">Body:</label><br>
+                <textarea id="body" name="body" required></textarea><br><br>
+                <input type="submit" value="Submit" onclick="submitForm(event)">
               </form>
               <div class="additional-elements mt-4">
                 <h5>Additional Elements</h5>
