@@ -5,9 +5,10 @@ type IPost = {id: number, userId: number, title: string, body: string}
 type IComment = {id: number, postId: number, name: string, email: string, body: string}
 
 
-        const postContainerElement = document.getElementById("postContainer")
-        const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
-        const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement
+        const postContainerElement = document.getElementById("postContainer");
+        const searchInputElement = document.getElementById("searchInput") as HTMLInputElement;
+        const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement;
+        
    
         const imagesByUser = {
             1: "images/user1.jpg",
@@ -49,6 +50,7 @@ init()//הרצת פונרמית איניט
             return true
         }
 
+
 // fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
 //     .then(res => res.json())//התגובה הראשונה מהאיי פי איי מגיעה בפורמט גולמי אז השימוש בדן הראשוני נועדה כדי להמיר את התגובה לפורמט גייסון בשימוש רס.גייסו
 //     .then((postList: IPost[]) => {//הדן השני מקבל את הקובץ גייסון המנותח שצפוי להיות מערך אובייקטים של פוסטים ומקבל פונקצית קולבק פוראיץ
@@ -57,7 +59,7 @@ init()//הרצת פונרמית איניט
 //     })
 //     .catch(error => console.log(error))
 
-
+    
 
     function getUserIdsFromPostList(postList: IPost[]): number[]{//פונקציה אשר תקבל מערך של היוזרים המסוננים ללא כפילויות
         const userIds = Array.from(new Set(postList.map((post)=> post.userId)))
@@ -125,10 +127,8 @@ init()//הרצת פונרמית איניט
             }
 
     function deletePostsAndActiveFilter(postList: IPost[]) {// listener - every time search keyboard up or change select user:
-   
        // get input and select option values:
        const searchValue = searchInputElement.value.toLowerCase().trim().replace(/[<>]/g, '')
-   
        localStorage.setItem("searchValue", searchValue)
        const selectedUserId = selectUserElement.value;
        localStorage.setItem("selectedUserId", selectedUserId)
@@ -196,3 +196,30 @@ init()//הרצת פונרמית איניט
   }
   
 
+  function submitForm(event: Event) {
+    event.preventDefault();
+  
+    const form = document.getElementById('postForm') as HTMLFormElement;
+    const formData = new FormData(form);
+  
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Post created:', data);
+        // Perform any necessary actions after successful post creation
+      })
+      .catch(error => {
+        console.error('Error creating post:', error);
+        // Handle the error appropriately
+      });
+  }
+  
+  
+  
+  
+  
+  
+  

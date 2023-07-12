@@ -1,8 +1,8 @@
 // imports
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const postsRouter = require('./router/posts');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const postsRouter = require("./router/posts");
 
 // create app
 const app = express();
@@ -10,13 +10,13 @@ const app = express();
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('front'));
+app.use(express.static("front"));
 
 // router
-app.use('/posts', postsRouter);
+app.use("/posts", postsRouter);
 
 // routes
-app.get('/hello-world', (req, res) => {
+app.get("/hello-world", (req, res) => {
   res.send("hello world");
 });
 
