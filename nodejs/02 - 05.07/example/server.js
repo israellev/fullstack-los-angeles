@@ -23,11 +23,6 @@ app.get('/posts/:id', (req, res) => {
 app.post('/posts', (req, res) => {
   console.log(req.body)
   
-  const newPost = {
-    ...req.body,
-    id,
-  }
-  id ++
   posts.push(newPost)
   res.send(newPost)
 });
