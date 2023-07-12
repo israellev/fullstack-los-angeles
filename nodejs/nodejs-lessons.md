@@ -57,7 +57,7 @@ Make sure you did 'git pull'
 
 02. 
 * get POST body
-npm install body-parser
+'npm install body-parser'
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
@@ -66,20 +66,58 @@ app.use(bodyParser.json());
 Working with Postman
 Blog API - GET, POST, DELETE
 
+* Use our server:
+1.'npm install cors'
+app.use(cors());
+2.replace link from 'https://jsonplaceholder.typicode.com/posts' to '[your server]/posts'
+3.add "userId" to the POST request.
 
+* Serve blog from the server
+1.Copy the blog to a folder name 'front' in your server
+2.Add this middleware 'app.use(express.static('front'))'
+  is doing:
+    a. if somebody get to our server base ('http://localhost:3000') it return the index.html file.
+    b. if somebody ask for files in 'front' it return all!!!:
+      http://localhost:3000/dist/index.js - return the javascript file
+      http://localhost:3000/images/[image name].jpg - return the image
+      etc...
 
-Routing (express.Router())
-Send a file
-Serve static files 
+3. 
+
+* Routing (express.Router())
+open folder 'router'
+create file 'posts.js':
+  'const express = require('express');'
+  'const router = express.Router();'
+  cut all routers that starts with '/posts' to this file
+  cut 'const posts = []' and 'let id = 1' to this file
+  replace all 'app.get...' to 'router.get...'
+  delete 'posts' from all the paths (instead of '/posts...' do '/...', etc.)
+  add in the end of the file:
+  'module.exports = router' (this export the variable outside for imports)
+changes in 'server.js' file:
+  'const postsRouter = require('./router/posts')'
+  '//router'
+  'app.use('/posts', postsRouter);'
+
+* package.json concepts:
+  'npm install' installing all "dependencies" in 'node_modules' folder
+  'npm uninstall cors' - delete 'cors' library.
+  'npm install' === 'npm i'
+  "package.json"."scripts":
+    ready scripts that we can run:
+      'npm run [script_name]'
+      'npm run start' instead of 'nodemon server.js'
+
+* use 'npm start'
+
+* Static files - posts.json in the local
+
+* Deploying the entire app to the Firebase
+
 *middleware
 *error handling
 
-
-3. 
-* Working with TS:
-add "type": "module" to 'package.json"
-update 'start' in 'package.json' to: 'nodemone dist/server.js'
-then run the server with 'npm run start'
 
 * Working with typescript:
 'npm install -g typescript' (only once)

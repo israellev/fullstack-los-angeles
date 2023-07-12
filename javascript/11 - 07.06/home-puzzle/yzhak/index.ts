@@ -119,23 +119,22 @@ const students = [
 
 // home puzzle:
 
-// Import "students.ts" file, and do the next exercies on it:
+// // Import "students.ts" file, and do the next exercies on it:
 
-// 1. Got Job Interview
-// Filter from students list those who will got a job interview - having score above 90.
+// // 1. Got Job Interview
+// // Filter from students list those who will got a job interview - having score above 90.
 
 // const Gotjobinterview = students.filter((students) => students.score > 90);
 // console.log(Gotjobinterview);
 
-// // 2. Get Class Score Average
-// // Make a list of the class scores and get it's average.
-
-// const score = students.map((students) => students.score);
-// const sum = score.reduce((accumulator, score) => accumulator + score, 0);
-// const Avarage = sum / score.length;
-
-// console.log(`avarage class score is : ${Avarage} `);
-
+// 2. Get Class Score Average
+// Make a list of the class scores and get it's average.
+// const result =
+//   students.reduce((state, student): any => {
+//     state += student.score;
+//     return state;
+//   }, 0) / students.length;
+// console.log(result);
 // // 3. Last names list
 // // Create a list of all fimaly names
 // // Tip - read in GPT about string split function "a b".split(" ").
@@ -169,32 +168,3 @@ const students = [
 //     console.log("WTF?!");
 //   }
 // });
-
-function searchStudent(input) {
-  const searchResults = [];
-
-  for (let i = 0; i < students.length; i++) {
-    const student = students[i];
-
-    for (const prop in student) {
-      if (student[prop] && student[prop].toString().includes(input)) {
-        searchResults.push(student);
-        break;
-      }
-    }
-  }
-
-  return searchResults;
-}
-
-const searchTerm = "program";
-const results = searchStudent(searchTerm);
-
-console.log("Search Results:");
-if (results.length > 0) {
-  for (let i = 0; i < results.length; i++) {
-    console.log(results[i].name);
-  }
-} else {
-  console.log("No matching students found.");
-}
