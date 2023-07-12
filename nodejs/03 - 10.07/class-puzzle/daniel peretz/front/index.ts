@@ -27,7 +27,7 @@ init()
 
 async function init() { //פונקציית אסינכרון ממתין בפוקנציית אבטחה  
     // async await (in Promise functions)
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+    const res = await fetch("/posts", { method: "GET" })
     const postList = await res.json()//הפיכת רשימת הפוסטים לגייסון 
 
     // deploy 10 users <option>

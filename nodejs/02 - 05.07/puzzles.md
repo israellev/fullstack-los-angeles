@@ -12,7 +12,7 @@ DELETE /posts/:id
 2. Use our server for API:
 a.'npm install cors'
 app.use(cors());
-b.replace link from 'https://jsonplaceholder.typicode.com/posts' to '[your server]/posts'
+b.replace link from 'https://jsonplaceholder.typicode.com/posts' to '/posts'
 c.add "userId" to the POST request.
 
 3. Serve the entire blog from our server

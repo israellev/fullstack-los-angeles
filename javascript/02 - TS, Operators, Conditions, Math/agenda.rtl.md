@@ -43,8 +43,6 @@ home-puzzle:
 
 1. - Create a program that calculates the number of pizzas needed for a party. Ask the user how many people are attending the party and how many pizza slices each person will eat. Display the total number of pizzas needed, assuming each pizza has 8 slices.
 
-2. - Create a program that calculates the number of pizzas needed for a party. Ask the user how many people are attending the party and how many pizza slices each person will eat. Display the total number of pizzas needed, assuming each pizza has 8 slices.
-
-3. - Create a program that calculates the number of weeks Yitzhak Zametz Sahlu needs to save money in order to afford a brand-new computer. Prompt the user to enter the cost of the computer and the amount of money Yitzhak saves per week. Then, calculate the number of weeks required to save enough money and display it along with a funny message.
+2. - Create a program that calculates the number of weeks Yitzhak Zametz Sahlu needs to save money in order to afford a brand-new computer. Prompt the user to enter the cost of the computer and the amount of money Yitzhak saves per week. Then, calculate the number of weeks required to save enough money and display it along with a funny message.
 
 בונוס - Create a program that calculates how much time it will take for Daniel Michael Peretz to complete a coding project. Prompt the user to enter the number of coding tasks and the estimated time (in minutes) to complete each task. Then, add a random factor to the estimated time (e.g., between -20% and +20% of the original time) to simulate the uncertainty in the real world. Finally, display the total estimated time to complete the project with a funny message.
