@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
+const path = require('path');
 // create an Express application
 
 const app = express();
@@ -18,6 +19,12 @@ app.use('/posts', postsRouter);
 // routes
 app.get('/hello-world', (req, res) => {
   res.send("hello world");
+});
+
+// Serve create-post.html
+app.get('/create-post', (req, res) => {
+  const PathToHtml = PathToHtml.join(__dirname + '/front/create-post.html')
+  res.sendFile(PathToHtml);
 });
 
 // Start the server
