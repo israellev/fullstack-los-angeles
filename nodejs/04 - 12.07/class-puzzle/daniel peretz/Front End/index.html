@@ -33,6 +33,26 @@
   </header>
 
 
+  <!-- Create New Post Form -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Create New Post</h2>
+    <form id="createPostForm">
+      <div class="mb-3">
+        <label for="userId" class="form-label">User ID</label>
+        <input type="text" class="form-control" id="userId" placeholder="Enter User ID" required>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter Title" required>
+      </div>
+      <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea class="form-control" id="body" rows="5" placeholder="Enter Body" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+  </div>
+
   <!-- Main Content -->
   <div class="container">
     <div class="d-flex justify-content-center mb-4">
@@ -44,37 +64,7 @@
         </select>
       </div>
     </div>
-    <!-- A user creat a post -->
-    <!-- <div class="card" style="width: 20rem;">
-      <div class="card mb-4">
-        <h5 class="card-title">Create a post yourself</h5>
-        <input type="file" id="image-input" accept="image/*">
-        <img id="preview-image" src="#" alt="תצוגה מקדימה" style="display: none; max-width: 300px;">
-        <br>
-        <p>Title : <input placeholder=" write Title"></p>
-        <p>Body : <textarea id="body-input" placeholder=" write Body"></textarea><br></p>
-        <a href="#" class="btn btn-primary">Send post</a>
 
-      </div>
-    </div>  -->
-     <div class="card mb-4" id="post-${post.id}">
-            <div class="card-header">
-                <h5 class="card-title">${post.id} - ${post.title}</h5>
-                <small class="text-muted">Posted by User ${post.userId}</small>
-            </div>
-            <div class="card-body">
-                <p class="card-text"><input type="">${post.body}</p>
-                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
-                    Show comments
-                </button>
-                <div id="comments-${post.id}">
-                <!-- Comments will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-
-
-    <br>
 
     <div id="postContainer" class="row">
       <!-- Posts will be added here dynamically -->
@@ -83,15 +73,9 @@
   </div>
 
 
-
   <div id="album-container" class="row">
     <!-- Albums will be added here dynamically -->
   </div>
-
-
-
-
-
 
 
 
