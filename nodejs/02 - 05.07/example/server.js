@@ -25,11 +25,15 @@ app.get('/posts', (req, res) => {
 
 app.post('/posts', (req, res) => {
   console.log(req.body)
+<<<<<<< HEAD
+  
+=======
   const newPost = {
     ...req.body,
     id,
   }
   id ++
+>>>>>>> 2b541fe15285b8020fefbc239c0f0dc93af14bce
   posts.push(newPost)
   res.send(newPost)
 });

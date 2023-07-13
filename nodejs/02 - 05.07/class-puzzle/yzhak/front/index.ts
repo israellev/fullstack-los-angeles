@@ -17,7 +17,7 @@ const selectUserElement = document.getElementById(
 4. actvie the search filter and select user filter together.
  */
 
-fetch("https://jsonplaceholder.typicode.com/posts", { method: "GET" })
+fetch("/posts", { method: "GET" })
   .then((res) => res.json())
   .then((postList: IPost[]) => {
     const userIds = getUserIdsFromPostList(postList);

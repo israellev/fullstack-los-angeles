@@ -95,6 +95,9 @@ function createPost(post: IPost) {
             <div class="card-header">
                 <h5 class="card-title">${post.id} - ${post.title}</h5>
                 <small class="text-muted">Posted by User ${post.userId}</small>
+                <i onclick="deletePost(${post.id})" class="fas fa-trash"
+                    style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
+                </i>
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
@@ -105,12 +108,18 @@ function createPost(post: IPost) {
                 <!-- Comments will be dynamically added here -->
                 </div>
                 <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
             </div>
         </div>
         `;
   newDiv.innerHTML = htmlPost;
   postContainerElement.appendChild(newDiv);
+}
+
+async function deletePost(postId: number) {
+  const res = await fetch(`/posts/${postId}`, {method: "DELETE"})
+  const deletedPost = await res.json()
+  if (deletedPost) 
+    document.getElementById(`post-${postId}`).remove()
 }
 
 function deletePostsAndActiveFilter(postList: IPost[]) {
@@ -185,27 +194,54 @@ function createCommnet(comment: IComment) {
   commentsElement.appendChild(newDiv);
 }
 
-localStorage.setItem("name", "Sarit Tzvika"); // save in the storage
-localStorage.getItem("name"); // "Sarit Tzvika"
-localStorage.removeItem("name");
+function createPostToggle() {
+  const iconElement = document.getElementById("plusPost")
+  const formElement = document.getElementById("createPostForm")
+  const isPlus = iconElement.classList.contains("fa-plus-circle")
+  if (isPlus) {
+    iconElement.classList.remove("fa-plus-circle")
+    iconElement.classList.add("fa-minus-circle")
+    formElement.style.display = 'block'
 
-//  /i - case-insensitive
-regex: console.log(/shir/.test("Shir is walked")); // false
-console.log(/shir/i.test("Shir is walked")); // true
+  } else {
+    iconElement.classList.remove("fa-minus-circle")
+    iconElement.classList.add("fa-plus-circle")
+    formElement.style.display = 'none'
+  }
 
-//  /g - global
-console.log("shir shir".replace(/shir/, "")); // ' shir'
-console.log("shir shir".replace(/shir/g, "")); // ' '
+}
 
-//  /\d/ - digit
-//  /\D/ - not digit
-console.log("abc123xyz456".replace(/\d/g, "")); // abcxyz
-console.log("abc123xyz456".replace(/\D/g, "")); // 123456
 
-//  /[a-z]/ - english lowercase
-//  /[A-Z]/ - english upercase
-//  /[a-zA-Z]/ - all english letter
-console.log("abc123xyz456".replace(/\d/g, "")); // abcxyz
-console.log("abc123xyz456".replace(/\D/g, "")); // 123456
+function submitPostForm(event) {
+  event.preventDefault();
+  
+  // Get form values
+  const userId = +document.getElementById("userId").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
 
-'<script>alert("wow!")</script>'.replace(/[<>]/g, "");
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
+
+  fetch("/posts", {
+    method: "POST",
+    body: formData
+  })
+  .then(async (response) => {
+    if (response.ok) {
+      const newPost = await response.json()
+      console.log("Post created successfully", newPost);
+      window.location.href = '/'
+    } else {
+      console.error("Error creating post");
+    }
+  })
+  .catch(error => {
+    console.error("Error creating post", error);
+  });
+}
