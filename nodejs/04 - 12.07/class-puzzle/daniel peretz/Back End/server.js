@@ -22,10 +22,17 @@ app.get('/hello-world', (req, res) => {
 });
 
 // Serve create-post.html
+
+app.get('/', (req, res) => {
+  const pathToHtml = path.join(__dirname, 'front', 'index.html')
+  res.sendFile(pathToHtml);
+});
+
 app.get('/create-post', (req, res) => {
   const PathToHtml = PathToHtml.join(__dirname + '/front/create-post.html')
   res.sendFile(PathToHtml);
 });
+
 
 // Start the server
 const port = 3000;
