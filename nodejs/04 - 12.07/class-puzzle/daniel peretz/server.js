@@ -11,7 +11,7 @@ const app = express();
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('front'));
+app.use(express.static('Front End'));
 
 // router
 app.use('/posts', postsRouter);
@@ -24,12 +24,12 @@ app.get('/hello-world', (req, res) => {
 // Serve create-post.html
 
 app.get('/', (req, res) => {
-  const pathToHtml = path.join(__dirname, 'front', 'index.html')
+  const pathToHtml = path.join(__dirname, 'Front End', 'index.html')
   res.sendFile(pathToHtml);
 });
 
 app.get('/create-post', (req, res) => {
-  const PathToHtml = PathToHtml.join(__dirname + '/front/create-post.html')
+  const PathToHtml = PathToHtml.join(__dirname + '/Front End/create-post.html')
   res.sendFile(PathToHtml);
 });
 
