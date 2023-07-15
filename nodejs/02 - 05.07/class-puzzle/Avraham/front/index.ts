@@ -199,49 +199,49 @@ function createPostToggle() {
 
 }
 //@ts-ignore
-// function submitPostForm(event: Event): void {
-//   event.preventDefault(); // Prevent form submission
+function submitPostForm(event: Event): void {
+  event.preventDefault(); // Prevent form submission
 
-//   // Get form values
-//   const userId = +document.getElementById("userId").value;
-//   const title = document.getElementById("title").value;
-//   const body = document.getElementById("body").value;
-//   const image = document.getElementById("image").files[0];
+  // Get form values
+  const userId = +document.getElementById("userId").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
 
-//   // Create the form data object
-//   const formData = new FormData();
-//   formData.append("userId", userId.toString());
-//   formData.append("title", title);
-//   formData.append("body", body);
-//   formData.append("image", image);
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId.toString());
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
 
-//   // Close the form
-//   openForm();
-//   closeForm();
+  // Close the form
+  openForm();
+  closeForm();
 
-//   fetch("http://localhost:3000/posts", {
-//     method: "POST",
-//     body: formData,
-//   })
-//     .then(async (response) => {
-//       if (response.ok) {
-//         const newPost = await response.json();
-//         console.log("Post created successfully", newPost);
-//         window.location.href = "/";
-//       } else {
-//         console.error("Error creating post");
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error creating post", error);
-//     });
-// }
+  fetch("http://localhost:3000/posts", {
+    method: "POST",
+    body: formData,
+  })
+    .then(async (response) => {
+      if (response.ok) {
+        const newPost = await response.json();
+        console.log("Post created successfully", newPost);
+        window.location.href = "/";
+      } else {
+        console.error("Error creating post");
+      }
+    })
+    .catch((error) => {
+      console.error("Error creating post", error);
+    });
+}
 
-// function openForm(): void {
-//   document.getElementById("createForm").style.display = "block";
-// }
+function openForm(): void {
+  document.getElementById("createForm").style.display = "block";
+}
 
-// function closeForm(): void {
-//   document.getElementById("createForm").style.display = "none";
-// }
+function closeForm(): void {
+  document.getElementById("createForm").style.display = "none";
+}
 

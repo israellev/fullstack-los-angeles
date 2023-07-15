@@ -24,7 +24,8 @@ router.get('/', (req, res) => {
   
   router.post('/', upload.single('image'), (req, res) => {
    
-    const newPost = {
+    const newPost = 
+    {
       ...req.body,
       imageUrl: `/images/${req.file.filename}`,
       id: posts.length + 1, 
