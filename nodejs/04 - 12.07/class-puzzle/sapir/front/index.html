@@ -54,6 +54,58 @@
         </select>
       </div>
       </div>
+
+      
+      <!-- Create Post -->
+      <div class="container" style="display: none" id="createPostForm">
+        <div class="form-container">
+          <h2>Create a New Post</h2>
+          <form id="postForm" onsubmit="submitPostForm(event)">
+            <div class="mb-3">
+              <label for="userId" class="form-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="userId"
+                placeholder="Enter User ID"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter Title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="5"
+                placeholder="Enter Post Body"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="image"
+                accept="image/jpeg"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Create Post</button>
+          </form>
+        </div>
+      </div>
+      
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
       </div>

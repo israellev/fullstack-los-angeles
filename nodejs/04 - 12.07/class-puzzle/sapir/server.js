@@ -2,6 +2,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const postsRouter = require('./router/posts')
+const path = require('path');
 
 // create app
 const app = express();
@@ -9,44 +11,27 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = []
-let id = 1;//משתנה חדש
+app.use(express.static('front'));
+
+// router
+app.use('/posts', postsRouter);
+
 
 // Define a route handler for the root path
 app.get('/Hello-Sapir', (req, res) => {
   res.send('Hello, Sapir!');
 });
 
-app.get('/posts', (req, res) => {
-  res.send(posts);
+app.get('/', (req, res) => {
+  const pathToHtml = path.join(__dirname, 'front', 'index.html')
+  res.sendFile(pathToHtml);
 });
 
-app.get('/posts/:id', (req, res) => {
-  const postId = +req.params.id;
-  const post = posts.find(post => post.id === postId)
-  res.send(post);
+app.get('/create-post', (req, res) => {
+  const pathToHtml = path.join(__dirname, 'front', 'create-post.html')
+  res.sendFile(pathToHtml);
 });
 
-app.post('/posts', (req, res) => {
-  console.log(req.body)
-  const newPost = {//משתנה חדש שישים בתוכו את כל מה שיש בגוף ההודעה 
-    ...req.body,
-    id,
-  }//ותוסיף למשתנה הזה את האיידי ובכל קריאה יוסיף 1 
-    id++
-    posts.push(newPost)//ואז לעשות פוש למערך בשם פוסט שיצרנו למעלה
-  res.send(newPost)//ותחזיר למשתמש את הפוסט החדש
-});
-
-app.delete('/posts/:id', (req, res)=>{//הפקודה של מחיקה מקבלת את היו אר אל של הפוסטס ואיי די ובנוסף פונקציה שהפרמטרים שלה זה בקשה ותשובה, 
-  const postId= +req.params.id;//שליפה של האיי די באמצעות גישה לפרמטרים של הבקשה והפיכה של הסטירנג למספר באמצעות סימן הפלוס
-  const postIndex = posts.findIndex((post, i)=> post.id === postId)
-  res.send(posts[postIndex])
-  posts.splice(postIndex, 1);
-});
-
-// middleware
-app.use(express.static('front'));
 
 // Start the server
 const port = 3000;
