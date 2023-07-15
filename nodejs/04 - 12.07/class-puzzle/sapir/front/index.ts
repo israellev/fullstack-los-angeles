@@ -196,27 +196,7 @@ init()//הרצת פונרמית איניט
   }
   
 
-  function submitForm(event: Event) {
-    event.preventDefault();
-  
-    const form = document.getElementById('postForm') as HTMLFormElement;
-    const formData = new FormData(form);
 
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Post created:', data);
-        // Perform any necessary actions after successful post creation
-      })
-      .catch(error => {
-        console.error('Error creating post:', error);
-        // Handle the error appropriately
-      });
-  }
-  
   
   
   
