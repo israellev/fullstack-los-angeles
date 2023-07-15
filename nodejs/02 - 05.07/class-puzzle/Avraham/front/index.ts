@@ -33,11 +33,11 @@ async function init() {
     method: "GET",
   });
   const postList = await res.json();
-
+  console.log(postList)
   // deploy 10 users <option>
   const userIds = getUserIdsFromPostList(postList); // [1, 2, 3, ...]
   userIds.forEach(createOption);
-
+  postList(submitPostForm)
   
   if (localStorage.getItem("searchValue"))
     searchInputElement.value = localStorage.getItem("searchValue");
@@ -80,7 +80,7 @@ function createPost(post: IPost) {
   <div class="card-header">
     <h5 class="card-title">${post.id} - ${post.title}</h5>
     <small class="text-muted">Posted by User ${post.userId}</small>
-    <i onclick="deletePost(${post.id})" class="fas fa-trash" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
+    <i onclick="deletePost(${post.id})" class="fas fa-trash-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
   </div>
   <div class="card-body">
     <div class="image-container" style="float: left; margin-right: 10px; display: flex; align-items: center; justify-content: center;">
@@ -197,4 +197,49 @@ function createPostToggle() {
     formElement.style.display = 'none'
   }
 
+}
+
+function submitPostForm(event :IPost[]) {
+  event; // Prevent form submission
+
+  // Get form values
+  const userId = +document.getElementById("userId").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
+
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
+
+  // Close the form
+  closeForm();
+  fetch("http://localhost:3000/posts", {
+    method: "POST",
+    body: formData
+  })
+  .then(async (response) => {
+    if (response.ok) {
+      const newPost = await response.json()
+      console.log("Post created successfully", newPost);
+      window.location.href = '/'
+      console.log(newPost)
+    } else {
+      console.error("Error creating post");
+    }
+  })
+  .catch(error => {
+    console.error("Error creating post", error);
+  });
+}
+
+function openForm() {
+  document.getElementById("createForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("createForm").style.display = "none";
 }
