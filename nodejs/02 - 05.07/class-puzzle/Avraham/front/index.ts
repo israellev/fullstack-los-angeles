@@ -198,8 +198,8 @@ function createPostToggle() {
   }
 
 }
-
-function submitPostForm(event:IPost):any {
+//@ts-ignore
+function submitPostForm(event: Event): void {
   event.preventDefault(); // Prevent form submission
 
   // Get form values
@@ -210,37 +210,38 @@ function submitPostForm(event:IPost):any {
 
   // Create the form data object
   const formData = new FormData();
-  formData.append("userId", userId);
+  formData.append("userId", userId.toString());
   formData.append("title", title);
   formData.append("body", body);
   formData.append("image", image);
 
   // Close the form
+  openForm();
   closeForm();
+
   fetch("http://localhost:3000/posts", {
     method: "POST",
-    body: formData
+    body: formData,
   })
-  .then(async (response) => {
-    if (response.ok) {
-      const newPost = await response.json()
-      console.log("Post created successfully", newPost);
-      window.location.href = '/'
-      console.log(newPost)
-    } else {
-      console.error("Error creating post");
-    }
-  })
-  .catch(error => {
-    console.error("Error creating post", error);
-  });
+    .then(async (response) => {
+      if (response.ok) {
+        const newPost = await response.json();
+        console.log("Post created successfully", newPost);
+        window.location.href = "/";
+      } else {
+        console.error("Error creating post");
+      }
+    })
+    .catch((error) => {
+      console.error("Error creating post", error);
+    });
 }
 
-function openForm() {
+function openForm(): void {
   document.getElementById("createForm").style.display = "block";
 }
 
-function closeForm() {
+function closeForm(): void {
   document.getElementById("createForm").style.display = "none";
 }
 

@@ -44,7 +44,7 @@
      <div class="container mb-4 border border-primary rounded p-4" id="createForm" style="display: none;">
        <div class="form-container">
          <h2 class="text-primary text-center">Create a New Post</h2>
-         <form id="postForm" onsubmit="submitPostForm()">
+         <form id="postForm" onsubmit="submitPostForm(event)">
            <div class="mb-3 text-center">
              <label for="userId" class="form-label text-primary">User ID</label>
              <input
@@ -116,7 +116,7 @@
     </div>
 
     <script src="/dist/index.js"></script>
-    <!-- <script>
+    <script>
       function submitPostForm(event) {
      event.preventDefault(); // Prevent form submission
 
@@ -162,6 +162,6 @@
      document.getElementById("createForm").style.display = "none";
    }
    
- </script> -->
+ </script>
   </body>
 </html>
