@@ -37,7 +37,7 @@ async function init() {
   // deploy 10 users <option>
   const userIds = getUserIdsFromPostList(postList); // [1, 2, 3, ...]
   userIds.forEach(createOption);
-  postList(submitPostForm)
+
   
   if (localStorage.getItem("searchValue"))
     searchInputElement.value = localStorage.getItem("searchValue");
@@ -199,8 +199,8 @@ function createPostToggle() {
 
 }
 
-function submitPostForm(event :IPost[]) {
-  event; // Prevent form submission
+function submitPostForm(event:IPost):any {
+  event.preventDefault(); // Prevent form submission
 
   // Get form values
   const userId = +document.getElementById("userId").value;
@@ -243,3 +243,4 @@ function openForm() {
 function closeForm() {
   document.getElementById("createForm").style.display = "none";
 }
+
