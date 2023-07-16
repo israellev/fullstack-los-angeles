@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>My Blog</title>
+    <script>
+      var exports = {};
+
+      function submitPostForm(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        var userId = document.getElementById("userId").value;
+        var title = document.getElementById("title").value;
+        var body = document.getElementById("body").value;
+        var image = document.getElementById("image").value;
+
+        // Do something with the form data (e.g., send it to the server)
+        console.log("User ID: " + userId);
+        console.log("Title: " + title);
+        console.log("Body: " + body);
+        console.log("Image: " + image);
+
+        // Close the form
+        closeForm();
+      }
+
+      function openForm() {
+        document.getElementById("createForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("createForm").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-1" href="#">My Blog</a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="bg-primary text-white text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="font-weight-light">Welcome to My Blog</h1>
+      </div>
+    </header>
+
+    <!-- Create Post Button -->
+    <div class="d-flex justify-content-center mb-4">
+         <button class="btn btn-primary me-2" onclick="openForm()">Click to Create Post</button>
+    </div> 
+
+    <!-- Create Post Form -->
+    <div class="container mb-4 border border-primary rounded p-4" id="createForm" style="display: none;">
+      <div class="form-container">
+        <h2 class="text-primary text-center">Create a New Post</h2>
+        <form id="postForm" onsubmit="submitPostForm(event)">
+          <div class="mb-3 text-center">
+            <label for="userId" class="form-label text-primary">User ID</label>
+            <input
+              type="number"
+              class="form-control text-center"
+              id="userId"
+              placeholder="Enter User ID"
+              required
+            />
+          </div>
+          <div class="mb-3 text-center">
+            <label for="title" class="form-label text-primary">Title</label>
+            <input
+              type="text"
+              class="form-control text-center"
+              id="title"
+              placeholder="Enter Title"
+              required
+            />
+          </div>
+          <div class="mb-3 text-center">
+            <label for="body" class="form-label text-primary">Body</label>
+            <textarea
+              class="form-control text-center"
+              id="body"
+              rows="5"
+              placeholder="Enter Post Body"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="image"
+              accept="image/jpeg"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary d-block mx-auto">Send Post</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <input
+          id="searchInput"
+          class="form-control text-center me-2"
+          type="search"
+          placeholder="Search Posts"
+          aria-label="Search"
+        />
+        <div class="col-md-3">
+          <select id="selectUser" class="form-select text-center" aria-label="Select User">
+            <option value="0" selected>Select User</option>
+            <!-- Options of user IDs will be added here dynamically -->
+          </select>
+        </div>
+      </div>
+      <div id="postContainer" class="row">
+        <!-- Posts will be added here dynamically -->
+      </div>
+    </div>
+
+    <script src="./dist/index.js"></script>
+  </body>
+</html>

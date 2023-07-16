@@ -58,18 +58,3 @@ app.listen(port, () => {
 
 
 
-// app.get(`/posts`,(req,res)=>{
-//   res.send(posts);
-// })
-
-// app.get('/posts/:id', (req, res) => {
-//   const postId = +req.params.id;
-//   const post = posts.find(post => post.id === postId)
-//   res.send(post);
-// });
-
-// app.post('/posts', (req, res) => {
-//   console.log(req.body)
-//   res.send(posts)
- 
-// });
