@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //
-app.use(express.static('Front End End'));
+app.use(express.static('Front End'));
 
 // router
 app.use('/posts', postsRouter);
