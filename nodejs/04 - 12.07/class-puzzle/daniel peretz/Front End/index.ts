@@ -6,7 +6,7 @@ export { }
 document.getElementById("searchInput").value = localStorage.getItem("inputSearch")
 
 // טייפים מה כל מערך מכיל 
-type IPost = { id: number, userId: number, title: string, body: string }
+type IPost = { id: number, userId: number, title: string, body: string, imageUrl: string }
 type IComment = { id: number, postId: number, name: string, email: string, body: string }
 // type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
 
@@ -92,6 +92,7 @@ function createPost(post: IPost) {
                 <div id="comments-${post.id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
+                <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
             </div>
         </div>
         `;
@@ -173,51 +174,51 @@ function createCommnet(comment: IComment) {
 
 // // create show Photos
 
-type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
-async function fetchAlbums() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-    const albumList = await response.json();
-    return albumList;
-}
+// type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
+// async function fetchAlbums() {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+//     const albumList = await response.json();
+//     return albumList;
+// }
 
-function createAlbum(album) {
-    const albumDiv = document.createElement("div");
-    albumDiv.classList.add("album");
+// function createAlbum(album) {
+//     const albumDiv = document.createElement("div");
+//     albumDiv.classList.add("album");
 
-    const albumTitle = document.createElement("h3");
-    albumTitle.classList.add("album-title");
-    albumTitle.innerText = album.title;
+//     const albumTitle = document.createElement("h3");
+//     albumTitle.classList.add("album-title");
+//     albumTitle.innerText = album.title;
 
-    const albumPhoto = document.createElement("img");
-    albumPhoto.classList.add("album-photo");
-    albumPhoto.src = album.thumbnailUrl;
-    albumPhoto.alt = album.title;
+//     const albumPhoto = document.createElement("img");
+//     albumPhoto.classList.add("album-photo");
+//     albumPhoto.src = album.thumbnailUrl;
+//     albumPhoto.alt = album.title;
 
-    albumDiv.appendChild(albumTitle);
-    albumDiv.appendChild(albumPhoto);
+//     albumDiv.appendChild(albumTitle);
+//     albumDiv.appendChild(albumPhoto);
 
-    albumDiv.addEventListener("click", () => {
-        showPhotos(album.albumId);
-    });
+//     albumDiv.addEventListener("click", () => {
+//         showPhotos(album.albumId);
+//     });
 
-    return albumDiv;
-}
+//     return albumDiv;
+// }
 
-async function displayAlbums() {
-    const albumsContainer = document.getElementById("album-container");
-    const albumList = await fetchAlbums();
+// async function displayAlbums() {
+//     const albumsContainer = document.getElementById("album-container");
+//     const albumList = await fetchAlbums();
 
-    albumList.forEach((album) => {
-        const albumDiv = createAlbum(album);
-        albumsContainer.appendChild(albumDiv);
-    });
-}
+//     albumList.forEach((album) => {
+//         const albumDiv = createAlbum(album);
+//         albumsContainer.appendChild(albumDiv);
+//     });
+// }
 
-function showPhotos(albumId) {
-    // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
-}
+// function showPhotos(albumId) {
+//     // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
+// }
 
-displayAlbums();
+// displayAlbums();
 
 
 // Check why it doesn't work

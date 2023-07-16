@@ -4,14 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
-// create an Express application
 
+// create an Express application
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('Front End'));
+
+//
+app.use(express.static('Front End End'));
 
 // router
 app.use('/posts', postsRouter);
@@ -22,6 +24,7 @@ app.get('/hello-world', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+  console.log(__dirname);
   const pathToHtml = path.join(__dirname, 'Front End', 'index.html')
   res.sendFile(pathToHtml);
 });
