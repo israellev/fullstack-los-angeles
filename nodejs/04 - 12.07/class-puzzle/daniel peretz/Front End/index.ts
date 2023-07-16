@@ -220,43 +220,44 @@ function showPhotos(albumId) {
 displayAlbums();
 
 
-
+// Check why it doesn't work
  
-type Isubmit = {userId: number, title:string, body:string, image:File }
-interface ISubmitEvent extends Event {
-  target: HTMLFormElement;
-}
+// type Isubmit = {userId: number, title:string, body:string, image:File }
+// interface ISubmitEvent extends Event {
+//   target: HTMLFormElement;
+// }
 
-function submitPostForm(event: ISubmitEvent) {
-  event.preventDefault();
 
-  // Get form values
-  const userId = +document.getElementById("userId").value;
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const image = document.getElementById("image").files[0];
+// function submitPostForm(event: ISubmitEvent) {
+//   event.preventDefault();
 
-  // Create the form data object
-  const formData = new FormData();
-  formData.append("userId", userId.toString());
-  formData.append("title", title);
-  formData.append("body", body);
-  formData.append("image", image);
+//   // Get form values
+//   const userId = +document.getElementById("userId").value;
+//   const title = document.getElementById("title").value;
+//   const body = document.getElementById("body").value;
+//   const image = document.getElementById("image").files[0];
 
-  fetch("/posts", {
-    method: "POST",
-    body: formData,
-  })
-    .then(async (response) => {
-      if (response.ok) {
-        const newPost = await response.json();
-        console.log("Post created successfully", newPost);
-        window.location.href = "/";
-      } else {
-        console.error("Error creating post");
-      }
-    })
-    .catch((error) => {
-      console.error("Error creating post", error);
-    });
-}
+//   // Create the form data object
+//   const formData = new FormData();
+//   formData.append("userId", userId.toString());
+//   formData.append("title", title);
+//   formData.append("body", body);
+//   formData.append("image", image);
+
+//   fetch("/posts", {
+//     method: "POST",
+//     body: formData,
+//   })
+//     .then(async (response) => {
+//       if (response.ok) {
+//         const newPost = await response.json();
+//         console.log("Post created successfully", newPost);
+//         window.location.href = "/";
+//       } else {
+//         console.error("Error creating post");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error creating post", error);
+//     });
+// }
