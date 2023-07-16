@@ -9,8 +9,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(`/posts`,postRouter)
 
-
-
 app.use(express.static("front"));
 
 app.get('/', (req, res) => {

@@ -33,7 +33,7 @@ async function init() {
     method: "GET",
   });
   const postList = await res.json();
-
+  console.log(postList)
   // deploy 10 users <option>
   const userIds = getUserIdsFromPostList(postList); // [1, 2, 3, ...]
   userIds.forEach(createOption);
@@ -80,7 +80,7 @@ function createPost(post: IPost) {
   <div class="card-header">
     <h5 class="card-title">${post.id} - ${post.title}</h5>
     <small class="text-muted">Posted by User ${post.userId}</small>
-    <i onclick="deletePost(${post.id})" class="fas fa-trash" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
+    <i onclick="deletePost(${post.id})" class="fas fa-trash text-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
   </div>
   <div class="card-body">
     <div class="image-container" style="float: left; margin-right: 10px; display: flex; align-items: center; justify-content: center;">
@@ -198,3 +198,5 @@ function createPostToggle() {
   }
 
 }
+
+

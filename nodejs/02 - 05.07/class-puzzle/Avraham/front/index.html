@@ -38,7 +38,7 @@
         <!-- Create Post Button -->
         <div class="d-flex justify-content-center mb-4">
           <button class="btn btn-primary me-2" onclick="openForm()">Click to Create Post</button>
-     </div> 
+        </div> 
  
      <!-- Create Post Form -->
      <div class="container mb-4 border border-primary rounded p-4" id="createForm" style="display: none;">
@@ -116,7 +116,7 @@
     </div>
 
     <script src="/dist/index.js"></script>
-    <script>
+        <script>
       function submitPostForm(event) {
      event.preventDefault(); // Prevent form submission
 
@@ -135,7 +135,7 @@
 
      // Close the form
      closeForm();
-     fetch("http://localhost:3000/posts/post", {
+     fetch("http://localhost:3000/posts", {
        method: "POST",
        body: formData
      })
@@ -165,3 +165,4 @@
  </script>
   </body>
 </html>
+
