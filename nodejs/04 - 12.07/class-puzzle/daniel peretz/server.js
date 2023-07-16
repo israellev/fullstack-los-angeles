@@ -23,6 +23,7 @@ app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
 
+
 app.get('/', (req, res) => {
   console.log(__dirname);
   const pathToHtml = path.join(__dirname, 'Front End', 'index.html')

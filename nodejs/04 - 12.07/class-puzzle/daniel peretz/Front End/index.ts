@@ -103,77 +103,102 @@ function createPost(post: IPost) {
     postContainerElement.appendChild(newDiv);
   }  
 
-function deletePostsAndActiveFilter(postList: IPost[]) {
+  async function deletePost(postId: number) {
+    const res = await fetch(`/posts/${postId}`, {method: "DELETE"})
+    const deletedPost = await res.json()
+    if (deletedPost) 
+      document.getElementById(`post-${postId}`).remove()
+  }
+  
+  function deletePostsAndActiveFilter(postList: IPost[]) {
     // listener - every time search keyboard up or change select user:
-
+  
     // get input and select option values:
-    const searchValue = searchInputElement.value.toLowerCase().trim().replace(/[<>]/g, '')
-
-    localStorage.setItem("searchValue", searchValue)
+    const searchValue = searchInputElement.value
+      .toLowerCase()
+      .trim()
+      .replace(/[<>]/g, "");
+  
+    localStorage.setItem("searchValue", searchValue);
     const selectedUserId = selectUserElement.value;
-    localStorage.setItem("selectedUserId", selectedUserId)
-
-
+    localStorage.setItem("selectedUserId", selectedUserId);
+  
     // 1. delete all posts
-    postContainerElement.innerHTML = ""
-
+    postContainerElement.innerHTML = "";
+  
     // 2. filter only posts you find the user input
     const filteredPostList = postList.filter((post: IPost) => {
-        const isPostInSearch = isSearchIncludesInThePost(post, searchValue)
-        const isPostInList = isPostInUserList(post, selectedUserId)
-        return isPostInSearch && isPostInList
-    })
-
-
+      const isPostInSearch = isSearchIncludesInThePost(post, searchValue);
+      const isPostInList = isPostInUserList(post, selectedUserId);
+      return isPostInSearch && isPostInList;
+    });
+  
     // 3. deploy only filtered posts
-    filteredPostList.forEach(createPost)
-}
-
-function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
-    const values = Object.values(post) // [1, 1, "post title...", "post body..."]
-    const valuesToString = values.toString().toLowerCase() // '1,1,post title...,post body...'
-    return valuesToString.includes(searchValue)
-}
-
-function isPostInUserList(post: IPost, selectedUserId: string): boolean {
-    if (selectedUserId === 'all-users')
-        return true
-    return post.userId.toString() === selectedUserId
-}
-
-// create show comments 
-async function showComments(postId: number) {
-    const commentsElement = document.getElementById(`comments-${postId}`)
+    filteredPostList.forEach(createPost);
+  }
+  
+  function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
+    const values = Object.values(post); // [1, 1, "post title...", "post body..."]
+    const valuesToString = values.toString().toLowerCase(); // '1,1,post title...,post body...'
+    return valuesToString.includes(searchValue);
+  }
+  
+  function isPostInUserList(post: IPost, selectedUserId: string): boolean {
+    if (selectedUserId === "all-users") return true;
+    return post.userId.toString() === selectedUserId;
+  }
+  
+  async function showComments(postId: number) {
+    const commentsElement = document.getElementById(`comments-${postId}`);
     if (!commentsElement.children.length) {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
-        const commentList = await res.json()
-        commentList.forEach(createCommnet)
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,
+        { method: "GET" }
+      );
+      const commentList = await res.json();
+      commentList.forEach(createCommnet);
     } else {
-        if (commentsElement.classList.contains('collapse'))
-            commentsElement.classList.remove('collapse')
-        else
-            commentsElement.classList.add('collapse')
+      if (commentsElement.classList.contains("collapse"))
+        commentsElement.classList.remove("collapse");
+      else commentsElement.classList.add("collapse");
     }
-}
-
-function createCommnet(comment: IComment) {
-    const commentsElement = document.getElementById(`comments-${comment.postId}`)
-    const newDiv = document.createElement("div")
+  }
+  
+  function createCommnet(comment: IComment) {
+    const commentsElement = document.getElementById(`comments-${comment.postId}`);
+    const newDiv = document.createElement("div");
     const htmlPost = `
-    <div id="comments-${comment.id}">
-        <div class="card card-body">
-            <h6>Comments:</h6>
-            <div class="comment">
-                <strong>Name: </strong>${comment.name}<br>
-                <strong>Email: </strong>${comment.email}<br>
-                <strong>Comment: </strong>${comment.body}
-            </div>
-        </div>
-    </div>`;
-    newDiv.innerHTML = htmlPost
-    commentsElement.appendChild(newDiv)
-}
-
+      <div id="comments-${comment.id}">
+          <div class="card card-body">
+              <h6>Comments:</h6>
+              <div class="comment">
+                  <strong>Name: </strong>${comment.name}<br>
+                  <strong>Email: </strong>${comment.email}<br>
+                  <strong>Comment: </strong>${comment.body}
+              </div>
+          </div>
+      </div>`;
+    newDiv.innerHTML = htmlPost;
+    commentsElement.appendChild(newDiv);
+  }
+  
+  function createPostToggle() {
+    const iconElement = document.getElementById("plusPost")
+    const formElement = document.getElementById("createPostForm")
+    const isPlus = iconElement.classList.contains("fa-plus-circle")
+    if (isPlus) {
+      iconElement.classList.remove("fa-plus-circle")
+      iconElement.classList.add("fa-minus-circle")
+      formElement.style.display = 'block'
+  
+    } else {
+      iconElement.classList.remove("fa-minus-circle")
+      iconElement.classList.add("fa-plus-circle")
+      formElement.style.display = 'none'
+    }
+  
+  }
+  
 // // create show Photos
 
 // type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
