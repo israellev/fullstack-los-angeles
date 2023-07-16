@@ -14,6 +14,7 @@ type IComment = { id: number, postId: number, name: string, email: string, body:
 const postContainerElement = document.getElementById("postContainer")// דיב 
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement//החיפוש בדיב 
 const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement// הדרופ דאון משתמשים
+
 // const albumContainer = document.getElementById("album-container");
 
 /* Goal: add select user filter
@@ -220,124 +221,42 @@ displayAlbums();
 
 
 
+ 
+type Isubmit = {userId: number, title:string, body:string, image:File }
+interface ISubmitEvent extends Event {
+  target: HTMLFormElement;
+}
 
+function submitPostForm(event: ISubmitEvent) {
+  event.preventDefault();
 
+  // Get form values
+  const userId = +document.getElementById("userId").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
 
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId.toString());
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async function showPhotos(albumId:number){
-
-// }
-
-
-// albums.forEach(album => {
-// function createPhoto(photo: Iphoto) {
-//     const newPhoto = document.createElement("div")
-//     const htmlPhoto = `
-//     <div class="album" id="album-${album.id}">
-//       <h3 class="album-title">${album.title}</h3>
-//       <div class="photo-gallery">
-//         ${generatePhotos(album.photos)} <!-- הפעלה של פונקצית יצירת התמונות -->
-//       </div>
-//     </div>
-//   `;
-//   albumContainer.innerHTML += albumTemplate;
-// });
-
-
-// async function albums() {
-
-//     const photo = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" })
-//     const photoList = await photo.json()//הפיכת רשימת הפוסטים לגייסון 
-
-
-// //-----------------------------------------------------------------------------------
-
-// async function fetchPhotos() {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
-//     const photoList = await response.json();
-//     return photoList;
-// }
-
-// function createPhoto(photo) {
-//     const newPhoto = document.createElement("div");
-//     const htmlPhoto = `
-//         <div class="album" id="album-${photo.albumId}">
-//             <h3 class="album-title">${photo.title}</h3>
-//             <div class="photo-gallery">
-//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
-//             </div>
-//         </div>
-//     `;
-//     newPhoto.innerHTML = htmlPhoto;
-
-//     newPhoto.addEventListener("click", () => {
-//         showPhotos(photo.albumId);
-//     });
-
-//     return newPhoto;
-// }
-
-// async function showPhotos(albumId) {
-   
-// }
-
-// async function displayAlbums() {
-//     const albumsContainer = document.getElementById("album-container");
-
-//     const photoList = await fetchPhotos();
-
-//     photoList.forEach((photo) => {
-//         const albumDiv = createPhoto(photo);
-//         albumsContainer.appendChild(albumDiv);
-//     });
-// }
-
-// displayAlbums();
-
-
-// //--------------------------------------------------------------------------------------
-
-// const albumsContainer = document.getElementById("album-container");
-
-// const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
-// const photoList = await response.json();
-// photoList.forEach(createPhoto);
-
-// function createPhoto(photo) {
-//     const htmlPhoto = `
-//         <div class="album" id="album-${photo.albumId}">
-//             <h3 class="album-title">${photo.title}</h3>
-//             <div class="photo-gallery">
-//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
-//             </div>
-//         </div>
-//     `;
-//     const newPhoto = document.createElement("div");
-//     newPhoto.innerHTML = htmlPhoto;
-//     albumsContainer.appendChild(newPhoto);
-// }
+  fetch("/posts", {
+    method: "POST",
+    body: formData,
+  })
+    .then(async (response) => {
+      if (response.ok) {
+        const newPost = await response.json();
+        console.log("Post created successfully", newPost);
+        window.location.href = "/";
+      } else {
+        console.error("Error creating post");
+      }
+    })
+    .catch((error) => {
+      console.error("Error creating post", error);
+    });
+}
