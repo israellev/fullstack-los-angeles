@@ -21,16 +21,14 @@ app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
 
-// Serve create-post.html
-
 app.get('/', (req, res) => {
   const pathToHtml = path.join(__dirname, 'Front End', 'index.html')
   res.sendFile(pathToHtml);
 });
 
 app.get('/create-post', (req, res) => {
-  const PathToHtml = PathToHtml.join(__dirname + '/Front End/create-post.html')
-  res.sendFile(PathToHtml);
+  const pathToHtml = path.join(__dirname, 'Front End', 'create-post.html')
+  res.sendFile(pathToHtml);
 });
 
 
