@@ -10,6 +10,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
 
     <title>My Blog</title>
     <script>
@@ -31,28 +35,134 @@
       </div>
     </header>
 
+        <!-- Create Post Button -->
+        <div class="d-flex justify-content-center mb-4">
+          <button class="btn btn-primary me-2" onclick="openForm()">Click to Create Post</button>
+        </div> 
+ 
+     <!-- Create Post Form -->
+     <div class="container mb-4 border border-primary rounded p-4" id="createForm" style="display: none;">
+       <div class="form-container">
+         <h2 class="text-primary text-center">Create a New Post</h2>
+         <form id="postForm" onsubmit="submitPostForm(event)">
+           <div class="mb-3 text-center">
+             <label for="userId" class="form-label text-primary">User ID</label>
+             <input
+               type="number"
+               class="form-control text-center"
+               id="userId"
+               placeholder="Enter User ID"
+               required
+             />
+           </div>
+           <div class="mb-3 text-center">
+             <label for="title" class="form-label text-primary">Title</label>
+             <input
+               type="text"
+               class="form-control text-center"
+               id="title"
+               placeholder="Enter Title"
+               required
+             />
+           </div>
+           <div class="mb-3 text-center">
+             <label for="body" class="form-label text-primary">Body</label>
+             <textarea
+               class="form-control text-center"
+               id="body"
+               rows="5"
+               placeholder="Enter Post Body"
+               required
+             ></textarea>
+           </div>
+           <div class="mb-3 text-center">
+             <label for="image" class="form-label  text-primary">Image</label>
+             <input
+               type="file"
+               class="form-control"
+               id="image"
+               name="image"
+               accept="image/jpeg"
+               required
+             />
+           </div>
+           <button type="submit" class="btn btn-primary d-block mx-auto">Send Post</button>
+         </form>
+       </div>
+     </div>
+
     <!-- Main Content -->
-    <div class="container">
-      <div class="d-flex justify-content-center mb-4">
+    <div class="container ">
+      <div class="d-flex justify-content-center mb-4 ">
+
         <input
           id="searchInput"
-          class="form-control text-center me-2"
+          class="form-control me-2 text-center"
           type="search"
           placeholder="Search Posts"
           aria-label="Search"
         />
-        <div class="col-md-3">
-          <select id="selectUser" class="form-select text-center " aria-label="Select User">
-            <option value="0" selected>Select User</optoin>
-            <!-- Optoins of user ids  will be added here dynamically -->
+        <div class="col-md-3 ">
+          <select id="selectUser" class="form-select text-center" aria-label="Select User">
+            <option value="all-users" class="text-center" selected>Select User</option>
+            <!-- Options of user ids  will be added here dynamically -->
           </select>
         </div>
       </div>
+    
       <div id="postContainer" class="row">
         <!-- Posts will be added here dynamically -->
       </div>
     </div>
 
-    <script src="./dist/index.js"></script>
+    <script src="/dist/index.js"></script>
+        <script>
+      function submitPostForm(event) {
+     event.preventDefault(); // Prevent form submission
+
+     // Get form values
+     const userId = document.getElementById("userId").value;
+     const title = document.getElementById("title").value;
+     const body = document.getElementById("body").value;
+     const image = document.getElementById("image").files[0];
+
+     // Create the form data object
+     const formData = new FormData();
+     formData.append("userId", userId);
+     formData.append("title", title);
+     formData.append("body", body);
+     formData.append("image", image);
+
+     // Close the form
+     closeForm();
+     fetch("http://localhost:3000/posts", {
+       method: "POST",
+       body: formData
+     })
+     .then(async (response) => {
+       if (response.ok) {
+         const newPost = await response.json()
+         console.log("Post created successfully", newPost);
+         window.location.href = '/'
+         console.log(newPost)
+       } else {
+         console.error("Error creating post");
+       }
+     })
+     .catch(error => {
+       console.error("Error creating post", error);
+     });
+   }
+
+   function openForm() {
+     document.getElementById("createForm").style.display = "block";
+   }
+
+   function closeForm() {
+     document.getElementById("createForm").style.display = "none";
+   }
+   
+ </script>
   </body>
 </html>
+

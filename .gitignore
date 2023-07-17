@@ -12,3 +12,5 @@ firebase.json
 *.env
 .firebase
 **/dist
+firebase-debug.log
+**/config.js

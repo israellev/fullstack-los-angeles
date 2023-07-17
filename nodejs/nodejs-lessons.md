@@ -109,15 +109,12 @@ changes in 'server.js' file:
       'npm run [script_name]'
       'npm run start' instead of 'nodemon server.js'
 
-* use 'npm start'
-
 * Static files - posts.json in the local
 
-* Deploying the entire app to the Firebase
+* Deploying the entire app to the Firebase??
 
 *middleware
 *error handling
-
 
 * Working with typescript:
 'npm install -g typescript' (only once)
@@ -143,4 +140,8 @@ Open account in mongodb
 
 'npm install mongoose'
 'mongodb+srv://israellev770:eXb57AKhbMEPTDAD@cluster0.5q2k4o8.mongodb.net/'
+
+5. MongoDB
+npm i mongoose
+docs - https://www.mongodb.com/cloud/atlas/register
 
