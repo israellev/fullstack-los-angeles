@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>My Blog</title>
+    <script>
+      var exports = {};
+    </script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-white bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-1" href="#">My Blog</a>
+      </div>
+    </nav>
+
+        <!-- Main Header -->
+        <header class="custom-header text-white text-center py-5 mb-4 bg-primary">
+            <div class="container">
+              <h1 class="font-weight-light">Welcome to My Blog</h1>
+            </div>
+          </header>
+
+    <!-- creat post -->
+
+
+    <div class="container">
+        <h2>Create New Post</h2>
+        <form id="postForm" onsubmit="onSubmitForm(event)">
+          <div class="mb-3">
+            <label for="userId" class="form-label">User ID</label>
+            <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter Title">
+          </div>
+          <div class="mb-3">
+            <label for="body" class="form-label">Body</label>
+            <textarea class="form-control" id="body" rows="5" placeholder="Enter Body"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Create-Post</button>
+        </form>
+      </div>
+
+    <script src="./dist/index.js"></script>
+  </body>
+
+  <script>
+
+function submitPostForm(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const userId = +document.getElementById("userId").value;
+        const title = document.getElementById("title").value;
+        const body = document.getElementById("body").value;
+        const image = document.getElementById("image").files[0];
+
+        // Create the form data object
+        const formData = new FormData();
+        formData.append("userId", userId);
+        formData.append("title", title);
+        formData.append("body", body);
+        formData.append("image", image);
+
+        fetch("/posts", {
+          method: "POST",
+          body: formData
+        })
+        .then(async (response) => {
+          if (response.ok) {
+            const newPost = await response.json()
+            console.log("Post created successfully", newPost);
+            window.location.href = '/'
+          } else {
+            console.error("Error creating post");
+          }
+        })
+        .catch(error => {
+          console.error("Error creating post", error);
+        });
+      }
+
+  </script>
+</html>
