@@ -3,28 +3,23 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path')
 
-
 // Multer storage configuration
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'Front End/images'); // Specify the destination path
+      cb(null, 'front/images'); // Specify the destination path
     },
     filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-        const fileExtension = path.extname(file.originalname);
-        cb(null, uniqueSuffix + fileExtension);
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+      const fileExtension = path.extname(file.originalname);
+      cb(null, uniqueSuffix + fileExtension);
     }
-});
-const upload = multer({
-    storage: storage
-});
+  }); 
+const upload = multer({ storage: storage });
 
 
 const posts = []
 let id = 1;
 
-
-// Define a route handler for the root path
 router.get('/', (req, res) => {
     res.send(posts);
 });
@@ -47,17 +42,11 @@ router.post('/', upload.single('image'), (req, res) => {
     res.send(newPost)
 });
 
-router.delete('//:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const postId = +req.params.id;
     const postIndex = posts.findIndex(post => post.id === postId);
     res.send(posts[postIndex])
     posts.splice(postIndex, 1);
 })
 
-router.delete('//:id', (req, res) => {
-    const postId = +req.params.id;
-    const postIndex = posts.findIndex(post => post.id === postId);
-    res.send(posts[postIndex]);
-    posts.splice(postIndex, 1);
-});
-module.exports = router;
+module.exports = router
