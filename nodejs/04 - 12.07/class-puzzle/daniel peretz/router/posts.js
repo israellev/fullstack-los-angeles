@@ -54,5 +54,10 @@ router.delete('//:id', (req, res) => {
     posts.splice(postIndex, 1);
 })
 
-
-module.exports = router
+router.delete('//:id', (req, res) => {
+    const postId = +req.params.id;
+    const postIndex = posts.findIndex(post => post.id === postId);
+    res.send(posts[postIndex]);
+    posts.splice(postIndex, 1);
+});
+module.exports = router;
