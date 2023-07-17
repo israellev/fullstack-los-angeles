@@ -21,19 +21,19 @@ const posts = [];
 router.get('/', (req, res) => {
     res.send(posts);
   });
-  
+
   router.post('/', upload.single('image'), (req, res) => {
-   
+    
     const newPost = 
     {
       ...req.body,
       imageUrl: `/images/${req.file.filename}`,
       id: posts.length + 1, 
     };
-  
+    
     // Add the new post to the list of posts
     posts.push(newPost);
-  
+    
     // Return the created post
     res.send(newPost);
   });

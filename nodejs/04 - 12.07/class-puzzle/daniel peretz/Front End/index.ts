@@ -6,7 +6,7 @@ export { }
 document.getElementById("searchInput").value = localStorage.getItem("inputSearch")
 
 // טייפים מה כל מערך מכיל 
-type IPost = { id: number, userId: number, title: string, body: string }
+type IPost = { id: number, userId: number, title: string, body: string, imageUrl: string }
 type IComment = { id: number, postId: number, name: string, email: string, body: string }
 // type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
 
@@ -14,6 +14,7 @@ type IComment = { id: number, postId: number, name: string, email: string, body:
 const postContainerElement = document.getElementById("postContainer")// דיב 
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement//החיפוש בדיב 
 const selectUserElement = document.getElementById("selectUser") as HTMLSelectElement// הדרופ דאון משתמשים
+
 // const albumContainer = document.getElementById("album-container");
 
 /* Goal: add select user filter
@@ -76,268 +77,215 @@ function createOption(userId: number) {
 }
 // פונקציה זו פותחת דיב חדש על ידי הפרמטר אי פוסט ויוצרת דיב חדש אם ערכים שקבעתי 
 function createPost(post: IPost) {
-    const newDiv = document.createElement("div")
+    const newDiv = document.createElement("div");
     const htmlPost = `
-        <div class="card mb-4" id="post-${post.id}">
-            <div class="card-header">
-                <h5 class="card-title">${post.id} - ${post.title}</h5>
-                <small class="text-muted">Posted by User ${post.userId}</small>
-            </div>
-            <div class="card-body">
-                <p class="card-text">${post.body}</p>
-                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
-                    Show comments
-                </button>
-                <div id="comments-${post.id}">
-                <!-- Comments will be dynamically added here -->
-                </div>
-            </div>
-        </div>
-        `;
-    newDiv.innerHTML = htmlPost
-    postContainerElement.appendChild(newDiv)
-}
+          <div class="card mb-4" id="post-${post.id}">
+              <div class="card-header">
+                  <h5 class="card-title">${post.id} - ${post.title}</h5>
+                  <small class="text-muted">Posted by User ${post.userId}</small>
+                  <i onclick="deletePost(${post.id})" class="fas fa-trash"
+                      style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
+                  </i>
+              </div>
+              <div class="card-body">
+                  <p class="card-text">${post.body}</p>
+                  <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                      Show comments
+                  </button>
+                  <div id="comments-${post.id}">
+                  <!-- Comments will be dynamically added here -->
+                  </div>
+                  <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
+              </div>
+          </div>
+          `;
+    newDiv.innerHTML = htmlPost;
+    postContainerElement.appendChild(newDiv);
+  }  
 
-// 
-function deletePostsAndActiveFilter(postList: IPost[]) {
+  async function deletePost(postId: number) {
+    const res = await fetch(`/posts/${postId}`, {method: "DELETE"})
+    const deletedPost = await res.json()
+    if (deletedPost) 
+      document.getElementById(`post-${postId}`).remove()
+  }
+  
+  function deletePostsAndActiveFilter(postList: IPost[]) {
     // listener - every time search keyboard up or change select user:
-
+  
     // get input and select option values:
-    const searchValue = searchInputElement.value.toLowerCase().trim().replace(/[<>]/g, '')
-
-    localStorage.setItem("searchValue", searchValue)
+    const searchValue = searchInputElement.value
+      .toLowerCase()
+      .trim()
+      .replace(/[<>]/g, "");
+  
+    localStorage.setItem("searchValue", searchValue);
     const selectedUserId = selectUserElement.value;
-    localStorage.setItem("selectedUserId", selectedUserId)
-
-
+    localStorage.setItem("selectedUserId", selectedUserId);
+  
     // 1. delete all posts
-    postContainerElement.innerHTML = ""
-
+    postContainerElement.innerHTML = "";
+  
     // 2. filter only posts you find the user input
     const filteredPostList = postList.filter((post: IPost) => {
-        const isPostInSearch = isSearchIncludesInThePost(post, searchValue)
-        const isPostInList = isPostInUserList(post, selectedUserId)
-        return isPostInSearch && isPostInList
-    })
-
-
+      const isPostInSearch = isSearchIncludesInThePost(post, searchValue);
+      const isPostInList = isPostInUserList(post, selectedUserId);
+      return isPostInSearch && isPostInList;
+    });
+  
     // 3. deploy only filtered posts
-    filteredPostList.forEach(createPost)
-}
-
-function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
-    const values = Object.values(post) // [1, 1, "post title...", "post body..."]
-    const valuesToString = values.toString().toLowerCase() // '1,1,post title...,post body...'
-    return valuesToString.includes(searchValue)
-}
-
-function isPostInUserList(post: IPost, selectedUserId: string): boolean {
-    if (selectedUserId === 'all-users')
-        return true
-    return post.userId.toString() === selectedUserId
-}
-
-// create show comments 
-async function showComments(postId: number) {
-    const commentsElement = document.getElementById(`comments-${postId}`)
+    filteredPostList.forEach(createPost);
+  }
+  
+  function isSearchIncludesInThePost(post: IPost, searchValue: string): boolean {
+    const values = Object.values(post); // [1, 1, "post title...", "post body..."]
+    const valuesToString = values.toString().toLowerCase(); // '1,1,post title...,post body...'
+    return valuesToString.includes(searchValue);
+  }
+  
+  function isPostInUserList(post: IPost, selectedUserId: string): boolean {
+    if (selectedUserId === "all-users") return true;
+    return post.userId.toString() === selectedUserId;
+  }
+  
+  async function showComments(postId: number) {
+    const commentsElement = document.getElementById(`comments-${postId}`);
     if (!commentsElement.children.length) {
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
-        const commentList = await res.json()
-        commentList.forEach(createCommnet)
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,
+        { method: "GET" }
+      );
+      const commentList = await res.json();
+      commentList.forEach(createCommnet);
     } else {
-        if (commentsElement.classList.contains('collapse'))
-            commentsElement.classList.remove('collapse')
-        else
-            commentsElement.classList.add('collapse')
+      if (commentsElement.classList.contains("collapse"))
+        commentsElement.classList.remove("collapse");
+      else commentsElement.classList.add("collapse");
     }
-}
-
-function createCommnet(comment: IComment) {
-    const commentsElement = document.getElementById(`comments-${comment.postId}`)
-    const newDiv = document.createElement("div")
+  }
+  
+  function createCommnet(comment: IComment) {
+    const commentsElement = document.getElementById(`comments-${comment.postId}`);
+    const newDiv = document.createElement("div");
     const htmlPost = `
-    <div id="comments-${comment.id}">
-        <div class="card card-body">
-            <h6>Comments:</h6>
-            <div class="comment">
-                <strong>Name: </strong>${comment.name}<br>
-                <strong>Email: </strong>${comment.email}<br>
-                <strong>Comment: </strong>${comment.body}
-            </div>
-        </div>
-    </div>`;
-    newDiv.innerHTML = htmlPost
-    commentsElement.appendChild(newDiv)
-}
-
+      <div id="comments-${comment.id}">
+          <div class="card card-body">
+              <h6>Comments:</h6>
+              <div class="comment">
+                  <strong>Name: </strong>${comment.name}<br>
+                  <strong>Email: </strong>${comment.email}<br>
+                  <strong>Comment: </strong>${comment.body}
+              </div>
+          </div>
+      </div>`;
+    newDiv.innerHTML = htmlPost;
+    commentsElement.appendChild(newDiv);
+  }
+  
+  function createPostToggle() {
+    const iconElement = document.getElementById("plusPost")
+    const formElement = document.getElementById("createPostForm")
+    const isPlus = iconElement.classList.contains("fa-plus-circle")
+    if (isPlus) {
+      iconElement.classList.remove("fa-plus-circle")
+      iconElement.classList.add("fa-minus-circle")
+      formElement.style.display = 'block'
+  
+    } else {
+      iconElement.classList.remove("fa-minus-circle")
+      iconElement.classList.add("fa-plus-circle")
+      formElement.style.display = 'none'
+    }
+  
+  }
+  
 // // create show Photos
 
-type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
-async function fetchAlbums() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-    const albumList = await response.json();
-    return albumList;
-}
-
-function createAlbum(album) {
-    const albumDiv = document.createElement("div");
-    albumDiv.classList.add("album");
-
-    const albumTitle = document.createElement("h3");
-    albumTitle.classList.add("album-title");
-    albumTitle.innerText = album.title;
-
-    const albumPhoto = document.createElement("img");
-    albumPhoto.classList.add("album-photo");
-    albumPhoto.src = album.thumbnailUrl;
-    albumPhoto.alt = album.title;
-
-    albumDiv.appendChild(albumTitle);
-    albumDiv.appendChild(albumPhoto);
-
-    albumDiv.addEventListener("click", () => {
-        showPhotos(album.albumId);
-    });
-
-    return albumDiv;
-}
-
-async function displayAlbums() {
-    const albumsContainer = document.getElementById("album-container");
-    const albumList = await fetchAlbums();
-
-    albumList.forEach((album) => {
-        const albumDiv = createAlbum(album);
-        albumsContainer.appendChild(albumDiv);
-    });
-}
-
-function showPhotos(albumId) {
-    // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
-}
-
-displayAlbums();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async function showPhotos(albumId:number){
-
+// type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
+// async function fetchAlbums() {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+//     const albumList = await response.json();
+//     return albumList;
 // }
 
+// function createAlbum(album) {
+//     const albumDiv = document.createElement("div");
+//     albumDiv.classList.add("album");
 
-// albums.forEach(album => {
-// function createPhoto(photo: Iphoto) {
-//     const newPhoto = document.createElement("div")
-//     const htmlPhoto = `
-//     <div class="album" id="album-${album.id}">
-//       <h3 class="album-title">${album.title}</h3>
-//       <div class="photo-gallery">
-//         ${generatePhotos(album.photos)} <!-- הפעלה של פונקצית יצירת התמונות -->
-//       </div>
-//     </div>
-//   `;
-//   albumContainer.innerHTML += albumTemplate;
-// });
+//     const albumTitle = document.createElement("h3");
+//     albumTitle.classList.add("album-title");
+//     albumTitle.innerText = album.title;
 
+//     const albumPhoto = document.createElement("img");
+//     albumPhoto.classList.add("album-photo");
+//     albumPhoto.src = album.thumbnailUrl;
+//     albumPhoto.alt = album.title;
 
-// async function albums() {
+//     albumDiv.appendChild(albumTitle);
+//     albumDiv.appendChild(albumPhoto);
 
-//     const photo = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" })
-//     const photoList = await photo.json()//הפיכת רשימת הפוסטים לגייסון 
-
-
-// //-----------------------------------------------------------------------------------
-
-// async function fetchPhotos() {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
-//     const photoList = await response.json();
-//     return photoList;
-// }
-
-// function createPhoto(photo) {
-//     const newPhoto = document.createElement("div");
-//     const htmlPhoto = `
-//         <div class="album" id="album-${photo.albumId}">
-//             <h3 class="album-title">${photo.title}</h3>
-//             <div class="photo-gallery">
-//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
-//             </div>
-//         </div>
-//     `;
-//     newPhoto.innerHTML = htmlPhoto;
-
-//     newPhoto.addEventListener("click", () => {
-//         showPhotos(photo.albumId);
+//     albumDiv.addEventListener("click", () => {
+//         showPhotos(album.albumId);
 //     });
 
-//     return newPhoto;
-// }
-
-// async function showPhotos(albumId) {
-   
+//     return albumDiv;
 // }
 
 // async function displayAlbums() {
 //     const albumsContainer = document.getElementById("album-container");
+//     const albumList = await fetchAlbums();
 
-//     const photoList = await fetchPhotos();
-
-//     photoList.forEach((photo) => {
-//         const albumDiv = createPhoto(photo);
+//     albumList.forEach((album) => {
+//         const albumDiv = createAlbum(album);
 //         albumsContainer.appendChild(albumDiv);
 //     });
+// }
+
+// function showPhotos(albumId) {
+//     // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
 // }
 
 // displayAlbums();
 
 
-// //--------------------------------------------------------------------------------------
+// Check why it doesn't work
+ 
+// type Isubmit = {userId: number, title:string, body:string, image:File }
+// interface ISubmitEvent extends Event {
+//   target: HTMLFormElement;
+// }
 
-// const albumsContainer = document.getElementById("album-container");
 
-// const response = await fetch("https://jsonplaceholder.typicode.com/photos", { method: "GET" });
-// const photoList = await response.json();
-// photoList.forEach(createPhoto);
+// function submitPostForm(event: ISubmitEvent) {
+//   event.preventDefault();
 
-// function createPhoto(photo) {
-//     const htmlPhoto = `
-//         <div class="album" id="album-${photo.albumId}">
-//             <h3 class="album-title">${photo.title}</h3>
-//             <div class="photo-gallery">
-//                 <img src="${photo.url}" alt="${photo.title}" class="album-photo">
-//             </div>
-//         </div>
-//     `;
-//     const newPhoto = document.createElement("div");
-//     newPhoto.innerHTML = htmlPhoto;
-//     albumsContainer.appendChild(newPhoto);
+//   // Get form values
+//   const userId = +document.getElementById("userId").value;
+//   const title = document.getElementById("title").value;
+//   const body = document.getElementById("body").value;
+//   const image = document.getElementById("image").files[0];
+
+//   // Create the form data object
+//   const formData = new FormData();
+//   formData.append("userId", userId.toString());
+//   formData.append("title", title);
+//   formData.append("body", body);
+//   formData.append("image", image);
+
+//   fetch("/posts", {
+//     method: "POST",
+//     body: formData,
+//   })
+//     .then(async (response) => {
+//       if (response.ok) {
+//         const newPost = await response.json();
+//         console.log("Post created successfully", newPost);
+//         window.location.href = "/";
+//       } else {
+//         console.error("Error creating post");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error creating post", error);
+//     });
 // }

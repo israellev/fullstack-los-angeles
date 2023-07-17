@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <title>My Blog</title>
   <script>
@@ -55,26 +56,6 @@
       </div>
     </div>
 
-    <!-- Create New Post Form -->
-    <div class="container mt-5">
-      <h2 class="text-center mb-4">Create New Post</h2>
-      <form id="createPostForm">
-        <div class="mb-3">
-          <label for="userId" class="form-label">User ID</label>
-          <input type="text" class="form-control" id="userId" placeholder="Enter User ID" required>
-        </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" placeholder="Enter Title" required>
-        </div>
-        <div class="mb-3">
-          <label for="body" class="form-label">Body</label>
-          <textarea class="form-control" id="body" rows="5" placeholder="Enter Body" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
-      </form>
-    </div>
-
 
     <div id="postContainer" class="row">
       <!-- Posts will be added here dynamically -->
@@ -82,11 +63,20 @@
     </div>
   </div>
 
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+        content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
 
   <div id="album-container" class="row">
     <!-- Albums will be added here dynamically -->
   </div>
-
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
