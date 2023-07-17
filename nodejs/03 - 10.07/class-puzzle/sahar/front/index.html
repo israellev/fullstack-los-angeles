@@ -15,6 +15,10 @@
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <title>My Blog</title>
     <script>
       var exports = {};
@@ -40,6 +44,9 @@
     <!-- Main Content -->
     <div class="container">
       <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-primary me-2" onclick="createPostToggle()" aria-label="Add Post">
+          <i class="fas fa-plus-circle text-white" id="plusPost"></i>
+        </button> 
         <input
           class="form-control me-2"
           type="search"
@@ -54,18 +61,99 @@
           Search
         </button>
       </div>
-      <form>
-        <!-- Post Button -->
-        <button id="postButton" type="submit" class="btn btn-primary">Create your post here</button>
-          <div id="postWriting" class="row mt-4" style="display: none;"> 
-            <!-- Posts will be written in here -->
-          </div>
-      </form>
+      <!-- create post container-->
+      <div class="container" style="display: none" id="createPostForm">
+        <div class="form-container">
+          <h2>Create a New Post</h2>
+          <form id="postForm" onsubmit="submitPostForm(event)">
+            <div class="mb-3">
+              <label for="userId" class="form-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="userId"
+                placeholder="Enter User ID"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter Title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="5"
+                placeholder="Enter Post Body"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label" >Image</label>
+              <input 
+                type="file"
+                class="form-control"
+                name="image"
+                id="image"
+                accept="image/jpeg"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary" >Create Post</button>
+          </form>
+        </div>
+      </div>
+
+    
+    <!--post container-->
       <div id="postContainer" class="row"> 
           <!-- Posts will be added here dynamically -->
       </div>
     </div>
 
     <script src="./dist/index.js"></script>
+<script>
+  function submitPostForm(event) {
+  event.preventDefault();
+
+  // Get form values
+  const userId = +document.getElementById("userId").value; 
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
+
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
+
+  fetch("/posts", {
+    method: "POST",
+    body: formData
+  })
+    .then(async (response) => {
+      if (response.ok) {
+        const newPost = await response.json();
+        console.log("Post created successfully", newPost);
+        window.location.href = "/";
+      } else {
+        console.error("Error creating post");
+      }
+    })
+    .catch(error => {
+      console.error("Error creating post", error);
+    });
+}
+</script>
   </body>
 </html>

@@ -211,37 +211,3 @@ function createPostToggle() {
 
 }
 
-
-function submitPostForm(event) {
-  event.preventDefault();
-  
-  // Get form values
-  const userId = +document.getElementById("userId").value;
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const image = document.getElementById("image").files[0];
-
-  // Create the form data object
-  const formData = new FormData();
-  formData.append("userId", userId);
-  formData.append("title", title);
-  formData.append("body", body);
-  formData.append("image", image);
-
-  fetch("/posts", {
-    method: "POST",
-    body: formData
-  })
-  .then(async (response) => {
-    if (response.ok) {
-      const newPost = await response.json()
-      console.log("Post created successfully", newPost);
-      window.location.href = '/'
-    } else {
-      console.error("Error creating post");
-    }
-  })
-  .catch(error => {
-    console.error("Error creating post", error);
-  });
-}
