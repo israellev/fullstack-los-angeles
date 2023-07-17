@@ -101,6 +101,9 @@ init()//הרצת פונרמית איניט
                         <div id="comments-${post.id}">
                         <!-- Comments will be dynamically added here -->
                         </div>
+                        <div class="delete-icon" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
+                            <i class="fas fa-trash" onClick="deletePost(${post.id})"></i>
+                        </div>
                     </div>
                 </div>
                 `;
@@ -115,6 +118,15 @@ init()//הרצת פונרמית איניט
         // Finally, the div element is appended to the postContainer element in the document.
         //בכפתור הוספנו אירוע לחיצת כפתור אשר יפעיל לנו את הפונקציה showComments
     
+    async function deletePost(postId: number){
+           const res = await fetch(`/posts/${postId}`, {method: "DELETE",})
+           const deletedPost = await res.json()
+           console.log(deletedPost)
+           if (deletedPost){
+            document.getElementById(`post-${postId}`).remove();
+           }
+        }
+        
     function addImageByUser(userId) {
             if (userId in imagesByUser) {
               return imagesByUser[userId];
