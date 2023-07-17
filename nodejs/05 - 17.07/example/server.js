@@ -34,7 +34,6 @@ app.get('/create-post', (req, res) => {
   res.sendFile(pathToHtml);
 });
 
-
 // deploy
 const port = 3000;
 app.listen(port, () => {
