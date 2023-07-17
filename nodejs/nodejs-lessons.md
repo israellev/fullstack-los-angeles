@@ -142,6 +142,6 @@ Open account in mongodb
 'mongodb+srv://israellev770:eXb57AKhbMEPTDAD@cluster0.5q2k4o8.mongodb.net/'
 
 5. MongoDB
-docs:
-https://www.mongodb.com/cloud/atlas/register
+npm i mongoose
+docs - https://www.mongodb.com/cloud/atlas/register
 
