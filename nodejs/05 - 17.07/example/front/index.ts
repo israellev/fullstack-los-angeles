@@ -1,7 +1,7 @@
 export { };
 
 type IPost = { 
-  id: number; 
+  _id: string; 
   userId: number; 
   title: string; 
   body: string;
@@ -91,20 +91,20 @@ function createOption(userId: number) {
 function createPost(post: IPost) {
   const newDiv = document.createElement("div");
   const htmlPost = `
-        <div class="card mb-4" id="post-${post.id}">
+        <div class="card mb-4" id="post-${post._id}">
             <div class="card-header">
-                <h5 class="card-title">${post.id} - ${post.title}</h5>
+                <h5 class="card-title">${post._id} - ${post.title}</h5>
                 <small class="text-muted">Posted by User ${post.userId}</small>
-                <i onclick="deletePost(${post.id})" class="fas fa-trash"
+                <i onclick="deletePost(${post._id})" class="fas fa-trash"
                     style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
                 </i>
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
-                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                <button onClick="showComments(${post._id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
                     Show comments
                 </button>
-                <div id="comments-${post.id}">
+                <div id="comments-${post._id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
                 <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
