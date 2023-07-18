@@ -4,17 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
-const mongoose = require('mongoose')
-const config = require('./config')
-
-mongoose.connect(config.mongodb.url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('connect mongo successfully'))
-.catch(error => console.log('error', error))
+const initMongoDb = require('./mongo/mongodb')
 
 
+initMongoDb()
 
 // create app
 const app = express();

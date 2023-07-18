@@ -12,10 +12,8 @@ const PostModel = mongoose.model('Post', PostSchema)
 class PostService {
 
     async createPost(post) {
-        const newPost = PostModel(post)
-        await newPost.save()
-        console.log(newPost)
-        return newPost
+        const newPost = new PostModel(post)
+        return await newPost.save()
     }
 
     async getAllPosts() {
@@ -31,11 +29,22 @@ class PostService {
         return await PostModel.find({title: regex})
     }
 
-    async deletePost(postId) {
+    async updatePostTitle(postId, newTitle) {
         const post = await this.getPost(postId)
-        return await post.deleteOne()
+        if (post) {
+            post.title = newTitle
+            return await post.save()
+        }
+        console.log('post is not exists for update')
     }
 
+    async deletePost(postId) {
+        const post = await this.getPost(postId)
+        if (post)
+            return await post.deleteOne()
+        else
+            console.log('Post is not exists for delete')
+    }
 }
 
 const postService = new PostService()
