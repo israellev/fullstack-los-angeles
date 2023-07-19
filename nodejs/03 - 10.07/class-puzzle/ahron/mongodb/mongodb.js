@@ -1,45 +1,38 @@
-const mongoose = require('mongoose')
-const Post = require('./PostSchema')
+import * as mongoose from 'mongoose'
+import {User} from './userSchema';
 
 // mongodb/database/collections
-mongoose.connect('mongodb+srv://israellev770:eXb57AKhbMEPTDAD@cluster0.5q2k4o8.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://ahron:cUmn2oN4o3ZeVjaM@cluster0.wq0oulc.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('Could not connect to MongoDB...', err));
 
-const newPost = new Post({
-    title: 'post 1',
-    body: 'body post',
-    userId: 1
+const newUser = new User({
+    name: 'John Doe 3',
+    email: 'john3@example.com',
+    password: 'password123'
 });
 
-// newPost.save()
-// .then((savedPost) => {
-//     console.log('New post saved successfully!');
-//     const newPostId = savedPost._id;
-//     console.log('New post ID:', newPostId);
-// })
-// .catch((err) => {
-//     console.error('Error saving post:', err);
+newUser.save()
+    .then(() => console.log('User saved'))
+    .catch((err) => console.log('Error: ', err));
 
-// })
+// To fetch all users:
+User.find()
+    .then(users => console.log(users))
+    .catch(err => console.error('Error: ', err));
 
-// // To fetch all posts:
-// Post.find()
-//     .then(posts => console.log(posts))
-//     .catch(err => console.error('Error: ', err));
+// To find a specific user:
+User.findOne({ name: 'John Doe' })
+    .then(user => console.log(user))
+    .catch(err => console.error('Error: ', err));
 
-// // To find a specific post:
-// Post.findOne({ title: 'post 1' })
-//     .then(post => console.log(post))
-//     .catch(err => console.error('Error: ', err));
+// To update a user:
+User.findOneAndUpdate({ name: 'John Doe' }, { name: 'Johnny Doe' })
+    .then(() => console.log('User updated'))
+    .catch(err => console.error('Error: ', err));
 
-// // To update a post:
-// Post.findOneAndUpdate({ title: 'post 1' }, { title: 'post 1' })
-//     .then(() => console.log('post updated'))
-//     .catch(err => console.error('Error: ', err));
-
-// // To delete a post:
-// Post.findOneAndDelete({ name: 'post 1' })
-//     .then(() => console.log('post deleted'))
-//     .catch(err => console.error('Error: ', err));
+// To delete a user:
+User.findOneAndDelete({ name: 'Johnny Doe' })
+    .then(() => console.log('User deleted'))
+    .catch(err => console.error('Error: ', err));
 
