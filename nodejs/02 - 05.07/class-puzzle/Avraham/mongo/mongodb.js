@@ -1,5 +1,5 @@
  const mongoose = require('mongoose');
- const postModel = require('./PostService');
+ const postService = require('./PostService');
  const config = require('./config')
 //Set up default mongoose connection
 
