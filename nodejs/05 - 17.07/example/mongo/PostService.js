@@ -13,7 +13,8 @@ class PostService {
 
     async createPost(post) {
         const newPost = new PostModel(post)
-        return await newPost.save()
+        const postSaved = await newPost.save()
+        return postSaved
     }
 
     async getAllPosts() {

@@ -27,12 +27,6 @@ app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
 
-app.get('/', (req, res) => {
-  console.log(__dirname);
-  const pathToHtml = path.join(__dirname, 'front', 'index.html')
-  res.sendFile(pathToHtml);
-});
-
 app.get('/create-post', (req, res) => {
   const pathToHtml = path.join(__dirname, 'front', 'create-post.html')
   res.sendFile(pathToHtml);
