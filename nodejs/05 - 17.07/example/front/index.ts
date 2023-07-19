@@ -5,7 +5,12 @@ type IPost = {
   userId: number; 
   title: string; 
   body: string;
-  imageUrl: string;
+  image: {
+    data: {
+      "type": "Buffer",
+      "data": number[]
+    }
+  };
 };
 
 type IComment = {
@@ -89,6 +94,10 @@ function createOption(userId: number) {
 }
 
 function createPost(post: IPost, index: number) {
+  var imageBuffer = post.image.data.data;
+  var imageType = post.image.data.type;
+  var dataUrl = 'data:' + imageType + ';base64,' + arrayBufferToBase64(imageBuffer);
+
   const newDiv = document.createElement("div");
   const htmlPost = `
         <div class="card mb-4" id="post-${post._id}">
@@ -107,12 +116,22 @@ function createPost(post: IPost, index: number) {
                 <div id="comments-${post._id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
-                <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
+                <img src="${dataUrl}" style="height: 100px; width: auto"/>
             </div>
         </div>
         `;
   newDiv.innerHTML = htmlPost;
   postContainerElement.appendChild(newDiv);
+}
+
+function arrayBufferToBase64(buffer) {
+  var binary = '';
+  var bytes = new Uint8Array(buffer);
+  var len = bytes.byteLength;
+  for (var i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
 }
 
 async function deletePost(postId: string) {

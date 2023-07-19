@@ -6,9 +6,9 @@ const PostService = require('../mongo/PostService')
 
 // Multer storage configuration
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'front/images'); // Specify the destination path
-  },
+  // destination: function (req, file, cb) {
+  //   cb(null, 'front/images'); // Specify the destination path
+  // },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const fileExtension = path.extname(file.originalname);
@@ -34,7 +34,8 @@ router.post('/', upload.single('image'), async (req, res) => {
   const newPost = await PostService.createPost({
     ...req.body,
     userId: +req.body.userId,
-    imageUrl: `/images/${req.file.filename}`,
+    image: req.file,
+    // imageUrl: `/images/${req.file.filename}`,
   })
   res.send(newPost)
 });
