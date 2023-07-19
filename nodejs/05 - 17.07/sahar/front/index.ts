@@ -34,9 +34,7 @@ async function init() {
       const userIds = getUserFromPostList(postList)
       userIds.forEach(createOption)
       postList.forEach(showComments)
-      postButton.addEventListener('click', () => showPostsBox(postBox))
-
-      
+        
      
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
@@ -131,42 +129,44 @@ function hoverMouse(element) {
   });  
 }
 
-hoverMouse(postButton)
-
 ///function number 9:
 function createPost (post) {
   
   const image = addImageByUser(post.userId);
 
    const htmlPost = `
-  <div class="card mb-4" id="post-${post.id}">
-    <div class="card-header">
-      <h5 class="card-title">${post.id} - ${post.title}</h5>
-      <small class="text-muted">Posted by User ${post.userId}</small>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-2">
-          <a href="profileUser.html" target="_blank">
-            <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
-          </a>
-        </div>
-        <div class="col-9">
-          <div class="card-body">
-            <p class="card-text">${post.body}</p>
-          </div>
-          <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
-            Show comments
-          </button>
-          <div id="comment-${post.id}">
-            <!-- Comments will be dynamically added here -->
-          </div>
-        </div>
-        <i id="icon-${post.id}" style="font-size:18px" class="fa">&#xf08a;</i>
-      </div>
-    </div>
-  </div>
+   <div class="card mb-4" id="post-${post._id}" style="position: relative; margin-top: 8px;">
+   <i id="delete-${post._id}" style="position: absolute; top: 0; right: 0; font-size: 18px; cursor: pointer; color: #212529; margin: 15px;" class="fa fa-trash" aria-hidden="true" onClick="deletePost(${post.id})"></i>
+ 
+   <div class="card-header">
+     <h5 class="card-title">${post._id} - ${post.title}</h5>
+     <small class="text-muted">Posted by User ${post.userId}</small>
+   </div>
+   <div class="card-body">
+     <div class="row">
+       <div class="col-2">
+         <a href="profileUser.html" target="_blank">
+           <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer; margin: 2px;" alt="Profile Image user number ${post.id}">
+         </a>
+       </div>
+       <div class="col-9">
+         <div class="card-body">
+           <p class="card-text">${post.body}</p>
+         </div>
+         <div> <img src="${post.imageUrl}" style="height: 150px; width: auto; margin: 2px; display: flex;"></div>
+         <button onClick="showComments(${post._id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" 
+           data-bs-target="#comments-${post._id}" aria-expanded="false" aria-controls="comments-${post._id}">
+           Show comments
+         </button>
+         <div id="comment-${post._id}">
+           <!-- Comments will be dynamically added here -->
+         </div>
+       </div>
+       <i id="icon-${post._id}" style="font-size:18px; cursor: pointer;" class="fa fa-heart-o" aria-hidden="true" onClick="toggleLike(${post._id})"></i>
+     </div>
+   </div>
+ </div>
+ 
 `;
 
   const newDiv = document.createElement("div");
@@ -195,6 +195,11 @@ function createPost (post) {
      
   }
 
+function deletePost(postId: number) {
+  console.log ("delete post")
+  fetch(`/posts/${postId}`, {method: "DELETE"})
+};
+
 async function showComments(postId: number) {
   const commentsElement = document.getElementById(`comment-${postId}`)
   if (commentsElement !== null && !commentsElement.children.length){
@@ -210,7 +215,7 @@ async function showComments(postId: number) {
       
 }
 
-  
+
 function createCommnet(comment: IComment) {
   const commentsElement = document.getElementById(`comment-${comment.postId}`)
   const newDiv = document.createElement("div")
@@ -229,10 +234,19 @@ function createCommnet(comment: IComment) {
   commentsElement.appendChild(newDiv)
 };
   
-function showPostsBox(postBox) {
-  if(postBox.style.display === "none") {
-    postBox.style.display = "block"
+function createPostToggle() {
+  const iconElement = document.getElementById("plusPost")
+  const formElement = document.getElementById("createPostForm")
+  const isPlus = iconElement.classList.contains("fa-plus-circle")
+  if (isPlus) {
+    iconElement.classList.remove("fa-plus-circle")
+    iconElement.classList.add("fa-minus-circle")
+    formElement.style.display = 'block'
+
   } else {
-    postBox.style.display = "none"
+    iconElement.classList.remove("fa-minus-circle")
+    iconElement.classList.add("fa-plus-circle")
+    formElement.style.display = 'none'
   }
 }
+

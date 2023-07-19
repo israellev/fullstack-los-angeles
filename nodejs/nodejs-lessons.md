@@ -141,3 +141,13 @@ Open account in mongodb
 'npm install mongoose'
 'mongodb+srv://israellev770:eXb57AKhbMEPTDAD@cluster0.5q2k4o8.mongodb.net/'
 
+5. MongoDB
+Signup - https://www.mongodb.com/.
+Open server (free, where ever you want).
+Create user and save the username and password. 
+Go to Security/Network access and add your IP adress to whitelist (we allow all IPs addresses)
+Go to Deployment/database and click on 'connect' and 'drivers' and copy the 'mongodb+srv' link
+Save it, and replace the <password> with your password.
+
+in your server - 'npm i mongoose'
+
