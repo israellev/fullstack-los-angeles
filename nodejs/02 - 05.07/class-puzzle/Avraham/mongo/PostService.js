@@ -7,7 +7,7 @@ const PostSchema = new mongoose.Schema({
     imageUrl: String,
 })
 
-const PostModel = mongoose.model('Post', PostSchema)
+const PostMongo = mongoose.model('Post', PostSchema)
 
 class PostService {
 

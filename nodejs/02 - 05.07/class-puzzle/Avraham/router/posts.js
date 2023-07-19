@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const PostMongo = require('./mongo/PostMongo')
+const PostMongo = require('../mongo/PostService')
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'front/images'); // Specify the destination path

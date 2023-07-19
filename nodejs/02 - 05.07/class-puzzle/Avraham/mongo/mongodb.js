@@ -1,8 +1,8 @@
  const mongoose = require('mongoose');
- const postModel = require('./PostMongo');
+ const postModel = require('./PostService');
  const config = require('./config')
 //Set up default mongoose connection
-initMongodb()
+
 function initMongodb() {
     mongoose.connect(config.mongodb.url, {
       useNewUrlParser: true,
