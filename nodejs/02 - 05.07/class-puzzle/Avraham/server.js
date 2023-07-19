@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require(`cors`);
-const postRouter = require(`./router/posts`);
+const PostRouter = require(`./router/posts`);
 const initMongoDb = require('./mongo/mongodb')
 
 initMongoDb()
