@@ -10,7 +10,6 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="styles.css">
 
     <title>My Blog</title>
     <script>
@@ -18,61 +17,86 @@
     </script>
   </head>
   <body>
+    
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-white bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand fw-bold fs-1" href="#">My Blog</a>
+        <a class="navbar-brand" href="#">My Blog</a>
       </div>
     </nav>
-
+    
         <!-- Main Header -->
-        <header class="custom-header text-white text-center py-5 mb-4 bg-primary">
-            <div class="container">
-              <h1 class="font-weight-light">Welcome to My Blog</h1>
-            </div>
-          </header>
+        <header class="bg-primary text-white text-center py-5 mb-4">
+          <div class="container">
+            <h1 class="font-weight-light">Welcome to My Blog</h1>
+          </div>
+        </header>
 
-    <!-- creat post -->
-
-
+    <!-- Create Post -->
     <div class="container">
-        <h2>Create New Post</h2>
+      <div class="form-container">
+        <h2>Create a New Post</h2>
         <form id="postForm" onsubmit="submitPostForm(event)">
           <div class="mb-3">
             <label for="userId" class="form-label">User ID</label>
-            <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+            <input
+              type="number"
+              class="form-control"
+              id="userId"
+              placeholder="Enter User ID"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter Title">
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="Enter Title"
+              required
+            />
           </div>
           <div class="mb-3">
             <label for="body" class="form-label">Body</label>
-            <textarea class="form-control" id="body" rows="5" placeholder="Enter Body"></textarea>
+            <textarea
+              class="form-control"
+              id="body"
+              rows="5"
+              placeholder="Enter Post Body"
+              required
+            ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Create-Post</button>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="image"
+              accept="image/jpeg"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
       </div>
-
-  </body>
-
-  <script>
-
-function submitPostForm(event) {
+    
+    <script>
+      function submitPostForm(event) {
         event.preventDefault();
         
         // Get form values
         const userId = +document.getElementById("userId").value;
         const title = document.getElementById("title").value;
         const body = document.getElementById("body").value;
-        //const image = document.getElementById("image").files[0];
+        const image = document.getElementById("image").files[0];
 
         // Create the form data object
         const formData = new FormData();
         formData.append("userId", userId);
         formData.append("title", title);
         formData.append("body", body);
-        //formData.append("image", image);
+        formData.append("image", image);
 
         fetch("/posts", {
           method: "POST",
@@ -91,6 +115,6 @@ function submitPostForm(event) {
           console.error("Error creating post", error);
         });
       }
-
-  </script>
+    </script>
+  </body>
 </html>

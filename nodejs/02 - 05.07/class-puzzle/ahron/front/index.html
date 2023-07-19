@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>My Blog</title>
+    <script>
+      var exports = {};
+    </script>
+  </head>
+  <body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Blog</a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="bg-primary text-white text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="font-weight-light">Welcome to My Blog</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search Posts"
+          aria-label="Search"
+          id="searchInput"
+        />
+        <div class="col-md-3">
+        <select id="selectUser" class="form-select" aria-label="select User"> 
+          <option value="0" selected> Select User</option>
+           <!-- users will be added here dynamically -->
+        </select>
+      </div>
+      </div>
+      <div id="postContainer" class="row">
+        <!-- Posts will be added here dynamically -->
+      </div>
+      <footer class="footer bg-primary text-white">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+              <form action="#" method="post" id="subscription-form" class="d-flex">
+                <label for="email-input" class="visually-hidden">Email Address:</label>
+                <input type="email" id="email-input" class="form-control me-2" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-light">Subscribe</button>
+              </form>
+              <div class="additional-elements mt-4">
+                <h5>Additional Elements</h5>
+                <ul>
+                  <li>Element 1</li>
+                  <li>Element 2</li>
+                  <li>Element 3</li>
+                </ul>
+              </div>
+              <div class="social-media mt-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f black-icon"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-twitter white-icon"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-instagram white-icon"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in white-icon"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      
+    </div>
+
+    <script src="./dist/index.js"></script>
+  </body>
+</html>
+
+
