@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-
+const PostService = require('../PostMongo')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'front/images'); // Specify the destination path
@@ -15,38 +15,55 @@ const storage = multer.diskStorage({
 }); 
 const upload = multer({ storage: storage });
 
+router.get('/', async (req, res) => {
+  const posts = await PostService.getAllPosts()
+  res.send(posts);
+});
 
-const posts = [];
-
-router.get('/', (req, res) => {
-    res.send(posts);
-  });
-
-  router.post('/', upload.single('image'), (req, res) => {
-    
-    const newPost = 
-    {
-      ...req.body,
-      imageUrl: `/images/${req.file.filename}`,
-      id: posts.length + 1, 
-    };
-    
-    // Add the new post to the list of posts
-    posts.push(newPost);
-    
-    // Return the created post
-    res.send(newPost);
-  });
-  
-router.delete('/:id',(req,res)=>{
-    const postId = +req.params.id;
-    const postIndex = posts.findIndex(post => post.id === postId);
-    res.send(posts[postIndex]);
-    posts.splice(postIndex,1)
+router.post('/', upload.single('image'), async (req, res) => {
+  const newPost = await PostService.createPost({
+    ...req.body,
+    userId: +req.body.userId,
+    imageUrl: `/images/${req.file.filename}`,
   })
+  res.send(newPost)
+});
+
+router.delete('/:_id', async (req, res) => {
+  const postId = req.params._id;
+  const response = await PostService.deletePost(postId)
+  res.send(response)
+})
 
 module.exports = router
 
 
 
+
+
+
+
+
+  // router.post('/', upload.single('image'), (req, res) => {
+    
+  //   const newPost = 
+  //   {
+  //     ...req.body,
+  //     imageUrl: `/images/${req.file.filename}`,
+  //     id: posts.length + 1, 
+  //   };
+    
+  //   // Add the new post to the list of posts
+  //   posts.push(newPost);
+    
+  //   // Return the created post
+  //   res.send(newPost);
+  // });
+  
+// router.delete('/:id',(req,res)=>{
+//     const postId = +req.params.id;
+//     const postIndex = posts.findIndex(post => post.id === postId);
+//     res.send(posts[postIndex]);
+//     posts.splice(postIndex,1)
+//   })
 
