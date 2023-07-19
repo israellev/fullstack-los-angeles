@@ -3,7 +3,7 @@ const config = require('Avraham/config')
 const PostService = require('./PostService')
 
 function initMongodb() {
-  mongoose.connect(config.mongodb.url, {
+  mongoose.connect(config.mongoDb.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

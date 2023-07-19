@@ -1,11 +1,12 @@
  
 const mongoose = require('mongoose');
 var mongoDB = 'mongodb://127.0.0.1/my_database';
-const PostService = require('./PostService')
+const PostService = require('./PostService');
+const config = require('../config');
 
     
 function initMongodb() {
-        mongoose.connect(`mongodb+srv://shirmalka32:uhrVjQt0618DufOe@cluster0.fpm3vdz.mongodb.net/?retryWrites=true&w=majority`, {
+        mongoose.connect(config.mongodb.url, {
 
 
         useNewUrlParser: true,

@@ -1,18 +1,19 @@
-const { error } = require('console');
 const mongoose = require('mongoose');
+const { error } = require('console');
 const PostModel = require('./PostModel')
 
-mongoose.connect('mongodb+srv://danielperetz770:danielperetz4312@cluster0.zhxqk8b.mongodb.net/?retryWrites=true&w=majority', {
- 
-        .then(() => console.log('Connected to MongoDB'))
-        .catch((err) => console.error('Could not connect to MongoDB...', error));
-    
-    const newPost = new PostModel({
-        title: 'post 1',
-        body: 'body post',
-        userId: 1
-    });
-    
+function initMongodb() {
+    mongoose.connect(config.mongodb.url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => console.log('connect mongo successfully'))
+    .catch(error => console.log('error', error))
+    mongoose.set('debug', true);
+  }
+  
+  module.exports = initMongodb
+  
     newPost.save()
     .then((savedPost) => {
         console.log('New post saved successfully!');

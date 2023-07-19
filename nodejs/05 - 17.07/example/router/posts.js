@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+
 // routers
 router.get('/', async (req, res) => {
   const posts = await PostService.getAllPosts()

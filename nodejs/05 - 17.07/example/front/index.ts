@@ -88,20 +88,20 @@ function createOption(userId: number) {
   selectUserElement.appendChild(newOption);
 }
 
-function createPost(post: IPost) {
+function createPost(post: IPost, index: number) {
   const newDiv = document.createElement("div");
   const htmlPost = `
         <div class="card mb-4" id="post-${post._id}">
             <div class="card-header">
-                <h5 class="card-title">${post._id} - ${post.title}</h5>
+                <h5 class="card-title">${index + 1} - ${post.title}</h5>
                 <small class="text-muted">Posted by User ${post.userId}</small>
-                <i onclick="deletePost(${post._id})" class="fas fa-trash"
+                <i onclick="deletePost('${post._id}')" class="fas fa-trash"
                     style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
                 </i>
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
-                <button onClick="showComments(${post._id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                <button onClick="showComments(${index + 1})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
                     Show comments
                 </button>
                 <div id="comments-${post._id}">
@@ -115,7 +115,7 @@ function createPost(post: IPost) {
   postContainerElement.appendChild(newDiv);
 }
 
-async function deletePost(postId: number) {
+async function deletePost(postId: string) {
   const res = await fetch(`/posts/${postId}`, {method: "DELETE"})
   const deletedPost = await res.json()
   if (deletedPost) 
