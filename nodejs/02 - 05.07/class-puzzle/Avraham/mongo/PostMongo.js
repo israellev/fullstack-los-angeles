@@ -47,5 +47,5 @@ class PostService {
     }
 }
 
-const postService = new PostService()
-module.exports = postService
+const postMongo = new PostService()
+module.exports = postMongo

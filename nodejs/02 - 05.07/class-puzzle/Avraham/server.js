@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(`/posts`,postRouter)
+app.use(`/posts`,PostRouter)
 
 app.use(express.static("front"));
 

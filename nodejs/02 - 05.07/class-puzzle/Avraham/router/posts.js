@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const PostService = require('../PostMongo')
+const PostMongo = require('./mongo/PostMongo')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'front/images'); // Specify the destination path
@@ -16,12 +16,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', async (req, res) => {
-  const posts = await PostService.getAllPosts()
+  const posts = await PostMongo.getAllPosts()
   res.send(posts);
 });
 
 router.post('/', upload.single('image'), async (req, res) => {
-  const newPost = await PostService.createPost({
+  const newPost = await PostMongo.createPost({
     ...req.body,
     userId: +req.body.userId,
     imageUrl: `/images/${req.file.filename}`,
@@ -31,7 +31,7 @@ router.post('/', upload.single('image'), async (req, res) => {
 
 router.delete('/:_id', async (req, res) => {
   const postId = req.params._id;
-  const response = await PostService.deletePost(postId)
+  const response = await PostMongo.deletePost(postId)
   res.send(response)
 })
 
