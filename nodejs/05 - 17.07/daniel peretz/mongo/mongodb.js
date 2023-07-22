@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const { error } = require('console');
-const PostModel = require('./PostModel')
+const config = require('../config');
+postService = require('./PostService')
 
 function initMongodb() {
-    mongoose.connect(config.mongodb.url, {
+    mongoose.connect(config.mongoDb.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
@@ -11,41 +11,41 @@ function initMongodb() {
     .catch(error => console.log('error', error))
     mongoose.set('debug', true);
   }
-  
+
   module.exports = initMongodb
   
-    newPost.save()
-    .then((savedPost) => {
-        console.log('New post saved successfully!');
-        const newPostId = savedPost._id;
-        console.log('New post ID:', newPostId);
-    })
-    .catch((err) => {
-        console.error('Error saving post:', err);
+    // newPost.save()
+    // .then((savedPost) => {
+    //     console.log('New post saved successfully!');
+    //     const newPostId = savedPost._id;
+    //     console.log('New post ID:', newPostId);
+    // })
+    // .catch((err) => {
+    //     console.error('Error saving post:', err);
     
-    })
+    // })
     
-    // To fetch all posts:
-    PostModel.find()
-        .then(posts => console.log(posts))
-        .catch(err => console.error('Error: ', err));
     
-    // To find a specific post:
-    PostModel.findOne({ title: 'post 1' })
-        .then(post => console.log(post))
-        .catch(err => console.error('Error: ', err));
+    // // To fetch all posts:
+    // PostModel.find()
+    //     .then(posts => console.log(posts))
+    //     .catch(err => console.error('Error: ', err));
     
-    // To update a post:
-    PostModel.findOneAndUpdate({ title: 'post 1' }, { title: 'post 1' })
-        .then(() => console.log('post updated'))
-        .catch(err => console.error('Error: ', err));
+    // // To find a specific post:
+    // PostModel.findOne({ title: 'post 1' })
+    //     .then(post => console.log(post))
+    //     .catch(err => console.error('Error: ', err));
     
-    // To delete a post:
-    PostModel.findOneAndDelete({ name: 'post 1' })
-        .then(() => console.log('post deleted'))
-        .catch(err => console.error('Error: ', err));
+    // // To update a post:
+    // PostModel.findOneAndUpdate({ title: 'post 1' }, { title: 'post 1' })
+    //     .then(() => console.log('post updated'))
+    //     .catch(err => console.error('Error: ', err));
     
-        module.exports = initMongodb
+    // // To delete a post:
+    // PostModel.findOneAndDelete({ name: 'post 1' })
+    //     .then(() => console.log('post deleted'))
+    //     .catch(err => console.error('Error: ', err));
+    
 
   
         /* create new post */

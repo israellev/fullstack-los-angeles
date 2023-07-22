@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
+const initMongodb = require('./mongo/mongodb')
+
+
+initMongodb()
 
 // create an Express application
 const app = express();
@@ -41,3 +45,4 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
+
