@@ -83,9 +83,9 @@ function createPost(post: IPost) {
               <div class="card-header">
                   <h5 class="card-title">${post.id} - ${post.title}</h5>
                   <small class="text-muted">Posted by User ${post.userId}</small>
-                  <i onclick="deletePost(${post.id})" class="fas fa-trash"
-                      style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
-                  </i>
+                  <i onclick="deletePost('${post.id}')" class="fas fa-trash"
+                    style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
+                </i>
               </div>
               <div class="card-body">
                   <p class="card-text">${post.body}</p>
