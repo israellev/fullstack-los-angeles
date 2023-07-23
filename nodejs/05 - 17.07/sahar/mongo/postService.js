@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema({
 
 const postModel = mongoose.model('Post', postSchema)
 
-class postService {
+class PostService {
     async createPost(post) {
         const newPost = new postModel(post)
         return await newPost.save()
