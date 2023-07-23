@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const config = require('Avraham/config')
-const PostService = require('./PostService')
+const config = require('../config')
 
 function initMongodb() {
   mongoose.connect(config.mongoDb.url, {

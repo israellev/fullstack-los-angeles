@@ -1,7 +1,7 @@
 // export { };
 
 // type IPost = { 
-//   id: number; 
+//   _id: number; 
 //   userId: number; 
 //   title: string; 
 //   body: string;
@@ -9,7 +9,7 @@
 // };
 
 // type IComment = {
-//   id: number;
+//   _id: number;
 //   postId: number;
 //   name: string;
 //   email: string;
@@ -76,11 +76,11 @@
 // function createPost(post: IPost) {
 //   const newDiv = document.createElement("div");
 //   const htmlPost = `
-//   <div class="card mb-4" id="post-${post.id}">
+//   <div class="card mb-4" _id="post-${post._id}">
 //   <div class="card-header">
-//     <h5 class="card-title">${post.id} - ${post.title}</h5>
+//     <h5 class="card-title">${post._id} - ${post.title}</h5>
 //     <small class="text-muted">Posted by User ${post.userId}</small>
-//     <i onclick="deletePost(${post.id})" class="fas fa-trash text-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
+//     <i onclick="deletePost(${post._id})" class="fas fa-trash text-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
 //   </div>
 //   <div class="card-body">
 //     <div class="image-container" style="float: left; margin-right: 10px; display: flex; align-items: center; justify-content: center;">
@@ -88,11 +88,11 @@
 //     </div>
 //     <div class="content-container">
 //       <p class="card-text">${post.body}</p>
-//       <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">Show comments</button>
+//       <button onClick="showComments(${post._id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post._id}" aria-expanded="false" aria-controls="comments-${post._id}">Show comments</button>
 //     </div>
 //   </div>
 //   <div class="card-comments">
-//   <div id="comments-${post.id}" class="collapse">
+//   <div _id="comments-${post._id}" class="collapse">
 //   <!-- Comments will be dynamically added here -->
 // </div>
 // </div>
@@ -168,7 +168,7 @@
 //   const commentsElement = document.getElementById(`comments-${comment.postId}`);
 //   const newDiv = document.createElement("div");
 //   const htmlPost = `
-//     <div id="comments-${comment.id}">
+//     <div _id="comments-${comment._id}">
 //         <div class="card card-body">
 //             <h6>Comments:</h6>
 //             <div class="comment">
@@ -202,7 +202,7 @@
 export { };
 
 type IPost = { 
-  id: number; 
+  _id: number; 
   userId: number; 
   title: string; 
   body: string;
@@ -210,7 +210,7 @@ type IPost = {
 };
 
 type IComment = {
-  id: number;
+  _id: number;
   postId: number;
   name: string;
   email: string;
@@ -273,11 +273,11 @@ function createOption(userId: number) {
 function createPost(post: IPost) {
   const newDiv = document.createElement("div");
   const htmlPost = `
-    <div class="card mb-4" id="post-${post.id}">
+    <div class="card mb-4" _id="post-${post._id}">
       <div class="card-header">
-        <h5 class="card-title">${post.id} - ${post.title}</h5>
+        <h5 class="card-title">${post._id} - ${post.title}</h5>
         <small class="text-muted">Posted by User ${post.userId}</small>
-        <i onclick="deletePost(${post.id})" class="fas fa-trash text-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
+        <i onclick="deletePost(${post._id})" class="fas fa-trash text-primary" style="position: absolute; right: 8px;top: 8px;cursor: pointer;"></i>
       </div>
       <div class="card-body">
         <div class="image-container" style="float: left; margin-right: 10px; display: flex; align-items: center; justify-content: center;">
@@ -285,25 +285,25 @@ function createPost(post: IPost) {
         </div>
         <div class="content-container">
           <p class="card-text">${post.body}</p>
-          <button onClick="toggleComments(${post.id})" class="btn btn-primary" type="button">Show comments</button>
+          <button onClick="toggleComments(${post._id})" class="btn btn-primary" type="button">Show comments</button>
 
-          <div id="comments-${post.id}" style="display: none;">
+          <div _id="comments-${post._id}" style="display: none;">
             <h6>Comments:</h6>
             <!-- Comments will be dynamically added here -->
           </div>
 
-          <form id="commentForm-${post.id}" onsubmit="submitComment(event, ${post.id})" style="display: none;">
+          <form _id="commentForm-${post._id}" onsubmit="submitComment(event, ${post._id})" style="display: none;">
             <div class="mb-3">
-              <label for="commentName-${post.id}">Name</label>
-              <input type="text" id="commentName-${post.id}" name="commentName" class="form-control">
+              <label for="commentName-${post._id}">Name</label>
+              <input type="text" _id="commentName-${post._id}" name="commentName" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="commentEmail-${post.id}">Email</label>
-              <input type="email" id="commentEmail-${post.id}" name="commentEmail" class="form-control">
+              <label for="commentEmail-${post._id}">Email</label>
+              <input type="email" _id="commentEmail-${post._id}" name="commentEmail" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="commentBody-${post.id}">Comment</label>
-              <textarea id="commentBody-${post.id}" name="commentBody" class="form-control"></textarea>
+              <label for="commentBody-${post._id}">Comment</label>
+              <textarea _id="commentBody-${post._id}" name="commentBody" class="form-control"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit Comment</button>
           </form>
@@ -389,14 +389,14 @@ function createComment(comment: IComment) {
   const commentsElement = document.getElementById(`comments-${comment.postId}`);
   const newDiv = document.createElement("div");
   const htmlPost = `
-  <div id="comment-${comment.id}" class="comment">
+  <div _id="comment-${comment._id}" class="comment">
   <div class="d-flex justify-content-between align-items-start">
     <div>
       <strong>Name: </strong>${comment.name}<br>
       <strong>Email: </strong>${comment.email}<br>
       <strong>Comment: </strong>${comment.body}
     </div>
-    <i onclick="deleteComment(${comment.postId}, ${comment.id})" class="fas fa-trash text-primary delete-comment"></i>
+    <i onclick="deleteComment(${comment.postId}, ${comment._id})" class="fas fa-trash text-primary delete-comment"></i>
   </div>
 </div>
   `;
@@ -412,7 +412,7 @@ function submitComment(event: Event, postId: number) {
   const commentBodyInput = document.getElementById(`commentBody-${postId}`) as HTMLInputElement;
 
   const comment: IComment = {
-    id: Date.now(),
+    _id: Date.now(),
     postId: postId,
     name: commentNameInput.value,
     email: commentEmailInput.value,

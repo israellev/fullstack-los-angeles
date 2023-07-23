@@ -1,16 +1,11 @@
 export { };
 
 type IPost = { 
-  _id: string; 
+  id: number; 
   userId: number; 
   title: string; 
   body: string;
-  image: {
-    data: {
-      "type": "Buffer",
-      "data": number[]
-    }
-  };
+  imageUrl: string;
 };
 
 type IComment = {
@@ -93,30 +88,26 @@ function createOption(userId: number) {
   selectUserElement.appendChild(newOption);
 }
 
-function createPost(post: IPost, index: number) {
-  var imageBuffer = post.image.data.data;
-  var imageType = post.image.data.type;
-  var dataUrl = 'data:' + imageType + ';base64,' + arrayBufferToBase64(imageBuffer);
-
+function createPost(post: IPost) {
   const newDiv = document.createElement("div");
   const htmlPost = `
-        <div class="card mb-4" id="post-${post._id}">
+        <div class="card mb-4" id="post-${post.id}">
             <div class="card-header">
-                <h5 class="card-title">${index + 1} - ${post.title}</h5>
+                <h5 class="card-title">${post.id} - ${post.title}</h5>
                 <small class="text-muted">Posted by User ${post.userId}</small>
-                <i onclick="deletePost('${post._id}')" class="fas fa-trash"
+                <i onclick="deletePost(${post.id})" class="fas fa-trash"
                     style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
                 </i>
             </div>
             <div class="card-body">
                 <p class="card-text">${post.body}</p>
-                <button onClick="showComments(${index + 1})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
+                <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">
                     Show comments
                 </button>
-                <div id="comments-${post._id}">
+                <div id="comments-${post.id}">
                 <!-- Comments will be dynamically added here -->
                 </div>
-                <img src="${dataUrl}" style="height: 100px; width: auto"/>
+                <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
             </div>
         </div>
         `;
@@ -124,17 +115,7 @@ function createPost(post: IPost, index: number) {
   postContainerElement.appendChild(newDiv);
 }
 
-function arrayBufferToBase64(buffer) {
-  var binary = '';
-  var bytes = new Uint8Array(buffer);
-  var len = bytes.byteLength;
-  for (var i = 0; i < len; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return btoa(binary);
-}
-
-async function deletePost(postId: string) {
+async function deletePost(postId: number) {
   const res = await fetch(`/posts/${postId}`, {method: "DELETE"})
   const deletedPost = await res.json()
   if (deletedPost) 
