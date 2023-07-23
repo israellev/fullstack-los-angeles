@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path')
+const postService = require('../mongo/postService')
 
 // Multer storage configuration
 const storage = multer.diskStorage({
@@ -16,37 +17,32 @@ const storage = multer.diskStorage({
   }); 
 const upload = multer({ storage: storage });
 
-const posts = []
-let id = 1;
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const posts = await postService.getAllPosts()
     res.send(posts);
 });
 
-router.get('/:id', (req, res) => {
-    const postId = +req.params.id;
-    const post = posts.find(post => post.id === postId)
+
+router.get('/:_id', async (req, res) => {
+    const postId = req.params._id;
+    const post = await postService.getPost(postId)
     res.send(post);
-});
-
-router.post('/', upload.single('image'), (req, res) => {
-    console.log(req.body)
-    const newPost = {
-        ...req.body,
-        imageUrl: `/images/${req.file.filename}`,
-        id,
-    }
-    id++
-    posts.push(newPost)
+  });
+  
+  router.post('/', upload.single('image'), async (req, res) => {
+    const newPost = await postService.createPost({
+      ...req.body,
+      userId: +req.body.userId,
+      imageUrl: `/images/${req.file.filename}`,
+    })
     res.send(newPost)
-});
-
-
-router.delete('/:id', (req, res) => {
-    const postId = +req.params.id;
-    const postIndex = posts.findIndex(post => post.id === postId);
-    res.send(posts[postIndex])
-    posts.splice(postIndex, 1);
-})
-
-module.exports = router
+  });
+  
+  router.delete('/:_id', async (req, res) => {
+    const postId = req.params._id;
+    const response = await postService.deletePost(postId)
+    res.send(response)
+  })
+  
+  module.exports = router

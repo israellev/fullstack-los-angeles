@@ -1,31 +1,66 @@
 class follow up:
 
-1. add icon of add new post - fontawsome
-2. wrap the icon with <a href="/create-post"> endpoinst
-3. add file of front/create-post.html
-4. add endpoint /create-post in the server that sends back the create-post.html file 
-5. add form of creating the post into the file - userId, title, body, image. 
-6. add function onsubmit that sends POST to /posts with FormData in the body
-7. in the server posts router add code that get the image and save it into '/front/images' folder
-8. return reponse to the user with 'imageUrl' of '/images/[filename]'
-9. in index.html ceactePost use in that image url.
-10. all should be beautifull!!
+1. Deploy to Google app engine 
 
-Add delete post:
-1. add icon of trash in the right top of the post
-2. onclick will call function of deletePost(postId)
-3. implement DELETE /posts/:id
-4. remove the post in the UI
+go to google cloud app engine and follow the instructions:
+https://cloud.google.com/appengine/docs/standard/nodejs/building-app
+
+a. create google cloud porject
+b. https://console.cloud.google.com/flows/enableapi?apiid=cloudbuild.googleapis.com
+c. install the gcloud cli - https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
+d. after computer restart run 'gcloud init' and chose 1, then login ..
+e. open app engine and chose regon-  https://console.cloud.google.com/appengine/create?lang=nodejs
+f. add app.yaml file, and write there 'runtime: nodejs18'
+g. make sure you have this in your package.json file:
+"scripts": {
+  "start": "node server.js"
+}
+h. change in your server.js:
+const post = process.env.PORT || 3000;
+i. 'gcloud app deploy'
+and i'll deploy it, and give you the link
+j. if you want to see the logs, go here - https://console.cloud.google.com/logs/query
 
 
-home puzzle:
-Do all the follow ups
+2. save image it-self in mongodb server
+  a.
+  // destination: function (req, file, cb) {
+  //   cb(null, 'front/images'); // Specify the destination path
+  // },
+b. 
+router.post('/', upload.single('image'), async (req, res) => {
+  const newPost = await PostService.createPost({
+    ...req.body,
+    userId: +req.body.userId,
+    image: req.file,
+    // imageUrl: `/images/${req.file.filename}`,
+  })
+  res.send(newPost)
+});
 
+c.
+const PostSchema = new mongoose.Schema({
+    userId: Number,
+    title: String,
+    body: String,
+    // imageUrl: String,
+    image: {
+        data: Buffer,
+        contentType: String
+    }
+})
+d. 
 
-Bonus:
+    async createPost(post) {
+        const newPost = new PostModel({
+            ...post,
+            image: {
+                data: fs.readFileSync(post.image.path),
+                contentType: post.image.mimetype
+            }
+        })
+        const postSaved = await newPost.save()
+        return postSaved
+    }
 
-Implement comments yourself
-1. do the Postman
-2. build new router of /comments
-3. implement all the methods
-4. implement the UI and connect with the backend
+    

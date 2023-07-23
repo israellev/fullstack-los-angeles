@@ -1,10 +1,15 @@
 const mongoose = require('mongoose')
+const fs = require('fs')
 
 const PostSchema = new mongoose.Schema({
     userId: Number,
     title: String,
     body: String,
-    imageUrl: String,
+    // imageUrl: String,
+    image: {
+        data: Buffer,
+        contentType: String
+    }
 })
 
 const PostModel = mongoose.model('Post', PostSchema)
@@ -12,21 +17,28 @@ const PostModel = mongoose.model('Post', PostSchema)
 class PostService {
 
     async createPost(post) {
-        const newPost = new PostModel(post)
-        return await newPost.save()
+        const newPost = new PostModel({
+            ...post,
+            image: {
+                data: fs.readFileSync(post.image.path),
+                contentType: post.image.mimetype
+            }
+        })
+        const postSaved = await newPost.save()
+        return postSaved
     }
 
     async getAllPosts() {
         return await PostModel.find()
     }
-    
+
     async getPost(postId) {
-        return await PostModel.findOne({_id: postId})
+        return await PostModel.findOne({ _id: postId })
     }
 
     async findPostsByTitle(search) {
         const regex = new RegExp(search, 'i');
-        return await PostModel.find({title: regex})
+        return await PostModel.find({ title: regex })
     }
 
     async updatePostTitle(postId, newTitle) {

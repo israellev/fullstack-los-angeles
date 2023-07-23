@@ -3,7 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
+const commentsRouter = require('./router/comments'); 
 const path = require('path');
+const initMongodb = require('./mongo/mongodb')
+
+initMongodb()
 
 // create app
 const app = express();
@@ -15,6 +19,7 @@ app.use(express.static('front'));
 
 // router
 app.use('/posts', postsRouter);
+app.use('/comments', commentsRouter);
 
 
 // Define a route handler for the root path

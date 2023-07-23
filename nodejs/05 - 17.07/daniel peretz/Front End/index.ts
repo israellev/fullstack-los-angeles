@@ -95,6 +95,7 @@ function createPost(post: IPost) {
                   <div id="comments-${post.id}">
                   <!-- Comments will be dynamically added here -->
                   </div>
+                  <br>
                   <img src="${post.imageUrl}" style="height: 100px; width: auto"/>
               </div>
           </div>
