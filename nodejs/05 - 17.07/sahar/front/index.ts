@@ -136,7 +136,7 @@ function createPost (post) {
 
    const htmlPost = `
    <div class="card mb-4" id="post-${post._id}" style="position: relative; margin-top: 8px;">
-   <i id="delete-${post._id}" style="position: absolute; top: 0; right: 0; font-size: 18px; cursor: pointer; color: #212529; margin: 15px;" class="fa fa-trash" aria-hidden="true" onClick="deletePost(${post.id})"></i>
+   <i id="delete-'${post._id}'" style="position: absolute; top: 0; right: 0; font-size: 18px; cursor: pointer; color: #212529; margin: 15px;" class="fa fa-trash" aria-hidden="true" onClick="deletePost(${post.id})"></i>
  
    <div class="card-header">
      <h5 class="card-title">${post._id} - ${post.title}</h5>

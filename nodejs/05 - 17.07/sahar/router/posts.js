@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path')
+const path = require('path');
+const PostService = require('../mongo/postService');
 
 // Multer storage configuration
 const storage = multer.diskStorage({
@@ -17,21 +18,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-const posts = [];
-let id = 1;
-
 // Define a route handler for the root path
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const posts = await PostService.getAllPosts()
   res.send(posts);
 });
 
-router.get('/:id', (req, res) => {
-  const postId = +req.params.id;
-  const post = posts.find(post => post.id === postId)
+router.get('/:_id', (req, res) => {
+  const postId = +req.params._id;
+  const post = posts.find(post => post._id === postId)
   res.send(post);
 });
-
 
 router.post('/', upload.single('image'), (req, res) => {
   console.log(req.body)  // This will show the form data sent from the frontend

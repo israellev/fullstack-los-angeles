@@ -32,7 +32,6 @@ router.get('/:id', (req, res) => {
   res.send(post);
 });
 
-
 router.post('/', upload.single('image'), (req, res) => {
   console.log(req.body)  // This will show the form data sent from the frontend
   console.log(req.file); // This will show information about the uploaded image
