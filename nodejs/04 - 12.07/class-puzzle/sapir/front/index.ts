@@ -1,7 +1,7 @@
 export {}
 // @ts-ignore
 
-type IPost = {id: number, userId: number, title: string, body: string}
+type IPost = {_id: number, userId: number, title: string, body: string}
 type IComment = {id: number, postId: number, name: string, email: string, body: string}
 
 
@@ -77,20 +77,20 @@ init()//הרצת פונרמית איניט
       
 
     // Create a single post element
-    function createPost(post: IPost) {//The createPost function takes a post object as a parameter.
+    function createPost(post: IPost, index: number) {//The createPost function takes a post object as a parameter.
         const newDiv = document.createElement("div")// It generates HTML markup representing the post's data and creates a new div element.
         const image = addImageByUser(post.userId);//// Get the image URL based on the user ID
          const htmlPost = `
-         <div class="card mb-4" id="post-${post.id}">
+         <div class="card mb-4" id="post-${post._id}">
            <div class="card-header">
-             <h5 class="card-title">${post.id} - ${post.title}</h5>
+             <h5 class="card-title">${index + 1} - ${post.title}</h5>
              <small class="text-muted">Posted by User ${post.userId}</small>
            </div>
            <div class="card-body">
              <div class="row">
                <div class="col-3">
                  <a href="profileUser.html" target="_blank">
-                   <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
+                   <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post._id}">
                  </a>
                </div>
                <div class="col-9">
@@ -102,14 +102,14 @@ init()//הרצת פונרמית איניט
                      <textarea name="body" placeholder="Your Comment" required></textarea><br>
                      <button type="submit" class="btn btn-primary add-comment-button">Add Comment</button>
                    </div>
-                   <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
+                   <button onClick="showComments('${index + 1}')" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post._id}" aria-expanded="false" aria-controls="comments-${post._id}">
                      Show comments
                    </button>
-                   <div id="comments-${post.id}">
+                   <div id="comments-${post._id}">
                      <!-- Comments will be dynamically added here -->
                    </div>
                    <div class="delete-icon" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
-                     <i class="fas fa-trash" onClick="deletePost(${post.id})"></i>
+                     <i class="fas fa-trash" onClick="deletePost('${post._id}')"></i>
                    </div>
                  </div>
                </div>
@@ -125,12 +125,12 @@ init()//הרצת פונרמית איניט
 
             // Add event listener for the "Add Comment" button
             const addCommentButton = newDiv.querySelector(".btn-primary");
-            addCommentButton.addEventListener("click", () => addComment(post.id));
+            addCommentButton.addEventListener("click", () => addComment(post._id));
   
 
            // Add event listener for the "Show Comments" button
            const showCommentsButton = newDiv.querySelector(".btn-primary[data-bs-toggle='collapse']");
-           showCommentsButton.addEventListener("click", () => showComments(post.id));
+           showCommentsButton.addEventListener("click", () => showComments(post._id));
 }
       
 

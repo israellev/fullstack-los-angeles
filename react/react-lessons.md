@@ -1,10 +1,9 @@
 01. 
 
 * create react app
-'npx create-react-app my-first-project'
+'create-react-app react --template typescript'
 'cd my-first-project'
 'npm start'
-
 
 * Component:
 create
