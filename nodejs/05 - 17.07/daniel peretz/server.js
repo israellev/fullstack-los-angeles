@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
+const initMongodb = require('./mongo/mongodb')
+
+
+initMongodb()
 
 // create an Express application
 const app = express();
@@ -37,7 +41,8 @@ app.get('/create-post', (req, res) => {
 
 
 // Start the server
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
+
