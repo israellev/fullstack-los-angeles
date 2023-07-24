@@ -83,9 +83,9 @@ function createPost(post: IPost) {
               <div class="card-header">
                   <h5 class="card-title">${post.id} - ${post.title}</h5>
                   <small class="text-muted">Posted by User ${post.userId}</small>
-                  <i onclick="deletePost(${post.id})" class="fas fa-trash"
-                      style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
-                  </i>
+                  <i onclick="deletePost('${post.id}')" class="fas fa-trash"
+                    style="position: absolute; right: 8px;top: 8px;cursor: pointer;">
+                </i>
               </div>
               <div class="card-body">
                   <p class="card-text">${post.body}</p>
@@ -199,94 +199,4 @@ function createPost(post: IPost) {
     }
   
   }
-  
-// // create show Photos
-
-// type Iphoto = { id: number, albumId: number, title: string, url: string, thumbnailUrl: string }
-// async function fetchAlbums() {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/photos");
-//     const albumList = await response.json();
-//     return albumList;
-// }
-
-// function createAlbum(album) {
-//     const albumDiv = document.createElement("div");
-//     albumDiv.classList.add("album");
-
-//     const albumTitle = document.createElement("h3");
-//     albumTitle.classList.add("album-title");
-//     albumTitle.innerText = album.title;
-
-//     const albumPhoto = document.createElement("img");
-//     albumPhoto.classList.add("album-photo");
-//     albumPhoto.src = album.thumbnailUrl;
-//     albumPhoto.alt = album.title;
-
-//     albumDiv.appendChild(albumTitle);
-//     albumDiv.appendChild(albumPhoto);
-
-//     albumDiv.addEventListener("click", () => {
-//         showPhotos(album.albumId);
-//     });
-
-//     return albumDiv;
-// }
-
-// async function displayAlbums() {
-//     const albumsContainer = document.getElementById("album-container");
-//     const albumList = await fetchAlbums();
-
-//     albumList.forEach((album) => {
-//         const albumDiv = createAlbum(album);
-//         albumsContainer.appendChild(albumDiv);
-//     });
-// }
-
-// function showPhotos(albumId) {
-//     // כאן תוכל לבצע פעולות שמתחילות את התהליך של הצגת התמונות של אלבום מסוי
-// }
-
-// displayAlbums();
-
-
-// Check why it doesn't work
  
-// type Isubmit = {userId: number, title:string, body:string, image:File }
-// interface ISubmitEvent extends Event {
-//   target: HTMLFormElement;
-// }
-
-
-// function submitPostForm(event: ISubmitEvent) {
-//   event.preventDefault();
-
-//   // Get form values
-//   const userId = +document.getElementById("userId").value;
-//   const title = document.getElementById("title").value;
-//   const body = document.getElementById("body").value;
-//   const image = document.getElementById("image").files[0];
-
-//   // Create the form data object
-//   const formData = new FormData();
-//   formData.append("userId", userId.toString());
-//   formData.append("title", title);
-//   formData.append("body", body);
-//   formData.append("image", image);
-
-//   fetch("/posts", {
-//     method: "POST",
-//     body: formData,
-//   })
-//     .then(async (response) => {
-//       if (response.ok) {
-//         const newPost = await response.json();
-//         console.log("Post created successfully", newPost);
-//         window.location.href = "/";
-//       } else {
-//         console.error("Error creating post");
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error creating post", error);
-//     });
-// }

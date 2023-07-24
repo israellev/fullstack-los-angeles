@@ -1,39 +1,42 @@
-//imports
+// imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
-const initMongodb = require('./mongo/mongodb');
 
-initMongodb()
-
-// Create an Express application
+// create app
 const app = express();
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
+
+// 
 app.use(express.static('front'));
 
-//router
+// router
 app.use('/posts', postsRouter);
 
+// routes
+app.get('/hello-world', (req, res) => {
+  res.send("hello world");
+});
 
 app.get('/', (req, res) => {
+  console.log(__dirname);
   const pathToHtml = path.join(__dirname, 'front', 'index.html')
-  console.log(__dirname)
-  res.sendFile(pathToHtml)
+  res.sendFile(pathToHtml);
 });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Internal Server Error');
+app.get('/create-post', (req, res) => {
+  const pathToHtml = path.join(__dirname, 'front', 'create-post.html')
+  res.sendFile(pathToHtml);
 });
 
-// Start the server
+
+// deploy
 const port = 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
-
