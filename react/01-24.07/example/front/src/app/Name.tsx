@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-export function Name() {
-  const [name, setName] = useState("sarit");
+export function Name(props: { initName: string }) {
+  const { initName } = props;
+  const [name, setName] = useState(initName);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div>
       <div>{name}</div>
       <input value={name} onChange={(e: any) => setName(e.target.value)} />
     </div>

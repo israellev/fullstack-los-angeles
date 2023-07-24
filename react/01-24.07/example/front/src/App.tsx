@@ -9,11 +9,13 @@ function App() {
   return (
     <div>
       <HelloWorld/>
-      <Name/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
-      <Counter/>
+      <Name initName="Sapir"/>
+      <Name initName="Sarit"/>
+      <Name initName="Shir"/>
+      <Counter start={1}/>
+      <Counter start={100}/>
+      <Counter start={1000} />
+      <Counter start={10000}/>
     </div>
   );
 }

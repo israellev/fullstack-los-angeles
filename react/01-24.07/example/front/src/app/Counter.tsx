@@ -1,12 +1,17 @@
-import {useState} from 'react';
+import { useState } from "react";
+import styles from './style.module.css';
+export function Counter(props: { start: number }) {
+//   const start = props.start;
+  const {start} = props;
+  const [number, setNumber] = useState(start);
 
-export function Counter() {
-  const [number, setNumber] = useState(0)
+//   setTimeout(() => setNumber(number + number), 1000)
 
   return (
-    <div style={{ textAlign: "center" }}>
+    // <div style={{ textAlign: "center" }}>
+    <div className={styles.Counter}>
       <h1>{number}</h1>
-      <button onClick={() => setNumber(number + 1)}>counter</button>
+      <button onClick={() => setNumber(number + start)}>counter</button>
     </div>
   );
 }
