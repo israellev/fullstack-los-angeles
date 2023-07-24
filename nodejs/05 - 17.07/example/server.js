@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const postsRouter = require('./router/posts')
 const path = require('path');
+const initMongoDb = require('./mongo/mongodb')
+
+
+initMongoDb()
 
 // create app
 const app = express();
@@ -23,20 +27,13 @@ app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
 
-app.get('/', (req, res) => {
-  console.log(__dirname);
-  const pathToHtml = path.join(__dirname, 'front', 'index.html')
-  res.sendFile(pathToHtml);
-});
-
 app.get('/create-post', (req, res) => {
   const pathToHtml = path.join(__dirname, 'front', 'create-post.html')
   res.sendFile(pathToHtml);
 });
 
-
 // deploy
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });

@@ -1,0 +1,29 @@
+.bg-pink {
+    background-color: pink;
+  }
+
+  
+  .custom-font {
+    font-family: 'Bacasime Antique', sans-serif;
+    background-color: pink;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .pink-button {
+    background-color: pink;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+ 
+ .btn{
+  background-color: pink;
+ }

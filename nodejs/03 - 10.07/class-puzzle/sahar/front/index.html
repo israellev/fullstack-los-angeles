@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>My Blog</title>
+    <script>
+      var exports = {};
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Blog</a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="bg-primary text-white text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="font-weight-light">Welcome to My Blog</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-primary me-2" onclick="createPostToggle()" aria-label="Add Post">
+          <i class="fas fa-plus-circle text-white" id="plusPost"></i>
+        </button> 
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search Posts"
+          aria-label="Search"
+          id="searchInput"
+        />
+        <select id="selection" title="Choose an option">
+          <option value="0" selected>Select User</option>
+        </select>
+        <button class="btn btn-outline-light" type="submit" id="searchButton">
+          Search
+        </button>
+      </div>
+      <!-- create post container-->
+      <div class="container" style="display: none" id="createPostForm">
+        <div class="form-container">
+          <h2>Create a New Post</h2>
+          <form id="postForm" onsubmit="submitPostForm(event)">
+            <div class="mb-3">
+              <label for="userId" class="form-label">User ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="userId"
+                placeholder="Enter User ID"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Enter Title"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="body" class="form-label">Body</label>
+              <textarea
+                class="form-control"
+                id="body"
+                rows="5"
+                placeholder="Enter Post Body"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label" >Image</label>
+              <input 
+                type="file"
+                class="form-control"
+                name="image"
+                id="image"
+                accept="image/jpeg"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary" >Create Post</button>
+          </form>
+        </div>
+      </div>
+
+    
+    <!--post container-->
+      <div id="postContainer" class="row"> 
+          <!-- Posts will be added here dynamically -->
+      </div>
+    </div>
+
+    <script src="./dist/index.js"></script>
+<script>
+  function submitPostForm(event) {
+  event.preventDefault();
+
+  // Get form values
+  const userId = +document.getElementById("userId").value; 
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+  const image = document.getElementById("image").files[0];
+
+  // Create the form data object
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("title", title);
+  formData.append("body", body);
+  formData.append("image", image);
+
+  fetch("/posts", {
+    method: "POST",
+    body: formData
+  })
+    .then(async (response) => {
+      if (response.ok) {
+        const newPost = await response.json();
+        console.log("Post created successfully", newPost);
+        window.location.href = "/";
+      } else {
+        console.error("Error creating post");
+      }
+    })
+    .catch(error => {
+      console.error("Error creating post", error);
+    });
+}
+</script>
+  </body>
+</html>
