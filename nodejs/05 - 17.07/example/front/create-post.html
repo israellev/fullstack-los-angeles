@@ -97,7 +97,7 @@
         formData.append("title", title);
         formData.append("body", body);
         formData.append("image", image);
-
+    
         fetch("/posts", {
           method: "POST",
           body: formData

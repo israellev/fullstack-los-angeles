@@ -15,14 +15,11 @@ const app = express();
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
-
-// 
 app.use(express.static('front'));
 
-// router
+// routes
 app.use('/posts', postsRouter);
 
-// routes
 app.get('/hello-world', (req, res) => {
   res.send("hello world");
 });
