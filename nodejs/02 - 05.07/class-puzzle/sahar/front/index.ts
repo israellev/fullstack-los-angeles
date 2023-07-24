@@ -7,7 +7,9 @@ type IComment = {id: number, postId: number, name: string, email: string, body: 
 const postContainerElement = document.getElementById("postContainer");
 const searchInputElement = document.getElementById("searchInput") as HTMLInputElement
 const selectionElement = document.getElementById("selection") as HTMLSelectElement
-
+const postButton = document.getElementById("postButton")
+const postBox = document.getElementById("postWriting") as HTMLDivElement
+ 
 const imagesByUser = {
   1: "images/user_1.jpg",
   2: "images/user_2.jpg",
@@ -25,13 +27,16 @@ init()
 
 async function init() {
     // async await (in Promise functions)
-    const res = await fetch("http://localhost:3000/posts", { method: "GET" })
+    const res = await fetch("/posts", { method: "GET" })
     const postList = await res.json()
     
 
       const userIds = getUserFromPostList(postList)
       userIds.forEach(createOption)
       postList.forEach(showComments)
+      postButton.addEventListener('click', () => showPostsBox(postBox))
+
+      
      
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
@@ -126,6 +131,8 @@ function hoverMouse(element) {
   });  
 }
 
+hoverMouse(postButton)
+
 ///function number 9:
 function createPost (post) {
   
@@ -148,7 +155,8 @@ function createPost (post) {
           <div class="card-body">
             <p class="card-text">${post.body}</p>
           </div>
-          <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
+          <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
             Show comments
           </button>
           <div id="comment-${post.id}">
@@ -181,7 +189,7 @@ function createPost (post) {
     });
   
    const elementsToHover = newDiv.querySelectorAll('a, img, i');
- 
+   
    elementsToHover.forEach((element) => {
      hoverMouse(element);})
      
@@ -219,5 +227,12 @@ function createCommnet(comment: IComment) {
   </div>`;
   newDiv.innerHTML = htmlPost
   commentsElement.appendChild(newDiv)
+};
+  
+function showPostsBox(postBox) {
+  if(postBox.style.display === "none") {
+    postBox.style.display = "block"
+  } else {
+    postBox.style.display = "none"
+  }
 }
-

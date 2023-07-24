@@ -40,7 +40,7 @@ init()//הרצת פונרמית איניט
             if (localStorage.getItem('selectedUserId'))
                 selectUserElement.value = localStorage.getItem('selectedUserId')
             
-            // show all posts (with the filters)
+            // show all posts 
             deletePostsAndActiveFilter(postList)
             // postList.forEach(createPost) // show all 100 posts (without filter)
         
@@ -60,13 +60,14 @@ init()//הרצת פונרמית איניט
 //     .catch(error => console.log(error))
 
     
-
+    // Fetch user IDs from post list
     function getUserIdsFromPostList(postList: IPost[]): number[]{//פונקציה אשר תקבל מערך של היוזרים המסוננים ללא כפילויות
         const userIds = Array.from(new Set(postList.map((post)=> post.userId)))
         return userIds;
           
       }
 
+    // Create select options for user IDs
     function createOption(userId:number){
         const newOption = document.createElement('option')//יצירה אלמנט אייץ טי מל חדש לוקלית בתוך הפונקציה ועוד לא בדף בשם אופציה 
         newOption.value = userId.toString()//הערך של אותה אופציה חדשה שנוצרה יהיה תז של יוזר שיהפוך לסטרינג 
@@ -75,46 +76,78 @@ init()//הרצת פונרמית איניט
     }
       
 
-
-    function createPost(post) {//The createPost function takes a post object as a parameter.
+    // Create a single post element
+    function createPost(post: IPost) {//The createPost function takes a post object as a parameter.
         const newDiv = document.createElement("div")// It generates HTML markup representing the post's data and creates a new div element.
         const image = addImageByUser(post.userId);//// Get the image URL based on the user ID
          const htmlPost = `
-                <div class="card mb-4" id="post-${post.id}">
-                    <div class="card-header">
-                        <h5 class="card-title">${post.id} - ${post.title}</h5>
-                        <small class="text-muted">Posted by User ${post.userId}</small>
-                    </div>
-                    <div class="card-body">
-                    <div class="row">
-                      <div class="col-3">
-                        <a href="profileUser.html" target="_blank">
-                          <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
-                        </a>
-                      </div>
-                      <div class="col-9">
-                    <div class="card-body">
-                        <p class="card-text">${post.body}</p>
-                        <button onClick = "showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-1" aria-expanded="false" aria-controls="comments-1">  
-                        Show comments
-                        </button>
-                        <div id="comments-${post.id}">
-                        <!-- Comments will be dynamically added here -->
-                        </div>
-                    </div>
-                </div>
-                `;
+         <div class="card mb-4" id="post-${post.id}">
+           <div class="card-header">
+             <h5 class="card-title">${post.id} - ${post.title}</h5>
+             <small class="text-muted">Posted by User ${post.userId}</small>
+           </div>
+           <div class="card-body">
+             <div class="row">
+               <div class="col-3">
+                 <a href="profileUser.html" target="_blank">
+                   <img src=${image} style="width: 100px; height: 100px; object-fit: cover; object-position: center; border-radius: 50%; cursor: pointer;" alt="Profile Image user number ${post.id}">
+                 </a>
+               </div>
+               <div class="col-9">
+                 <div class="card-body">
+                   <p class="card-text">${post.body}</p>
+                   <div class="add-comment">
+                     <input type="text" name="name" placeholder="Your Name" required><br>
+                     <input type="email" name="email" placeholder="Your Email" required><br>
+                     <textarea name="body" placeholder="Your Comment" required></textarea><br>
+                     <button type="submit" class="btn btn-primary add-comment-button">Add Comment</button>
+                   </div>
+                   <button onClick="showComments(${post.id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-${post.id}" aria-expanded="false" aria-controls="comments-${post.id}">
+                     Show comments
+                   </button>
+                   <div id="comments-${post.id}">
+                     <!-- Comments will be dynamically added here -->
+                   </div>
+                   <div class="delete-icon" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
+                     <i class="fas fa-trash" onClick="deletePost(${post.id})"></i>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       `;
             newDiv.innerHTML = htmlPost;
             document.getElementById("postContainer").appendChild(newDiv)
 
             const imageElement = newDiv.querySelector('a,img');
             hoverMouse(imageElement);
-        }
+
+            // Add event listener for the "Add Comment" button
+            const addCommentButton = newDiv.querySelector(".btn-primary");
+            addCommentButton.addEventListener("click", () => addComment(post.id));
+  
+
+           // Add event listener for the "Show Comments" button
+           const showCommentsButton = newDiv.querySelector(".btn-primary[data-bs-toggle='collapse']");
+           showCommentsButton.addEventListener("click", () => showComments(post.id));
+}
+      
+
         
         // The HTML markup is assigned to the innerHTML property of the div element.
         // Finally, the div element is appended to the postContainer element in the document.
         //בכפתור הוספנו אירוע לחיצת כפתור אשר יפעיל לנו את הפונקציה showComments
     
+    async function deletePost(postId: number){
+           const res = await fetch(`/posts/${postId}`, {method: "DELETE",})
+           const deletedPost = await res.json()
+           console.log(deletedPost)
+           if (deletedPost){
+            document.getElementById(`post-${postId}`).remove();
+           }
+        }
+
     function addImageByUser(userId) {
             if (userId in imagesByUser) {
               return imagesByUser[userId];
@@ -160,46 +193,132 @@ init()//הרצת פונרמית איניט
        return post.userId.toString() === selectedUserId
    }
 
-
-   async function showComments(postId: number) {
-    const commentsElement = document.getElementById(`comments-${postId}`)
-    if (!commentsElement.children.length){
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`, { method: "GET" })
-        const commentList = await res.json()
-        commentList.forEach(createCommnet)
-    } else  {
-      if (commentsElement.classList.contains(`collapse`))
-          commentsElement.classList.remove(`collapse`)
-      else 
-        commentsElement.classList.add('collapse')
-    }
+//יש בעיה בפונקמיה הזו לבדוק מהי 
+  //  async function showComments(postId: number) {
+  //   const commentsElement = document.getElementById(`comments-${postId}`)
+  //   if (commentsElement.children.length){
+  //       const res = await fetch(`/posts/${postId}/comments`, { method: "GET" })//לבדוק אם זה נכון 
+  //       const commentList = await res.json()
+  //       commentList.forEach((comment) => createCommentElement(postId, comment));
+  //   } else  {
+  //     if (commentsElement.classList.contains(`collapse`))
+  //         commentsElement.classList.remove(`collapse`)
+  //     else 
+  //       commentsElement.classList.add('collapse')
+  //   }
         
+  // }
+
+  async function showComments(postId: number) {
+    const commentsElement = document.getElementById(`comments-${postId}`);
+  
+    // Fetch and create comments
+    const res = await fetch(`/posts/${postId}/comments`, { method: "GET" });
+    const commentList = await res.json();
+    commentList.forEach((comment) => createCommentElement(postId, comment));
+  
+    // Toggle the "collapse" class using standard JavaScript DOM methods
+    if (commentsElement.classList.contains("collapse")) {
+      commentsElement.classList.remove("collapse");
+    } else {
+      commentsElement.classList.add("collapse");
+    }
   }
+  
   
     
-  function createCommnet(comment: IComment) {
-    const commentsElement = document.getElementById(`comments-${comment.postId}`)
-    const newDiv = document.createElement("div")
-    const htmlPost = `
-    <div id="comments-${comment.id}">
-        <div class="card card-body">
-            <h6>Comments:</h6>
-            <div class="comment">
-                <strong>Name: </strong>${comment.name}<br>
-                <strong>Email: </strong>${comment.email}<br>
-                <strong>Comment: </strong>${comment.body}
-            </div>
+// Function to create a single comment element with postId
+function createCommentElement(postId, comment) {
+    const commentsElement = document.getElementById(`comments-${postId}`);
+    const newDiv = document.createElement("div");
+    newDiv.id = `comment-${comment.id}`;
+    newDiv.classList.add("card", "card-body", "mb-2");
+  
+    newDiv.innerHTML = `
+      <h6>Comments:</h6>
+      <div class="comment">
+        <strong>Name: </strong>${comment.name}<br>
+        <strong>Email: </strong>${comment.email}<br>
+        <strong>Comment: </strong>${comment.body}
+        <div class="delete-icon" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">
+          <i class="fas fa-trash" onClick="deleteComment(${comment.id})"></i>
         </div>
-    </div>`;
-    newDiv.innerHTML = htmlPost
-    commentsElement.appendChild(newDiv)
+      </div>
+    `;
+  
+    commentsElement.appendChild(newDiv);
+  
+    // Add the delete-icon event listener to the comment element
+    const deleteIcon = newDiv.querySelector(".delete-icon");
+    deleteIcon.addEventListener("click", () => deleteComment(comment.id));
+  }
+
+
+
+
+   // Function to delete a comment
+   async function deleteComment(commentId) {
+    try {
+      const res = await fetch(`/comments/${commentId}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        const deletedComment = await res.json();
+        // Remove the comment element from the DOM
+        const commentElement = document.getElementById(`comment-${deletedComment.id}`);
+        if (commentElement) {
+          commentElement.remove();
+        } else {
+          console.log(`Comment element with ID ${deletedComment.id} not found.`);
+        }
+      } else {
+        console.error("Error deleting comment.");
+      }
+    } catch (error) {
+      console.error("Error deleting comment", error);
+    }
+  }
+
+  type Isubmit = {userId: number, title:string, body:string, image:File }
+  interface ISubmitEvent extends Event {
+    target: HTMLFormElement;
   }
   
 
-
+  async function addComment(postId: number) {
+    const nameInput = document.querySelector(`#post-${postId} input[name="name"]`) as HTMLInputElement;
+    const emailInput = document.querySelector(`#post-${postId} input[name="email"]`) as HTMLInputElement;
+    const bodyInput = document.querySelector(`#post-${postId} textarea[name="body"]`) as HTMLTextAreaElement;
   
+    const commentData = {
+      postId,
+      name: nameInput.value,
+      email: emailInput.value,
+      body: bodyInput.value,
+    };
   
+    try {
+      const res = await fetch("/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(commentData),
+      });
   
-  
-  
+      if (res.ok) {
+        const newComment = await res.json();
+        // Create and append the new comment element
+        createCommentElement(postId, newComment);
+        // Clear the input fields after adding the comment
+        nameInput.value = "";
+        emailInput.value = "";
+        bodyInput.value = "";
+      } else {
+        console.error("Error adding comment.");
+      }
+    } catch (error) {
+      console.error("Error adding comment", error);
+    }
+  }
   

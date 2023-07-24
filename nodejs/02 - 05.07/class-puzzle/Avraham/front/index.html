@@ -52,7 +52,7 @@
                class="form-control text-center"
                id="userId"
                placeholder="Enter User ID"
-               
+               required
              />
            </div>
            <div class="mb-3 text-center">
@@ -62,7 +62,7 @@
                class="form-control text-center"
                id="title"
                placeholder="Enter Title"
-              
+               required
              />
            </div>
            <div class="mb-3 text-center">
@@ -72,7 +72,7 @@
                id="body"
                rows="5"
                placeholder="Enter Post Body"
-              
+               required
              ></textarea>
            </div>
            <div class="mb-3 text-center">
@@ -83,7 +83,7 @@
                id="image"
                name="image"
                accept="image/jpeg"
-              
+               required
              />
            </div>
            <button type="submit" class="btn btn-primary d-block mx-auto">Send Post</button>
@@ -103,7 +103,7 @@
           aria-label="Search"
         />
         <div class="col-md-3 ">
-          <select id="selectUser" class="form-select" aria-label="Select User">
+          <select id="selectUser" class="form-select text-center" aria-label="Select User">
             <option value="all-users" class="text-center" selected>Select User</option>
             <!-- Options of user ids  will be added here dynamically -->
           </select>
@@ -117,42 +117,75 @@
 
     <script src="/dist/index.js"></script>
         <script>
-      function submitPostForm(event) {
-     event.preventDefault(); // Prevent form submission
+  //     function submitPostForm(event) {
+  //    event.preventDefault(); // Prevent form submission
 
-     // Get form values
-     const userId = +document.getElementById("userId").value;
-     const title = document.getElementById("title").value;
-     const body = document.getElementById("body").value;
-     const image = document.getElementById("image").files[0];
+  //    // Get form values
+  //    const userId = document.getElementById("userId").value;
+  //    const title = document.getElementById("title").value;
+  //    const body = document.getElementById("body").value;
+  //    const image = document.getElementById("image").files[0];
 
-     // Create the form data object
-     const formData = new FormData();
-     formData.append("userId", userId);
-     formData.append("title", title);
-     formData.append("body", body);
-     formData.append("image", image);
+  //    // Create the form data object
+  //    const formData = new FormData();
+  //    formData.append("userId", userId);
+  //    formData.append("title", title);
+  //    formData.append("body", body);
+  //    formData.append("image", image);
 
-     // Close the form
-     closeForm();
-     fetch("http://localhost:3000/posts", {
-       method: "POST",
-       body: formData
-     })
-     .then(async (response) => {
-       if (response.ok) {
-         const newPost = await response.json()
-         console.log("Post created successfully", newPost);
-         window.location.href = '/'
-         console.log(newPost)
-       } else {
-         console.error("Error creating post");
-       }
-     })
-     .catch(error => {
-       console.error("Error creating post", error);
-     });
-   }
+  //    // Close the form
+  //    closeForm();
+  //    fetch("http://localhost:3000/posts", {
+  //      method: "POST",
+  //      body: formData
+  //    })
+  //    .then(async (response) => {
+  //      if (response.ok) {
+  //        const newPost = await response.json()
+  //        console.log("Post created successfully", newPost);
+  //        window.location.href = '/'
+  //        console.log(newPost)
+  //      } else {
+  //        console.error("Error creating post");
+  //      }
+  //    })
+  //    .catch(error => {
+  //      console.error("Error creating post", error);
+  //    });
+  //  }
+  function submitPostForm(event) {
+        event.preventDefault();
+        
+        // Get form values
+        const userId = +document.getElementById("userId").value;
+        const title = document.getElementById("title").value;
+        const body = document.getElementById("body").value;
+        const image = document.getElementById("image").files[0];
+
+        // Create the form data object
+        const formData = new FormData();
+        formData.append("userId", userId);
+        formData.append("title", title);
+        formData.append("body", body);
+        formData.append("image", image);
+        closeForm()
+        fetch("/posts", {
+          method: "POST",
+          body: formData
+        })
+        .then(async (response) => {
+          if (response.ok) {
+            const newPost = await response.json()
+            console.log("Post created successfully", newPost);
+            window.location.href = '/'
+          } else {
+            console.error("Error creating post");
+          }
+        })
+        .catch(error => {
+          console.error("Error creating post", error);
+        });
+      }
 
    function openForm() {
      document.getElementById("createForm").style.display = "block";
@@ -163,6 +196,7 @@
    }
    
  </script>
+ 
   </body>
 </html>
 

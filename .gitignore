@@ -13,3 +13,4 @@ firebase.json
 .firebase
 **/dist
 firebase-debug.log
+**/config.js
