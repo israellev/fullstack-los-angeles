@@ -1,7 +1,7 @@
 01. 
 
 * create react app
-'create-react-app react --template typescript'
+'npx create-react-app react --template typescript'
 'cd my-first-project'
 'npm start'
 
