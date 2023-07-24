@@ -173,7 +173,7 @@ function createPost (post) {
    newDiv.innerHTML = htmlPost;
    document.getElementById("postContainer").appendChild(newDiv);
 
-   const iconElement = newDiv.querySelector(`#icon-${post.id}`);
+   const iconElement = newDiv.querySelector(`#icon-${post._id}`);
     let isIconToggled = false;
 
     iconElement.addEventListener("click", function() {
