@@ -31,6 +31,7 @@ router.get('/:_id', async (req, res) => {
 });
 
 router.post('/', upload.single('image'), async (req, res) => {
+  console.log(req.body)
   const newPost = await PostService.createPost({
     ...req.body,
     userId: +req.body.userId,
