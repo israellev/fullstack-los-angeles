@@ -1,6 +1,6 @@
 export {}
 
-type IPost = {id: number, userId: number, title: string, body: string, image: any}
+type IPost = {_id: string, userId: number, title: string, body: string, image: any}
 type IComment = {id: number, postId: number, name: string, email: string, body: string}
 
 
@@ -28,13 +28,13 @@ init()
 async function init() {
     // async await (in Promise functions)
     const res = await fetch("/posts", { method: "GET" })
-    const postList = await res.json()
+    const postList: IPost[] = await res.json()
     
 
       const userIds = getUserFromPostList(postList)
       userIds.forEach(createOption)
-      postList.forEach(showComments)
-        
+      postList.forEach((post, index) => showComments(index + 1))
+   
      
         //  // check if exist in storage - add it to elements
         // if (localStorage.getItem('searchValue'))
@@ -154,7 +154,7 @@ function createPost (post) {
            <p class="card-text">${post.body}</p>
          </div>
          <div> <img src="${post.imageUrl}" style="height: 150px; width: auto; margin: 2px; display: flex;"></div>
-         <button onClick="showComments(${post._id})" class="btn btn-primary" type="button" data-bs-toggle="collapse" 
+         <button onClick="showComments('${post._id}')" class="btn btn-primary" type="button" data-bs-toggle="collapse" 
            data-bs-target="#comments-${post._id}" aria-expanded="false" aria-controls="comments-${post._id}">
            Show comments
          </button>
