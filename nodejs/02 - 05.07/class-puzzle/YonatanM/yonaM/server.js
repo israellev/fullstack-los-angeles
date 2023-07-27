@@ -1,7 +1,7 @@
-const express = require("express");
+const http = require("http");
 
 // Create an Express application
-const app = express();
+const app = http();
 
 // Define a route handler for the root path
 app.get("/", (req, res) => {
