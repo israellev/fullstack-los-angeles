@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import TodoList from './components/TodoList';
+import AddTodo from './components/AddTodo';
 
 function App() {
   return (
@@ -22,5 +26,17 @@ function App() {
     </div>
   );
 }
+
+
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={TodoList} />
+        <Route path="/add" Component={AddTodo} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
