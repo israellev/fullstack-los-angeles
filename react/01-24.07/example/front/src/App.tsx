@@ -4,18 +4,19 @@ import './App.css';
 import { HelloWorld } from './app/hello-world';
 import { Counter } from './app/Counter';
 import { Name } from './app/Name';
+import { Clock } from './app/Clock';
 
 function App() {
   return (
     <div>
       <HelloWorld/>
-      <Name initName="Sapir"/>
-      <Name initName="Sarit"/>
-      <Name initName="Shir"/>
+      <Clock/>
+      {/* <Name initName="Gdi"/> */}
+      {/* <Name initName="Riki"/> */}
       <Counter start={1}/>
       <Counter start={100}/>
-      <Counter start={1000} />
-      <Counter start={10000}/>
+      {/* <Counter start={1000} /> */}
+      {/* <Counter start={10000}/> */}
     </div>
   );
 }
