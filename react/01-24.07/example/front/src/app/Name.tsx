@@ -6,8 +6,11 @@ export function Name(props: { initName: string }) {
 
   return (
     <div>
-      <div>{name}</div>
-      <input value={name} onChange={(e: any) => setName(e.target.value)} />
+      {/* <div>{name}</div> */}
+      <input 
+      value={name} 
+      onChange={(e: any) => setName(e.target.value)}
+       />
     </div>
   );
 }
