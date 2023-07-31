@@ -1,18 +1,16 @@
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
-const AddTodo: React.FC = () =>{
-
-function AddTo(){
+function AddTodo(){
   return ( 
     <div>
         <TextField label="Add Todo"/>
-        <button variant="contained" color="primary">
+        <Button variant="contained" color="primary">
          Add
-        </button>
+        </Button>
     </div>
   );
   };
-};
+
 
 
 
