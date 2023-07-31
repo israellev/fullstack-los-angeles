@@ -1,10 +1,10 @@
-import React ,{Component} from 'react';
-
+// import React ,{Component} from 'react';
+import React, {Component,useState,useEffect} from 'react';
 class Counter extends Component{
     render(){
         return(
-            <div> Counter work
-
+            <div>
+                 Counter work
             </div>
         )
     }
