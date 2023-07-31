@@ -1,6 +1,6 @@
 export {}
 
-type IPost = {id: number, userId: number, title: string, body: string, image: any}
+type IPost = {_id: number, userId: number, title: string, body: string, image: any}
 type IComment = {id: number, postId: number, name: string, email: string, body: string}
 
 
