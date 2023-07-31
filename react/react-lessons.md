@@ -3,22 +3,26 @@
 * create react app
 'npx create-react-app my-first-project --template typescript'
 'cd my-first-project'
-'npm start'
+'npm run start'
 
 * Component:
 create component - conponent just looks like normal function, but it return 'JSX'.  
 'JSX' - like <html> tags in the javascript. 
 'props' - object with values that compoenet recive from the user,
-'<Counter initial={0}/>'
 'function Counter(props: {initial: number}) {}'
+'<Counter initial={0}/>'
 you can re-use components
 
 * useState - 
-The UI will render again only if state (or props) is changed.
+The function will run again (UI will render) only if state (or props) is changed.
 example:
 'const [counter, setCounter] = useState(0)'
 
 02. 
+
+* install material UI
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom
+
 
 * useEffect:
 when we want to make change in the state in the compoenent (usually can only from the html events)
