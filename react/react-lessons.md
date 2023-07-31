@@ -21,6 +21,13 @@ example:
 02. 
 
 * useEffect:
+when we want to make change in the state in the compoenent (usually can only from the html events)
+first parameter - the function
+second parameter -  
+if empty: run each time, 
+if []: run only once, 
+if [counter, ...]: it runs once, and each time counter is changed
+return function - run before component is closed. 
 
 * react-router:
 'npm i react-router react-router-dom'
