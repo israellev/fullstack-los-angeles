@@ -1,10 +1,14 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
-    UserId: Number,
+    userId: Number,
     title: String,
     body: String,
-    image: String,
+    //image: String,
+    image: {
+        data: Buffer,
+        contentType: String
+    }
 })
 
 const postModel = mongoose.model('Post', postSchema)
@@ -15,7 +19,7 @@ class PostService {
         return await newPost.save()
     }
 
-    async dgetAllPosts() {
+    async getAllPosts() {
         return await postModel.find()
     }
 

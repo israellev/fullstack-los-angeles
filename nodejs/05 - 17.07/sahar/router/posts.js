@@ -31,16 +31,15 @@ router.get('/:_id', (req, res) => {
   res.send(post);
 });
 
-router.post('/', upload.single('image'), (req, res) => {
-  console.log(req.body)  // This will show the form data sent from the frontend
-  console.log(req.file); // This will show information about the uploaded image
-  const newPost = {
-      ...req.body,
-      imageUrl: `/images/${req.file.filename}`,
-      id,
-  }
-  id++
-  posts.push(newPost)
+
+router.post('/', upload.single('image'), async (req, res) => {
+  console.log(req.body)
+  const newPost = await PostService.createPost({
+    ...req.body,
+    userId: +req.body.userId,
+    image: req.file,
+    // imageUrl: `/images/${req.file.filename}`,
+  })
   res.send(newPost)
 });
 
