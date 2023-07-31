@@ -21,8 +21,8 @@ example:
 02. 
 
 * install material UI
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom
-
+'npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom'
+https://mui.com/material-ui/getting-started/
 
 * useEffect:
 when we want to make change in the state in the compoenent (usually can only from the html events)
