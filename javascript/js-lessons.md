@@ -19,7 +19,10 @@ parseFloat()
 
 04.  conditions operators (convert to boolean) - ===, !== , < , > , <=, >=
     conditions combine - && (and), || (or)
-    conditions - 'if() {} else {}' and 'switch() { case "": break; case "": break; }'
+    conditions - 'if() {} else {}' 
+    and 
+    'switch() { case "": break; case "": break; }'
+    
     numbers - int and float (integer - 1, float - 1.0)
     math library - abs, ceil, floor, max, min, round
     loops - welcome for:
