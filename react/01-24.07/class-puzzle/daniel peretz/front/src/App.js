@@ -95,7 +95,7 @@ const Toggle = () => {
 
 
 
-import React, { useState } from 'react';
+
 
 const SmartToggle = () => {
   const [isOn, setIsOn] = useState(false);
