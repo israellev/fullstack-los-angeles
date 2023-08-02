@@ -1,21 +1,16 @@
 // src/components/AddTodo.tsx
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { Todo } from "./TodoList";
+import { Todo, useTodos } from "../hooks/useTodos";
+import { v4 as uuidv4 } from 'uuid';
 
 export const AddTodo = () => {
+  const {todos, setTodos} = useTodos()
   const [newTodo, setNewTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || "[]"));
-
-  useEffect(() => {
-    if (todos) 
-      localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;
-    const newId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
-    const newTodoItem: Todo = { id: newId, text: newTodo.trim() };
+    const newTodoItem: Todo = { id: uuidv4(), text: newTodo.trim() };
     setTodos([...todos, newTodoItem]);
     setNewTodo("");
   };

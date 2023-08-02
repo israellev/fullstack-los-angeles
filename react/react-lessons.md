@@ -41,3 +41,16 @@ if [counter, ...]: it runs once, and each time counter is changed
 return function - run before component is closed. 
 
 * custom hooks
+simple function that start with 'use', and we can use it in our components for share logic.
+
+* uuid
+'npm i uuid'
+'npm i -D @types/uuid'
+'import { v4 as uuidv4 } from 'uuid';'
+use it: 'uuidv4()' // "8eaea60a-a0f6-4ae7-ad9c-b02ec0c4197d"
+
+About "devDependencies" in 'package.json':
+(-D === --save-dev)
+'@types/[name]' it's the typescript for javascript library.
+
+

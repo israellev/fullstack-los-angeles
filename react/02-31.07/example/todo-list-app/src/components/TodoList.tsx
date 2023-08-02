@@ -1,29 +1,11 @@
 import {
-    Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
+    Box, List,
 } from "@mui/material";
-import { useState } from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
-
-export interface Todo {
-  id: number;
-  text: string;
-}
+import { useTodos } from "../hooks/useTodos";
+import { Todo } from "./Todo";
 
 export const TodoList = () => {
-  const itmesJson = localStorage.getItem("todos") || '[]';
-  const itmesObject = JSON.parse(itmesJson) 
-  const [todos, setTodos] = useState<Todo[]>(itmesObject);
-
-  const handleRemoveTodo = (id: number) => {
-    const newTodos = todos.filter((todo) => todo.id !== id)
-    setTodos(newTodos);
-    localStorage.setItem('todos', JSON.stringify(newTodos))
-  };
+  const {todos} = useTodos()
 
   return (
     <Box
@@ -35,20 +17,7 @@ export const TodoList = () => {
       }}
     >
       <List sx={{ maxWidth: "500px", minWidth: '300px', textAlign: "center" }}>
-        {todos.map((todo) => (
-          <ListItem key={todo.id}>
-            <ListItemText primary={todo.text} />
-            <ListItemSecondaryAction>
-              <IconButton
-                edge="end"
-                aria-label="delete"
-                onClick={() => handleRemoveTodo(todo.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
+        {todos.map((todo) => <Todo todo={todo}/>)}
       </List>
     </Box>
   );

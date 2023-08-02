@@ -7,25 +7,26 @@ import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import { AppBar, CssBaseline, Tab, Tabs } from "@mui/material";
 
 function App() {
-  const [tab, setTab] = useState(window.location.pathname === '/' ? 0 : 1);
+  const [tab, setTab] = useState(window.location.pathname === "/" ? 0 : 1);
 
   return (
     <BrowserRouter>
-    <CssBaseline/>
-    <AppBar position="static" style={{ background: "#2196F3" }}>
-      <Tabs
-        centered
-        value={tab}
-        onChange={(e, newValue) => setTab(newValue)}
-        indicatorColor="secondary"
-      >
-        <Tab label="Todo List" to="/" style={{ color: "white" }} component={Link}/>
-        <Tab label="Add Todo" to="/add" style={{ color: "white" }} component={Link}/>
-      </Tabs>
-    </AppBar>
+      <CssBaseline />
+      <AppBar position="static" style={{ background: "#2196F3" }}>
+        <Tabs
+          centered
+          value={tab}
+          onChange={(e, newValue) => setTab(newValue)}
+          indicatorColor="secondary"
+        >
+          {/* <Link to="/"></Link> */}
+          <Tab label="Todo List" style={{ color: "white" }} component={Link} to="/" />
+          <Tab label="Add Todo" style={{ color: "white" }} component={Link} to="/add"/>
+        </Tabs>
+      </AppBar>
       <Routes>
-        <Route path="/" Component={TodoList} />
-        <Route path="/add" Component={AddTodo} />
+        <Route path="/" Component={() => <TodoList/>} />
+        <Route path="/add" Component={() => <AddTodo/>} />
       </Routes>
     </BrowserRouter>
   );
