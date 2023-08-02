@@ -24,6 +24,13 @@ example:
 'npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom'
 https://mui.com/material-ui/getting-started/
 
+* react-router:
+'npm i react-router react-router-dom'
+
+* useContext
+
+03. on 02 folder
+
 * useEffect:
 when we want to make change in the state in the compoenent (usually can only from the html events)
 first parameter - the function
@@ -33,10 +40,4 @@ if []: run only once,
 if [counter, ...]: it runs once, and each time counter is changed
 return function - run before component is closed. 
 
-* react-router:
-'npm i react-router react-router-dom'
-
 * custom hooks
-
-* useContext
-

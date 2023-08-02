@@ -8,13 +8,16 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
+
 export interface Todo {
   id: number;
   text: string;
 }
 
 export const TodoList = () => {
-  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || '[]'));
+  const itmesJson = localStorage.getItem("todos") || '[]';
+  const itmesObject = JSON.parse(itmesJson) 
+  const [todos, setTodos] = useState<Todo[]>(itmesObject);
 
   const handleRemoveTodo = (id: number) => {
     const newTodos = todos.filter((todo) => todo.id !== id)
