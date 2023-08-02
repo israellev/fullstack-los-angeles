@@ -15,7 +15,7 @@ const storage=multer.diskStorage({
     }
   
 });
-const upload= muler({ storage :storage});
+const upload= multer({ storage :storage});
 
 
 //routers
