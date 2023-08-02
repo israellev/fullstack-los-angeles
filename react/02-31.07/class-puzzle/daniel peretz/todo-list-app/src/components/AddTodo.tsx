@@ -1,48 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { TextField, Button } from '@mui/material';
+// src/components/AddTodo.tsx
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Box } from "@mui/material";
 
 interface Todo {
   id: number;
   text: string;
 }
 
-const AddTodo: React.FC = () => {
-  const [newTodo, setNewTodo] = useState<string>('');
-  const [todos, setTodos] = useState<Todo[]>([]);
+export const AddTodo: React.FC = () => {
+  const [newTodo, setNewTodo] = useState<string>("");
+  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || "[]"));
 
   useEffect(() => {
-    // Fetch todos from local storage on component mount
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save todos to local storage whenever todos state changes
-    localStorage.setItem('todos', JSON.stringify(todos));
+    if (todos) localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const handleAddTodo = () => {
-    if (newTodo.trim() === '') return;
+    if (newTodo.trim() === "") return;
     const newId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
-    const newTodoItem: Todo = { id: newId, text: newTodo };
+    const newTodoItem: Todo = { id: newId, text: newTodo.trim() };
     setTodos([...todos, newTodoItem]);
-    setNewTodo('');
+    setNewTodo("");
   };
 
   return (
-    <div>
+    <Box sx={{ display: "flex", justifyContent: "center", height: "100vh", m: 1 }}>
       <TextField
         label="Add Todo"
         value={newTodo}
         onChange={(e) => setNewTodo(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleAddTodo();
+        }}
       />
-      <Button variant="contained" color="primary" onClick={handleAddTodo}>
-        Add
-      </Button>
-    </div>
+    </Box>
   );
 };
-
-export default AddTodo;
