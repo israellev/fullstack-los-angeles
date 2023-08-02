@@ -4,8 +4,7 @@
 import { useState } from "react";
 import styles from './style.module.css';
 export function Toggle (props: { onOff: string }) {
-    const {onOff} = props
-    let [buttontext, setButtonText] = useState(onOff)
+    let [buttontext, setButtonText] = useState("On")
     let [buttonStyle, setButtonStyle] = useState({background: "green"})
     const toggle = () => {
         if (buttontext === "On") {
@@ -20,7 +19,7 @@ export function Toggle (props: { onOff: string }) {
     
     return (
         <div className= {styles.Toggle}>
-            <button className= {styles.Toggle} onClick = {toggle} style={buttonStyle}>{buttontext}</button>
+            <button onClick = {toggle} style={buttonStyle}>{buttontext}</button>
         </div>
     );
 }
