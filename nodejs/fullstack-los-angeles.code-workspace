@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Web Develop Projects"
+		},
+		{
+			"path": "../../my-express-server"
+		},
+		{
+			"path": "../../Dom"
+		},
+		{
+			"path": "../../Calculator"
+		}
+	],
+	"settings": {
+		"compile-hero.disable-compile-files-on-did-save-code": false,
+		"liveServer.settings.multiRootWorkspaceName": "fullstack-los-angeles"
+	}
+}
