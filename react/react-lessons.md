@@ -54,3 +54,70 @@ About "devDependencies" in 'package.json':
 '@types/[name]' it's the typescript for javascript library.
 
 
+04. 
+
+* 25 common questions about react:
+https://techmonster.co.il/react-interview-questions/
+
+
+* key={1}
+when we're render array of components to UI, react ask to give each one a unique 'key'.
+
+
+* Fragments:
+Component that not creates actuall <div> in the html 
+<React.Fragment></React.Fragment>
+or
+<></>
+
+
+* Component lifecycle:
+
+mount - see html on the screen
+1. didMount - useEffect
+2. didUpdate - useEffect without [], or useEffect that one of the array has updated
+3. willUnmount - return of useEffect
+unmount
+
+// 1. didMount and didUpdate - run when init, and each any state change
+useEffect(() => {
+  console.log('1 useEffect');
+})
+
+// 2. didMount - run when init only
+useEffect(() => {
+  console.log('2 useEffect');
+}, [])
+
+// 3. didMount and didUpdate of list - run when init, and when 'todos' state is changed
+useEffect(() => {
+  console.log('3 useEffect');
+}, [todos])
+
+// 4. willUnmount and before didUpdate - the return function run on the init and before component closed
+useEffect(() => {
+  return () => {
+    console.log('4 return useEffect')
+  }
+}, [todos])
+
+
+* useContext
+1. create - export const UserContext = createContext<{name: "shir"} | undefined>(undefined)
+2. wrap component -  <UserContext.Provider value={{name: "shir"}}></UserContext.Provider>
+3. use - const user = useContext(UserContext) // {name: "shir"}
+
+
+05. 
+
+* npm react-query
+
+* form example
+
+* project plan: cv creator
+login with google
+form
+server
+use with external api
+
+

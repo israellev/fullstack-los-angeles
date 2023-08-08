@@ -1,20 +1,20 @@
 import { useState } from "react";
 
-export interface Todo {
+export interface ITodo {
     id: string;
     text: string;
   }
 
 export function useTodos() {
-    const [todos, editTodos] = useState<Todo[]>(getTodos());
+    const [todos, editTodos] = useState<ITodo[]>(getTodos());
 
     function getTodos() {
         const todosJson = localStorage.getItem("todos") || "[]"
-        const todosObject = JSON.parse(todosJson)
-        return todosObject
+        const todosArray = JSON.parse(todosJson)
+        return todosArray
     }
 
-    function setTodos(todos: Todo[]) {
+    function setTodos(todos: ITodo[]) {
         editTodos(todos)
         const todosJson = JSON.stringify(todos)
         localStorage.setItem('todos', todosJson)
@@ -27,3 +27,15 @@ export function useTodos() {
 
     return {todos, setTodos, removeTodo}
 }
+
+
+function getArray() {
+    return [];
+}
+
+const arr1: any = getArray()
+const arr2: any = getArray()
+
+arr1.push("1")
+console.log(arr1) // ["1"]
+console.log(arr2) // []
