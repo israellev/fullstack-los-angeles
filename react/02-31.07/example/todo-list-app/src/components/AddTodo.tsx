@@ -6,13 +6,14 @@ import { v4 as uuidv4 } from "uuid";
 import { TodoList } from "./TodoList";
 import { useContext } from "react";
 import { UserContext } from "../App";
+import { useGlobalTodos } from "../global-hooks/useGlobalTodos";
 
 export const AddTodo = () => {
-  const { todos, setTodos } = useTodos();
+  const { todos, setTodos } = useGlobalTodos();
   const [newTodo, setNewTodo] = useState<string>("");
 
   const user = useContext(UserContext);
-  console.log(user);
+  console.log(user); // {id: 1, name: "shir"}
 
   const handleAddTodo = () => {
     if (newTodo.trim() === "") return;

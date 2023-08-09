@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export interface ITodo {
     id: string;
     text: string;
-  }
+}
 
-export function useTodos() {
+type ITodoContext = {
+    todos: ITodo[],
+    getTodos: () => ITodo[],
+    removeTodo: (id: string) => void,
+    setTodos: (todos: ITodo[]) => void,
+}
+
+const TodosContext = createContext<ITodoContext | null>(null)
+
+export function TodosProvider(props: any) {
     const [todos, editTodos] = useState<ITodo[]>(getTodos());
 
     function getTodos() {
@@ -25,17 +34,13 @@ export function useTodos() {
         setTodos(newTodos);
     }
 
-    return {todos, setTodos, removeTodo}
+    return (
+        <TodosContext.Provider value={{todos, setTodos, getTodos, removeTodo}}>
+            {props.children}
+        </TodosContext.Provider>
+    );
 }
 
-
-// function getArray() {
-//     return [];
-// }
-
-// const arr1: any = getArray()
-// const arr2: any = getArray()
-
-// arr1.push("1")
-// console.log(arr1) // ["1"]
-// console.log(arr2) // []
+export function useGlobalTodos() {
+    return useContext(TodosContext) as ITodoContext
+}

@@ -1,11 +1,10 @@
 import { Box, List } from "@mui/material";
 import { ITodo, useTodos } from "../hooks/useTodos";
 import { Todo } from "./Todo";
-import { useContext } from "react";
-import { createContext } from "vm";
+import { useGlobalTodos } from "../global-hooks/useGlobalTodos";
 
 export const TodoList = (props: any) => {
-  const { todos } = useTodos();
+  const { todos } = useGlobalTodos();
 
   return (
     <>
@@ -28,8 +27,3 @@ export const TodoList = (props: any) => {
     </>
   );
 };
-
-
-
-// context
-
