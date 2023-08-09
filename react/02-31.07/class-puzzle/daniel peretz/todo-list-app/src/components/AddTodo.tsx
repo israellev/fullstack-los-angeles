@@ -1,18 +1,15 @@
 // src/components/AddTodo.tsx
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Box } from "@mui/material";
+import { Todo } from "./TodoList";
 
-interface Todo {
-  id: number;
-  text: string;
-}
-
-export const AddTodo: React.FC = () => {
+export const AddTodo = () => {
   const [newTodo, setNewTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || "[]"));
 
   useEffect(() => {
-    if (todos) localStorage.setItem("todos", JSON.stringify(todos));
+    if (todos) 
+      localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const handleAddTodo = () => {
@@ -36,3 +33,26 @@ export const AddTodo: React.FC = () => {
     </Box>
   );
 };
+
+
+  // // 1. run when init, and each any state change
+  // useEffect(() => {
+  //   console.log('1 useEffect');
+  // })
+  
+  // // 2. run when init only
+  // useEffect(() => {
+  //   console.log('2 useEffect');
+  // }, [])
+
+  // // 3. run when init, and when 'todos' state is changed
+  // useEffect(() => {
+  //   console.log('3 useEffect');
+  // }, [todos])
+
+  // 4. the return function run on the init and before component closed
+  // useEffect(() => {
+  //   return () => {
+  //     console.log('4 return useEffect')
+  //   }
+  // }, [])

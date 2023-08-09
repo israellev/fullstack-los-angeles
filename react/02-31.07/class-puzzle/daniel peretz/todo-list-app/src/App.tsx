@@ -7,7 +7,7 @@ import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import { AppBar, CssBaseline, Tab, Tabs } from "@mui/material";
 
 function App() {
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(window.location.pathname === '/' ? 0 : 1);
 
   return (
     <BrowserRouter>
