@@ -1,52 +1,29 @@
-import {
-    Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-} from "@mui/material";
-import { useState } from "react";
-import DeleteIcon from "@mui/icons-material/Delete";
-export interface Todo {
-  id: number;
-  text: string;
-}
+import { Box, List } from "@mui/material";
+import { ITodo, useTodos } from "../hooks/useTodos";
+import { Todo } from "./Todo";
+import { useGlobalTodos } from "../global-hooks/useGlobalTodos";
 
-export const TodoList = () => {
-  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || '[]'));
-
-  const handleRemoveTodo = (id: number) => {
-    const newTodos = todos.filter((todo) => todo.id !== id)
-    setTodos(newTodos);
-    localStorage.setItem('todos', JSON.stringify(newTodos))
-  };
+export const TodoList = (props: any) => {
+  const { todos } = useGlobalTodos();
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        // alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <List sx={{ maxWidth: "500px", minWidth: '300px', textAlign: "center" }}>
-        {todos.map((todo) => (
-          <ListItem key={todo.id}>
-            <ListItemText primary={todo.text} />
-            <ListItemSecondaryAction>
-              <IconButton
-                edge="end"
-                aria-label="delete"
-                onClick={() => handleRemoveTodo(todo.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          // alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <List
+          sx={{ maxWidth: "500px", minWidth: "300px", textAlign: "center" }}
+        >
+          {todos.map((todo: ITodo, i: number) => (
+            <Todo key={i} todo={todo} />
+          ))}
+        </List>
+      </Box>
+    </>
   );
 };
