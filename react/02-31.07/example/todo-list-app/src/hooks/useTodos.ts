@@ -28,6 +28,8 @@ export function useTodos() {
     return {todos, setTodos, removeTodo}
 }
 
+// why useTodos is not global 
+// (if you change in one place, it's not auto change in the others)
 
 // function getArray() {
 //     return [];

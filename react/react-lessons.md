@@ -109,7 +109,7 @@ console.log('4 return useEffect')
 
 4.
 
-- component 'children'
+- component 'children' (high-order-component)
   If we do:
   <TodoList>
     <div>hello wolrd</div>
@@ -118,9 +118,8 @@ console.log('4 return useEffect')
   In the TodoList we now can show hello world by doing:
   {props.children}
 
-- combine hook with context for global-hook
+- combine context with hook for 'global-hook'
 
-- npm react-query
 
 - project plan: cv creator
   login with google
@@ -134,3 +133,8 @@ console.log('4 return useEffect')
   'inputRef.current.value'
 
 - perfomance improvements (not so important) - useMemo / useReducer / useCallback
+
+
+
+
+- npm react-query
