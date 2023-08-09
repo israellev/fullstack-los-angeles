@@ -1,49 +1,38 @@
-import { Button, TextField } from "@mui/material"
-import { useEffect, useState } from "react"
-
+// src/components/AddTodo.tsx
+import React, { useState, useEffect } from "react";
+import { TextField, Button, Box } from "@mui/material";
 
 interface Todo {
-    id: number
-    text: string
+  id: number;
+  text: string;
 }
 
-const AddToDo= ()=> {
+export const AddTodo: React.FC = () => {
+  const [newTodo, setNewTodo] = useState<string>("");
+  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || "[]"));
 
-    const [newTodo, SetNewTodo]= useState<string> (``);
-    const [todos, setTodos]= useState <Todo[]> ( []);
+  useEffect(() => {
+    if (todos) localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
-    useEffect(() => {
-        const storedTodos = localStorage.getItem('todos');
-        if (storedTodos) {
-          setTodos(JSON.parse(storedTodos));
-        }
-      }, []);
-    
-      useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-      }, [todos]);
+  const handleAddTodo = () => {
+    if (newTodo.trim() === "") return;
+    const newId = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
+    const newTodoItem: Todo = { id: newId, text: newTodo.trim() };
+    setTodos([...todos, newTodoItem]);
+    setNewTodo("");
+  };
 
-        const handelAddTodo= ()=> {
-            if (newTodo.trim()===``) return;
-            const newId= todos.length>0 ? todos[todos.length-1 ].id +1 :1 ;
-            const newTodoItem: Todo= {id: newId,text:newTodo};
-            setTodos([...todos, newTodoItem]);
-            SetNewTodo(``);
-        }
-    
-
-
-
-    return (
-        <div>
-            <TextField label="Add Todo"
-            value={newTodo} 
-            onChange={(e)=>SetNewTodo(e.target.value)}/>
-
-            <Button variant="contained" color="primary" onClick={handelAddTodo}> Add </Button>
-        </div>
-
-    );
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center", height: "100vh", m: 1 }}>
+      <TextField
+        label="Add Todo"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleAddTodo();
+        }}
+      />
+    </Box>
+  );
 };
-
-export default AddToDo
