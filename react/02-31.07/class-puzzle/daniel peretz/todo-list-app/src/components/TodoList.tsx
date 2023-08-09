@@ -1,40 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { List, ListItem, ListItemText } from '@mui/material';
+import {
+  Box,
+IconButton,
+List,
+ListItem,
+ListItemSecondaryAction,
+ListItemText,
+} from "@mui/material";
+import { useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-interface Todo {
-  id: number;
-  text: string;
+export interface Todo {
+id: number;
+text: string;
 }
 
-const TodoList: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+export const TodoList = () => {
+const itmesJson = localStorage.getItem("todos") || '[]';
+const itmesObject = JSON.parse(itmesJson) 
+const [todos, setTodos] = useState<Todo[]>(itmesObject);
 
-  useEffect(() => {
-    // Fetch todos from local storage on component mount
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []);
+const handleRemoveTodo = (id: number) => {
+  const newTodos = todos.filter((todo) => todo.id !== id)
+  setTodos(newTodos);
+  localStorage.setItem('todos', JSON.stringify(newTodos))
+};
 
-  useEffect(() => {
-    // Save todos to local storage whenever todos state changes
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
-
-  const handleRemoveTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  return (
-    <List>
+return (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      // alignItems: "center",
+      height: "100vh",
+    }}
+  >
+    <List sx={{ maxWidth: "500px", minWidth: '300px', textAlign: "center" }}>
       {todos.map((todo) => (
-        <ListItem key={todo.id} onClick={() => handleRemoveTodo(todo.id)}>
+        <ListItem key={todo.id}>
           <ListItemText primary={todo.text} />
+          <ListItemSecondaryAction>
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() => handleRemoveTodo(todo.id)}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
       ))}
     </List>
-  );
+  </Box>
+);
 };
-
-export default TodoList;
