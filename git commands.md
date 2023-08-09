@@ -1,8 +1,8 @@
 התקנת גיט:
-https://git-scm.com/downloads
+https://git-scgim.com/downloads
 
 הורדת הפרויקט של הכיתה למחשב:
-git clone https://github.com/israellev/fullstack-los-angeles.git 
+git clone git gi
 
 משיכת עדכון:
 git pull
@@ -10,7 +10,7 @@ git pull
 העלאת עדכון:
 git add .
 git commit -m "some message"
-git pull
+(git pull)
 git push origin master
 
 
