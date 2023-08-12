@@ -1,46 +1,59 @@
-import { createContext, useState, useContext } from "react";
+import { useState,createContext,useContext } from "react";
 
-export interface ITodo {
-    id: string;
-    text: string;
+
+export interface IExpirience {
+    from: Date;
+    to: Date;
+    title: string;
+    key_points: string[];
 }
 
-type ITodoContext = {
-    todos: ITodo[],
-    getTodos: () => ITodo[],
-    removeTodo: (id: string) => void,
-    setTodos: (todos: ITodo[]) => void,
+export interface ICv {
+  name: string;
+  title: string;
+  email: string;
+  linkedin: string;
+  phone: string;
+  summary: string;
+  skills: string[];
+  experience: IExpirience[];
 }
 
-const TodosContext = createContext<ITodoContext | null>(null)
+export const initialCv: ICv = {
+  name: "",
+  title: "",
+  email: "",
+  linkedin: "",
+  phone: "",
+  summary: "",
+  skills: [],
+  experience: [],
+}
 
-export function TodosProvider(props: any) {
-    const [todos, editTodos] = useState<ITodo[]>(getTodos());
+export const initialExperience: IExpirience = {
+    from: new Date(),
+    to: new Date(),
+    title: '',
+    key_points: [],
+  };
 
-    function getTodos() {
-        const todosJson = localStorage.getItem("todos") || "[]"
-        const todosArray = JSON.parse(todosJson)
-        return todosArray
-    }
+  type ICvContext = {
+    cvData: ICv,
+    setCvData: (cv: ICv) => void,
+};
 
-    function setTodos(todos: ITodo[]) {
-        editTodos(todos)
-        const todosJson = JSON.stringify(todos)
-        localStorage.setItem('todos', todosJson)
-    }
+const CvContext = createContext<ICvContext | null > (null);
 
-    function removeTodo(todoId: string) {
-        const newTodos = todos.filter((todo) => todo.id !== todoId)
-        setTodos(newTodos);
-    }
+export function CvProvider (props: any){
+    const [cvData,setCvData]=useState<ICv>(initialCv)
 
-    return (
-        <TodosContext.Provider value={{todos, setTodos, getTodos, removeTodo}}>
+    return(
+        <CvContext.Provider value = {{cvData:cvData , setCvData: setCvData}}>
             {props.children}
-        </TodosContext.Provider>
-    );
+        </CvContext.Provider>
+    )
 }
 
-export function useGlobalTodos() {
-    return useContext(TodosContext) as ITodoContext
+export function useGlobalCv(){
+    return useContext(CvContext) as ICvContext
 }
