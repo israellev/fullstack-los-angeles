@@ -1,14 +1,10 @@
-
 import "./App.css";
 import { Box, CssBaseline } from "@mui/material";
-import { CvResult } from "./components/CvResult";
 import { CvForm } from "./components/CvForm";
-import { CvProvider } from "./global-hooks/useGlobalTodos";
-
-
+import { CvResult } from "./components/CvResult";
+import { CvProvider } from "./global-hooks/useGlobalCv";
 
 function App() {
-
   return (
     <>
       <CssBaseline />
@@ -18,7 +14,6 @@ function App() {
           <CvForm className="page-style" />
         </Box>
       </CvProvider>
-
     </>
   );
 }

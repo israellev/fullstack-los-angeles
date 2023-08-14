@@ -1,5 +1,4 @@
-import { useState,createContext,useContext } from "react";
-
+import { createContext, useState, useContext } from "react";
 
 export interface IExpirience {
     from: Date;
@@ -37,23 +36,23 @@ export const initialExperience: IExpirience = {
     key_points: [],
   };
 
-  type ICvContext = {
+type ICvContext = {
     cvData: ICv,
     setCvData: (cv: ICv) => void,
 };
 
-const CvContext = createContext<ICvContext | null > (null);
+const CvContext = createContext<ICvContext | null>(null);
 
-export function CvProvider (props: any){
-    const [cvData,setCvData]=useState<ICv>(initialCv)
+export function CvProvider(props: any) {
+  const [cvData, setCvData] = useState<ICv>(initialCv);
 
-    return(
-        <CvContext.Provider value = {{cvData:cvData , setCvData: setCvData}}>
-            {props.children}
-        </CvContext.Provider>
-    )
+  return (
+    <CvContext.Provider value={{ cvData: cvData, setCvData: setCvData }}>
+      {props.children}
+    </CvContext.Provider>
+  );
 }
 
-export function useGlobalCv(){
-    return useContext(CvContext) as ICvContext
+export function useGlobalCv() {
+  return useContext(CvContext) as ICvContext;
 }
