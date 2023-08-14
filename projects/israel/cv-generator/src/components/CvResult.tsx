@@ -7,6 +7,6 @@ interface Props {
 }
 
 export function CvResult(props: Props) {
-    const {} = useGlobalCv()
+    const {cvData} = useGlobalCv()
     return <Box className={props.className}>CvResult</Box>
 }

@@ -4,7 +4,7 @@ export interface IExpirience {
     from: Date;
     to: Date;
     title: string;
-    key_points: string[];
+    job_description: string;
 }
 
 export interface ICv {
@@ -15,7 +15,7 @@ export interface ICv {
   phone: string;
   summary: string;
   skills: string[];
-  experience: IExpirience[];
+  experienceList: IExpirience[];
 }
 
 export const initialCv: ICv = {
@@ -26,14 +26,14 @@ export const initialCv: ICv = {
   phone: "",
   summary: "",
   skills: [],
-  experience: [],
+  experienceList: [],
 }
 
 export const initialExperience: IExpirience = {
     from: new Date(),
     to: new Date(),
     title: '',
-    key_points: [],
+    job_description: '',
   };
 
 type ICvContext = {
@@ -47,7 +47,7 @@ export function CvProvider(props: any) {
   const [cvData, setCvData] = useState<ICv>(initialCv);
 
   return (
-    <CvContext.Provider value={{ cvData: cvData, setCvData: setCvData }}>
+    <CvContext.Provider value={{ cvData, setCvData }}>
       {props.children}
     </CvContext.Provider>
   );
