@@ -1,41 +1,52 @@
-import { List, ListItem, ListItemText } from "@mui/material";
-import { useEffect, useState } from "react";
-
-interface Todo {
-    id: number;
-    text: string;
+import {
+    Box,
+  IconButton,
+  List,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+} from "@mui/material";
+import { useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+export interface Todo {
+  id: number;
+  text: string;
 }
 
-const ToDoList = () => {
-    const [todos,setTodos]= useState <Todo[]> ([]);
-  
-    useEffect(() => {
-        const storedTodos = localStorage.getItem('todos');
-        if (storedTodos) {
-          setTodos(JSON.parse(storedTodos));
-        }
-      }, []);
+export const ToDoList = () => {
+  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem("todos") || '[]'));
 
-      useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-      }, [todos]);
+  const handleRemoveTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id)
+    setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos))
+  };
 
-    const handleRemoveTodo= (id:number)=>{
-        setTodos(todos.filter((todo)=> todo.id !== id));
-    };
-
-
-
-    return ( 
-        <List>
-            {todos.map((todo)=>(
-           <ListItem key= {todo.id} onClick={()=> handleRemoveTodo(todo.id)}>
-           <ListItemText primary={todo.text}/>
-           </ListItem>
-           ))}
-        </List>
-
-    );
-}
-
-export default ToDoList;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        // alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <List sx={{ maxWidth: "500px", minWidth: '300px', textAlign: "center" }}>
+        {todos.map((todo) => (
+          <ListItem key={todo.id}>
+            <ListItemText primary={todo.text} />
+            <ListItemSecondaryAction>
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={() => handleRemoveTodo(todo.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+};

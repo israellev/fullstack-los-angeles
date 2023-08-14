@@ -7,12 +7,15 @@ import { useState } from "react";
 function Smartbtn (){
 let [bg,setBg]=useState(false)
 
+
 const changeColor = () => {
     setBg((prevIsOn) => !prevIsOn);
   };
     return (
         <div className=" m-4 d-flex flex-column align-items-center border p-5 shadow ">
-            <h2>targil:3</h2>
+                  <h2 className={`${bg ? 'text-success' : 'text-danger'}`} onClick={changeColor}>
+        targil: {bg ? '3' : 'tree'}
+      </h2>
         <button
       className={`btn ${bg ? 'btn-success' : 'btn-danger'}`}
       onClick={changeColor}
