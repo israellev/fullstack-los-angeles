@@ -19,14 +19,39 @@ export interface ICv {
 }
 
 export const initialCv: ICv = {
-  name: "",
-  title: "",
-  email: "",
-  linkedin: "",
-  phone: "",
-  summary: "",
-  skills: [],
-  experienceList: [],
+  "name": "Shlomi Yahbes",
+  "title": "Junior Front End Developer (React.js)",
+  "email": "syahbes@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/shlomi427/",
+  "phone": "+972-58-4271986",
+  "summary": `I am a highly motivated, self-directed, and English-speaking web developer with a strong passion for
+  problem-solving. With experience in React.js and TypeScript, I am able to design and build modern user
+  interface components. I have in-depth knowledge of JavaScript, CSS, and HTML, and familiarity with tools
+  such as Git and Redux. Eager to learn and take on new challenges, I believe I have the skills and motivation
+  needed to be a valuable asset to a front-end development team.`,
+  "skills": ['React.js', ' TypeScript', ' Redux', ' Git', ' HTML/CSS', ' JavaScript', ' MongoDB', ' Node.js', ' Express', ' MERN', ' React Native', 'Firebase', ' Browser-based debugging and know how to Google'],
+  "experienceList": [
+    {
+      "from": new Date(),
+      "to": new Date(),
+      "title": "Front-End Developer (Volunteer), Code for Israel (2022-present)",
+      "job_description": `Collaborated with a team of volunteers to plan and implement mobile application projects using React Native
+      and Redux technologies
+Utilized in-depth knowledge of JavaScript, CSS, and HTML, as well as React Native to create user interfaces
+Employed Git for version control and collaboration
+Worked with the development team to integrate the front-end with the back-end Django REST API
+      Developed reusable components to improve code efficiency and maintainability`,
+    },
+    {
+      "from": new Date(),
+      "to": new Date(),
+      "title": "Demand Generation, SAP (2021-present)",
+      "job_description": `Developed and executed demand generation campaigns leading to a 20% increase in leads and a 15%
+      increase in sales
+      Collaborated with sales and marketing teams to align demand generation efforts with business objectives
+      Utilized marketing automation software to streamline campaign execution and reporting`
+    }
+  ]
 }
 
 export const initialExperience: IExpirience = {
