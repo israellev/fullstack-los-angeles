@@ -81,3 +81,11 @@ export function CvProvider(props: any) {
 export function useGlobalCv() {
   return useContext(CvContext) as ICvContext;
 }
+
+// basic react context:
+//
+// 1. CvContext = createContext()
+// 2. <CvContext.Provider value={{name: 'Sahar' }}>
+//       {...our app}
+//    </CvContext.Provider>
+// 3. const user = useContext(CvContext) // {name: 'Sahar'}

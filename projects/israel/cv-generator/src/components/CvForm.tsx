@@ -15,31 +15,33 @@ export function CvForm(props: Props) {
     <Box className={className}>
       <Card
         elevation={3}
-        style={{ maxWidth: "800px", margin: "auto", marginTop: "20px" }}
-        sx={{ overflow: "auto", height: "95vh" }}
+        className="hide-scroll"
+        style={{ maxWidth: "800px", margin: "auto"}}
+        sx={{ overflow: "auto", pt: 3, height: "100vh", boxShadow: '0 -2px 55px -13px rgba(0,0,0,.25)' }}
       >
         <Grid
           container
           spacing={3}
           p={2}
         >
-          <Grid item xs={12} sm={12}>
+          {/* <Grid item xs={12} sm={12}>
             <Typography variant="h4" gutterBottom>
               CV Form
             </Typography>
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} sm={6}>
+          <Grid item>
             <TextField
               size="small"
               label="Name"
+              placeholder="enter your name... "
               fullWidth
               value={cvData.name}
               onChange={(e) => setCvData({ ...cvData, name: e.target.value })}
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item>
             <TextField
               size="small"
               label="Title"
@@ -49,7 +51,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item>
             <TextField
               size="small"
               label="Email"
@@ -59,7 +61,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item>
             <TextField
               size="small"
               label="LinkedIn"
@@ -71,7 +73,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item >
             <TextField
               size="small"
               label="Phone"
@@ -80,7 +82,7 @@ export function CvForm(props: Props) {
               onChange={(e) => setCvData({ ...cvData, phone: e.target.value })}
             />
           </Grid>
-          <Grid item xs={12} sm={12}>
+          <Grid item>
             <TextField
               size="small"
               label="Summary"

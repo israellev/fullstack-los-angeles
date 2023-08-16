@@ -9,9 +9,20 @@ function App() {
     <>
       <CssBaseline />
       <CvProvider>
-        <Box display="flex" flexDirection="row">
-          <CvResult className="page-style" />
-          <CvForm className="page-style" />
+        <Box
+          sx={{
+            flexGrow: 1,
+            flexBasis: 0,
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Box sx={{ width: "25vw" }}>
+            <CvForm className="page-style" />
+          </Box>
+          <Box sx={{ ml: "15px", width: "48vw", p: 1 }}>
+            <CvResult className="page-style" />
+          </Box>
         </Box>
       </CvProvider>
     </>
