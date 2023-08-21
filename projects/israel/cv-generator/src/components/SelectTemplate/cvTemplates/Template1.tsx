@@ -1,10 +1,5 @@
 import { ICv } from "../../../global-hooks/useGlobalCv";
-import {
-  Typography,
-  Grid,
-  Link,
-  Button,
-} from "@mui/material";
+import { Typography, Grid, Link, Button } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -13,7 +8,13 @@ import { TemplateBase } from "./TemplateBase";
 
 export function Template1({ cvData }: { cvData: ICv }) {
   return (
-    <TemplateBase>
+    <TemplateBase
+      sx={{
+        ".MuiTypography-root": {
+          fontFamily: "'Audiowide', cursive", // Liad font private
+        },
+      }}
+    >
       {/* Header */}
       <Typography variant="h4" gutterBottom>
         {cvData.name}

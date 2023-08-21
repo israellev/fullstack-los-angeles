@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Template1 } from "./cvTemplates/Template1";
 import { Template2 } from "./cvTemplates/Template2";
 import { Template3 } from "./cvTemplates/Template3";
