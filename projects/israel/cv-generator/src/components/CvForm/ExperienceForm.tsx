@@ -13,7 +13,7 @@ import {
   IExpirience,
   initialExperience,
   useGlobalCv,
-} from "../global-hooks/useGlobalCv";
+} from "../../global-hooks/useGlobalCv";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 
