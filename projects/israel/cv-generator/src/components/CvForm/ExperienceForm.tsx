@@ -13,7 +13,7 @@ import {
   IExpirience,
   initialExperience,
   useGlobalCv,
-} from "../global-hooks/useGlobalCv";
+} from "../../global-hooks/useGlobalCv";
 import { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -42,23 +42,19 @@ export function ExperienceForm() {
   };
 
   return (
-    <Box width="100%" p={3}>
-      <Grid item xs={12} md={12}>
-        <Typography variant="h6">Experience</Typography>
+    <Box width="100%" p={3} paddingBottom={2}>
+      <Grid item>
+        <Typography variant="h6"  sx={{marginBottom: 1}}>Experience</Typography>
 
-        <Box
-          display="flex"
-          flexDirection="row"
-          columnGap="15px"
-          position="relative"
-        >
-          <Button variant="outlined" onClick={addExperience}>
+        <Box position="relative">
+          <Button variant="outlined" fullWidth onClick={addExperience} sx={{marginBottom: 1}}>
             Add Experience
           </Button>
 
           {experience && (
             <Select
               size="small"
+              sx={{width: "80%", marginLeft: "3px"}}
               value={experienceIndex.toString()}
               onChange={(e) => {
                 const chosenExperience = cvData.experienceList.find(
@@ -77,7 +73,6 @@ export function ExperienceForm() {
 
           {experience && (
             <IconButton
-              sx={{ position: "absolute", right: "40px" }}
               onClick={() => {
                 const updatedCv = {...cvData};
                 updatedCv.experienceList.splice(experienceIndex, 1)
@@ -100,7 +95,7 @@ export function ExperienceForm() {
             value={experience.title}
             onChange={(e) => handleExperienceChange("title", e.target.value)}
           />
-          <Box display="flex" columnGap="15px">
+          <Box display="flex" flexDirection="column" rowGap="15px">
             <TextField
               label="From"
               type="month"

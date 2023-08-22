@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 .App {
   text-align: center;
 }
@@ -38,9 +40,19 @@
 }
 
 .page-style {
-  width: 50vw;
   display: flex;
   justify-content: center;
   height: 100vh;
   align-items: center;
+}
+
+
+.hide-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }

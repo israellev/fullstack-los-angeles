@@ -15,7 +15,7 @@ import {
 export function SkillsForm() {
   const { cvData, setCvData } = useGlobalCv();
   const [skill, setSkill] = useState<string>("");
-  const skillIndex = cvData.skills.indexOf(skill);
+  const skillIndex = cvData.skills.indexOf(skill || cvData.skills[0]);
 
   const addSkill = () => {
     const updatedCv = { ...cvData };
@@ -25,7 +25,7 @@ export function SkillsForm() {
   };
 
   return (
-    <Box width="100%" p={3}>
+    <Box width="100%"  px={3}>
       <Grid item xs={12} md={12}>
         <Typography variant="h6">Skills</Typography>
 
@@ -45,6 +45,7 @@ export function SkillsForm() {
             <>
               <Select
                 size="small"
+                sx={{width: "80%", mr: 2}}
                 value={skillIndex.toString()}
                 onChange={(e) => {
                   const chosenSkill = cvData.skills.find(
@@ -61,7 +62,6 @@ export function SkillsForm() {
               </Select>
 
               <IconButton
-                sx={{ position: "absolute", right: "40px" }}
                 onClick={() => {
                   const updatedCv = { ...cvData };
                   updatedCv.skills.splice(skillIndex, 1);
