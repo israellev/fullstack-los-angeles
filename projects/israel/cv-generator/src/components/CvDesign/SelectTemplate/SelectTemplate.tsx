@@ -27,21 +27,19 @@ export const templateList = [
 ];
 
 interface Props {
-  className: string;
   templateIndex: number;
   setTemplateIndex: (templateIndex: number) => void;
 }
 
 export function SelectTemplate(props: Props) {
-  const { className, templateIndex, setTemplateIndex } = props;
+  const { templateIndex, setTemplateIndex } = props;
   return (
     <Box
-      className={className}
       sx={{
-        alignItems: "normal",
+        display: "flex",
+        justifyContent: "center",
         flexWrap: "wrap",
         alignContent: "flex-start",
-        boxShadow: "0 -2px 55px -13px rgba(0,0,0,.25)",
       }}
     >
       {templateList.map((template, index) => {
@@ -52,9 +50,12 @@ export function SelectTemplate(props: Props) {
             sx={{
               padding: 1,
               width: "50%",
-              "img": {
+              img: {
                 borderRadius: "4px",
-                border: index === templateIndex ? "1px solid rgb(39 12 12 / 35%)" : 'none',
+                border:
+                  index === templateIndex
+                    ? "1px solid rgb(39 12 12 / 35%)"
+                    : "none",
               },
               "img:hover": {
                 cursor: "pointer",

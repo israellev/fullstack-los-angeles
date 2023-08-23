@@ -6,8 +6,9 @@ V 1. Cv form - with components of Experience and Skills
 V 2. Cv result - with 'useGlobalCv' hook 
 V 3. Edit on the left, show cv result on the middle
 V 4. Add 2 tamplates on the right
-5. Add color picker
-6. Save as file
+V 5. Add color picker
+6. design touch ups
+7. Save as file
 
 
 Continue tasks:
