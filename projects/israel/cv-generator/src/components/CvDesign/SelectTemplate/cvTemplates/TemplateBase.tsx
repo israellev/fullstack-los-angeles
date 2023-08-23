@@ -14,8 +14,9 @@ export function TemplateBase(props: Props) {
       elevation={3}
       className="hide-scroll"
       sx={{
+        p: 2,
         overflow: "auto",
-        height: "95vh",
+        height: "100%",
         maxWidth: "800px",
         margin: "auto",
         marginTop: "20px",

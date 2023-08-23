@@ -7,7 +7,12 @@ export function CvForm() {
   const { cvData, setCvData } = useGlobalCv();
 
   return (
-    <Box width="100%">
+    <Box width="100%" sx={{
+      ".MuiInputBase-input": {
+        fontSize: "14px",
+        borderRadius: "5px"
+      }
+    }}>
       <Card
         elevation={3}
         className="hide-scroll"
@@ -28,8 +33,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="Name"
-              placeholder="enter your name... "
+              placeholder="Name"
               fullWidth
               value={cvData.name}
               onChange={(e) => setCvData({ ...cvData, name: e.target.value })}
@@ -39,7 +43,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="Title"
+              placeholder="Title"
               fullWidth
               value={cvData.title}
               onChange={(e) => setCvData({ ...cvData, title: e.target.value })}
@@ -49,7 +53,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="Email"
+              placeholder="Email"
               fullWidth
               value={cvData.email}
               onChange={(e) => setCvData({ ...cvData, email: e.target.value })}
@@ -59,7 +63,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="LinkedIn"
+              placeholder="LinkedIn"
               fullWidth
               value={cvData.linkedin}
               onChange={(e) =>
@@ -71,7 +75,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="Phone"
+              placeholder="Phone"
               fullWidth
               value={cvData.phone}
               onChange={(e) => setCvData({ ...cvData, phone: e.target.value })}
@@ -80,7 +84,7 @@ export function CvForm() {
           <Grid item width="100%">
             <TextField
               size="small"
-              label="Summary"
+              placeholder="Summary"
               type="text"
               multiline
               rows={5}

@@ -48,7 +48,8 @@ export function SelectTemplate(props: Props) {
             key={index}
             onClick={() => setTemplateIndex(index)}
             sx={{
-              padding: 1,
+              paddingX: 2,
+              paddingY: 1,
               width: "50%",
               img: {
                 borderRadius: "4px",
@@ -72,7 +73,7 @@ export function SelectTemplate(props: Props) {
                 height: "auto",
               }}
             />
-            <Typography variant="subtitle1" textAlign="center">
+            <Typography variant="subtitle2" textAlign="center">
               {template.name}
             </Typography>
           </Box>
