@@ -1,19 +1,21 @@
 import { useGlobalCv } from "../global-hooks/useGlobalCv";
-import {Box} from "@mui/material";
-import { Template1 } from "./cvTemplates/Template1";
+import { Box } from "@mui/material";
+import { templateList } from "./SelectTemplate/SelectTemplate";
 
 interface Props {
   className?: string;
+  templateIndex: number;
+
 }
 
-
 export const CvResult = (props: Props) => {
-
+  const {className, templateIndex} = props;
   const { cvData } = useGlobalCv();
 
+  const TemplateComponent = templateList[templateIndex].component
   return (
-    <Box className={props.className}>
-      <Template1 cvData={cvData}/>
+    <Box className={className}>
+      <TemplateComponent cvData={cvData}/>
     </Box>
   );
 };

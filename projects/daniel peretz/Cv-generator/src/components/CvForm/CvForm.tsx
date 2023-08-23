@@ -1,7 +1,7 @@
-import { useGlobalCv } from "../global-hooks/useGlobalCv";
 import { TextField, Button, Typography, Grid, Box, Card } from "@mui/material";
 import { ExperienceForm } from "./ExperienceForm";
 import { SkillsForm } from "./SkillsForm";
+import { useGlobalCv } from "../../global-hooks/useGlobalCv";
 
 interface Props {
   className?: string;
@@ -12,7 +12,7 @@ export function CvForm(props: Props) {
   const { cvData, setCvData } = useGlobalCv();
 
   return (
-    <Box className={className}>
+    <Box className={className} width="100%" >
       <Card
         elevation={3}
         className="hide-scroll"
@@ -30,7 +30,7 @@ export function CvForm(props: Props) {
             </Typography>
           </Grid> */}
 
-          <Grid item>
+          <Grid item width="100%">
             <TextField
               size="small"
               label="Name"
@@ -41,7 +41,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item>
+          <Grid item width="100%">
             <TextField
               size="small"
               label="Title"
@@ -51,7 +51,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item>
+          <Grid item width="100%">
             <TextField
               size="small"
               label="Email"
@@ -61,7 +61,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item>
+          <Grid item width="100%">
             <TextField
               size="small"
               label="LinkedIn"
@@ -73,7 +73,7 @@ export function CvForm(props: Props) {
             />
           </Grid>
 
-          <Grid item >
+          <Grid item width="100%">
             <TextField
               size="small"
               label="Phone"
@@ -82,7 +82,7 @@ export function CvForm(props: Props) {
               onChange={(e) => setCvData({ ...cvData, phone: e.target.value })}
             />
           </Grid>
-          <Grid item>
+          <Grid item width="100%">
             <TextField
               size="small"
               label="Summary"

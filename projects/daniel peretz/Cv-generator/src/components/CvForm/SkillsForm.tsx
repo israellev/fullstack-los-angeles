@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useGlobalCv } from "../global-hooks/useGlobalCv";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Box,
@@ -11,6 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useGlobalCv } from "../../global-hooks/useGlobalCv";
 
 export function SkillsForm() {
   const { cvData, setCvData } = useGlobalCv();
