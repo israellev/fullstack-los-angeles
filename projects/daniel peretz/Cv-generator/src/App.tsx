@@ -1,10 +1,14 @@
 import "./App.css";
 import { Box, CssBaseline } from "@mui/material";
-import { CvForm } from "./components/CvForm";
 import { CvResult } from "./components/CvResult";
 import { CvProvider } from "./global-hooks/useGlobalCv";
+import { useState } from "react";
+import { CvForm } from "./components/CvForm/CvForm";
+import { SelectTemplate } from "./components/SelectTemplate/SelectTemplate";
 
 function App() {
+  const [templateIndex, setTemplateIndex] = useState(0);
+
   return (
     <>
       <CssBaseline />
@@ -20,8 +24,11 @@ function App() {
           <Box sx={{ width: "25vw" }}>
             <CvForm className="page-style" />
           </Box>
-          <Box sx={{ ml: "15px", width: "48vw", p: 1 }}>
-            <CvResult className="page-style" />
+          <Box sx={{ width: "50vw", paddingX: 2, zIndex: 1 }}>
+            <CvResult className="page-style" templateIndex={templateIndex} />
+          </Box>
+          <Box sx={{ width: "25vw" }}>
+            <SelectTemplate className="page-style" templateIndex={templateIndex} setTemplateIndex={setTemplateIndex} />
           </Box>
         </Box>
       </CvProvider>
