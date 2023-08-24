@@ -4,7 +4,7 @@ import { CvResult } from "./components/CvResult";
 import { CvProvider } from "./global-hooks/useGlobalCv";
 import { useState } from "react";
 import { CvForm } from "./components/CvForm/CvForm";
-import { CvDesign } from "./components/CvDesign/CvDeisgn";
+import { SelectTemplate } from "./components/SelectTemplate/SelectTemplate";
 
 function App() {
   const [templateIndex, setTemplateIndex] = useState(0);
@@ -19,22 +19,16 @@ function App() {
             flexBasis: 0,
             display: "flex",
             flexDirection: "row",
-            ".MuiInputBase-input, .MuiTypography-root": {
-              fontFamily: "'Montserrat', sans-serif",
-            },
           }}
         >
-          <Box sx={{ width: "25vw", height: "100vh" }}>
-            <CvForm />
+          <Box sx={{ width: "25vw" }}>
+            <CvForm className="page-style" />
           </Box>
-          <Box sx={{ width: "50vw", height: "100vh", paddingX: 2, zIndex: 1 }}>
-            <CvResult templateIndex={templateIndex} />
+          <Box sx={{ width: "50vw", paddingX: 2, zIndex: 1 }}>
+            <CvResult className="page-style" templateIndex={templateIndex} />
           </Box>
-          <Box sx={{ width: "25vw", height: "100vh" }}>
-            <CvDesign
-              templateIndex={templateIndex}
-              setTemplateIndex={setTemplateIndex}
-            />
+          <Box sx={{ width: "25vw" }}>
+            <SelectTemplate className="page-style" templateIndex={templateIndex} setTemplateIndex={setTemplateIndex} />
           </Box>
         </Box>
       </CvProvider>

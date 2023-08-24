@@ -16,7 +16,6 @@ export interface ICv {
   summary: string;
   skills: string[];
   experienceList: IExpirience[];
-  color: string;
 }
 
 export const initialCv: ICv = {
@@ -52,8 +51,7 @@ Worked with the development team to integrate the front-end with the back-end Dj
       Collaborated with sales and marketing teams to align demand generation efforts with business objectives
       Utilized marketing automation software to streamline campaign execution and reporting`
     }
-  ],
-  color: "rgba(0,0,0,1)",
+  ]
 }
 
 export const initialExperience: IExpirience = {
