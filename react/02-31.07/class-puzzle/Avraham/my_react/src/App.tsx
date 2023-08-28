@@ -13,21 +13,26 @@ function App() {
     <div className="">
     <BrowserRouter>
       <CssBaseline />
+      
       <AppBar position="static" style={{ background: "#2196F3" }}>
-        <Tabs
-          centered
-          value={tab}
-          
-          indicatorColor="secondary"
-        >
+
+        <Tabs centered value={tab} indicatorColor="secondary">
+
           <Tab label="Todo List" style={{ color: "white" }} component={Link} to="/" />
           <Tab label="Add Todo" style={{ color: "white" }} component={Link} to="/add"/>
+        
         </Tabs>
+      
       </AppBar>
+      
       <Routes>
+
         <Route path="/" Component={() => <TodoList/>} />
+        
         <Route path="/add" Component={() => <AddTodo/>} />
+      
       </Routes>
+    
     </BrowserRouter>
       </div>
   );
