@@ -1,9 +1,9 @@
-import { ICv } from "../../../global-hooks/useGlobalCv";
+import { ICv } from "../../../../global-hooks/useGlobalCv";
 import { Typography, Grid, Link, Button } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Utils } from "../../../services/Utils";
+import { Utils } from "../../../../services/Utils";
 import { TemplateBase } from "./TemplateBase";
 
 export function Template1({ cvData }: { cvData: ICv }) {
