@@ -9,7 +9,7 @@ V 4. Add 2 tamplates on the right
 V 5. Add color picker
 V 6. design touch ups
 V 7. Save as file
-
+8. fix for mobile
 
 Continue tasks:
 

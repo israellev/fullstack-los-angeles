@@ -12,8 +12,8 @@ export const CvResult = (props: Props) => {
 
   const TemplateComponent = templateList[templateIndex].component;
   return (
-    <Box sx={{ backgroundColor: "#f5f5f5" }}>
-      <Box sx={{ height: "95vh", position: 'relative' }}>
+    <Box>
+      <Box sx={{ height: "96vh", paddingBottom: 1}}>
         <TemplateComponent cvData={cvData} />
       </Box>
     </Box>

@@ -24,17 +24,17 @@ function App() {
               color: "#2d3748",
             },
             ".MuiInputBase-input, .MuiInputBase-root": {
-              backgroundColor: "rgb(237,242,247)"
+              backgroundColor: "rgb(237,242,247)",
             },
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'transparent', // Hide border
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "transparent", // Hide border
               },
-              '&:hover fieldset': {
-                borderColor: 'transparent', // Hide border on hover
+              "&:hover fieldset": {
+                borderColor: "transparent", // Hide border on hover
               },
-              '&.Mui-focused fieldset': {
-                borderColor: 'transparent', // Hide border when focused
+              "&.Mui-focused fieldset": {
+                borderColor: "transparent", // Hide border when focused
               },
             },
           }}

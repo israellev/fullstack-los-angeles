@@ -1,5 +1,5 @@
 import { ICv } from "../../../../global-hooks/useGlobalCv";
-import { Typography, Grid, Link, Button } from "@mui/material";
+import { Typography, Grid, Link, Button, Box, CardMedia } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -15,13 +15,20 @@ export function Template1({ cvData }: { cvData: ICv }) {
         },
       }}
     >
-      {/* Header */}
-      <Typography variant="h4" gutterBottom>
-        {cvData.name}
-      </Typography>
-      <Typography variant="h6" color="textSecondary" gutterBottom>
-        {cvData.title}
-      </Typography>
+      <Box display="flex" flexDirection="row">
+        <Box marginRight={2}>
+          <img src={cvData.photoUrl} height="85px" alt="profile" style={{borderRadius: "50%"}} />
+        </Box>
+        {/* Header */}
+        <Box>
+          <Typography variant="h4" gutterBottom>
+            {cvData.name}
+          </Typography>
+          <Typography variant="h6" color="textSecondary" gutterBottom>
+            {cvData.title}
+          </Typography>
+        </Box>
+      </Box>
 
       {/* Contact Info */}
       <Grid container spacing={1} sx={{ marginBottom: "20px" }}>
