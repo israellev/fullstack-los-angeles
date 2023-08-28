@@ -8,7 +8,7 @@ V 3. Edit on the left, show cv result on the middle
 V 4. Add 2 tamplates on the right
 V 5. Add color picker
 V 6. design touch ups
-7. Save as file
+V 7. Save as file
 
 
 Continue tasks:
