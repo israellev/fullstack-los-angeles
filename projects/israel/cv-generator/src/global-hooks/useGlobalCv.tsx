@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 export interface IExpirience {
     from: Date;
@@ -73,7 +73,13 @@ type ICvContext = {
 const CvContext = createContext<ICvContext | null>(null);
 
 export function CvProvider(props: any) {
-  const [cvData, setCvData] = useState<ICv>(initialCv);
+  const storeData = localStorage.getItem('cvData')
+  const init = storeData ? JSON.parse(storeData) as ICv : initialCv
+  const [cvData, setCvData] = useState<ICv>(init);
+
+  useEffect(() =>{
+    localStorage.setItem('cvData', JSON.stringify(cvData))
+  }, [cvData])
 
   return (
     <CvContext.Provider value={{ cvData, setCvData }}>

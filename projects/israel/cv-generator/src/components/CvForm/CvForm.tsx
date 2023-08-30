@@ -3,7 +3,6 @@ import { ExperienceForm } from "./ExperienceForm";
 import { SkillsForm } from "./SkillsForm";
 import { useGlobalCv } from "../../global-hooks/useGlobalCv";
 import GoogleIcon from '@mui/icons-material/Google';
-import React from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { firebasAuth } from "../../services/Firebase";
 
