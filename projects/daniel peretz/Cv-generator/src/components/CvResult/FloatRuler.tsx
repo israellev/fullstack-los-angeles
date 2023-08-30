@@ -13,9 +13,7 @@ export function FloatRuler(props: Props) {
 
   async function generatePDF() {
     const element = props.cvRef.current! as HTMLElement
-    const canvas = await html2canvas(element, {
-      useCORS: true,
-    })
+    const canvas = await html2canvas(element)
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF('p', 'mm', 'a4');
     const a4WidthInMM = 210;  // Width of A4 in mm

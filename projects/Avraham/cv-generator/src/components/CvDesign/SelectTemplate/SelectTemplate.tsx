@@ -2,31 +2,27 @@ import { Box, Typography } from "@mui/material";
 import { Template1 } from "./cvTemplates/Template1";
 import { Template2 } from "./cvTemplates/Template2";
 import { Template3 } from "./cvTemplates/Template3";
-import image1 from "./images/preview.a5fc2f27.png"
-import image2 from "./images/preview.f1f46a82.png"
-import image3 from "./images/preview.27f7a093.png"
-import image4 from "./images/preview.f1f46a82.png"
 
 export const templateList = [
   {
     name: "Onyx",
     component: Template1,
-    imageUrl: image1,
+    imageUrl: "https://rx-resume.web.app/static/media/preview.a5fc2f27.png",
   },
   {
     name: "Pikachu",
     component: Template2,
-    imageUrl: image2,
+    imageUrl: "https://rx-resume.web.app/static/media/preview.f1f46a82.png",
   },
   {
     name: "Gengar",
     component: Template3,
-    imageUrl: image3,
+    imageUrl: "https://rx-resume.web.app/static/media/preview.27f7a093.png",
   },
   {
     name: "Gengar",
     component: Template1,
-    imageUrl: image4,
+    imageUrl: "https://rx-resume.web.app/static/media/preview.115df124.png",
   },
 ];
 
@@ -52,8 +48,7 @@ export function SelectTemplate(props: Props) {
             key={index}
             onClick={() => setTemplateIndex(index)}
             sx={{
-              paddingX: 2,
-              paddingY: 1,
+              padding: 1,
               width: "50%",
               img: {
                 borderRadius: "4px",
@@ -77,7 +72,7 @@ export function SelectTemplate(props: Props) {
                 height: "auto",
               }}
             />
-            <Typography variant="subtitle2" textAlign="center">
+            <Typography variant="subtitle1" textAlign="center">
               {template.name}
             </Typography>
           </Box>

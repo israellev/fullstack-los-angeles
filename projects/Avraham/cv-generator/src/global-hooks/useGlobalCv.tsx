@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useContext } from "react";
 
 export interface IExpirience {
     from: Date;
@@ -11,7 +11,6 @@ export interface ICv {
   name: string;
   title: string;
   email: string;
-  photoUrl: string;
   linkedin: string;
   phone: string;
   summary: string;
@@ -25,7 +24,6 @@ export const initialCv: ICv = {
   "title": "Junior Front End Developer (React.js)",
   "email": "syahbes@gmail.com",
   "linkedin": "https://www.linkedin.com/in/shlomi427/",
-  "photoUrl": "https://lh3.googleusercontent.com/a-/AD_cMMRz19s5-64RfG9I6C4vtxrrICreGNdCueAPOuFbxZ5yMQ=s130-p-k-rw-no",
   "phone": "+972-58-4271986",
   "summary": `I am a highly motivated, self-directed, and English-speaking web developer with a strong passion for
   problem-solving. With experience in React.js and TypeScript, I am able to design and build modern user
@@ -73,13 +71,7 @@ type ICvContext = {
 const CvContext = createContext<ICvContext | null>(null);
 
 export function CvProvider(props: any) {
-  const storeData = localStorage.getItem('cvData')
-  const init = storeData ? JSON.parse(storeData) as ICv : initialCv
-  const [cvData, setCvData] = useState<ICv>(init);
-
-  useEffect(() =>{
-    localStorage.setItem('cvData', JSON.stringify(cvData))
-  }, [cvData])
+  const [cvData, setCvData] = useState<ICv>(initialCv);
 
   return (
     <CvContext.Provider value={{ cvData, setCvData }}>
