@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Todolist from './component/TodoList';
+import AddTodo from './component/AddTodo';
 
 function App() {
   return (
