@@ -1,18 +1,13 @@
-import { TextField, Button, Typography, Grid, Box, Card } from "@mui/material";
+import { TextField, Button, Grid, Box, Card } from "@mui/material";
 import { ExperienceForm } from "./ExperienceForm";
 import { SkillsForm } from "./SkillsForm";
 import { useGlobalCv } from "../../global-hooks/useGlobalCv";
 
-interface Props {
-  className?: string;
-}
-
-export function CvForm(props: Props) {
-  const { className } = props;
+export function CvForm() {
   const { cvData, setCvData } = useGlobalCv();
 
   return (
-    <Box className={className} width="100%" >
+    <Box width="100%">
       <Card
         elevation={3}
         className="hide-scroll"
