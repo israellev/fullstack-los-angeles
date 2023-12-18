@@ -25,7 +25,7 @@ export function SkillsForm() {
   };
 
   return (
-    <Box width="100%"  px={3}>
+    <Box width="100%" px={3}>
       <Grid item xs={12} md={12}>
         <Typography variant="h6">Skills</Typography>
 
@@ -36,7 +36,7 @@ export function SkillsForm() {
           position="relative"
         >
           {!cvData.skills.length && (
-            <Button variant="outlined" onClick={() => addSkill()}>
+            <Button variant="outlined" size="small" onClick={() => addSkill()}>
               Add Skill
             </Button>
           )}
@@ -45,7 +45,7 @@ export function SkillsForm() {
             <>
               <Select
                 size="small"
-                sx={{width: "80%", mr: 2}}
+                sx={{ width: "80%", mr: 2 }}
                 value={skillIndex.toString()}
                 onChange={(e) => {
                   const chosenSkill = cvData.skills.find(
@@ -62,6 +62,7 @@ export function SkillsForm() {
               </Select>
 
               <IconButton
+                size="small"
                 onClick={() => {
                   const updatedCv = { ...cvData };
                   updatedCv.skills.splice(skillIndex, 1);
@@ -77,7 +78,8 @@ export function SkillsForm() {
         {!!cvData.skills.length && (
           <Box display="flex" flexDirection="column" width="100%" mt={1}>
             <TextField
-              label="Skill"
+              size="small"
+              placeholder="Skill"
               fullWidth
               value={skill}
               onKeyUp={(e) => {

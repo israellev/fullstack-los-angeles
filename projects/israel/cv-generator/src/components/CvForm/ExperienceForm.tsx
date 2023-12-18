@@ -42,27 +42,37 @@ export function ExperienceForm() {
   };
 
   return (
-    <Box width="100%" p={3} paddingBottom={2}>
+    <Box width="100%" paddingBottom={2} paddingLeft={3}>
       <Grid item>
-        <Typography variant="h6"  sx={{marginBottom: 1}}>Experience</Typography>
+        <Typography variant="h6" sx={{ marginBottom: 1 }}>
+          Experience
+        </Typography>
 
         <Box position="relative">
-          <Button variant="outlined" fullWidth onClick={addExperience} sx={{marginBottom: 1}}>
-            Add Experience
-          </Button>
-
+          <Grid item width="100%">
+            <Button
+            size="small"
+            variant="outlined"
+            fullWidth
+            onClick={addExperience}
+            sx={{ marginBottom: 1 }}
+            >
+              Add Experience
+            </Button>
+          </Grid>
+          
           {experience && (
             <Select
-              size="small"
-              sx={{width: "80%", marginLeft: "3px"}}
-              value={experienceIndex.toString()}
-              onChange={(e) => {
-                const chosenExperience = cvData.experienceList.find(
-                  (experience, i) => i === +e.target.value
+            size="small"
+            sx={{ width: "80%", marginLeft: "3px" }}
+            value={experienceIndex.toString()}
+            onChange={(e) => {
+              const chosenExperience = cvData.experienceList.find(
+                (experience, i) => i === +e.target.value
                 );
                 setExperience(chosenExperience as IExpirience);
               }}
-            >
+              >
               {cvData.experienceList.map((_, index) => (
                 <MenuItem key={index} value={index.toString()}>
                   Job {index + 1}
@@ -73,13 +83,17 @@ export function ExperienceForm() {
 
           {experience && (
             <IconButton
-              onClick={() => {
-                const updatedCv = {...cvData};
-                updatedCv.experienceList.splice(experienceIndex, 1)
-                setCvData(updatedCv)
-                setExperience(updatedCv.experienceList?.[updatedCv.experienceList.length - 1])
+            onClick={() => {
+              const updatedCv = { ...cvData };
+              updatedCv.experienceList.splice(experienceIndex, 1);
+              setCvData(updatedCv);
+              setExperience(
+                updatedCv.experienceList?.[
+                  updatedCv.experienceList.length - 1
+                ]
+                );
               }}
-            >
+              >
               <DeleteIcon />
             </IconButton>
           )}
@@ -90,27 +104,31 @@ export function ExperienceForm() {
         <Box display="flex" flexDirection="column" rowGap="15px">
           <Divider sx={{ my: 2 }} />
           <TextField
-            label="Title"
+            placeholder="Title"
+            size="small"
             fullWidth
             value={experience.title}
             onChange={(e) => handleExperienceChange("title", e.target.value)}
-          />
+            />
           <Box display="flex" flexDirection="column" rowGap="15px">
             <TextField
-              label="From"
+              placeholder="From"
+              size="small"
               type="month"
               value={experience.from}
               onChange={(e) => handleExperienceChange("from", e.target.value)}
-            />
+              />
             <TextField
-              label="To"
+              placeholder="To"
               type="month"
+              size="small"
               value={experience.to}
               onChange={(e) => handleExperienceChange("to", e.target.value)}
-            />
+              />
           </Box>
           <TextField
-            label="Job Description"
+            placeholder="Job Description"
+            size="small"
             type="text"
             multiline
             rows={5}
