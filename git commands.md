@@ -2,7 +2,7 @@
 https://git-scgim.com/downloads
 
 הורדת הפרויקט של הכיתה למחשב:
-git clone git gi
+git clone https://github.com/israellev/fullstack-los-angeles.git
 
 משיכת עדכון:
 git pull
@@ -12,6 +12,3 @@ git add .
 git commit -m "some message"
 (git pull)
 git push origin master
-
-
-
