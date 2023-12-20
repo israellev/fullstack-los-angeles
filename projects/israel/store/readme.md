@@ -48,6 +48,8 @@ gpt - 'please create simple express hello world'
 gpt - 'please serve react files from "./client/build"'
 GET '/api/products' send the products list
 add cors for allow react dev access to the server
+bonus:
+install 'dotenv', require('dontenv').config() and file '.env' with PORT=3001, and use process.env.PORT
 
 עדכון ריקאט
 create src/services/api-service.ts
