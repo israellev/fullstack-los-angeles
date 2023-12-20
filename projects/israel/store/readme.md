@@ -4,6 +4,7 @@
 3. כניסה למשתמשים רשומים עם הרשאות למנהל והרשאות למשתמש רגיל.
 
 מוצרים
+
 const prodct = [
     {
         name: string,
@@ -32,7 +33,15 @@ const prodct = [
 
 
 שלבים
-npx create-react-app store --template typescript
-npm install @mui/material @emotion/react @emotion/styled
-cd store
-npm start
+- npx create-react-app store --template typescript
+- npm install @mui/material @emotion/react @emotion/styled
+- cd store
+- npm run start
+- npm run build (create static files into 'build' folder)
+put all react files into folder 'front'. 
+
+בניית שרת
+- npm init -y (create package.json)
+create file 'server.js'
+- npm install express 
+
