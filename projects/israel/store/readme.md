@@ -43,5 +43,15 @@ put all react files into folder 'front'.
 בניית שרת
 - npm init -y (create package.json)
 create file 'server.js'
-- npm install express 
+- npm install express cors 
+gpt - 'please create simple express hello world'
+gpt - 'please serve react files from "./client/build"'
+GET '/api/products' send the products list
+add cors for allow react dev access to the server
+
+עדכון ריקאט
+create src/services/api-service.ts
+write function of 'getProducts'
+use 'getPruducts' in 'useEffect' for updating 'useState' of [setProducts] 
+
 
