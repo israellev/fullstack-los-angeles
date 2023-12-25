@@ -56,4 +56,15 @@ create src/services/api-service.ts
 write function of 'getProducts'
 use 'getPruducts' in 'useEffect' for updating 'useState' of [setProducts] 
 
+דאטה בייס:
+https://www.mongodb.com/
+GPT prompt - How to connect mongodb (using npm mongodb) via nodejs and get data in api of GET "/api/products"? i'm using .env to store my variables
+- npm i mongodb
 
+get your db link:
+www.mongodb.com - database - connect - compass - copy the link.
+
+replace <password> with user password:
+database access - add new database user - username, password, role - Add user.
+
+add the link to MONGO_URI in '.env' file
