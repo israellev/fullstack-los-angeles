@@ -1,74 +1,25 @@
 import Card from "@mui/material/Card";
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AlarmIcon from '@mui/icons-material/Alarm';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { Header } from "./Header";
+import { useEffect, useState } from "react";
+import { Iproducts, getproducts } from "../services/api-service";
 
-const products = [
-  {
-    name: "מותגי על",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "מותגי פרמיום",
-    price: 250,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "טי שירט",
-    price: 300,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw7f6b4a6d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-TSHIRT.jpg"
-  },
-  {
-    name: "מכופתרות",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw232df13d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-BUTTOMS.jpg"
-  },
-  {
-    name: "מותגי על",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "מותגי פרמיום",
-    price: 250,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "טי שירט",
-    price: 300,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw7f6b4a6d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-TSHIRT.jpg"
-  },
-  {
-    name: "מכופתרות",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw232df13d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-BUTTOMS.jpg"
-  },
-  {
-    name: "מותגי על",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "מותגי פרמיום",
-    price: 250,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dwa40b99e3/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-LUXURY.jpg"
-  },
-  {
-    name: "טי שירט",
-    price: 300,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw7f6b4a6d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-TSHIRT.jpg"
-  },
-  {
-    name: "מכופתרות",
-    price: 219,
-    image_Url: "https://www.factory54.co.il/on/demandware.static/-/Sites-storefront-catalog/default/dw232df13d/SHOP%20IN%20SHOP/MEN/Categories/041023-SHIRTS-BUTTOMS.jpg"
-  },
-];
-
-export function Products(){
+  export function Products() {
+    const [products, setProducts] = useState<Iproducts[]>([]);
+  
+    useEffect(() => {
+      getproducts().then((products) => {
+        setProducts(products);
+      });
+    }, []);
+  
     return (
       <Grid container spacing={2} style={{ padding: '20px', background: '#FFA500' }}>
       {products.map((product, index) => (
@@ -78,7 +29,7 @@ export function Products(){
               <CardMedia
                 component="img"
                 height="auto"
-                image={product.image_Url}
+                image={product.image_url}
                 alt={product.name}
               />
             </div>
@@ -98,6 +49,15 @@ export function Products(){
               >
                 {product.price}₪
               </Typography>
+              <div>
+ 
+      <IconButton aria-label="delete" disabled color="primary">
+        <DeleteIcon />
+      </IconButton>
+      <IconButton style={{ color: 'orange' }} aria-label="add to shopping cart">
+        <AddShoppingCartIcon />
+      </IconButton>
+    </div>
             </CardContent>
           </Card>
         </Grid>
