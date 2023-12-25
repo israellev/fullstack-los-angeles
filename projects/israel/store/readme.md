@@ -43,5 +43,28 @@ put all react files into folder 'front'.
 בניית שרת
 - npm init -y (create package.json)
 create file 'server.js'
-- npm install express 
+- npm install express cors 
+gpt - 'please create simple express hello world'
+gpt - 'please serve react files from "./client/build"'
+GET '/api/products' send the products list
+add cors for allow react dev access to the server
+bonus:
+install 'dotenv', require('dontenv').config() and file '.env' with PORT=3001, and use process.env.PORT
 
+עדכון ריקאט
+create src/services/api-service.ts
+write function of 'getProducts'
+use 'getPruducts' in 'useEffect' for updating 'useState' of [setProducts] 
+
+דאטה בייס:
+https://www.mongodb.com/
+GPT prompt - How to connect mongodb (using npm mongodb) via nodejs and get data in api of GET "/api/products"? i'm using .env to store my variables
+- npm i mongodb
+
+get your db link:
+www.mongodb.com - database - connect - compass - copy the link.
+
+replace <password> with user password:
+database access - add new database user - username, password, role - Add user.
+
+add the link to MONGO_URI in '.env' file
