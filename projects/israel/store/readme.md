@@ -68,3 +68,10 @@ replace <password> with user password:
 database access - add new database user - username, password, role - Add user.
 
 add the link to MONGO_URI in '.env' file
+
+
+כניסה עם גוגל באמצעות פיירבייס:
+open new project - https://console.firebase.google.com/
+go to project settings - general - add web app - copy the configuration to /services/firebase.ts 
+Follow the orders - https://firebase.google.com/docs/auth/web/google-signin
+Add you domain "http://localhost" to - authentication - settings - authorized domain - add domain
