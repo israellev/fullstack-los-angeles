@@ -1,14 +1,6 @@
 
 export class Utils {
 
-    // private url = "http://localhost:3000"
-
-    // async getData() {
-    //     const data = await fetch(this.url)
-    //     Utils.dateFormatting()
-    //     return data
-    // }
-
     static dateFormatting(inputDate: Date) {
         if (typeof inputDate === 'string')
             return inputDate
@@ -19,9 +11,4 @@ export class Utils {
     }
 }
 
-/*  non-staic fucntions: */
-// const utilss = new Utils() // 1. create class instance
-// const userData = utilss.getData() // 2. use function
-
-// static functions:
 Utils.dateFormatting(new Date())

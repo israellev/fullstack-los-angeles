@@ -19,13 +19,14 @@ export function SelectColor() {
       </Typography>
       <CirclePicker
       width="100%"
-      circleSize={23}
+      circleSize={20}
         color={cvData.color}
         onChangeComplete={(newColor) => handleColorChange(newColor.rgb)}
       />
       <Box sx={{ mt: 2 }}>
         <HuePicker
           width="100%"
+          height="15px"
           color={cvData.color}
           onChangeComplete={(newColor) => handleColorChange(newColor.rgb)}
         />

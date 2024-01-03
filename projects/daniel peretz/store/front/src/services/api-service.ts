@@ -1,8 +1,7 @@
 
-
 export interface Iproducts {
     name: string,
-    image_url: string,
+    image_Url: string,
     price: number
 }
 
