@@ -1,37 +1,54 @@
 const express = require('express');
-const dotenv = require('dotenv')
-const path = require('path');
-const app = express();
-const cors = require('cors');
-const { MongoClient } = require('mongodb');
-
 // load variables from ".env" file
-dotenv.config()
+require('dotenv').config()
+const path = require('path');
+const cors = require('cors');
+const multer = require('multer');
+const bodyParser = require('body-parser');
+const { mongodb } = require('./services/mongodb');
+const { storage } = require('./services/storage');
 
-// connect to database
-const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const database = client.db("test");
-try {
-    client.connect().then(() => console.log('Connected to MongoDB!'));
-} catch (e) {
-    console.error(e);
-}
+const app = express();
 
 // allow interact with the server from other sites
 app.use(cors());
-
 // serve all react static files 
 app.use(express.static(path.join(__dirname, 'front', 'build')));
+// Use body-parser middleware to parse JSON data
+app.use(bodyParser.json());
+
+const fileUploads = multer.memoryStorage();
+const upload = multer({ storage: fileUploads });
 
 app.get('/hello-world', (req, res) => {
-    res.send();
+
+    res.send('hello world!');
 });
 
 app.get('/api/products', async (req, res) => {
-    const collection = database.collection("products");
-    const results = await collection.find().toArray();
-    res.send(results);
+    const productList = await mongodb.getProdctList()
+    res.send(productList);
 });
+
+app.post('/api/products', upload.single('image'), async (req, res) => {
+    try {
+        const { name, price } = req.body;
+        const image = req.file;
+        const image_url = await storage.uploadFile(image.originalname, image.buffer)
+        const newProdct = await mongodb.addNewProdct({ name, price, image_url })
+        res.send(newProdct)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+      }
+})
+
+app.delete('/api/products/:product_id', async (req, res) => {
+    const id = req.params.product_id;
+    const deletedProduct = await mongodb.deleteProdct(id)
+    res.send(deletedProduct);
+});
+
 
 // Start the server
 const port = process.env.PORT | 3000;

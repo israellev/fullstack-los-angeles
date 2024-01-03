@@ -8,12 +8,12 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { IProduct } from "../services/api-service";
+import {  IUploadProduct } from "../services/api-service";
 
 interface Props {
   open: boolean;
   onClose: () => void;
-  onUpload: (product: IProduct) => void;
+  onUpload: (product: IUploadProduct) => void;
 }
 
 export function ProductUploadDialog(props: Props) {
@@ -27,7 +27,7 @@ export function ProductUploadDialog(props: Props) {
       onUpload({
         name: productName,
         price: parseFloat(productPrice),
-        image_url: "productImage",
+        image: productImage,
       });
       onClose();
     }

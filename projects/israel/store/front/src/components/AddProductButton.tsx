@@ -1,16 +1,14 @@
 import { Box, Button } from "@mui/material";
 import { useUser } from "../context/UserContext";
 import { ProductUploadDialog } from "./ProductUploadDialog";
-import { IProduct } from "../services/api-service";
+import { IUploadProduct, addProduct } from "../services/api-service";
 import { useState } from "react";
+import { useProducts } from "../context/ProductsContext";
 
-export function AddProduct() {
+export function AddProductButton() {
   const { isManager } = useUser();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleUpload = (product: IProduct) => {
-    console.log("Product uploaded:", product);
-  };
+  const {addNewProdct} = useProducts()
 
   return (
     <Box>
@@ -22,7 +20,7 @@ export function AddProduct() {
       <ProductUploadDialog
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
-        onUpload={handleUpload}
+        onUpload={addNewProdct}
       />
     </Box>
   );
