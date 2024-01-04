@@ -18,6 +18,7 @@ interface IUserProvider {
 
 const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider();
+
 const UserContext = createContext<IUserProvider>({});
 
 export function UserProvider(props: { children: any }) {
@@ -47,14 +48,7 @@ export function UserProvider(props: { children: any }) {
   }, []);
 
   const isManager = user?.email === "israellev770@gmail.com";
-
-
-  const value = {
-    user,
-    login,
-    logout,
-    isManager,
-  };
+  const value = {user, login, logout, isManager};
 
   return (
     <UserContext.Provider value={value}>{props.children}</UserContext.Provider>
