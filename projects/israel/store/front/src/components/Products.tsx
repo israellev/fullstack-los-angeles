@@ -3,24 +3,19 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { useEffect, useState } from "react";
-import { IProduct, getProducts } from "../services/api-service";
+import { useProducts } from "../context/ProductsContext";
+import { IconButton } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export function Products() {
 
-  const [products, setProducts] = useState<IProduct[]>([])
-  
-  useEffect(() => {
-    getProducts().then(products => {
-      setProducts(products)
-    })
-  }, []) 
+  const {products, deleteExistProduct} = useProducts()
 
   return (  
     <Grid container spacing={2} style={{ padding: "20px" }}>
       {products.map((product, index) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-          <Card style={{ maxWidth: "345px", flex: 1 }}>
+          <Card style={{ maxWidth: "345px", flex: 1, position: "relative" }}>
             <div>
               <CardMedia
                 component="img"
@@ -46,6 +41,19 @@ export function Products() {
                 {product.price}₪
               </Typography>
             </CardContent>
+
+                {/* Delete icon */}
+            <IconButton
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                backgroundColor: "white", // Add a background color for better visibility
+              }}
+              onClick={() => deleteExistProduct(product._id)}
+            >
+              <DeleteIcon />
+            </IconButton>
           </Card>
         </Grid>
       ))}

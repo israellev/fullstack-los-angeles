@@ -75,3 +75,41 @@ open new project - https://console.firebase.google.com/
 go to project settings - general - add web app - copy the configuration to /services/firebase.ts 
 Follow the orders - https://firebase.google.com/docs/auth/web/google-signin
 Add you domain "http://localhost" to - authentication - settings - authorized domain - add domain
+
+
+חיבור של השרת לפיירבייס אחסון - storage:
+docs - https://firebase.google.com/docs/storage/web/upload-files
+cart - console - project settings - service account - generate new private key - download .json file
+npm i firebase-admin
+new folder "services"
+new file "firebase.ts" - that export "firebaseApp".
+new file "storage.ts" - allow to upload files.
+
+לכתוב א.פ.י. שמקבל את המוצר החדש:
+npm install multer body-parser
+
+
+
+לדבג יחד עם וי אס קוד:
+run - add configuration:
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Run Server.js",
+        "program": "${workspaceFolder}/server.js",
+        "skipFiles": ["<node_internals>/**"],
+        "outFiles": [],
+        "preLaunchTask": null,
+        "runtimeExecutable": null,
+        "runtimeArgs": ["--nolazy"],
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal"
+      }
+    ]
+  }
+  run - start debugging 

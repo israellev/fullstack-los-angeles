@@ -1,6 +1,6 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { LoginButton } from "./LoginButton";
-import { AddProduct } from "./AddProduct";
+import { AddProductButton } from "./AddProductButton";
 
 export function Header() {
   return (
@@ -10,7 +10,7 @@ export function Header() {
           <Typography variant="h6" component="div" alignSelf="center">
             Spices Store
           </Typography>
-          <AddProduct/>
+          <AddProductButton/>
           <LoginButton />
         </Box>
       </Toolbar>
