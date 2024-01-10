@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "../../class-puzzle/sahar/front/src/App/Toggle.tsx"  ]
+  ]
 }

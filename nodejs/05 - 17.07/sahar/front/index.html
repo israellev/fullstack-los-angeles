@@ -141,7 +141,7 @@
     method: "POST",
     body: formData
   })
-    .then(async (response) => {
+    .then(async (response) => {   createOption
       if (response.ok) {
         const newPost = await response.json();
         console.log("Post created successfully", newPost);
